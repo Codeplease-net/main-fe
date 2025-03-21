@@ -7,6 +7,10 @@ import { Problem } from "../types/problem";
 import { LanguageCode } from "../types/language";
 import { FileCode, FileText } from "lucide-react";
 import { useTranslations } from "next-intl"; // Import useTranslations
+import { TabsContent } from "@radix-ui/react-tabs";
+import Spinner from "@/components/ui/spinner";
+import { CategoryBadge } from "@/components/Problems/ProblemsetPage/components/CategoryBadges";
+import { RenderMathJaxText } from "@/components/ui/description/mathjax";
 
 interface OutputSectionProps {
   problem: Problem;
@@ -71,7 +75,7 @@ export function OutputSection({ problem, lang }: OutputSectionProps) {
               <div className="absolute bottom-[-0.75rem] inset-x-0 h-1 bg-primary transition-opacity opacity-0 group-data-[state=active]:opacity-100" />
             </TabsTrigger>
           </TabsList>
-          {/* <TabsContent
+          <TabsContent
             value="description"
             className="flex-grow overflow-auto bg-background"
           >
@@ -111,7 +115,7 @@ export function OutputSection({ problem, lang }: OutputSectionProps) {
                 <RenderMathJaxText content={content.solution[lang]} />
               </div>
             </div>)}
-          </TabsContent> */}
+          </TabsContent>
         </Tabs>
       </CardContent>
     </Card>

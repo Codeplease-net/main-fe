@@ -1,0 +1,1971 @@
+{
+  "Header": {
+    "Home": "Home",
+    "Problems": "Problems",
+    "Contests": "Contests",
+    "Leaderboard": "Leaderboard",
+    "Topics": "Topics",
+    "Profile": "Profile",
+    "Submissions": "Submissions",
+    "Sign In": "Sign In",
+    "Sign Out": "Sign Out",
+    "Problems Bank": "Problems Bank",
+    "Users Management": "Users Management",
+    "My Problems": "My Problems"
+  },
+  "Auth": {
+    "fullName": "Full Name",
+    "country": "Country",
+    "selectCountry": "Select your country",
+    "birthdate": "Birthdate",
+    "ageRequirement": "You must be at least 5 years old to create an account",
+    "emailVerificationRequired": "Email verification required",
+    "youMustVerifyEmail": "You must verify your email before signing in",
+    "fieldsRequired": "All fields are required",
+    "loginSuccess": "Login successful! Redirecting...",
+    "invalidEmail": "Invalid email address",
+    "userNotFound": "User not found",
+    "wrongPassword": "Incorrect password",
+    "tooManyRequests": "Too many failed attempts. Please try again later",
+    "loginFailed": "Login failed. Please try again",
+    "emailRequired": "Email is required",
+    "resetEmailSent": "Password reset email sent. Check your inbox",
+    "resetEmailError": "Error sending password reset email",
+    "passwordsDoNotMatch": "Passwords do not match",
+    "passwordRequirements": "Password must be at least 8 characters with uppercase, lowercase, and number",
+    "handleTooShort": "Username must be at least 3 characters",
+    "handleAlreadyTaken": "Username is already taken",
+    "registrationSuccess": "Account created successfully! Redirecting...",
+    "emailAlreadyInUse": "Email is already in use",
+    "weakPassword": "Password is too weak",
+    "registrationFailed": "Registration failed. Please try again",
+    "resetPassword": "Reset Password",
+    "signIn": "Sign In",
+    "createAccount": "Create Account",
+    "resetPasswordPrompt": "Enter your email to receive a password reset link",
+    "signInPrompt": "Sign in to your account to continue",
+    "registerPrompt": "Create a new account to get started",
+    "register": "Register",
+    "backToLogin": "Back to login",
+    "email": "Email",
+    "resetPasswordHint": "We'll send you an email with a link to reset your password",
+    "sending": "Sending...",
+    "sendResetLink": "Send Reset Link",
+    "password": "Password",
+    "hidePassword": "Hide password",
+    "showPassword": "Show password",
+    "forgotPassword": "Forgot password?",
+    "signingIn": "Signing in...",
+    "handle": "Username",
+    "checkingHandle": "Checking availability",
+    "handleAvailable": "Username is available",
+    "handleTaken": "Username is already taken",
+    "handleDescription": "Choose a unique username that will be displayed to others",
+    "passwordHint": "At least 8 characters with uppercase, lowercase, and number",
+    "confirmPassword": "Confirm Password",
+    "creatingAccount": "Creating account...",
+    "emailNotVerified": "Email not verified",
+    "checkYourEmail": "Check your email for a verification link",
+    "verificationEmailSent": "Verification email sent",
+    "checkSpamFolderNotice": "If you don't see the email, check your spam folder",
+    "didntReceiveEmail": "Didn't receive the email?",
+    "tryAgain": "Try again",
+    "welcomeTo": "Welcome to CodePlease",
+    "accountPlatformDesc": "Empowering developers through competitive programming and problem-solving challenges. Join our community today!"
+  },
+  "Footer": {
+    "Resources & Legal": "Resources & Legal",
+    "Topics": "Topics",
+    "Platform": "Platform",
+    "About": "About",
+    "Contests": "Contests",
+    "Problems": "Problems",
+    "Resources": "Resources",
+    "Announcement": "Announcement",
+    "Contributors": "Contributors",
+    "Legality": "Legality",
+    "Terms and Conditions": "Terms and Conditions",
+    "Privacy Policy": "Privacy Policy",
+    "Connection": "Connection",
+    "Our Developer Team": "Our Developer Team",
+    "Description": "Empowering developers through competitive programming and problem-solving challenges. Join our community today!",
+    "All Rights Reserved": "All Rights Reserved",
+    "Outline": "Made with ❤️ by developers for developers"
+  },
+  "Home": {
+    "Spotlight": {
+      "Slogan": "Where best coder are united.",
+      "Description": "Welcome to your coding paradise. Learn, practice and compete with the best.",
+      "Start Coding": "Start Coding"
+    },
+    "Timeline": {
+      "Object1": {
+        "Title": "Overview",
+        "FeatureText": "Why Choose CodePlease?",
+        "TextObject1": "Diverse Challenges",
+        "TextDescription1": "From easy to expert, our platform offers a wide range of coding problems to suit all skill levels.",
+        "TextObject2": "Competitive Contests",
+        "TextDescription2": "Participate in regular coding contests to test your skills against peers and win exciting prizes.",
+        "TextObject3": "Vibrant Community",
+        "TextDescription3": "Connect with fellow coders, share solutions, and learn from each other in our active community."
+      },
+      "Object2": {
+        "Title": "Problem Solving",
+        "FeatureText": "Featured Problems",
+        "ProblemTitle1": "Systems of equations",
+        "TextObject1": "Math",
+        "TextDescription1": "We need to solve systems of equations.",
+        "ProblemTitle2": "LIS",
+        "TextObject2": "Dynamic Programming",
+        "TextDescription2": "Let's find the longest increasing subsequence.",
+        "ProblemTitle3": "Shortest Path",
+        "TextObject3": "Graph",
+        "TextDescription3": "Let's find the shortest path in an undirected graph",
+        "SolveText": "Solve Now"
+      },
+      "Object3": {
+        "Title": "Contests",
+        "FeatureText": "Past Contests",
+        "ContestTitle1": "Weekly Contest 1",
+        "DateDescription1": "3rd November 2024",
+        "TextDescription1": "Length: 3 hours",
+        "AuthorDescription1": "Author: Zhang Shan",
+        "ContestTitle2": "Weekly Contest 2",
+        "DateDescription2": "18th November 2024",
+        "TextDescription2": "Length: 3 hours",
+        "AuthorDescription2": "Author: Zhang Shan",
+        "ContestTitle3": "Weekly Contest 3",
+        "DateDescription3": "21st November 2024",
+        "TextDescription3": "Length: 3 hours",
+        "AuthorDescription3": "Author: Zhang Shan",
+        "DetailText": "View Detail"
+      },
+      "Object4": {
+        "Title": "Start exploring",
+        "FeatureText": "Master Coding Challenges",
+        "DescriptionText": "Elevate your coding skills through competitive programming and problem-solving.",
+        "CodingText": "Start Coding Now"
+      }
+    },
+    "BottomSection": {
+      "Title": "Ready to Start Your Coding Journey?",
+      "Description": "Join thousands of developers improving their skills on CodePlease.",
+      "SignUpText": "Sign Up Now"
+    }
+  },
+  "Problems": {
+    "admin": {
+      "hideProblemTitle": "Hide problem from public view?",
+      "hideProblemDescription": "This action will make the problem invisible to regular users. It can be made public again from the admin dashboard later.",
+      "hideProblemTooltip": "Hide problem from public view",
+      "hideProblem": "Hide Problem",
+      "processing": "Processing...",
+      "hideProblemError": "Failed to hide problem. Please try again."
+    },
+    "common": {
+      "cancel": "Cancel"
+    },
+    "addDialog": {
+      "title": "Batch Add Problems",
+      "description": "Add multiple problems at once by entering one ID per line.",
+      "form": {
+        "idsLabel": "Problem IDs",
+        "problemCount": "{count} problems",
+        "placeholder": "Enter problem IDs, one per line\nExample:\nproblem1\nproblem2\nproblem3",
+        "instruction": "Each line will be treated as a separate problem ID. Problems will be validated as you type."
+      },
+      "status": {
+        "validating": "Validating...",
+        "noResults": "No validation results were returned. Please try again or check your connection."
+      },
+      "validation": {
+        "results": "Validation Results",
+        "problemNotExist": "Problem \"{id}\" does not exist",
+        "alreadyAdded": "Problem \"{id}\" is already added",
+        "valid": "Problem \"{id}\" is valid"
+      },
+      "difficulty": {
+        "easy": "Easy",
+        "medium": "Medium",
+        "hard": "Hard"
+      },
+      "actions": {
+        "cancel": "Cancel",
+        "addProblems": "Add Problems {count}",
+        "addingProblems": "Adding Problems..."
+      }
+    },
+    "searchCategory": "Search category...",
+    "actionsColumn": "actions",
+    "addProblem": "Add Problem",
+    "filters": "Filters",
+    "clearAll": "Clear all",
+    "filterByCategory": "Filter by {category}",
+    "selectedCategories": "{count, plural, =1 {# category} other {# categories}} selected",
+    "statusColumn": "✓",
+    "titleColumn": "Title",
+    "categoryColumn": "Category",
+    "difficultyColumn": "Difficulty",
+    "noProblemsFound": "No problems found",
+    "tryAdjustingFilters": "Try adjusting your filters",
+    "solvedProblem": "You've solved this problem",
+    "title": "Problem Collection",
+    "subtitle": "Practice your coding skills with curated problems",
+    "loading": "Loading problems...",
+    "searchLabel": "Search Problems",
+    "searchPlaceholder": "Type to search and press Enter...",
+    "categoriesTitle": "Categories",
+    "problemsCount": "Problems Count",
+    "openSidebar": "Open filters panel",
+    "closeSidebar": "Close filters panel",
+    "Problem Set": "Problem Set",
+    "Easy": "Easy",
+    "Medium": "Medium",
+    "Hard": "Hard",
+    "Status": "Status",
+    "Title": "Title",
+    "Category": "Category",
+    "Difficulty": "Difficulty",
+    "Acceptance": "Acceptance",
+    "Previous": "Previous",
+    "Next": "Next",
+    "Search problems": "Search problems",
+    "Search category": "Search category",
+    "Beginner": "Beginner",
+    "Intermediate": "Intermediate",
+    "Moderate": "Moderate",
+    "Very Hard": "Very Hard",
+    "Expert": "Expert",
+    "StartSolvingProblems": "Start Solving Problems to improve your skills!",
+    "previous": "Previous",
+    "next": "Next",
+    "ellipsis": "..."
+  },
+  "Contests": {
+    "View Details": "View Details",
+    "Register": "Register",
+    "hour": "hour",
+    "hours": "hours",
+    "Duration": "Duration",
+    "Upcoming Contests": "Upcoming Contests",
+    "Ongoing Contests": "Ongoing Contests",
+    "Past Contests": "Past Contests"
+  },
+  "Leaderboard": {
+    "Rank": "Rank",
+    "Username": "Username",
+    "Rating": "Rating",
+    "Contests Joined": "Contests Joined",
+    "Problems Solved": "Problems Solved",
+    "Previous": "Previous",
+    "Next": "Next",
+    "Leaderboard": "Leaderboard"
+  },
+  "Topics": {
+    "2SatDesc": "Algorithm solving boolean satisfiability problem where each clause has at most 2 literals, using strongly connected components.",
+    "AdHocDesc": "Problems that don't fit into standard categories and require custom solutions specific to the problem statement.",
+    "ConstructiveDesc": "Algorithms that construct a solution to a problem rather than searching through a space of possible solutions.",
+    "DivideConquerDesc": "A problem-solving paradigm that breaks down a problem into smaller subproblems, solves them recursively, and combines their solutions.",
+    "BalancedBSTDesc": "Self-balancing binary search tree data structure that maintains its height to be logarithmic in the number of elements.",
+    "STLDesc": "Using Standard Template Library components in C++ like vectors, sets, maps, heaps, and other predefined data structures and algorithms.",
+    "DSUDesc": "Data structure that tracks a set of elements partitioned into non-overlapping subsets, supporting union and find operations.",
+    "FenwickDesc": "Data structure that provides efficient methods for calculating and manipulating prefix sums in an array.",
+    "Fenwick2DDesc": "Extension of Fenwick Tree to handle two-dimensional range queries and updates efficiently.",
+    "SegmentTreeDesc": "Tree data structure used for storing information about intervals or segments, allowing for efficient query operations.",
+    "RMQDesc": "Problem of finding the minimal value in a sub-array of an array of comparable objects.",
+    "TrieDesc": "Tree data structure used for locating specific keys from within a set, particularly strings.",
+    "DFSBFSDesc": "Depth-First Search and Breadth-First Search are graph traversal algorithms for exploring all vertices and edges of a graph.",
+    "TraversalDesc": "Methods for visiting all the nodes in a graph or tree in a systematic way.",
+    "DijkstraDesc": "Algorithm for finding the shortest paths between nodes in a graph with non-negative edge weights.",
+    "FloydWarshallDesc": "Algorithm for finding shortest paths between all pairs of vertices in a weighted graph.",
+    "MatchingDesc": "Algorithms for finding subsets of edges in a graph such that no two edges share a common vertex.",
+    "WeightedMatchingDesc": "Matching problems where edges have weights, aiming to find matchings with maximum or minimum weight sum.",
+    "GeneralMatchingDesc": "Algorithms to find matchings in general graphs, not restricted to bipartite graphs.",
+    "MSTDesc": "A subset of the edges of a graph that forms a tree including every vertex, with minimum possible total edge weight.",
+    "EulerianDesc": "A path in a graph that visits every edge exactly once and returns to the starting vertex.",
+    "LCADesc": "Finding the lowest common ancestor of two nodes in a tree or directed acyclic graph.",
+    "LinkCutTreeDesc": "Data structure for representing a forest of trees that supports dynamic operations like link, cut, and path-related queries.",
+    "HLDDesc": "Technique for breaking a tree into path segments to allow for efficient operations on paths.",
+    "SqrtDecompDesc": "A method for preprocessing data to answer range queries efficiently by dividing data into blocks.",
+    "SweepLineDesc": "Algorithm paradigm that uses a conceptual sweep line to solve problems in computational geometry and other areas.",
+    "CoordinateCompressionDesc": "Technique for mapping a large range of values to a smaller range without changing their relative order.",
+    "AhoCorasickDesc": "String searching algorithm that locates occurrences of a dictionary of keywords in a text.",
+    "KMPDesc": "String searching algorithm that efficiently finds occurrences of a pattern within a main text string.",
+    "ManacherDesc": "Linear time algorithm for finding the longest palindromic substring in a string.",
+    "SuffixDesc": "Data structures for efficient string operations, particularly for substring searches and pattern matching.",
+    "ZFunctionDesc": "Algorithm computing the length of the longest substring starting at each position that is also a prefix of the string.",
+    "HashingDesc": "Technique for mapping data to a fixed-size array, often used for string comparison and substring search.",
+    "ConvexHullTrickDesc": "Optimization technique for dynamic programming problems involving linear functions.",
+    "BitmaskDPDesc": "Dynamic programming approach where states are represented using bitmasks, often used for subset-related problems.",
+    "DigitDPDesc": "Dynamic programming technique for counting numbers with certain properties within a range.",
+    "LexicoDPDesc": "Dynamic programming approach to solve problems related to lexicographic ordering of objects.",
+    "TreeDPDesc": "Application of dynamic programming techniques to tree structures, often involving computations on subtrees.",
+    "KnuthOptDesc": "Optimization technique for certain dynamic programming problems that reduces time complexity using monotonicity properties.",
+    "MathDesc": "Problems requiring mathematical insights or manipulations that don't fit standard categories.",
+    "GeneratingFunctionsDesc": "Formal power series used to describe sequences and solve combinatorial problems.",
+    "GaussianEliminDesc": "Algorithm for solving systems of linear equations by transforming the system's augmented matrix into reduced row-echelon form.",
+    "MatrixMultDesc": "Operation that produces a matrix by multiplying two matrices following specific mathematical rules.",
+    "LargeNumbersDesc": "Techniques for handling arithmetic operations on numbers too large for standard data types.",
+    "Convex hull": "Convex hull",
+    "ConvexHullDesc": "The smallest convex set that contains a given set of points.",
+    "GameAdHocDesc": "Custom strategies and analysis techniques for specific game problems.",
+    "GrundyDesc": "Values assigned to positions in combinatorial games to determine winning strategies.",
+    "NimDesc": "Mathematical analysis of the game of Nim and similar take-away games.",
+    "NetworkFlowDesc": "Algorithms for finding the maximum amount of flow that can pass through a network from source to sink.",
+    "MinCostFlowDesc": "Problem of finding the cheapest way to send a certain amount of flow through a network.",
+    "PrefixSumDesc": "Array where each element is the sum of all previous elements in the original array, used for quick range sum calculations.",
+    "MonotonicQueueDesc": "Queue data structure that maintains elements in either increasing or decreasing order.",
+    "OutputOnlyDesc": "Problems where the input is given but the solution must only produce output without revealing the algorithm.",
+    "UnclassifiedDesc": "Problems that don't clearly fit into any established category or use a mix of techniques.",
+    "Two pointers": "Two pointers",
+    "2-satisfiability": "2-satisfiability",
+    "Ad hoc": "Ad hoc",
+    "Aho-Corasick": "Aho-Corasick",
+    "Balanced Binary Search Tree": "Balanced Binary Search Tree (Balanced BST)",
+    "Bitwise operations": "Bitwise operations",
+    "C++ STL": "C++ STL (Heap, Set, Map, ...)",
+    "Matching": "Matching",
+    "Weighted matching": "Weighted matching",
+    "Matching on general graphs": "Matching on general graphs",
+    "Minimum spanning tree": "Minimum spanning tree",
+    "Square root decomposition": "Square root decomposition",
+    "Meet in the middle": "Meet in the middle",
+    "Eulerian cycle": "Eulerian cycle",
+    "Unclassified": "Unclassified",
+    "Constructive algorithms": "Constructive algorithms",
+    "DFS / BFS": "DFS / BFS",
+    "Disjoint Set Union": "Disjoint Set Union (DSU)",
+    "Divide & Conquer": "Divide & Conquer",
+    "Traversal": "Traversal",
+    "Graph theory": "Graph theory",
+    "Shortest path - Dijkstra": "Shortest path - Dijkstra",
+    "Shortest path - Floyd-Warshall": "Shortest path - Floyd-Warshall",
+    "Fast Fourier Transform": "Fast Fourier Transform (FFT)",
+    "Fenwick Tree": "Fenwick Tree (Binary Indexed Tree)",
+    "2D Fenwick Tree": "2D Fenwick Tree",
+    "Generating functions": "Generating functions",
+    "Hashing": "Hashing",
+    "Heavy-Light Decomposition": "Heavy-Light Decomposition",
+    "Interactive problems": "Interactive problems",
+    "Gaussian elimination": "Gaussian elimination",
+    "Knuth-Morris-Pratt": "Knuth-Morris-Pratt (KMP) algorithm",
+    "Knuth Optimization": "Knuth Optimization",
+    "Lowest Common Ancestor": "Lowest Common Ancestor (LCA)",
+    "Link-Cut Tree": "Link-Cut Tree",
+    "Network flow": "Network flow",
+    "Minimum-cost flow": "Minimum-cost flow",
+    "Game theory - Ad hoc": "Game theory - Ad hoc",
+    "Game theory - Grundy numbers": "Game theory - Grundy numbers",
+    "Game theory - Nim game": "Game theory - Nim game",
+    "Manacher's algorithm": "Manacher's algorithm",
+    "Prefix sum array": "Prefix sum array",
+    "Monotonic Queue": "Monotonic Queue",
+    "Matrix multiplication": "Matrix multiplication",
+    "Output-only problems": "Output-only problems",
+    "Dynamic programming": "Dynamic programming",
+    "Convex hull trick": "Convex hull trick (DP optimization)",
+    "Bitmask dynamic programming": "Bitmask dynamic programming",
+    "Digit dynamic programming": "Digit dynamic programming",
+    "Lexicographic order dynamic programming": "Lexicographic order dynamic programming",
+    "Dynamic programming on trees": "Dynamic programming on trees",
+    "Range Minimum Query": "Range Minimum Query (RMQ)",
+    "Coordinate compression": "Coordinate compression",
+    "Segment Tree": "Segment Tree (Interval Tree)",
+    "Number theory": "Number theory",
+    "Strings": "Strings",
+    "Suffix Array / Suffix Automaton / Suffix Tree": "Suffix Array / Suffix Automaton / Suffix Tree",
+    "Sweep line algorithm": "Sweep line algorithm",
+    "Greedy algorithms": "Greedy algorithms",
+    "Binary search": "Binary search",
+    "Mathematics - Ad hoc": "Mathematics - Ad hoc",
+    "Trie": "Trie",
+    "Large number arithmetic": "Large number arithmetic",
+    "Z-function": "Z-function",
+    "ExploreTopics": "Explore various programming topics and enhance your problem-solving skills",
+    "StartPracticing": "Start Practicing",
+    "Name": "Name",
+    "Description": "Description",
+    "Difficulty": "Difficulty",
+    "Advanced": "Advanced",
+    "Beginner": "Beginner",
+    "Intermediate": "Intermediate",
+    "Topics": "Topics",
+    "topics": "topics",
+    "topic": "topic",
+    "Filters": "Filters",
+    "Brute Force": "Brute Force",
+    "Binary Search": "Binary Search",
+    "Greedy": "Greedy",
+    "String": "String",
+    "Search": "Search",
+    "Sort": "Sort",
+    "Number Theory": "Number Theory",
+    "Data Structure": "Data Structure",
+    "Dynamic Programming": "Dynamic Programming",
+    "Graph": "Graph",
+    "Tree": "Tree",
+    "Two Pointers": "Two Pointers",
+    "Bit Manipulation": "Bit Manipulation",
+    "Geometry": "Geometry",
+    "Games": "Games",
+    "Combinatorics": "Combinatorics",
+    "Meet In The Middle": "Meet In The Middle",
+    "Probabilities": "Probabilities",
+    "Chinese Remainder Theorem": "Chinese Remainder Theorem",
+    "Graph Matchings": "Graph Matchings",
+    "Interactive": "Interactive",
+    "Matrix": "Matrix",
+    "Ternary Search": "Ternary Search",
+    "SearchTopics": "Search topics...",
+    "All Difficulties": "All Difficulties",
+    "BruteForceDesc": "A straightforward approach that systematically checks all possible solutions until finding the correct one",
+    "BinarySearchDesc": "A divide-and-conquer algorithm that finds a target value by repeatedly dividing the search space in half",
+    "GreedyDesc": "An algorithmic paradigm that makes locally optimal choices at each step, hoping to find a global optimum",
+    "StringDesc": "Problems involving manipulation and analysis of text strings",
+    "SearchDesc": "Various searching algorithms and techniques to find elements in data structures",
+    "SortDesc": "Different methods for arranging data in a specific order",
+    "NumberTheoryDesc": "Mathematical concepts dealing with properties and relationships of numbers",
+    "DSDesc": "Implementation and usage of various data structures to organize and store data efficiently",
+    "DPDesc": "Method for solving complex problems by breaking them down into simpler subproblems",
+    "GraphDesc": "Problems involving vertices and edges, including traversal and shortest path algorithms",
+    "TreeDesc": "Hierarchical data structures and algorithms for tree-based problem solving",
+    "TwoPointersDesc": "Technique using two pointers to traverse an array or sequence",
+    "BitDesc": "Operations and algorithms involving binary representation of numbers",
+    "GeometryDesc": "Problems involving points, lines, shapes, and spatial relationships",
+    "GamesDesc": "Game theory and strategic problem-solving scenarios",
+    "CombinatoricsDesc": "Mathematical methods for counting, arranging, and combining objects",
+    "MeetInTheMiddleDesc": "Technique that splits the problem in half to reduce exponential complexity",
+    "ProbabilitiesDesc": "Problems involving chance and likelihood calculations",
+    "CRTDesc": "Number theory concept for solving systems of linear congruences",
+    "FFTDesc": "Algorithm for efficiently computing polynomial multiplication and convolutions",
+    "GraphMatchingsDesc": "Problems involving pairing vertices in graphs under certain constraints",
+    "InteractiveDesc": "Problems requiring interaction with a judge or system during solving",
+    "MatrixDesc": "Operations and algorithms involving 2D arrays and linear algebra",
+    "TernarySearchDesc": "Optimization technique that reduces search space into three parts"
+  },
+  "Playground": {
+    "signInToSubmit": "Sign in to submit your code",
+    "submissionId": "Submission #{id}",
+    "judgeStatus": "Judge Status",
+    "testingProgress": "{completed} of {total} tests completed",
+    "preparingTests": "Preparing test cases...",
+    "completed": "completed",
+    "testCase": "Test Case",
+    "preparingTestCases": "Preparing test cases",
+    "compilingBeforeTesting": "Compiling code before running tests",
+    "compilingCode": "Compiling code...",
+    "runningTestcase": "Running test case {current} of {total}",
+    "compilingSubmission": "Compiling submission...",
+    "backToSubmissions": "Back to submissions",
+    "stage": {
+      "queued": "Queued",
+      "compiling": "Compiling",
+      "testing": "Testing",
+      "validating": "Validating"
+    },
+    "processingSubmission": "Processing your submission...",
+    "preparingEnvironment": "Preparing judge environment",
+    "abortedAfterFailedTest": "Showing {run} of {total} tests (judging aborted after failure)",
+    "showingVisibleTests": "Showing {visible} of {total} tests",
+    "skipped": "skipped",
+    "remainingTestsSkipped": "remaining tests were skipped",
+    "additionalHiddenTestcases": "{count} additional test cases are hidden",
+    "solution": {
+      "titleFormat": "Solution for {problemTitle}",
+      "hiddenTitle": "Solution Hidden",
+      "hiddenDescription": "The solution contains detailed explanations and approaches to solve this problem. Viewing it before attempting the problem might affect your learning experience.",
+      "showButton": "Show Solution",
+      "hideButton": "Hide Solution",
+      "visibleStatus": "Solution Visible",
+      "noSolution": "No solution available for this problem."
+    },
+    "statusText": "Status",
+    "backToEditor": "Back to Editor",
+    "loadingSubmission": "Loading submission details...",
+    "submissionTimeout": "Submission is taking longer than expected. Please check back later.",
+    "fetchError": "Failed to fetch submission details",
+    "noErrorMessage": "No error message available",
+    "submission": "Submission",
+    "processingDescription": "Your submission is being processed. This may take a few moments. The page will automatically update when the process is complete.",
+    "pollingAttempt": "Attempt {current} of {max}",
+    "submittedLabel": "Submitted",
+    "languageLabel": "Language",
+    "runtimeLabel": "Runtime",
+    "memoryLabel": "Memory",
+    "codeLabel": "Code",
+    "noSubmissionFound": "No submission found",
+    "status": {
+      "testing": "Testing",
+      "passed": "Passed",
+      "failed": "Failed",
+      "running": "Running",
+      "pending": "Pending",
+      "accepted": "Accepted",
+      "wrongAnswer": "Wrong Answer",
+      "timeLimitExceeded": "Time Limit Exceeded",
+      "runtimeError": "Runtime Error",
+      "timeLimit": "Time Limit Exceeded",
+      "runtime": "Runtime Error",
+      "memoryLimit": "Memory Limit Exceeded",
+      "compileError": "Compile Error",
+      "inQueue": "In Queue"
+    },
+    "testCases": "Test Cases",
+    "passed": "passed",
+    "allPassed": "All Passed",
+    "someFailed": "Some Failed",
+    "time": "Time",
+    "memory": "Memory",
+    "noTestCasesAvailable": "No test cases available",
+    "settingsAriaLabel": "Editor Settings",
+    "submit": "Submit",
+    "processing": "Processing...",
+    "editor": {
+      "settings": "Editor Settings",
+      "theme": "Theme",
+      "fontSize": "Font Size ({size}px)",
+      "tabSize": "Tab Size",
+      "showMinimap": "Show Minimap",
+      "wordWrap": "Word Wrap",
+      "lineNumbers": "Line Numbers",
+      "autoSave": "Auto Save",
+      "bracketPairs": "Bracket Pair Colorization",
+      "themes": {
+        "dark": "Dark",
+        "githubDark": "GitHub Dark",
+        "monokai": "Monokai"
+      }
+    },
+    "failedToLoadSubmissions": "Failed to load submissions",
+    "all": "All",
+    "submissions": "Submissions",
+    "allSubmissions": "All submissions",
+    "mySubmissions": "My submissions only",
+    "refresh": "Refresh",
+    "noSubmissionsFound": "No submissions found",
+    "statusColumn": "Status",
+    "userColumn": "User",
+    "whenColumn": "When",
+    "languageColumn": "Language",
+    "performanceColumn": "Performance",
+    "viewColumn": "View",
+    "previous": "Previous",
+    "next": "Next",
+    "ellipsis": "...",
+    "Newest": "Newest",
+    "Submissions": "Submissions",
+    "Solution": "Solution",
+    "Description": "Description",
+    "Solutions": "Solutions",
+    "My Submissions": "My Submissions",
+    "All Submissions": "All Submissions",
+    "Topics": "Topics",
+    "Companies": "Companies",
+    "Hint": "Hint",
+    "Acceptance": "Acceptance",
+    "Notes": " Notes",
+    "Example": "Example",
+    "Output": "Output",
+    "Input": "Input",
+    ":": ":",
+    "Hard": "Hard",
+    "Medium": "Medium",
+    "Easy": "Easy",
+    "NoDes": "No description available in English.",
+    "NoSol": "No solution available yet in English.",
+    "Copy": "Copy",
+    "Solution in words": "Solution in words:",
+    "Sample Code": "Sample Code:",
+    "Status": "Status",
+    "All": "All",
+    "Accepted": "Accepted",
+    "Wrong Answer": "Wrong Answer",
+    "Compile Error": "Compile Error",
+    "Time Limit Exceeded": "Time Limit Exceeded",
+    "Runtime Error": "Runtime Error",
+    "Memory Limit Exceeded": "Memory Limit Exceeded",
+    "Language": "Language",
+    "Sort by": "Sort by",
+    "None": "None",
+    "Runtime": "Runtime",
+    "Memory": "Memory",
+    "Submission": "Submission",
+    "Test Cases": "Test Cases",
+    "Code": "Code",
+    "Time": "Time"
+  },
+  "Legality": {
+    "PrivacyPolicy": {
+      "title": "Privacy Policy",
+      "Privacy Policy of CodePlease": "Privacy Policy of CodePlease",
+      "Information Collection and Use": "Information Collection and Use",
+      "Log Data": "Log Data",
+      "Cookies": "Cookies",
+      "Service Providers": "Service Providers",
+      "Security": "Security",
+      "Links to Other Sites": "Links to Other Sites",
+      "Changes to This Privacy Policy": "Changes to This Privacy Policy",
+      "Contact Us": "Contact Us",
+      "StaticText": {
+        "1": "CodePlease operates the CodePlease website, which provides the SERVICE.",
+        "2": "This page is used to inform website visitors regarding our policies with the collection, use, and disclosure of Personal Information if anyone decided to use our Service, the CodePlease website.",
+        "3": "If you choose to use our Service, then you agree to the collection and use of information in relation with this policy. The Personal Information that we collect are used for providing and improving the Service. We will not use or share your information with anyone except as described in this Privacy Policy.",
+        "4": "The terms used in this Privacy Policy have the same meanings as in our Terms and Conditions, which is accessible at codeplease.net, unless otherwise defined in this Privacy Policy.",
+        "5": "For a better experience while using our Service, we may require you to provide us with certain personally identifiable information, including but not limited to your name, phone number, and postal address. The information that we collect will be used to contact or identify you.",
+        "6": "We want to inform you that whenever you visit our Service, we collect information that your browser sends to us that is called Log Data. This Log Data may include information such as your computer's Internet Protocol (“IP”) address, browser version, pages of our Service that you visit, the time and date of your visit, the time spent on those pages, and other statistics.",
+        "7": "Cookies are files with small amount of data that is commonly used an anonymous unique identifier. These are sent to your browser from the website that you visit and are stored on your computer's hard drive.",
+        "8": "Our website uses these “cookies” to collection information and to improve our Service. You have the option to either accept or refuse these cookies, and know when a cookie is being sent to your computer. If you choose to refuse our cookies, you may not be able to use some portions of our Service.",
+        "9": "We may employ third-party companies and individuals due to the following reasons:",
+        "10": "To facilitate our Service;",
+        "11": "To provide the Service on our behalf;",
+        "12": "To perform Service-related services; or",
+        "13": "To assist us in analyzing how our Service is used.",
+        "14": "We want to inform our Service users that these third parties have access to your Personal Information. The reason is to perform the tasks assigned to them on our behalf. However, they are obligated not to disclose or use the information for any other purpose.",
+        "15": "We value your trust in providing us your Personal Information, thus we are striving to use commercially acceptable means of protecting it. But remember that no method of transmission over the internet, or method of electronic storage is 100% secure and reliable, and we cannot guarantee its absolute security.",
+        "16": "Our Service may contain links to other sites. If you click on a third-party link, you will be directed to that site. Note that these external sites are not operated by us. Therefore, we strongly advise you to review the Privacy Policy of these websites. We have no control over, and assume no responsibility for the content, privacy policies, or practices of any third-party sites or services.",
+        "17": "Children's Privacy",
+        "18": "Our Services do not address anyone under the age of 13. We do not knowingly collect personal identifiable information from children under 13. In the case we discover that a child under 13 has provided us with personal information, we immediately delete this from our servers. If you are a parent or guardian and you are aware that your child has provided us with personal information, please contact us so that we will be able to do necessary actions.",
+        "19": "We may update our Privacy Policy from time to time. Thus, we advise you to review this page periodically for any changes. We will notify you of any changes by posting the new Privacy Policy on this page. These changes are effective immediately, after they are posted on this page.",
+        "20": "If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us."
+      }
+    },
+    "TermsAndConditions": {
+      "title": "Terms and Conditions",
+      "Acceptance of Terms": "Acceptance of Terms",
+      "Description of Services": "Description of Services",
+      "User Accounts": "User Accounts",
+      "User Conduct": "User Conduct",
+      "Intellectual Property": "Intellectual Property",
+      "Limitation of Liability": "Limitation of Liability",
+      "Indemnification": "Indemnification",
+      "Governing Law": "Governing Law",
+      "Changes to Terms and Conditions": "Changes to Terms and Conditions",
+      "StaticText": {
+        "1": "By accessing or using our services, you agree to be bound by these Terms and Conditions. If you do not agree with any part of these terms, you may not access or use our services.",
+        "2": "Our services include online judging and teaching. We reserve the right to modify, suspend, or discontinue any aspect of our services at any time, with or without notice.",
+        "3": "You may be required to create an account to access certain features of our services. You are responsible for maintaining the confidentiality of your account and password and for restricting access to your account. You agree to accept responsibility for all activities that occur under your account.",
+        "4": "You agree not to use our services for any unlawful purpose or in any way that violates these Terms and Conditions. You also agree not to:",
+        "5": "Harass, abuse, or harm other users",
+        "6": "Violate the rights of third parties",
+        "7": "Interfere with or disrupt the operation of our services",
+        "8": "Use our services for commercial solicitation without our prior written consent",
+        "9": "All content and materials available on our services, including but not limited to text, graphics, logos, images, and software, are the property of CodePlease or its licensors and are protected by copyright, trademark, and other intellectual property laws.",
+        "10": "To the fullest extent permitted by law, CodePlease shall not be liable for any direct, indirect, incidental, special, or consequential damages arising out of or in any way connected with the use of our services.",
+        "11": "You agree to indemnify and hold CodePlease, its affiliates, officers, directors, employees, and agents harmless from and against any and all claims, liabilities, damages, losses, or expenses arising out of or in any way connected with your use of our services.",
+        "12": "These Terms and Conditions shall be governed by and construed in accordance with the laws of jurisdiction, without regard to its conflict of law provisions.",
+        "13": "We reserve the right to update or modify these Terms and Conditions at any time without prior notice. Your continued use of our services after any such changes constitutes your acceptance of the new Terms and Conditions."
+      }
+    }
+  },
+  "DeveloperTeam": {
+    "title": "CodePlease's Developer Team",
+    "Role": "Role"
+  },
+  "Profile": {
+    "Rank": "Rank {number}",
+    "Edit Profile": "Edit Profile",
+    "SubmissionsLastYear": "{number} submissions in the past year",
+    "futureDate": "The given date is in the future.",
+    "time": {
+      "seconds": "{count, plural, one {# second ago} other {# seconds ago}}",
+      "minutes": "{count, plural, one {# minute ago} other {# minutes ago}}",
+      "hours": "{count, plural, one {# hour ago} other {# hours ago}}",
+      "days": "{count, plural, one {# day ago} other {# days ago}}",
+      "weeks": "{count, plural, one {# week ago} other {# weeks ago}}",
+      "months": "{count, plural, one {# month ago} other {# months ago}}",
+      "years": "{count, plural, one {# year ago} other {# years ago}}"
+    },
+    "Activity Calendar": "{year} Activity Calendar",
+    "Community Stats": "Community Stats",
+    "Views": "Views",
+    "Solutions": "Solutions",
+    "Discuss": "Discuss",
+    "Reputation": "Reputation",
+    "Languages": "Languages",
+    "Skills": "Skills",
+    "Intermediate": "Intermediate",
+    "Acceptance": "Acceptance",
+    "Easy": "Easy",
+    "Medium": "Medium",
+    "Hard": "Hard",
+    "Rating Progress": "Rating Progress",
+    "Date": "Date",
+    "Rating": "Rating",
+    "Recent Accepted Submissions": "Recent Accepted Submissions",
+    "List": "List",
+    "activites": "{number} activities",
+    "Monday": "Monday",
+    "Tuesday": "Tuesday",
+    "Wednesday": "Wednesday",
+    "Thursday": "Thursday",
+    "Friday": "Friday",
+    "Saturday": "Saturday",
+    "Sunday": "Sunday",
+    "January": "January",
+    "February": "February",
+    "March": "March",
+    "April": "April",
+    "May": "May",
+    "June": "June",
+    "July": "July",
+    "August": "August",
+    "September": "September",
+    "October": "October",
+    "November": "November",
+    "December": "December",
+    "User Submissions": "User Submissions",
+    "ID": "ID",
+    "Status": "Status",
+    "Problem": "Problem",
+    "Action": "Action",
+    "Accepted": "Accepted",
+    "Wrong Answer": "Wrong Answer",
+    "Compile Error": "Compile Error",
+    "View Details": "View Details"
+  },
+  "Difficulty": {
+    "Beginner": "Beginner",
+    "Easy": "Easy",
+    "Intermediate": "Intermediate",
+    "Challenging": "Challenging",
+    "Hard": "Hard",
+    "Very Hard": "Very Hard",
+    "Expert": "Expert"
+  },
+  "NewBox": {
+    "New": "New"
+  },
+  "UsersManagement": {
+    "editUser": {
+      "title": "Edit User",
+      "description": "Update the user's information. Click save when you're done."
+    },
+    "fields": {
+      "email": "Email",
+      "fullName": "Full Name",
+      "handle": "Handle",
+      "birthdate": "Birth Date",
+      "country": "Country",
+      "roles": "Roles"
+    },
+    "roles": {
+      "problemSetter": "Problem Setter",
+      "admin": "Admin",
+      "regular": "Regular User"
+    },
+    "errors": {
+      "invalidEmail": "Please enter a valid email address",
+      "handleTooShort": "Handle must be at least 3 characters",
+      "fetchFailed": "Failed to fetch users. Please try again.",
+      "updateFailed": "Failed to update user. Please try again.",
+      "deleteFailed": "Failed to delete user. Please try again.",
+      "bulkDeletePartial": "Failed to delete {count} users"
+    },
+    "buttons": {
+      "cancel": "Cancel",
+      "saveChanges": "Save Changes",
+      "saving": "Saving...",
+      "editUser": "Edit User",
+      "deleteUser": "Delete User",
+      "edit": "Edit",
+      "delete": "Delete",
+      "select": "Select",
+      "deselect": "Deselect",
+      "selectAll": "Select All",
+      "deselectAll": "Deselect All",
+      "exportAll": "Export All",
+      "exportSelected": "Export {count} Selected",
+      "refresh": "Refresh",
+      "refreshing": "Refreshing...",
+      "tryAgain": "Try Again"
+    },
+    "placeholders": {
+      "selectCountry": "Select a country",
+      "searchPlaceholder": "Search users...",
+      "roleFilterPlaceholder": "Filter by role",
+      "statusFilterPlaceholder": "Filter by status",
+      "sortByPlaceholder": "Sort by"
+    },
+    "options": {
+      "noCountry": "No country"
+    },
+    "userCard": {
+      "unnamed": "Unnamed User",
+      "noHandle": "no-handle",
+      "noEmail": "No email",
+      "noCountry": "No country",
+      "noBirthdate": "No birthdate",
+      "joined": "Joined",
+      "unknown": "Unknown"
+    },
+    "status": {
+      "verified": "Verified",
+      "unverified": "Unverified",
+      "complete": "Complete",
+      "incomplete": "Incomplete"
+    },
+    "title": "Users Management",
+    "noUsersFound": "No users found matching your filters",
+    "filters": {
+      "allRoles": "All Roles",
+      "allStatuses": "All Statuses",
+      "sortByName": "Name (A-Z)",
+      "sortByEmail": "Email (A-Z)",
+      "sortByNewest": "Newest First",
+      "sortByOldest": "Oldest First",
+      "roleFilterPlaceholder": "Filter by role",
+      "statusFilterPlaceholder": "Filter by status",
+      "sortByPlaceholder": "Sort by",
+      "searchPlaceholder": "Search by name, email, or handle",
+      "role": "Role",
+      "admins": "Administrators",
+      "problemSetters": "Problem Setters",
+      "regularUsers": "Regular Users",
+      "profileStatus": "Profile Status",
+      "allProfiles": "All Profiles",
+      "completedProfiles": "Completed Profiles",
+      "incompleteProfiles": "Incomplete Profiles",
+      "sortBy": "Sort By",
+      "newestFirst": "Newest First",
+      "oldestFirst": "Oldest First",
+      "nameAZ": "Name (A-Z)",
+      "nameZA": "Name (Z-A)"
+    },
+    "bulkActions": {
+      "usersSelected": "{count} users selected",
+      "selectAll": "Select All",
+      "deselectAll": "Deselect All",
+      "bulkActions": "Bulk Actions",
+      "roleManagement": "Role Management",
+      "makeProblemSetters": "Make Problem Setters",
+      "removeProblemSetterRole": "Remove Problem Setter Role",
+      "cancel": "Cancel Selection"
+    },
+    "confirmations": {
+      "deleteTitle": "Delete User",
+      "deleteDescription": "Are you sure you want to delete {user}? This action cannot be undone.",
+      "bulkDelete": "Are you sure you want to delete {count} users? This action cannot be undone."
+    },
+    "success": {
+      "userUpdated": "User updated successfully",
+      "userDeleted": "User deleted successfully",
+      "bulkDeleteSuccess": "Successfully deleted {count} users"
+    },
+    "pagination": {
+      "showing": "Showing {start}-{end} of {total} users",
+      "page": "Page",
+      "of": "of",
+      "itemsPerPage": "Items per page",
+      "pageSize": "Page size",
+      "perPage": "{count} per page",
+      "next": "Next",
+      "previous": "Previous",
+      "first": "First page",
+      "last": "Last page"
+    }
+  },
+  "MathJax": {
+    "documentation": "Documentation",
+    "title": "MathJax & LaTeX Formatting Guide",
+    "subtitle": "Create rich content with mathematical expressions, styled text, tables, and more using LaTeX syntax",
+    "navigation": {
+      "environments": "Environments",
+      "commands": "Commands",
+      "examples": "Examples",
+      "bestPractices": "Best Practices"
+    },
+    "gettingStarted": "Getting Started",
+    "officialDocs": "MathJax Official Docs",
+    "introduction": "MathJax allows you to include beautiful mathematical expressions, formatted text, lists, tables, and other rich content directly within your text. Simply write using LaTeX commands and our platform will automatically render them.",
+    "sections": {
+      "basicInlineMath": "Basic Inline Math",
+      "basicDisplayMath": "Basic Display Math",
+      "basicTextFormatting": "Basic Text Formatting",
+      "basicList": "Basic List",
+      "writeThis": "Write this:",
+      "getThis": "Get this:"
+    },
+    "examples": {
+      "categories": {
+        "math": {
+          "title": "Mathematical Expressions",
+          "description": "Learn how to write both inline and display mathematical expressions with proper formatting",
+          "code": "This paragraph contains an inline math expression: $E = mc^2$. Inline expressions blend with the text.\n\nFor more complex equations, use display math:\n$$\\frac'{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$$ \n\n",
+          "annotations": {
+            "display": "Double dollar signs ($$...$$) create centered, standalone equations",
+            "altInline": "\\(...\\) is an alternative way to write inline math",
+            "altDisplay": "\\[...\\] is an alternative way to write display math"
+          },
+          "highlights": {
+            "inline": "Inline Math",
+            "display": "Display Math",
+            "altSyntax": "Alternative Syntax"
+          },
+          "keyPoints": {
+            "inline": {
+              "title": "Inline Math",
+              "description": "For mathematical expressions within text"
+            },
+            "display": {
+              "title": "Display Math",
+              "description": "For standalone, centered equations"
+            },
+            "altInline": {
+              "title": "Alternative Inline",
+              "description": "Another way to write inline math"
+            },
+            "altDisplay": {
+              "title": "Alternative Display",
+              "description": "Another way to write display math"
+            }
+          },
+          "variations": {
+            "matrix": {
+              "name": "Matrix",
+              "code": "The determinant of a 2×2 matrix is calculated as:\n\n$$\\begin'{vmatrix'} \na & b \\\\\nc & d\n\\end'{vmatrix'} = ad - bc$$\n\nFor a system of linear equations:\n$$\\begin'{cases'}\n3x + 2y = 5 \\\\\nx - y = 1\n\\end'{cases'}$$",
+              "description": "How to format matrices and systems of equations"
+            },
+            "advanced": {
+              "name": "Advanced Notation",
+              "code": "For summations and integrals:\n\n$$\\sum_'{i=1'}^'{n'} i^2 = \\frac'{n(n+1)(2n+1)'}'{6'}$$\n\n$$\\int_'{a'}^'{b'} f(x) \\, dx = F(b) - F(a)$$\n\nUsing limits and fractions:\n$$\\lim_'{x \\to 0'} \\frac'{\\sin(x)'}'{x'} = 1$$",
+              "description": "How to write summations, integrals, limits, and fractions"
+            }
+          }
+        },
+        "text": {
+          "title": "Text Formatting",
+          "description": "Format your text with different styles, sizes, and colors using LaTeX commands",
+          "code": "Regular text can be styled in various ways:\n\n\\textbf'{Bold text'} for emphasis\n\\textit'{Italic text'} for emphasis or terms\n\\underline'{Underlined text'} for highlighting\n\\texttt'{Monospace text'} for code\n\n\\textcolor'{red'}'{Colored text'} adds visual interest\n\n\\large'{Larger text'} changes the size\n\n\\textbf'{\\textit{\\textcolor{blue}{Combined formatting}}'} is also possible",
+          "annotations": {
+            "bold": "\\textbf{...} makes text bold",
+            "italic": "\\textit{...} makes text italic",
+            "underline": "\\underline{...} adds an underline",
+            "monospace": "\\texttt{...} renders text in a fixed-width font",
+            "color": "\\textcolor{color}{...} changes text color (red, blue, green, etc.)",
+            "size": "\\large{...} increases text size (also: \\small, \\tiny, \\huge)",
+            "combined": "Style commands can be nested for combined effects"
+          },
+          "highlights": {
+            "bold": "Bold Text",
+            "italic": "Italic Text",
+            "underline": "Underlined Text",
+            "monospace": "Monospace Text",
+            "color": "Colored Text",
+            "size": "Text Size",
+            "combined": "Combined Styles"
+          },
+          "keyPoints": {
+            "bold": {
+              "title": "Bold Text",
+              "description": "Makes text stand out for emphasis"
+            },
+            "italic": {
+              "title": "Italic Text",
+              "description": "Adds emphasis or indicates terms and phrases"
+            },
+            "color": {
+              "title": "Text Color",
+              "description": "Changes the color of text for visual highlighting"
+            },
+            "size": {
+              "title": "Text Size",
+              "description": "Adjusts the size of text relative to surrounding content"
+            }
+          },
+          "variations": {
+            "sizes": {
+              "name": "Text Size Variations",
+              "code": "\\tiny'{Very small text'}\n\\small'{Small text'}\n\\normalsize'{Normal text (default)'}\n\\large'{Large text'}\n\\Large'{Larger text'}\n\\LARGE'{Even larger text'}\n\\huge'{Huge text'}\n\\HUGE'{Extremely huge text'}",
+              "description": "Different size commands for text formatting"
+            }
+          }
+        }
+      },
+      "inlineMath": {
+        "code": "The area of a circle is $A = \\pi r^2$ where $r$ is the radius."
+      },
+      "displayMath": {
+        "code": "$$\\sum_'{i=1'}^'{n'} i = \\frac'{n(n+1)'}'{2'}$$"
+      },
+      "formatting": {
+        "code": "This is \\textbf'{bold'}, \\textit'{italic'}, and \\textcolor'{red'}'{colored'} text."
+      },
+      "list": {
+        "code": "\\begin'{itemize'}\n  \\item First item\n  \\item Second item\n\\end'{itemize'}"
+      },
+      "quickRef": {
+        "inlineMath": {
+          "syntax": "$x^2 + y^2$"
+        },
+        "displayMath": {
+          "syntax": "$$E = mc^2$$"
+        },
+        "boldText": {
+          "syntax": "\\textbf'{bold'}"
+        },
+        "italicText": {
+          "syntax": "\\textit'{italic'}"
+        },
+        "bulletList": {
+          "syntax": "\\begin'{itemize'}\n\\item Text\n\\end'{itemize'}"
+        },
+        "numberedList": {
+          "syntax": "\\begin'{enumerate'}\n\\item Text\n\\end'{enumerate'}"
+        },
+        "simpleTable": {
+          "syntax": "\\begin'{tabular'}'{|c|c|'}\n\\hline\nA & B \\\\\n\\hline\n\\end'{tabular'}"
+        },
+        "centerContent": {
+          "syntax": "\\begin'{center'}\nContent\n\\end'{center'}"
+        }
+      },
+      "titles": {
+        "math_expressions": "Math Expressions",
+        "text_formatting": "Text Formatting",
+        "lists_and_enumerations": "Lists and Enumerations",
+        "tables_and_arrays": "Tables and Arrays"
+      }
+    },
+    "quickReference": {
+      "title": "Quick Reference",
+      "types": {
+        "math": "Math",
+        "text": "Text",
+        "list": "List",
+        "table": "Table",
+        "layout": "Layout"
+      },
+      "descriptions": {
+        "inlineMath": "Inline math",
+        "displayMath": "Display math",
+        "boldText": "Bold text",
+        "italicText": "Italic text",
+        "bulletList": "Bullet list",
+        "numberedList": "Numbered list",
+        "simpleTable": "Simple table",
+        "centerContent": "Center content"
+      }
+    },
+    "interactiveExamples": "Interactive Examples",
+    "exploreExamples": "Explore these interactive examples to see how LaTeX can be used in various contexts. Click the copy button to use them in your own problems.",
+    "viewBestPractices": "View Best Practices",
+    "resources": {
+      "additionalResources": "Additional Resources",
+      "officialDocs": {
+        "title": "Official MathJax Documentation",
+        "description": "Comprehensive guide to MathJax syntax and capabilities."
+      },
+      "latexWikibooks": {
+        "title": "LaTeX Wikibooks",
+        "description": "Free books and guides on LaTeX syntax."
+      },
+      "detexify": {
+        "title": "Detexify",
+        "description": "Draw a symbol to find its LaTeX command."
+      },
+      "links": {
+        "mathjax": "https://www.mathjax.org/#docs",
+        "latex": "https://en.wikibooks.org/wiki/LaTeX/",
+        "detexify": "https://detexify.kirelabs.org/classify.html",
+        "officialDocs": "https://www.mathjax.org/"
+      }
+    },
+    "bestPractices": {
+      "title": "MathJax Best Practices & Examples",
+      "subtitle": "Follow these guidelines to create well-structured, readable content that renders correctly and performs optimally.",
+      "tabs": {
+        "structure": "Document Structure",
+        "tables": "Tables",
+        "math": "Mathematics",
+        "troubleshooting": "Troubleshooting",
+        "formatting": "Text Formatting"
+      },
+      "commonUI": {
+        "recommended": "Recommended",
+        "avoid": "Avoid",
+        "code": "Code:",
+        "renderedResult": "Rendered Result:",
+        "debuggingTip": "Debugging Tip",
+        "performanceTips": "Performance Tips"
+      },
+      "structure": {
+        "title": "Document Structure Best Practices",
+        "example1": {
+          "title": "1. Use blank lines between paragraphs",
+          "goodCode": "First paragraph with some text.\n\nSecond paragraph with more information.\n\nThird paragraph continues the explanation.",
+          "badCode": "First paragraph with some text.\nSecond paragraph more information.\nThird paragraph continues the explanation.",
+          "explanation": "Always separate paragraphs with blank lines for proper spacing. This improves readability and ensures correct paragraph rendering."
+        },
+        "example2": {
+          "title": "2. Nest environments properly",
+          "goodCode": "\\begin'{center'}\n  Centered content\n\n  \\begin'{itemize'}\n    \\item First centered item\n    \\item Second centered item\n  \\end'{itemize'}\n\\end'{center'}",
+          "badCode": "\\begin'{center'}\n  Centered content\n\n  \\begin'{itemize'}\n    \\item First centered item\n    \\item Second centered item\n\\end'{center'}\n\\end'{itemize'}",
+          "explanation": "Always ensure your \\begin and \\end tags are properly nested. Incorrect nesting will cause rendering errors."
+        },
+        "example3": {
+          "title": "3. Organize content with headings",
+          "code": "\\huge'{Main Title'}\n\n\\Large'{Section 1: Introduction'}\n\nRegular text for the introduction paragraph.\n\n\\Large'{Section 2: Methodology'}\n\nDescription of the methods used.\n\n\\Large'{Section 3: Results'}\n\nPresentation of key findings.",
+          "description": "Use consistent heading sizes to create visual hierarchy in your document."
+        },
+        "example4": {
+          "title": "4. Use environment blocks for structured content",
+          "code": "\\begin'{detail'}\n\\summary Important information section\n\nThis section contains critical information:\n\n\\begin'{itemize'}\n  \\item Key point 1\n  \\item Key point 2\n  \\item Key point 3\n\\end'{itemize'}\n\\end'{detail'}",
+          "description": "Use collapsible detail sections to organize complex information without overwhelming readers."
+        },
+        "example5": {
+          "title": "5. Using Detail Sections Properly",
+          "code": "\\begin'{detail'}\n\\summary'{Collapsible Section Title'}\nThis content will be hidden until expanded.\n\\end'{detail'}\n\nAlternative syntax:\n\\begin'{detail'}\n\\summary Plain text summary\nContent goes here.\n\\end'{detail'}\n\nIf no summary specified, it would be Details:\n\\begin'{detail'}\nDefault Summary Line\nThe rest becomes content.\n\\end'{detail'}",
+          "description": "Three ways to specify summaries in detail environments: with braces, without braces, or using the first line as summary."
+        }
+      },
+      "tables": {
+        "title": "Table Formatting Best Practices",
+        "example1": {
+          "title": "1. Basic table structure",
+          "code": "\\begin'{tabular'}'{|c|c|c|'}\n\\hline\nColumn 1 & Column 2 & Column 3 \\\\\n\\hline\nCell 1 & Cell 2 & Cell 3 \\\\\nCell 4 & Cell 5 & Cell 6 \\\\\n\\hline\n\\end'{tabular'}",
+          "description": "Use the tabular environment with column specifications: l (left), c (center), r (right)"
+        },
+        "example2": {
+          "title": "2. Align table columns appropriately",
+          "code": "\\begin'{tabular'}'{|l|c|r|'}\n\\hline\nLeft-aligned & Center-aligned & Right-aligned \\\\\n\\hline\nText column & Mixed content & 123.45 \\\\\nLonger text & $x^2 + y^2$ & 67.8 \\\\\n\\hline\n\\end'{tabular'}",
+          "description": "Use left alignment for text, center for mixed content, and right alignment for numbers."
+        },
+        "example3": {
+          "title": "3. Spanning rows and columns",
+          "code": "\\begin'{tabular'}'{|c|c|c|'}\n\\hline\n\\multicolumn'{3'}'{|c|'}'{Table Title'} \\\\\n\\hline\nColumn 1 & Column 2 & Column 3 \\\\\n\\hline\n\\multirow'{2'}'{*'}'{Spanning'} & Cell 1 & Cell 2 \\\\\n& Cell 3 & Cell 4 \\\\\n\\hline\n\\end'{tabular'}",
+          "description": "Use \\multicolumn{cols}{align}{content} to span columns and \\multirow{rows}{*}{content} to span rows."
+        },
+        "example4": {
+          "title": "4. Center tables for better presentation",
+          "goodCode": "\\begin'{center'}\n\\begin'{tabular'}'{|c|c|'}\n\\hline\nItem & Value \\\\\n\\hline\nA & 10 \\\\\nB & 20 \\\\\n\\hline\n\\end'{tabular'}\n\\end'{center'}",
+          "badCode": "\\begin'{tabular'}'{|c|c|'}\n\\hline\nItem & Value \\\\\n\\hline\nA & 10 \\\\\nB & 20 \\\\\n\\hline\n\\end'{tabular'}",
+          "explanation": "Wrap tables in a center environment for better alignment on the page."
+        },
+        "example5": {
+          "title": "5. Table Best Practices",
+          "code": "\\begin'{center'}\n\\begin'{tabular'}'{|l|c|r|'}\n\\hline\n\\textbf'{Left'} & \\textbf'{Center'} & \\textbf'{Right'} \\\\\n\\hline\nText & $x^2$ & 123 \\\\\n\\hline\n\\multicolumn'{2'}'{|l|'}'{Spanning columns'} & 456 \\\\\n\\hline\n\\multirow'{2'}'{*'}'{Two rows'} & A & 10 \\\\\n & B & 20 \\\\\n\\hline\n\\end'{tabular'}\n\\end'{center'}",
+          "description": "Combine column alignment (l/c/r), formatting, multirow, and multicolumn for professional tables."
+        }
+      },
+      "math": {
+        "title": "Mathematics Best Practices",
+        "example1": {
+          "title": "1. Use display math for complex equations",
+          "goodCode": "For complex equations, use display math:\n\n$$\\int_'{0'}^'{\\infty'} e^'{-x^2'} dx = \\frac'{\\sqrt{\\pi}'}'{2'}$$\n\nThis improves readability.",
+          "badCode": "For complex equations, use inline math: $\\int_'{0'}^'{\\infty'} e^'{-x^2'} dx = \\frac'{\\sqrt{\\pi}'}'{2'}$ which is harder to read.",
+          "explanation": "Display math ($$...$$) gives equations more space and centers them, making complex expressions easier to read."
+        },
+        "example2": {
+          "title": "2. Use aligned environments for equation systems",
+          "code": "$$\\begin'{aligned'}\nx + y &= 10 \\\\\n2x - y &= 5\n\\end'{aligned'}$$\n\nThe solution is $x = 5$ and $y = 5$.",
+          "description": "Use aligned environments to create properly formatted equation systems with alignment points."
+        },
+        "example3": {
+          "title": "3. Define and reuse mathematical expressions",
+          "code": "Let $\\mathcal'{R'}$ be our region of interest.\n\nWhen integrating over $\\mathcal'{R'}$, we compute:\n\n$$\\iint_'{\\mathcal{R}'} f(x,y) \\, dx \\, dy$$",
+          "description": "Define symbols and notations before using them in complex expressions."
+        },
+        "example4": {
+          "title": "4. Mathematical environments",
+          "code": "\\begin'{theorem'}\nFor any triangle with sides $a$, $b$, and $c$:\n$$a^2 + b^2 > c^2$$\nif and only if the angle between sides $a$ and $b$ is acute.\n\\end'{theorem'}\n\n\\begin'{proof'}\nLet $\\theta$ be the angle between sides $a$ and $b$.\nBy the law of cosines:\n$$c^2 = a^2 + b^2 - 2ab\\cos\\theta$$\n\nTherefore, $a^2 + b^2 > c^2$ if and only if $2ab\\cos\\theta > 0$,\nwhich is true if and only if $\\cos\\theta > 0$,\nwhich means $\\theta$ is acute.\n\\end'{proof'}",
+          "description": "Use theorem, lemma, definition, corollary, and proof environments to format mathematical content appropriately."
+        },
+        "performanceTips": {
+          "title": "Performance tip",
+          "description": "Very complex mathematical expressions may slow down rendering. If you have many equations, consider breaking your content into smaller sections."
+        }
+      },
+      "troubleshooting": {
+        "title": "Common Issues & Fixes",
+        "incorrect": "Incorrect:",
+        "fix": "Fix:",
+        "problem1": {
+          "title": "Problem: Math not rendering properly",
+          "incorrectCode": "Here is a formula $E=mc^2$ that uses $ to delimit math.",
+          "fixCode": "Here is a formula $E=mc^2$ that uses \\$ to delimit math.",
+          "explanation": "Ensure $ symbols are properly paired and escape literal $ with \\$."
+        },
+        "problem2": {
+          "title": "Problem: Mismatched environment tags",
+          "incorrectCode": "\\begin'{itemize'}\n  \\item First item\n  \\item Second item\n\\end'{enumerate'}",
+          "fixCode": "\\begin'{itemize'}\n  \\item First item\n  \\item Second item\n\\end'{itemize'}",
+          "explanation": "Always ensure environment closing tag matches the opening tag."
+        },
+        "problem3": {
+          "title": "Problem: Table column mismatch",
+          "incorrectCode": "\\begin'{tabular'}'{|c|c|'}\n\\hline\nA & B & C \\\\\n\\hline\n1 & 2 & 3 \\\\\n\\hline\n\\end'{tabular'}",
+          "fixCode": "\\begin'{tabular'}'{|c|c|c|'}\n\\hline\nA & B & C \\\\\n\\hline\n1 & 2 & 3 \\\\\n\\hline\n\\end'{tabular'}",
+          "explanation": "Ensure your column specification {|c|c|c|} matches the number of columns in your rows."
+        },
+        "debuggingTip": "If your content isn't rendering as expected, try adding one section at a time to identify which part is causing the issue.",
+        "performanceTipsIntro": "If your document renders slowly, try these optimizations:",
+        "performanceTipsList": "Break complex content into multiple detail sections\nAvoid unnecessary nesting of formatting commands\nUse display math ($$...$$) for complex equations instead of inline math\nFor very long documents, consider splitting content into separate sections",
+        "syntaxReminders": {
+          "title": "Common Syntax Reminders",
+          "items": "<strong>Escaping special characters:</strong> Use backslash to escape special characters: <code>\\$</code> for a literal dollar sign, <code>\\\\</code> for a literal backslash\n<strong>Line breaks in tables:</strong> Use <code>\\\\\\\\</code> to end table rows (double backslash)\n<strong>Ampersands in tables:</strong> Use <code>\\&</code> to display a literal ampersand, since <code>&</code> is used as the column separator\n<strong>Math mode brackets:</strong> In math mode, use <code>\\{</code> and <code>\\}</code> for curly braces\n<strong>Blank lines:</strong> Use blank lines between paragraphs, but not inside environments like tabular"
+        }
+      },
+      "formatting": {
+        "title": "Text Formatting Best Practices",
+        "example1": {
+          "title": "1. Nesting Format Commands",
+          "code": "\\textbf'{Bold text with \\textit{bold italic} text'}\n\n\\textcolor'{blue'}'{Blue text with \\textbf{bold blue} text'}\n\n\\Large'{Large text with \\texttt{monospace large} text'}",
+          "description": "Format commands can be nested to combine different styles."
+        },
+        "example2": {
+          "title": "2. Boxed Text Options",
+          "code": "\\fbox'{Content in a box with borders'}\n\n\\boxed'{Alternative boxed content'}\n\n\\fbox'{\\textbf{Bold boxed content}'}",
+          "description": "Use \\fbox or \\boxed to add a border around text or other formatted content."
+        },
+        "example3": {
+          "title": "3. Color Usage",
+          "goodCode": "\\textcolor'{#0070f3'}'{Important information'}\n\n\\textcolor'{rgb(0,128,0)'}'{Success message'}\n\n\\textcolor'{red'}'{Warning text'}",
+          "badCode": "\\textcolor'{weird-color'}'{This won`t work'}\n\nText with non-closing \\textcolor'{red'}'{Too {\\textcolor{blue}{deeply}}'} nested",
+          "explanation": "Use standard color names, hex codes, or RGB values. Ensure color tags are properly closed and not excessively nested."
+        }
+      },
+      "advancedTips": {
+        "title": "Advanced Tips for Power Users",
+        "nesting": {
+          "title": "Nesting Multiple Environments",
+          "code": "\\begin'{center'}\n  \\begin'{tabular'}'{|c|c|'}\n    \\hline\n    Item & Description \\\\\n    \\hline\n    1 & First item \\\\\n    2 & Second item \\\\\n    \\hline\n  \\end'{tabular'}\n\\end'{center'}",
+          "description": "Combine environments to create complex layouts. Just make sure to properly nest the begin/end tags."
+        },
+        "details": {
+          "title": "Using Detail Sections Effectively",
+          "code": "\\begin'{detail'}\n\\summary Click for solution approach\n\n\\begin'{enumerate'}\n  \\item Initialize variables\n  \\item Set up the recursion\n  \\item Solve the base cases\n  \\item Implement the general case\n\\end'{enumerate'}\n\\end'{detail'}",
+          "description": "Use detail sections to hide complex content that isn't immediately necessary for all readers."
+        },
+        "formatting": {
+          "title": "Text Formatting Combinations",
+          "code": "\\textbf'{\\textit'{Bold and italic text'}}\n\n\\textcolor'{red'}'{\\textbf'{Bold red text'}}\n\n\\large'{\\textbf'{Large bold text'}}",
+          "description": "Combine formatting commands by nesting them to create rich text styling."
+        },
+        "code": {
+          "title": "Code Examples with Input/Output",
+          "code": "\\begin'{python'}\ndef calculate_factorial(n):\n    if n == 0:\n        return 1\n    return n * calculate_factorial(n-1)\n\\end'{python'}\n\nInput: calculate_factorial(5)\n\nOutput: 120\n\nStep 1: 5 * factorial(4)\n\nStep 2: 5 * 4 * factorial(3)\n\nStep 3: 5 * 4 * 3 * factorial(2)\n\nStep 4: 5 * 4 * 3 * 2 * factorial(1)\n\nStep 5: 5 * 4 * 3 * 2 * 1 = 120",
+          "description": "Combine code blocks with examples to show both implementation and execution."
+        }
+      }
+    },
+    "commands": {
+      "title": "Formatting Commands",
+      "description": "Use these LaTeX commands to format your text, add mathematical expressions, and more. Each command is shown with an example of how it renders.",
+      "jumpToCategory": "Jump to Category:",
+      "exampleCode": "Example Code:",
+      "renderedResult": "Rendered Result:",
+      "copy": "Copy",
+      "copied": "Copied!",
+      "note": "Note:",
+      "categories": {
+        "layout": {
+          "name": "Layout & Structure",
+          "description": "Commands for document layout and structural elements",
+          "commands": {
+            "epigraph": {
+              "description": "Creates a styled quotation with attribution, often used at the beginning of chapters",
+              "example": "\\epigraph'{The art of programming is the art of organizing complexity.'}'{Edsger W. Dijkstra'}",
+              "notes": "Displays a quotation in italics with right-aligned attribution, useful for chapter introductions"
+            }
+          }
+        },
+        "textFormatting": {
+          "name": "Text Formatting",
+          "description": "Commands to style and format text",
+          "commands": {
+            "bold": {
+              "description": "Bold text",
+              "example": "Normal text and \\textbf'{bold text'}",
+              "notes": "Used for emphasizing important words or phrases."
+            },
+            "boldAlt": {
+              "description": "Bold text (alternative)",
+              "example": "Normal text and \\bf'{bold text'}",
+              "notes": "Alternative syntax for bold text."
+            },
+            "italic": {
+              "description": "Italic text",
+              "example": "Normal text and \\textit'{italic text'}",
+              "notes": "Used for book titles, foreign phrases, or light emphasis."
+            },
+            "italicAlt": {
+              "description": "Italic text (alternative)",
+              "example": "Normal text and \\it'{italic text'}",
+              "notes": "Alternative syntax for italic text."
+            },
+            "underline": {
+              "description": "Underlined text",
+              "example": "Normal text and \\underline'{underlined text'}",
+              "notes": "Draws a line beneath the text."
+            },
+            "emph": {
+              "description": "Emphasized text",
+              "example": "Normal text and \\emph'{emphasized text'}",
+              "notes": "Renders as underlined text."
+            },
+            "strikethrough": {
+              "description": "Strikethrough text",
+              "example": "Normal text and \\sout'{crossed out text'}",
+              "notes": "Shows deleted or removed content."
+            },
+            "monospace": {
+              "description": "Monospace/code font",
+              "example": "Normal text and \\texttt'{code style text'}",
+              "notes": "Used for code examples, file paths, or commands."
+            },
+            "monospaceAlt": {
+              "description": "Monospace/code font (alternative)",
+              "example": "Normal text and \\tt'{code style text'}",
+              "notes": "Alternative syntax for monospace text."
+            },
+            "monospaceShort": {
+              "description": "Monospace/code font (short)",
+              "example": "Normal text and \\t'{code style text'}",
+              "notes": "Short version for monospace text."
+            },
+            "smallcaps": {
+              "description": "Small caps text",
+              "example": "Normal text and \\textsc'{Small Caps Text'}",
+              "notes": "Converts text to small capital letters."
+            },
+            "boxed": {
+              "description": "Boxed text",
+              "example": "Normal text and \\fbox'{boxed text'}",
+              "notes": "Puts a border around the text."
+            },
+            "boxedAlt": {
+              "description": "Boxed text (alternative)",
+              "example": "Normal text and \\boxed'{boxed text'}",
+              "notes": "Alternative syntax for boxed text."
+            }
+          }
+        },
+        "textSize": {
+          "name": "Text Size",
+          "description": "Commands to change text size",
+          "commands": {
+            "tiny": {
+              "description": "Very small text (0.7em)",
+              "example": "Normal text and \\tiny'{very small text'}",
+              "notes": "Smallest available text size."
+            },
+            "scriptsize": {
+              "description": "Smaller text (0.75em)",
+              "example": "Normal text and \\scriptsize'{smaller text'}",
+              "notes": "Slightly larger than tiny text."
+            },
+            "small": {
+              "description": "Small text (0.85em)",
+              "example": "Normal text and \\small'{small text'}",
+              "notes": "Good for captions or footnotes."
+            },
+            "normalsize": {
+              "description": "Normal text size (1em)",
+              "example": "\\large'{Larger text'} and \\normalsize'{reset to normal'}",
+              "notes": "Default text size, useful for resetting size changes."
+            },
+            "large": {
+              "description": "Large text (1.15em)",
+              "example": "Normal text and \\large'{larger text'}",
+              "notes": "Slightly larger than normal text."
+            },
+            "Large": {
+              "description": "Larger text (1.3em)",
+              "example": "Normal text and \\Large'{even larger text'}",
+              "notes": "Good for subheadings."
+            },
+            "LARGE": {
+              "description": "Even larger text (1.45em)",
+              "example": "Normal text and \\LARGE'{much larger text'}",
+              "notes": "For major section headers."
+            },
+            "huge": {
+              "description": "Very large text (1.75em)",
+              "example": "Normal text and \\huge'{very large text'}",
+              "notes": "For titles and major headings."
+            },
+            "HUGE": {
+              "description": "Largest text (2em)",
+              "example": "Normal text and \\HUGE'{MAXIMUM SIZED TEXT'}",
+              "notes": "The largest available text size."
+            }
+          }
+        }
+      }
+    },
+    "environments": {
+      "title": "LaTeX Environments",
+      "description": "Environments provide structure for different types of content. They begin with {beginCode} and end with {endCode}. Click on any environment card below to see example code and how it renders.",
+      "jumpToCategory": "Jump to Category",
+      "environmentsLabel": "Environments",
+      "basicSyntax": "Basic Syntax",
+      "exampleCode": "Example Code",
+      "renderedResult": "Rendered Result",
+      "copyExample": "Copy Example",
+      "copied": "Copied!",
+      "example": "Example",
+      "important": "Important",
+      "categories": [
+        {
+          "name": "Lists",
+          "description": "Ordered and unordered lists",
+          "environments": [
+            {
+              "name": "itemize",
+              "description": "Bulleted list with \\item elements",
+              "syntax": "\\begin{itemize}\n  \\item First item\n  \\item Second item\n\\end{itemize}",
+              "example": "\\begin{itemize}\n  \\item Apples\n  \\item Oranges\n  \\item Bananas\n\\end{itemize}",
+              "notes": "Use \\item for each bullet point. For nested lists, create a new itemize environment inside an item (but this may have rendering limitations)."
+            },
+            {
+              "name": "enumerate",
+              "description": "Numbered list with \\item elements",
+              "syntax": "\\begin{enumerate}\n  \\item First item\n  \\item Second item\n\\end{enumerate}",
+              "example": "\\begin{enumerate}\n  \\item Step one\n  \\item Step two\n  \\item Step three\n\\end{enumerate}",
+              "notes": "Creates a numbered list. For nested lists, create a new enumerate inside an item (though rendering nested lists may have limitations)."
+            }
+          ]
+        },
+        {
+          "name": "Layout",
+          "description": "Content alignment and organization",
+          "environments": [
+            {
+              "name": "center",
+              "description": "Centers content horizontally",
+              "syntax": "\\begin{center}\n  Content to center\n\\end{center}",
+              "example": "\\begin{center}\n  This text will be centered on the page.\n  \n  $$E = mc^2$$\n  \n  Multiple paragraphs will all be centered.\n\\end{center}",
+              "notes": "Centers all content between the begin and end tags. Works with text, math, tables and more."
+            },
+            {
+              "name": "detail",
+              "description": "Collapsible content with \\summary",
+              "syntax": "\\begin{detail}\n\\summary Title shown when collapsed\n  Hidden content\n\\end{detail}",
+              "example": "\\begin{detail}\n\\summary Click to see solution\n  The answer is $x = 42$\n  \n  \\begin{itemize}\n    \\item Step 1: Set up equation\n    \\item Step 2: Solve for x\n  \\end{itemize}\n\\end{detail}",
+              "notes": "Creates an expandable section. The \\summary tag defines what's shown when collapsed. All content after \\summary is hidden until expanded."
+            }
+          ]
+        },
+        {
+          "name": "Tables",
+          "description": "Tabular data arrangements",
+          "environments": [
+            {
+              "name": "tabular",
+              "description": "Creates a table with customizable columns",
+              "syntax": "\\begin{tabular}{column-spec}\n  cell1 & cell2 \\\\\n  cell3 & cell4 \\\\\n\\end{tabular}",
+              "example": "\\begin{tabular}{|c|c|}\n  \\hline\n  Header 1 & Header 2 \\\\\n  \\hline\n  Value 1 & Value 2 \\\\\n \\hline \n  Value 3 & Value 4 \\\\\n  \\hline\n\\end{tabular}",
+              "notes": "The column-spec defines the alignment (l=left, c=center, r=right) and borders (|) for each column. Use & to separate cells and \\\\ to end rows."
+            }
+          ]
+        },
+        {
+          "name": "Code",
+          "description": "Programming code examples",
+          "environments": [
+            {
+              "name": "cpp",
+              "description": "C++ code block with syntax highlighting",
+              "syntax": "\\begin{cpp}\n  // C++ code here\n\\end{cpp}",
+              "example": "\\begin{cpp}\n#include <iostream>\n\nint main() {\n  std::cout << \"Hello, world!\" << std::endl;\n  return 0;\n}\n\\end{cpp}",
+              "notes": "Provides syntax highlighting for C++ code. Use appropriate indentation for readability."
+            },
+            {
+              "name": "java",
+              "description": "Java code block with syntax highlighting",
+              "syntax": "\\begin{java}\n  // Java code here\n\\end{java}",
+              "example": "\\begin{java}\npublic class HelloWorld {\n  public static void main(String[] args) {\n    System.out.println(\"Hello, world!\");\n  }\n}\n\\end{java}",
+              "notes": "Provides syntax highlighting for Java code. Preserve proper indentation in your code."
+            },
+            {
+              "name": "python",
+              "description": "Python code block with syntax highlighting",
+              "syntax": "\\begin{python}\n  # Python code here\n\\end{python}",
+              "example": "\\begin{python}\ndef factorial(n):\n  if n == 0:\n    return 1\n  return n * factorial(n-1)\n\nprint(factorial(5))  # Output: 120\n\\end{python}",
+              "notes": "Provides syntax highlighting for Python code. Indentation is particularly important for Python."
+            }
+          ]
+        },
+        {
+          "name": "Examples",
+          "description": "Problem examples",
+          "environments": [
+            {
+              "name": "example",
+              "description": "Example block",
+              "syntax": "\\begin{example}\nInput\n```\nOutput\n\\end{example}",
+              "example": "\\begin{example}\n5 10\n-5 -5 2 5 -5\n3 3\n1 3\n1 5\n1 3\n3 5\n3 4\n1 3\n2 4\n1 1\n1 4\n```\n2-8\n-8\n-8\n2\n7\n-8\n2\n-5\n-3\n\\end{example}",
+              "notes": "Used to highlight important examples in your content. Often styled differently than regular text."
+            }
+          ]
+        },
+        {
+          "name": "Theorems",
+          "description": "Mathematical theorems and proofs",
+          "environments": [
+            {
+              "name": "theorem",
+              "description": "Formal mathematical theorem",
+              "syntax": "\\begin{theorem}\n  Theorem statement\n\\end{theorem}",
+              "example": "\\begin{theorem}\nFor any right triangle with sides $a$, $b$ and hypotenuse $c$, the Pythagorean theorem states that:\n$a^2 + b^2 = c^2$\n\\end{theorem}",
+              "notes": "Used to state important mathematical theorems. Usually rendered with distinct styling."
+            },
+            {
+              "name": "proof",
+              "description": "Mathematical proof",
+              "syntax": "\\begin{proof}\n  Proof steps\n\\end{proof}",
+              "example": "\\begin{proof}\nLet's prove that the sum of two even numbers is even.\n\nIf $a$ and $b$ are even, then $a = 2m$ and $b = 2n$ for some integers $m$ and $n$.\n\nThen $a + b = 2m + 2n = 2(m + n)$, which is even.\n\\end{proof}",
+              "notes": "Used to present formal proofs of theorems or statements. Often paired with the theorem environment."
+            },
+            {
+              "name": "lemma",
+              "description": "Supporting mathematical statement",
+              "syntax": "\\begin{lemma}\n  Lemma statement\n\\end{lemma}",
+              "example": "\\begin{lemma}\nIf $n$ is an integer and $n^2$ is even, then $n$ is even.\n\\end{lemma}",
+              "notes": "A lemma is a proven statement used as a stepping stone to prove a larger theorem."
+            },
+            {
+              "name": "corollary",
+              "description": "Result that follows from a theorem",
+              "syntax": "\\begin{corollary}\n  Corollary statement\n\\end{corollary}",
+              "example": "\\begin{corollary}\nBased on the Pythagorean theorem, in a right triangle where both legs have length 1, the hypotenuse has length $\\sqrt{2}$.\n\\end{corollary}",
+              "notes": "A corollary is a direct or simple consequence of a theorem."
+            }
+          ]
+        }
+      ],
+      "tables": {
+        "formatTipsTitle": "Table Formatting Tips",
+        "formatTips": "{columnFormat}{rowEndings}{cellSeparator}{horizontalLines}{multiColumn}{alignDecimal}",
+        "columnFormatting": "Column formatting",
+        "columnFormatDesc": "Use {code1:'{|l|c|r|}'} where {code2:l}=left, {code3:c}=center, {code4:r}=right, {code5:|}=vertical line",
+        "rowEndings": "Row endings",
+        "rowEndingsDesc": "End each row with {code:\\\\} (double backslash)",
+        "cellSeparator": "Cell separator",
+        "cellSeparatorDesc": "Use {code:&} between cells",
+        "horizontalLines": "Horizontal lines",
+        "horizontalLinesDesc": "Add {code:\\hline} between rows for horizontal lines",
+        "multiColumn": "Multi-column cells",
+        "multiColumnDesc": "Use {code:\\multicolumn'{2'}'{c'}'{Spanning text'}} where 2 is the number of columns to span",
+        "alignDecimal": "Align decimal points",
+        "alignDecimalDesc": "For numerical data, use right-alignment ({code:r})"
+      },
+      "code": {
+        "bestPracticesTitle": "Code Block Best Practices",
+        "bestPractices": "{chooseLanguage}{preserveIndentation}{avoidBackslash}{combineCodeBlocks}",
+        "chooseLanguage": "Choose the correct language environment ({cpp}, {java}, or {python}) for proper syntax highlighting",
+        "preserveIndentation": "Indentation will be preserved exactly as written",
+        "avoidBackslash": "Avoid using backslash ({code:\\}) as the last character on a line",
+        "combineCodeBlocks": "Combine code blocks with the {code:example} environment to show both implementation and execution"
+      },
+      "nesting": {
+        "title": "Nesting Environments",
+        "description": "You can nest environments to create complex layouts. For example, place a table inside a center environment:",
+        "exampleCode": "\\begin{center}\n  \\begin{tabular}{|c|c|}\n    \\hline\n    Item & Value \\\\\n    \\hline\n    A & 10 \\\\\n    B & 20 \\\\\n    \\hline\n  \\end{tabular}\n\\end{center}",
+        "warning": "When nesting environments, always make sure to close them in reverse order. The last environment opened should be the first one closed."
+      }
+    },
+    "details": {
+      "defaultSummary": "Details"
+    },
+    "table": {
+      "empty": "[Empty table]",
+      "renderError": "Error rendering table"
+    },
+    "theorems": {
+      "theorem": "Theorem",
+      "lemma": "Lemma",
+      "definition": "Definition",
+      "corollary": "Corollary",
+      "proof": "Proof"
+    },
+    "epigraph": {
+      "attribution": "— %s"
+    }
+  },
+  "ProblemBank": {
+    "title": "Problem Bank",
+    "description": "Design, manage and organize your competitive programming problems",
+    "loading": {
+      "title": "Loading...",
+      "description": "Setting up your problem bank"
+    },
+    "roles": {
+      "admin": "Admin",
+      "problemSetter": "Problem Setter"
+    },
+    "problemsSection": {
+      "title": "Problems",
+      "showing": "Showing {start}-{end} of {total} problems",
+      "loadingProblems": "Loading problems...",
+      "noProblems": {
+        "title": "No problems found",
+        "withFilters": "Try adjusting your search criteria or filters",
+        "noFilters": "Start by adding your first problem to the bank"
+      }
+    },
+    "pagination": {
+      "page": "Page {page}",
+      "previous": "Previous",
+      "next": "Next"
+    },
+    "overview": {
+      "title": "Overview",
+      "totalProblems": "Total Problems",
+      "myProblems": "My Problems",
+      "contributors": "Contributors"
+    },
+    "filters": {
+      "title": "Filters",
+      "searchPlaceholder": "Search problems...",
+      "searchAriaLabel": "Search problems",
+      "clearSearch": "Clear search",
+      "activeFilters": "Active Filters",
+      "searchLabel": "Search",
+      "clearFilters": "Clear Filters",
+      "clearAll": "Clear All"
+    },
+    "actions": {
+      "addProblem": "Add Problem",
+      "viewProblems": "View Problems"
+    },
+    "problemTable": {
+      "tableHeaders": {
+        "problem": "Problem",
+        "owner": "Owner",
+        "detail": "Detail"
+      },
+      "noProblemsFound": "No problems found",
+      "loadingConfiguration": "Loading configuration...",
+      "noConfigurationAvailable": "No configuration available",
+      "judgeTypes": {
+        "scoring": "Scoring",
+        "standard": "Standard",
+        "unknown": "Unknown"
+      },
+      "specs": {
+        "tests": "tests",
+        "ms": "ms",
+        "mb": "MB"
+      },
+      "created": "Created",
+      "justNow": "just now",
+      "deleteDialog": {
+        "title": "Delete problem",
+        "warning": "This action cannot be undone. This will permanently delete the problem and all associated test cases from our servers.",
+        "confirmPrompt": "Please type",
+        "toConfirm": "to confirm",
+        "confirmPlaceholder": "Enter problem ID to confirm",
+        "cancel": "Cancel",
+        "confirmButton": "Delete Problem",
+        "deletingStatus": "Deleting..."
+      },
+      "deleteSuccess": {
+        "title": "Problem deleted",
+        "description": "The problem has been successfully deleted."
+      },
+      "deleteError": {
+        "title": "Error",
+        "description": "Failed to delete the problem. Please try again."
+      }
+    },
+    "newProblemForm": {
+      "buttonText": "New Problem",
+      "dialogTitle": "Create New Problem",
+      "dialogDescription": "Add a new problem to the problem bank.",
+      "fields": {
+        "id": {
+          "label": "Problem ID",
+          "placeholder": "breed-counting",
+          "hint": "Use kebab-case with lowercase letters and hyphens (e.g., breed-counting)",
+          "tooltip": {
+            "example": "Format example: breed-counting, two-sum",
+            "format": "Use lowercase letters and hyphens only."
+          }
+        },
+        "title": {
+          "label": "Problem Title",
+          "placeholder": "Two Sum",
+          "hint": "This will be the display name for your problem"
+        },
+        "timeLimit": {
+          "label": "Time Limit (ms)",
+          "tooltip": {
+            "description": "Maximum time allowed for solution execution in milliseconds",
+            "recommendation": "Recommended: 1000-5000 ms"
+          }
+        },
+        "memoryLimit": {
+          "label": "Memory Limit (MB)",
+          "tooltip": {
+            "description": "Maximum memory allowed for solution execution in megabytes",
+            "recommendation": "Recommended: 256-1024 MB"
+          }
+        },
+        "judgingType": {
+          "label": "Judging Type",
+          "options": {
+            "ac": "All Correct (AC)",
+            "sc": "Scoring (SC)"
+          },
+          "hints": {
+            "ac": "AC verifies that output matches exactly character-by-character.",
+            "sc": "SC uses a custom checker to evaluate validity of solutions."
+          },
+          "tooltip": {
+            "acTitle": "AC (All Correct)",
+            "acDescription": "Solution must match expected output exactly",
+            "acUseCase": "Use for problems where whitespace and formatting matter",
+            "scTitle": "SC (Scoring)",
+            "scDescription": "Custom checker evaluates solution",
+            "scUseCase": "Use for problems with multiple valid outputs or partial scoring"
+          }
+        }
+      },
+      "validation": {
+        "idEmpty": "Problem ID cannot be empty",
+        "idInvalidChars": "Only lowercase letters and hyphens are allowed",
+        "idConsecutiveHyphens": "Consecutive hyphens (--) are not allowed",
+        "idStartsEndsHyphen": "ID cannot start or end with a hyphen",
+        "idExists": "This ID is already in use",
+        "idExistsChooseAnother": "This ID is already in use. Please choose a different one."
+      },
+      "notifications": {
+        "successTitle": "Success",
+        "successMessage": "Problem created successfully",
+        "errorTitle": "Error",
+        "idExistsError": "A problem with this ID already exists",
+        "createError": "Failed to create problem"
+      },
+      "buttons": {
+        "create": "Create Problem",
+        "creatingStatus": "Creating..."
+      }
+    },
+    "ownerFilter": {
+      "clearAll": "Clear all",
+      "searchPlaceholder": "Search owners...",
+      "searchAriaLabel": "Search owners",
+      "clearSearchAriaLabel": "Clear search",
+      "resultsAriaLabel": "Owner search results",
+      "noResultsFound": "No matching owners found"
+    },
+    "problem": {
+      "inputSection": {
+        "tabs": {
+          "general": "General",
+          "description": "Description",
+          "testcases": "Testcases"
+        }
+      },
+      "outputSection": {
+        "tabs": {
+          "description": "Description",
+          "solution": "Solution"
+        },
+        "solutionFor": "Solution for"
+      },
+      "loading": "Loading...",
+      "general": {
+        "problemId": "Problem ID",
+        "difficulty": "Difficulty",
+        "displayTitle": "Display Title",
+        "enterDisplayTitle": "Enter display title...",
+        "categories": "Categories",
+        "selectCategories": "Select Categories",
+        "selectProblemCategories": "Select Problem Categories",
+        "searchCategories": "Search categories...",
+        "noCategories": "No categories selected",
+        "done": "Done",
+        "loading": "Loading...",
+        "updating": "Updating...",
+        "saveChanges": "Save Changes",
+        "noChanges": "No Changes",
+        "confirmAction": "Confirm Action",
+        "confirmUpdateProblem": "Are you sure you want to update this problem?",
+        "cancel": "Cancel",
+        "update": "Update",
+        "updateSuccess": "Problem updated successfully",
+        "updateSuccessMessage": "Your changes have been saved.",
+        "updateError": "Failed to update problem",
+        "updateErrorMessage": "An error occurred while saving your changes. Please try again."
+      },
+      "descriptionTab": {
+        "language": {
+          "English": "English",
+          "Vietnamese": "Vietnamese",
+          "Chinese": "Chinese"
+        },
+        "header": {
+          "title": "Content Editor",
+          "subtitle": "Edit problem content in multiple languages"
+        },
+        "titleCard": {
+          "title": "Problem Title",
+          "description": "The main title shown to users in {language}",
+          "placeholder": "Enter problem title in {language}..."
+        },
+        "tabs": {
+          "description": "Description",
+          "solution": "Solution"
+        },
+        "description": {
+          "label": "Problem Description",
+          "editHeader": "Edit Description",
+          "hint": "Use Markdown and LaTeX for formatting. Include problem constraints and examples."
+        },
+        "solution": {
+          "label": "Problem Solution",
+          "editHeader": "Edit Solution",
+          "hint": "Explain the solution approach, algorithm, and complexity analysis."
+        },
+        "common": {
+          "mathjaxGuide": "MathJax Guide",
+          "forSuggestions": "for suggestions",
+          "characters": "characters"
+        },
+        "footer": {
+          "noteLabel": "Note:",
+          "noteText": "Changes will only affect content in {language}.",
+          "switchHint": "You can switch languages using the dropdown menu."
+        },
+        "buttons": {
+          "save": "Save Changes",
+          "saving": "Saving...",
+          "saveSuccess": "Saved Successfully",
+          "saveError": "Save Failed - Retry"
+        },
+        "saveDialog": {
+          "title": "Save Changes?",
+          "description": "This will update problem content in {language} language. Other language versions will remain unchanged.",
+          "cancel": "Cancel"
+        },
+        "notifications": {
+          "successTitle": "Success",
+          "successMessage": "Content in {language} updated successfully",
+          "errorTitle": "Error",
+          "errorMessage": "Failed to update content"
+        }
+      },
+      "testcases": {
+        "loading": {
+          "title": "Loading test cases...",
+          "description": "This may take a moment as we're fetching all test case data. Large test cases may take longer to load."
+        },
+        "errors": {
+          "loadingTitle": "Error Loading Test Cases",
+          "loadingFailed": "Failed to load test cases. Please try again later.",
+          "errorTitle": "Error",
+          "deleteFailed": "Failed to delete the test case.",
+          "addFailed": "Failed to add test case",
+          "addMultipleFailed": "Failed to add test cases"
+        },
+        "actions": {
+          "tryAgain": "Try Again",
+          "addTestCase": "Add Test Case",
+          "addToBatch": "Add to Batch",
+          "clearAll": "Clear All",
+          "uploadingMultiple": "Uploading {count} test cases...",
+          "uploadMultiple": "Upload {count} Test Cases",
+          "creating": "Creating...",
+          "createTestCase": "Create Test Case",
+          "download": "Download",
+          "deleting": "Deleting...",
+          "delete": "Delete",
+          "cancel": "Cancel"
+        },
+        "header": {
+          "title": "Test Cases",
+          "subtitle": "Configure test cases and judging parameters for this problem."
+        },
+        "config": {
+          "title": "Problem Configuration",
+          "timeLimit": "Time Limit",
+          "memoryLimit": "Memory Limit",
+          "judgingType": "Judging Type",
+          "ms": "ms",
+          "mb": "MB"
+        },
+        "testCases": {
+          "title": "Test Cases ({count})"
+        },
+        "dialog": {
+          "addTestCases": "Add Test Cases",
+          "createDescription": "Create one or multiple test cases with input, output and score.",
+          "addAnother": "Add Another Test Case",
+          "newTestCase": "New Test Case",
+          "inBatch": "{count} in batch"
+        },
+        "fields": {
+          "input": "Input",
+          "required": "Required",
+          "expectedOutput": "Expected Output",
+          "score": "Score",
+          "defaultScore": "Default: 0",
+          "points": "points"
+        },
+        "placeholders": {
+          "inputText": "Enter test case input...",
+          "outputText": "Enter expected output...",
+          "customScore": "Custom score..."
+        },
+        "common": {
+          "or": "OR",
+          "testCase": "test case",
+          "testCases": "test cases"
+        },
+        "batch": {
+          "title": "Batch Test Cases ({count})",
+          "scrollHint": "Scroll to see all {count} test cases",
+          "inputPreview": "Input Preview",
+          "outputPreview": "Output Preview",
+          "score": "Score",
+          "action": "Action",
+          "fileLabel": "[File] {name}",
+          "empty": "(empty)",
+          "total": "Total: {count} {testCase}"
+        },
+        "toasts": {
+          "deleteSuccess": "Test case deleted",
+          "deleteSuccessDetail": "The test case has been successfully deleted.",
+          "incompleteTestCase": "Incomplete test case",
+          "inputOutputRequired": "Both input and output are required for test cases",
+          "addedToBatch": "Added to batch",
+          "testCaseAddedToBatch": "Test case added to batch ({count} total)",
+          "success": "Success",
+          "testCaseAddedSuccess": "Test case added successfully",
+          "progress": "Progress",
+          "uploadedTestCaseCount": "Uploaded test case {current} of {total}",
+          "successfullyUploadedTestCases": "Successfully uploaded {count} test cases"
+        },
+        "confirm": {
+          "addToBatchBeforeUpload": "Would you like to add the current test case to the batch before uploading?"
+        },
+        "empty": {
+          "title": "No test cases yet",
+          "description": "Test cases help validate solutions. Each test case consists of an input, expected output, and score.",
+          "addFirst": "Add Your First Test Case"
+        },
+        "testCase": {
+          "title": "Test Case #{number}",
+          "score": "Score: {score}",
+          "emptyInput": "Empty input",
+          "emptyOutput": "Empty output"
+        },
+        "delete": {
+          "title": "Delete Test Case #{number}",
+          "description": "Are you sure you want to delete this test case? This action cannot be undone."
+        }
+      }
+    }
+  },
+  "Common": {
+    "locale": "en-US",
+    "maintenance": {
+      "title": "System Maintenance",
+      "message": "We're currently performing system maintenance. Please check back soon.",
+      "estimatedTime": "Estimated completion time:"
+    },
+    "redirecting": "Redirecting..."
+  }
+}

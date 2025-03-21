@@ -1,0 +1,1978 @@
+{
+  "Header": {
+    "Home": "Trang chủ",
+    "Problems": "Bài tập",
+    "Contests": "Cuộc thi",
+    "Leaderboard": "Bảng xếp hạng",
+    "Topics": "Chủ đề",
+    "Profile": "Hồ sơ",
+    "Submissions": "Bài nộp",
+    "Sign In": "Đăng nhập",
+    "Sign Out": "Đăng xuất",
+    "Problems Bank": "Ngân hàng bài tập",
+    "Users Management": "Quản lý người dùng",
+    "My Problems": "Bài tập của tôi"
+  },
+  "Auth": {
+    "fullName": "Họ và tên",
+    "country": "Quốc gia",
+    "selectCountry": "Chọn quốc gia của bạn",
+    "birthdate": "Ngày sinh",
+    "ageRequirement": "Bạn phải đủ 5 tuổi trở lên để tạo tài khoản",
+    "emailVerificationRequired": "Yêu cầu xác thực email",
+    "youMustVerifyEmail": "Bạn phải xác thực email trước khi đăng nhập",
+    "fieldsRequired": "Vui lòng điền đầy đủ thông tin",
+    "loginSuccess": "Đăng nhập thành công! Đang chuyển hướng...",
+    "invalidEmail": "Địa chỉ email không hợp lệ",
+    "userNotFound": "Không tìm thấy người dùng",
+    "wrongPassword": "Mật khẩu không chính xác",
+    "tooManyRequests": "Quá nhiều lần đăng nhập thất bại. Vui lòng thử lại sau",
+    "loginFailed": "Đăng nhập thất bại. Vui lòng thử lại",
+    "emailRequired": "Email là bắt buộc",
+    "resetEmailSent": "Email đặt lại mật khẩu đã được gửi. Vui lòng kiểm tra hộp thư đến",
+    "resetEmailError": "Lỗi khi gửi email đặt lại mật khẩu",
+    "passwordsDoNotMatch": "Mật khẩu không khớp",
+    "passwordRequirements": "Mật khẩu phải có ít nhất 8 ký tự bao gồm chữ hoa, chữ thường và số",
+    "handleTooShort": "Tên người dùng phải có ít nhất 3 ký tự",
+    "handleAlreadyTaken": "Tên người dùng đã được sử dụng",
+    "registrationSuccess": "Tạo tài khoản thành công! Đang chuyển hướng...",
+    "registrationSuccessVerifyEmail": "Đăng ký thành công! Vui lòng xác thực email của bạn.",
+    "emailAlreadyInUse": "Email này đã được sử dụng",
+    "weakPassword": "Mật khẩu quá yếu",
+    "registrationFailed": "Đăng ký thất bại. Vui lòng thử lại",
+    "resetPassword": "Đặt lại mật khẩu",
+    "signIn": "Đăng nhập",
+    "createAccount": "Tạo tài khoản",
+    "resetPasswordPrompt": "Nhập email của bạn để nhận liên kết đặt lại mật khẩu",
+    "signInPrompt": "Đăng nhập vào tài khoản của bạn để tiếp tục",
+    "registerPrompt": "Tạo tài khoản mới để bắt đầu",
+    "register": "Đăng ký",
+    "backToLogin": "Quay lại đăng nhập",
+    "email": "Email",
+    "resetPasswordHint": "Chúng tôi sẽ gửi cho bạn email có liên kết để đặt lại mật khẩu",
+    "sending": "Đang gửi...",
+    "sendResetLink": "Gửi liên kết đặt lại",
+    "password": "Mật khẩu",
+    "hidePassword": "Ẩn mật khẩu",
+    "showPassword": "Hiển thị mật khẩu",
+    "forgotPassword": "Quên mật khẩu?",
+    "signingIn": "Đang đăng nhập...",
+    "handle": "Tên người dùng",
+    "checkingHandle": "Đang kiểm tra tên người dùng",
+    "handleAvailable": "Tên người dùng khả dụng",
+    "handleTaken": "Tên người dùng đã được sử dụng",
+    "handleDescription": "Chọn tên người dùng độc đáo sẽ hiển thị với người khác",
+    "passwordHint": "Ít nhất 8 ký tự bao gồm chữ hoa, chữ thường và số",
+    "confirmPassword": "Xác nhận mật khẩu",
+    "creatingAccount": "Đang tạo tài khoản...",
+    "emailNotVerified": "Email chưa được xác thực",
+    "checkYourEmail": "Kiểm tra email của bạn để nhận liên kết xác thực",
+    "verificationEmailSent": "Email xác thực đã được gửi",
+    "verificationEmailResent": "Email xác thực đã được gửi lại",
+    "checkSpamFolderNotice": "Nếu bạn không thấy email, hãy kiểm tra thư mục spam",
+    "didntReceiveEmail": "Không nhận được email?",
+    "tryAgain": "Thử lại",
+    "agreeToTerms": "Tôi đồng ý với",
+    "termsOfService": "Điều khoản dịch vụ",
+    "and": "và",
+    "privacyPolicy": "Chính sách bảo mật",
+    "needHelp": "Cần giúp đỡ?",
+    "contactSupport": "Liên hệ hỗ trợ",
+    "welcomeTo": "Chào mừng đến với CodePlease",
+    "accountPlatformDesc": "Nâng cao kỹ năng lập trình qua các thử thách lập trình thi đấu và giải quyết vấn đề. Hãy tham gia cộng đồng của chúng tôi ngay hôm nay!"
+  },
+  "Footer": {
+    "Resources & Legal": "Tài nguyên & Pháp lý",
+    "Topics": "Chủ đề",
+    "Platform": "Nền tảng",
+    "About": "Giới thiệu",
+    "Contests": "Cuộc thi",
+    "Problems": "Bài tập",
+    "Resources": "Tài nguyên",
+    "Announcement": "Thông báo",
+    "Contributors": "Người đóng góp",
+    "Legality": "Pháp lý",
+    "Terms and Conditions": "Điều khoản và điều kiện",
+    "Privacy Policy": "Chính sách bảo mật",
+    "Connection": "Kết nối",
+    "Our Developer Team": "Đội ngũ phát triển",
+    "Description": "Tăng cường kỹ năng cho các lập trình viên thông qua lập trình thi đấu và các thử thách giải quyết vấn đề. Tham gia cộng đồng của chúng tôi ngay hôm nay!",
+    "All Rights Reserved": "Đã đăng ký Bản quyền",
+    "Outline": "Được tạo ra với ❤️ bởi các lập trình viên dành cho lập trình viên"
+  },
+  "Home": {
+    "Spotlight": {
+      "Slogan": "Nơi những lập trình viên giỏi nhất hội tụ.",
+      "Description": "Chào mừng đến với thiên đường lập trình của bạn. Học tập, luyện tập và thi đấu với những người giỏi nhất.",
+      "Start Coding": "Bắt đầu lập trình"
+    },
+    "Timeline": {
+      "Object1": {
+        "Title": "Tổng quan",
+        "FeatureText": "Tại sao chọn CodePlease?",
+        "TextObject1": "Thử thách đa dạng",
+        "TextDescription1": "Từ dễ đến chuyên gia, nền tảng của chúng tôi cung cấp nhiều loại bài tập lập trình phù hợp với mọi trình độ.",
+        "TextObject2": "Cuộc thi hấp dẫn",
+        "TextDescription2": "Tham gia các cuộc thi lập trình thường xuyên để kiểm tra kỹ năng của bạn với các đối thủ và giành giải thưởng hấp dẫn.",
+        "TextObject3": "Cộng đồng sôi động",
+        "TextDescription3": "Kết nối với các lập trình viên khác, chia sẻ giải pháp và học hỏi lẫn nhau trong cộng đồng năng động của chúng tôi."
+      },
+      "Object2": {
+        "Title": "Giải quyết vấn đề",
+        "FeatureText": "Bài tập nổi bật",
+        "ProblemTitle1": "Hệ phương trình",
+        "TextObject1": "Toán học",
+        "TextDescription1": "Chúng ta cần giải hệ phương trình.",
+        "ProblemTitle2": "LIS",
+        "TextObject2": "Quy hoạch động",
+        "TextDescription2": "Hãy tìm dãy con tăng dài nhất.",
+        "ProblemTitle3": "Đường đi ngắn nhất",
+        "TextObject3": "Đồ thị",
+        "TextDescription3": "Hãy tìm đường đi ngắn nhất trong đồ thị vô hướng",
+        "SolveText": "Giải ngay"
+      },
+      "Object3": {
+        "Title": "Cuộc thi",
+        "FeatureText": "Cuộc thi đã qua",
+        "ContestTitle1": "Cuộc thi hàng tuần 1",
+        "DateDescription1": "3 tháng 11 năm 2024",
+        "TextDescription1": "Thời gian: 3 giờ",
+        "AuthorDescription1": "Tác giả: Zhang Shan",
+        "ContestTitle2": "Cuộc thi hàng tuần 2",
+        "DateDescription2": "18 tháng 11 năm 2024",
+        "TextDescription2": "Thời gian: 3 giờ",
+        "AuthorDescription2": "Tác giả: Zhang Shan",
+        "ContestTitle3": "Cuộc thi hàng tuần 3",
+        "DateDescription3": "21 tháng 11 năm 2024",
+        "TextDescription3": "Thời gian: 3 giờ",
+        "AuthorDescription3": "Tác giả: Zhang Shan",
+        "DetailText": "Xem chi tiết"
+      },
+      "Object4": {
+        "Title": "Bắt đầu khám phá",
+        "FeatureText": "Trở thành bậc thầy trong các thử thách lập trình",
+        "DescriptionText": "Nâng cao kỹ năng lập trình của bạn thông qua lập trình thi đấu và giải quyết vấn đề.",
+        "CodingText": "Bắt đầu lập trình ngay"
+      }
+    },
+    "BottomSection": {
+      "Title": "Sẵn sàng bắt đầu hành trình lập trình của bạn?",
+      "Description": "Tham gia cùng hàng ngàn lập trình viên đang cải thiện kỹ năng trên CodePlease.",
+      "SignUpText": "Đăng ký ngay"
+    }
+  },
+  "Problems": {
+    "admin": {
+      "hideProblemTitle": "Ẩn bài toán khỏi chế độ công khai?",
+      "hideProblemDescription": "Hành động này sẽ làm cho bài toán không hiển thị với người dùng thông thường. Bài toán có thể được đặt lại chế độ công khai từ bảng điều khiển quản trị viên sau.",
+      "hideProblemTooltip": "Ẩn bài toán khỏi chế độ công khai",
+      "hideProblem": "Ẩn Bài Toán",
+      "processing": "Đang xử lý...",
+      "hideProblemError": "Không thể ẩn bài toán. Vui lòng thử lại."
+    },
+    "common": {
+      "cancel": "Hủy"
+    },
+    "addDialog": {
+      "title": "Thêm Hàng Loạt Bài Toán",
+      "description": "Thêm nhiều bài toán cùng lúc bằng cách nhập mỗi ID trên một dòng.",
+      "form": {
+        "idsLabel": "ID Bài Toán",
+        "problemCount": "{count} bài toán",
+        "placeholder": "Nhập ID bài toán, mỗi ID một dòng\nVí dụ:\nproblem1\nproblem2\nproblem3",
+        "instruction": "Mỗi dòng sẽ được xử lý như một ID bài toán riêng biệt. Bài toán sẽ được xác thực khi bạn gõ."
+      },
+      "status": {
+        "validating": "Đang xác thực...",
+        "noResults": "Không có kết quả xác thực nào được trả về. Vui lòng thử lại hoặc kiểm tra kết nối của bạn."
+      },
+      "validation": {
+        "results": "Kết Quả Xác Thực",
+        "problemNotExist": "Bài toán \"{id}\" không tồn tại",
+        "alreadyAdded": "Bài toán \"{id}\" đã được thêm",
+        "valid": "Bài toán \"{id}\" hợp lệ"
+      },
+      "difficulty": {
+        "easy": "Dễ",
+        "medium": "Trung bình",
+        "hard": "Khó"
+      },
+      "actions": {
+        "cancel": "Hủy",
+        "addProblems": "Thêm Bài Toán {count}",
+        "addingProblems": "Đang thêm bài toán..."
+      }
+    },
+    "searchCategory": "Tìm kiếm danh mục...",
+    "actionsColumn": "hành động",
+    "addProblem": "Thêm bài tập",
+    "filters": "Bộ lọc",
+    "clearAll": "Xóa tất cả",
+    "filterByCategory": "Lọc theo {category}",
+    "selectedCategories": "{count, plural, =1 {# danh mục} other {# danh mục}} đã chọn",
+    "statusColumn": "✓",
+    "titleColumn": "Tiêu đề",
+    "categoryColumn": "Danh mục",
+    "difficultyColumn": "Độ khó",
+    "noProblemsFound": "Không tìm thấy bài tập",
+    "tryAdjustingFilters": "Thử điều chỉnh bộ lọc của bạn",
+    "solvedProblem": "Bạn đã giải bài tập này",
+    "title": "Danh sách bài tập",
+    "subtitle": "Luyện tập kỹ năng lập trình với các bài tập được chọn lọc",
+    "loading": "Đang tải bài tập...",
+    "searchLabel": "Tìm kiếm bài tập",
+    "searchPlaceholder": "Gõ để tìm kiếm và nhấn Enter...",
+    "categoriesTitle": "Danh mục",
+    "problemsCount": "Số lượng bài tập",
+    "openSidebar": "Mở bảng lọc",
+    "closeSidebar": "Đóng bảng lọc",
+    "Problem Set": "Bộ bài tập",
+    "Easy": "Dễ",
+    "Medium": "Trung bình",
+    "Hard": "Khó",
+    "Status": "Trạng thái",
+    "Title": "Tiêu đề",
+    "Category": "Danh mục",
+    "Difficulty": "Độ khó",
+    "Acceptance": "Tỷ lệ chấp nhận",
+    "Previous": "Trước",
+    "Next": "Tiếp",
+    "Search problems": "Tìm kiếm bài tập",
+    "Search category": "Tìm kiếm danh mục",
+    "Beginner": "Người mới",
+    "Intermediate": "Trung cấp",
+    "Moderate": "Vừa phải",
+    "Very Hard": "Rất khó",
+    "Expert": "Chuyên gia",
+    "StartSolvingProblems": "Bắt đầu giải bài tập để nâng cao kỹ năng của bạn!",
+    "previous": "Trước",
+    "next": "Tiếp",
+    "ellipsis": "..."
+  },
+  "Contests": {
+    "View Details": "Xem chi tiết",
+    "Register": "Đăng ký",
+    "hour": "giờ",
+    "hours": "giờ",
+    "Duration": "Thời lượng",
+    "Upcoming Contests": "Các cuộc thi sắp tới",
+    "Ongoing Contests": "Các cuộc thi đang diễn ra",
+    "Past Contests": "Các cuộc thi đã qua"
+  },
+  "Leaderboard": {
+    "Rank": "Thứ hạng",
+    "Username": "Tên người dùng",
+    "Rating": "Điểm số",
+    "Contests Joined": "Đã tham gia cuộc thi",
+    "Problems Solved": "Bài tập đã giải",
+    "Previous": "Trước",
+    "Next": "Tiếp",
+    "Leaderboard": "Bảng xếp hạng"
+  },
+  "Topics": {
+    "2SatDesc": "Thuật toán giải quyết vấn đề thỏa mãn boolean với mỗi mệnh đề có tối đa 2 literal, sử dụng các thành phần liên thông mạnh.",
+    "AdHocDesc": "Các bài toán không thuộc vào các danh mục tiêu chuẩn và yêu cầu các giải pháp tùy chỉnh đặc thù cho từng bài toán.",
+    "ConstructiveDesc": "Thuật toán xây dựng một giải pháp cho bài toán thay vì tìm kiếm qua không gian các giải pháp có thể.",
+    "DivideConquerDesc": "Mô hình giải quyết vấn đề chia nhỏ bài toán thành các bài toán con nhỏ hơn, giải chúng một cách đệ quy và kết hợp các giải pháp của chúng.",
+    "BalancedBSTDesc": "Cấu trúc dữ liệu cây nhị phân tìm kiếm tự cân bằng, duy trì chiều cao cây theo hàm logarit của số phần tử.",
+    "STLDesc": "Sử dụng các thành phần của Thư viện Chuẩn C++ như vector, set, map, heap và các cấu trúc dữ liệu và thuật toán được định nghĩa sẵn khác.",
+    "DSUDesc": "Cấu trúc dữ liệu theo dõi một tập hợp các phần tử được phân vùng thành các tập con không chồng chéo, hỗ trợ các thao tác union và find.",
+    "FenwickDesc": "Cấu trúc dữ liệu cung cấp phương pháp hiệu quả để tính toán và thao tác với tổng tiền tố trong một mảng.",
+    "Fenwick2DDesc": "Mở rộng của Cây Fenwick để xử lý các truy vấn phạm vi hai chiều và cập nhật một cách hiệu quả.",
+    "SegmentTreeDesc": "Cấu trúc dữ liệu cây được sử dụng để lưu trữ thông tin về các khoảng hoặc đoạn, cho phép thực hiện các truy vấn hiệu quả.",
+    "RMQDesc": "Bài toán tìm giá trị nhỏ nhất trong một mảng con của một mảng các đối tượng có thể so sánh được.",
+    "TrieDesc": "Cấu trúc dữ liệu cây được sử dụng để định vị các khóa cụ thể từ trong một tập hợp, đặc biệt là các chuỗi.",
+    "DFSBFSDesc": "Tìm kiếm theo chiều sâu và Tìm kiếm theo chiều rộng là các thuật toán duyệt đồ thị để khám phá tất cả các đỉnh và cạnh của đồ thị.",
+    "TraversalDesc": "Phương pháp để thăm tất cả các nút trong đồ thị hoặc cây theo cách có hệ thống.",
+    "DijkstraDesc": "Thuật toán tìm đường đi ngắn nhất giữa các nút trong đồ thị với trọng số cạnh không âm.",
+    "FloydWarshallDesc": "Thuật toán tìm đường đi ngắn nhất giữa tất cả các cặp đỉnh trong đồ thị có trọng số.",
+    "MatchingDesc": "Thuật toán tìm tập hợp con các cạnh trong đồ thị sao cho không có hai cạnh nào chia sẻ một đỉnh chung.",
+    "WeightedMatchingDesc": "Bài toán ghép cặp với các cạnh có trọng số, nhằm tìm ghép cặp có tổng trọng số lớn nhất hoặc nhỏ nhất.",
+    "GeneralMatchingDesc": "Thuật toán tìm ghép cặp trong đồ thị tổng quát, không giới hạn ở đồ thị hai phía.",
+    "MSTDesc": "Tập hợp con các cạnh của đồ thị tạo thành cây bao gồm mọi đỉnh, với tổng trọng số cạnh nhỏ nhất có thể.",
+    "EulerianDesc": "Đường đi trong đồ thị thăm mỗi cạnh đúng một lần và trở về đỉnh xuất phát.",
+    "LCADesc": "Tìm tổ tiên chung thấp nhất của hai nút trong cây hoặc đồ thị có hướng không chu trình.",
+    "LinkCutTreeDesc": "Cấu trúc dữ liệu để biểu diễn một rừng cây hỗ trợ các hoạt động động như liên kết, cắt và các truy vấn liên quan đến đường đi.",
+    "HLDDesc": "Kỹ thuật chia cây thành các đoạn đường đi để cho phép các thao tác hiệu quả trên đường đi.",
+    "SqrtDecompDesc": "Phương pháp tiền xử lý dữ liệu để trả lời các truy vấn phạm vi hiệu quả bằng cách chia dữ liệu thành các khối.",
+    "SweepLineDesc": "Mẫu thuật toán sử dụng một đường quét khái niệm để giải quyết các bài toán trong hình học tính toán và các lĩnh vực khác.",
+    "CoordinateCompressionDesc": "Kỹ thuật ánh xạ một phạm vi giá trị lớn thành một phạm vi nhỏ hơn mà không thay đổi thứ tự tương đối của chúng.",
+    "AhoCorasickDesc": "Thuật toán tìm kiếm chuỗi định vị các lần xuất hiện của từ điển các từ khóa trong một văn bản.",
+    "KMPDesc": "Thuật toán tìm kiếm chuỗi tìm hiệu quả các lần xuất hiện của một mẫu trong một chuỗi văn bản chính.",
+    "ManacherDesc": "Thuật toán thời gian tuyến tính để tìm chuỗi con đối xứng dài nhất trong một chuỗi.",
+    "SuffixDesc": "Cấu trúc dữ liệu cho các thao tác chuỗi hiệu quả, đặc biệt là cho các tìm kiếm chuỗi con và khớp mẫu.",
+    "ZFunctionDesc": "Thuật toán tính toán độ dài của chuỗi con dài nhất bắt đầu tại mỗi vị trí đồng thời là tiền tố của chuỗi.",
+    "HashingDesc": "Kỹ thuật ánh xạ dữ liệu vào một mảng có kích thước cố định, thường được sử dụng để so sánh chuỗi và tìm kiếm chuỗi con.",
+    "ConvexHullTrickDesc": "Kỹ thuật tối ưu hóa cho các bài toán quy hoạch động liên quan đến các hàm tuyến tính.",
+    "BitmaskDPDesc": "Phương pháp quy hoạch động trong đó trạng thái được biểu diễn bằng bitmask, thường được sử dụng cho các bài toán liên quan đến tập hợp con.",
+    "DigitDPDesc": "Kỹ thuật quy hoạch động để đếm số lượng số có các thuộc tính nhất định trong một phạm vi.",
+    "LexicoDPDesc": "Phương pháp quy hoạch động để giải quyết các bài toán liên quan đến thứ tự từ điển của các đối tượng.",
+    "TreeDPDesc": "Áp dụng các kỹ thuật quy hoạch động cho cấu trúc cây, thường liên quan đến các tính toán trên cây con.",
+    "KnuthOptDesc": "Kỹ thuật tối ưu hóa cho một số bài toán quy hoạch động giảm độ phức tạp thời gian bằng cách sử dụng các thuộc tính đơn điệu.",
+    "MathDesc": "Các bài toán đòi hỏi cái nhìn sâu sắc về toán học hoặc thao tác không phù hợp với các danh mục tiêu chuẩn.",
+    "GeneratingFunctionsDesc": "Chuỗi lũy thừa hình thức được sử dụng để mô tả chuỗi và giải quyết các bài toán tổ hợp.",
+    "GaussianEliminDesc": "Thuật toán giải hệ phương trình tuyến tính bằng cách biến đổi ma trận mở rộng của hệ thành dạng bậc thang được rút gọn.",
+    "MatrixMultDesc": "Phép toán tạo ra một ma trận bằng cách nhân hai ma trận theo các quy tắc toán học cụ thể.",
+    "LargeNumbersDesc": "Kỹ thuật xử lý các phép tính số học trên các số quá lớn cho các kiểu dữ liệu tiêu chuẩn.",
+    "Convex hull": "Bao lồi",
+    "ConvexHullDesc": "Tập lồi nhỏ nhất chứa một tập hợp điểm cho trước.",
+    "GameAdHocDesc": "Chiến lược và kỹ thuật phân tích tùy chỉnh cho các bài toán trò chơi cụ thể.",
+    "GrundyDesc": "Giá trị được gán cho vị trí trong các trò chơi tổ hợp để xác định chiến lược chiến thắng.",
+    "NimDesc": "Phân tích toán học của trò chơi Nim và các trò chơi lấy đi tương tự.",
+    "NetworkFlowDesc": "Thuật toán tìm lượng luồng tối đa có thể đi qua mạng từ nguồn đến đích.",
+    "MinCostFlowDesc": "Bài toán tìm cách rẻ nhất để gửi một lượng luồng nhất định qua mạng.",
+    "PrefixSumDesc": "Mảng trong đó mỗi phần tử là tổng của tất cả các phần tử trước đó trong mảng gốc, được sử dụng để tính toán nhanh tổng trong phạm vi.",
+    "MonotonicQueueDesc": "Cấu trúc dữ liệu hàng đợi duy trì các phần tử theo thứ tự tăng dần hoặc giảm dần.",
+    "OutputOnlyDesc": "Bài toán trong đó đầu vào được cung cấp nhưng giải pháp chỉ phải tạo đầu ra mà không tiết lộ thuật toán.",
+    "UnclassifiedDesc": "Các bài toán không rõ ràng phù hợp với bất kỳ danh mục đã thiết lập nào hoặc sử dụng kết hợp các kỹ thuật.",
+    "Two pointers": "Hai con trỏ",
+    "2-satisfiability": "2-satisfiability",
+    "Ad hoc": "Ad hoc",
+    "Aho-Corasick": "Aho-Corasick",
+    "Balanced Binary Search Tree": "Cây nhị phân cân bằng (Balanced BST)",
+    "Bitwise operations": "Thao tác bitwise",
+    "C++ STL": "C++ STL (Heap, Set, Map, ...)",
+    "Matching": "Cặp ghép",
+    "Weighted matching": "Cặp ghép có trọng số",
+    "Matching on general graphs": "Cặp ghép trên đồ thị thường",
+    "Minimum spanning tree": "Cây khung nhỏ nhất",
+    "Square root decomposition": "Chia căn",
+    "Meet in the middle": "MITM",
+    "Eulerian cycle": "Chu trình Euler",
+    "Unclassified": "Chưa phân loại",
+    "Constructive algorithms": "Constructive",
+    "DFS / BFS": "DFS / BFS",
+    "Disjoint Set Union": "Disjoint Set Union (DSU)",
+    "Divide & Conquer": "Chia để trị",
+    "Traversal": "Duyệt",
+    "Graph theory": "Lý thuyết đồ thị",
+    "Shortest path - Dijkstra": "Đường đi ngắn nhất - Dijkstra",
+    "Shortest path - Floyd-Warshall": "Đường đi ngắn nhất - Floyd-Warshall",
+    "Fast Fourier Transform": "FFT",
+    "Fenwick Tree": "Cây Fenwick (Binary Indexed Tree)",
+    "2D Fenwick Tree": "Cây Fenwick 2D",
+    "Generating functions": "Hàm sinh",
+    "Hashing": "Hashing",
+    "Heavy-Light Decomposition": "Heavy-Light Decomposition",
+    "Interactive problems": "Interactive",
+    "Gaussian elimination": "Khử Gauss",
+    "Knuth-Morris-Pratt": "KMP",
+    "Knuth Optimization": "Knuth Optimization",
+    "Lowest Common Ancestor": "LCA",
+    "Link-Cut Tree": "Link-Cut Tree",
+    "Network flow": "Luồng",
+    "Minimum-cost flow": "Luồng mincost",
+    "Game theory - Ad hoc": "Lý thuyết trò chơi - Ad hoc",
+    "Game theory - Grundy numbers": "Lý thuyết trò chơi - Số Grundy",
+    "Game theory - Nim game": "Lý thuyết trò chơi - Trò chơi Nim",
+    "Manacher's algorithm": "Thuật toán Manacher",
+    "Prefix sum array": "Mảng tổng tiền tố",
+    "Monotonic Queue": "Hàng đợi đơn điệu",
+    "Matrix multiplication": "Nhân ma trận",
+    "Output-only problems": "Bài toán chỉ output",
+    "Dynamic programming": "Quy hoạch động",
+    "Convex hull trick": "Kỹ thuật bao lồi (tối ưu DP)",
+    "Bitmask dynamic programming": "Quy hoạch động bitmask",
+    "Digit dynamic programming": "Quy hoạch động theo chữ số",
+    "Lexicographic order dynamic programming": "Quy hoạch động theo thứ tự từ điển",
+    "Dynamic programming on trees": "Quy hoạch động trên cây",
+    "Range Minimum Query": "Truy vấn giá trị nhỏ nhất trong đoạn (RMQ)",
+    "Coordinate compression": "Nén tọa độ",
+    "Segment Tree": "Cây phân đoạn (Interval Tree)",
+    "Number theory": "Lý thuyết số",
+    "Strings": "Chuỗi",
+    "Suffix Array / Suffix Automaton / Suffix Tree": "Suffix Array / Suffix Automaton / Suffix Tree",
+    "Sweep line algorithm": "Thuật toán đường quét",
+    "Greedy algorithms": "Thuật toán tham lam",
+    "Binary search": "Tìm kiếm nhị phân",
+    "Mathematics - Ad hoc": "Toán học - Ad hoc",
+    "Trie": "Cây tiền tố (Trie)",
+    "Large number arithmetic": "Số học số lớn",
+    "Z-function": "Hàm Z",
+    "topics": "chủ đề",
+    "topic": "chủ đề",
+    "Filters": "Bộ lọc",
+    "ExploreTopics": "Khám phá các chủ đề lập trình khác nhau và nâng cao kỹ năng giải quyết vấn đề của bạn",
+    "StartPracticing": "Bắt đầu luyện tập",
+    "Name": "Tên",
+    "Description": "Mô tả",
+    "Difficulty": "Độ khó",
+    "Advanced": "Nâng cao",
+    "Beginner": "Người mới",
+    "Intermediate": "Trung cấp",
+    "Topics": "Chủ đề",
+    "Brute Force": "Trâu",
+    "Binary Search": "Tìm kiếm nhị phân",
+    "Greedy": "Tham lam",
+    "String": "Chuỗi",
+    "Search": "Tìm kiếm",
+    "Sort": "Sắp xếp",
+    "Number Theory": "Lý thuyết số",
+    "Data Structure": "Cấu trúc dữ liệu",
+    "Dynamic Programming": "Quy hoạch động",
+    "Graph": "Đồ thị",
+    "Tree": "Cây",
+    "Two Pointers": "2 con trỏ",
+    "Bit Manipulation": "Thao tác bit",
+    "Geometry": "Hình học",
+    "Games": "Trò chơi",
+    "Combinatorics": "Tổ hợp",
+    "Meet In The Middle": "MITM",
+    "Probabilities": "Xác suất",
+    "Chinese Remainder Theorem": "Thặng dư trung hoa",
+    "Graph Matchings": "Ghép đồ thị",
+    "Interactive": "Interactive",
+    "Matrix": "Ma trận",
+    "Ternary Search": "Tìm kiếm tam phân",
+    "SearchTopics": "Tìm kiếm chủ đề...",
+    "All Difficulties": "Tất cả độ khó",
+    "BruteForceDesc": "Phương pháp tiếp cận trực tiếp để kiểm tra tất cả các giải pháp có thể cho đến khi tìm được giải pháp đúng",
+    "BinarySearchDesc": "Thuật toán chia để trị tìm giá trị mục tiêu bằng cách liên tục chia không gian tìm kiếm làm đôi",
+    "GreedyDesc": "Một mô hình thuật toán đưa ra lựa chọn tối ưu cục bộ ở mỗi bước, với hy vọng tìm được tối ưu toàn cục",
+    "StringDesc": "Các bài toán liên quan đến thao tác và phân tích chuỗi văn bản",
+    "SearchDesc": "Các thuật toán và kỹ thuật tìm kiếm khác nhau để tìm kiếm phần tử trong cấu trúc dữ liệu",
+    "SortDesc": "Các phương pháp khác nhau để sắp xếp dữ liệu theo thứ tự cụ thể",
+    "NumberTheoryDesc": "Các khái niệm toán học liên quan đến tính chất và mối quan hệ của các số",
+    "DSDesc": "Triển khai và sử dụng các cấu trúc dữ liệu khác nhau để tổ chức và lưu trữ dữ liệu hiệu quả",
+    "DPDesc": "Phương pháp giải quyết các vấn đề phức tạp bằng cách chia chúng thành các vấn đề con đơn giản hơn",
+    "GraphDesc": "Các bài toán liên quan đến đỉnh và cạnh, bao gồm duyệt đồ thị và thuật toán tìm đường đi ngắn nhất",
+    "TreeDesc": "Cấu trúc dữ liệu phân cấp và thuật toán để giải quyết bài toán dựa trên cây",
+    "TwoPointersDesc": "Kỹ thuật sử dụng hai con trỏ để duyệt mảng hoặc dãy",
+    "BitDesc": "Các phép toán và thuật toán liên quan đến biểu diễn nhị phân của số",
+    "GeometryDesc": "Các bài toán liên quan đến điểm, đường, hình dạng và quan hệ không gian",
+    "GamesDesc": "Lý thuyết trò chơi và các kịch bản giải quyết vấn đề chiến lược",
+    "CombinatoricsDesc": "Các phương pháp toán học để đếm, sắp xếp và kết hợp các đối tượng",
+    "MeetInTheMiddleDesc": "Kỹ thuật chia đôi vấn đề để giảm độ phức tạp theo cấp số nhân",
+    "ProbabilitiesDesc": "Các bài toán liên quan đến xác suất và tính toán khả năng",
+    "CRTDesc": "Khái niệm lý thuyết số để giải hệ đồng dư tuyến tính",
+    "FFTDesc": "Thuật toán để tính toán hiệu quả phép nhân đa thức và tích chập",
+    "GraphMatchingsDesc": "Các bài toán liên quan đến ghép cặp đỉnh trong đồ thị theo các ràng buộc nhất định",
+    "InteractiveDesc": "Các bài toán yêu cầu tương tác với trình chấm hoặc hệ thống trong quá trình giải quyết",
+    "MatrixDesc": "Các phép toán và thuật toán liên quan đến mảng 2D và đại số tuyến tính",
+    "TernarySearchDesc": "Kỹ thuật tối ưu hóa chia không gian tìm kiếm thành ba phần"
+  },
+  "Playground": {
+    "signInToSubmit": "Đăng nhập để nộp bài",
+    "submissionId": "Bài nộp #{id}",
+    "judgeStatus": "Trạng thái đánh giá",
+    "testingProgress": "{completed} trong {total} bài kiểm tra đã hoàn thành",
+    "preparingTests": "Đang chuẩn bị bài kiểm tra...",
+    "completed": "đã hoàn thành",
+    "testCase": "Bài kiểm tra",
+    "preparingTestCases": "Đang chuẩn bị bài kiểm tra",
+    "compilingBeforeTesting": "Đang biên dịch mã trước khi chạy kiểm tra",
+    "compilingCode": "Đang biên dịch mã...",
+    "runningTestcase": "Đang chạy bài kiểm tra {current} của {total}",
+    "compilingSubmission": "Đang biên dịch bài nộp...",
+    "backToSubmissions": "Quay lại danh sách bài nộp",
+    "stage": {
+      "queued": "Hàng đợi",
+      "compiling": "Đang biên dịch",
+      "testing": "Đang kiểm tra",
+      "validating": "Đang xác thực"
+    },
+    "processingSubmission": "Đang xử lý bài nộp của bạn...",
+    "preparingEnvironment": "Đang chuẩn bị môi trường đánh giá",
+    "abortedAfterFailedTest": "Hiển thị {run} trong số {total} bài kiểm tra (đánh giá dừng sau khi thất bại)",
+    "showingVisibleTests": "Hiển thị {visible} trong số {total} bài kiểm tra",
+    "skipped": "bỏ qua",
+    "remainingTestsSkipped": "các bài kiểm tra còn lại đã bị bỏ qua",
+    "additionalHiddenTestcases": "{count} trường hợp kiểm thử bổ sung bị ẩn",
+    "solution": {
+      "titleFormat": "Lời giải cho {problemTitle}",
+      "hiddenTitle": "Lời giải bị ẩn",
+      "hiddenDescription": "Lời giải chứa các giải thích chi tiết và cách tiếp cận để giải quyết bài toán này. Xem trước khi thử giải bài toán có thể ảnh hưởng đến trải nghiệm học tập của bạn.",
+      "showButton": "Hiển thị lời giải",
+      "hideButton": "Ẩn lời giải",
+      "visibleStatus": "Đang hiển thị lời giải",
+      "noSolution": "Không có lời giải cho bài toán này."
+    },
+    "statusText": "Trạng thái",
+    "backToEditor": "Quay lại trình soạn thảo",
+    "loadingSubmission": "Đang tải chi tiết bài nộp...",
+    "submissionTimeout": "Bài nộp đang mất nhiều thời gian hơn dự kiến. Vui lòng kiểm tra lại sau.",
+    "fetchError": "Không thể tải chi tiết bài nộp",
+    "noErrorMessage": "Không có thông báo lỗi",
+    "submission": "Bài nộp",
+    "processingDescription": "Bài nộp của bạn đang được xử lý. Quá trình này có thể mất vài giây. Trang sẽ tự động cập nhật khi quá trình hoàn tất.",
+    "pollingAttempt": "Lần thử {current} của {max}",
+    "submittedLabel": "Đã nộp",
+    "languageLabel": "Ngôn ngữ",
+    "runtimeLabel": "Thời gian chạy",
+    "memoryLabel": "Bộ nhớ",
+    "codeLabel": "Mã nguồn",
+    "noSubmissionFound": "Không tìm thấy bài nộp",
+    "status": {
+      "testing": "Đang kiểm tra",
+      "passed": "Đạt",
+      "failed": "Không đạt",
+      "running": "Đang chạy",
+      "pending": "Chờ xử lý",
+      "accepted": "Đạt yêu cầu (AC)",
+      "wrongAnswer": "Sai kết quả (WA)",
+      "timeLimit": "Quá thời gian (TLE)",
+      "runtime": "Lỗi chạy (RTE)",
+      "timeLimitExceeded": "Quá thời gian (TLE)",
+      "runtimeError": "Lỗi chạy (RTE)",
+      "memoryLimit": "Quá bộ nhớ (MLE)",
+      "compileError": "Lỗi biên dịch (CE)",
+      "inQueue": "Đang chờ"
+    },
+    "testCases": "Trường hợp kiểm thử",
+    "passed": "đạt",
+    "allPassed": "Tất cả đạt",
+    "someFailed": "Một số không đạt",
+    "time": "Thời gian",
+    "memory": "Bộ nhớ",
+    "noTestCasesAvailable": "Không có trường hợp kiểm thử",
+    "settingsAriaLabel": "Cài đặt trình soạn thảo",
+    "submit": "Nộp bài",
+    "processing": "Đang xử lý...",
+    "editor": {
+      "settings": "Cài đặt trình soạn thảo",
+      "theme": "Giao diện",
+      "fontSize": "Cỡ chữ ({size}px)",
+      "tabSize": "Kích thước tab",
+      "showMinimap": "Hiển thị minimap",
+      "wordWrap": "Ngắt dòng",
+      "lineNumbers": "Số dòng",
+      "autoSave": "Tự động lưu",
+      "bracketPairs": "Màu sắc cặp ngoặc",
+      "themes": {
+        "dark": "Tối",
+        "githubDark": "GitHub tối",
+        "monokai": "Monokai"
+      }
+    },
+    "failedToLoadSubmissions": "Không thể tải các bài nộp",
+    "all": "Tất cả",
+    "submissions": "Bài nộp",
+    "allSubmissions": "Tất cả bài nộp",
+    "mySubmissions": "Chỉ bài nộp của tôi",
+    "refresh": "Làm mới",
+    "noSubmissionsFound": "Không tìm thấy bài nộp nào",
+    "statusColumn": "Trạng thái",
+    "userColumn": "Người dùng",
+    "whenColumn": "Thời gian",
+    "languageColumn": "Ngôn ngữ",
+    "performanceColumn": "Hiệu suất",
+    "viewColumn": "Xem",
+    "previous": "Trước",
+    "next": "Tiếp",
+    "ellipsis": "...",
+    "Newest": "Mới nhất",
+    "Submissions": "Bài nộp",
+    "Solution": "Giải pháp",
+    "Description": "Mô tả",
+    "Solutions": "Giải pháp",
+    "My Submissions": "Bài nộp của tôi",
+    "All Submissions": "Tất cả bài nộp",
+    "Topics": "Chủ đề",
+    "Companies": "Công ty",
+    "Hint": "Gợi ý",
+    "Acceptance": "Tỷ lệ chấp nhận",
+    "Notes": "Ghi chú",
+    "Example": "Ví dụ",
+    "Output": "Đầu ra",
+    "Input": "Đầu vào",
+    ":": ":",
+    "Hard": "Khó",
+    "Medium": "Trung bình",
+    "Easy": "Dễ",
+    "NoDes": "Không có mô tả bằng tiếng Việt.",
+    "NoSol": "Chưa có giải pháp bằng tiếng Việt.",
+    "Copy": "Sao chép",
+    "Solution in words": "Giải pháp bằng lời:",
+    "Sample Code": "Mã nguồn mẫu:",
+    "Status": "Trạng thái",
+    "All": "Tất cả",
+    "Accepted": "Đạt yêu cầu",
+    "Wrong Answer": "Sai kết quả",
+    "Compile Error": "Lỗi biên dịch",
+    "Time Limit Exceeded": "Quá thời gian",
+    "Runtime Error": "Lỗi chạy",
+    "Memory Limit Exceeded": "Quá bộ nhớ",
+    "Language": "Ngôn ngữ",
+    "Sort by": "Sắp xếp theo",
+    "None": "Không",
+    "Runtime": "Thời gian chạy",
+    "Memory": "Bộ nhớ",
+    "Submission": "Bài nộp",
+    "Test Cases": "Trường hợp kiểm thử",
+    "Code": "Mã nguồn",
+    "Time": "Thời gian"
+  },
+  "Legality": {
+    "PrivacyPolicy": {
+      "title": "Chính Sách Bảo Mật",
+      "Privacy Policy of CodePlease": "Chính Sách Bảo Mật của CodePlease",
+      "Information Collection and Use": "Thu Thập và Sử Dụng Thông Tin",
+      "Log Data": "Dữ Liệu Nhật Ký",
+      "Cookies": "Cookies",
+      "Service Providers": "Nhà Cung Cấp Dịch Vụ",
+      "Security": "Bảo Mật",
+      "Links to Other Sites": "Liên Kết đến Các Trang Web Khác",
+      "Changes to This Privacy Policy": "Thay Đổi Chính Sách Bảo Mật Này",
+      "Contact Us": "Liên Hệ Chúng Tôi",
+      "StaticText": {
+        "1": "CodePlease vận hành trang web CodePlease, cung cấp DỊCH VỤ.",
+        "2": "Trang này được sử dụng để thông báo cho khách truy cập về các chính sách của chúng tôi liên quan đến việc thu thập, sử dụng và tiết lộ Thông Tin Cá Nhân nếu có ai quyết định sử dụng Dịch vụ của chúng tôi, trang web CodePlease.",
+        "3": "Nếu bạn chọn sử dụng Dịch vụ của chúng tôi, thì bạn đồng ý với việc thu thập và sử dụng thông tin liên quan đến chính sách này. Thông Tin Cá Nhân mà chúng tôi thu thập được sử dụng để cung cấp và cải thiện Dịch vụ. Chúng tôi sẽ không sử dụng hoặc chia sẻ thông tin của bạn với bất kỳ ai ngoại trừ như được mô tả trong Chính sách Bảo mật này.",
+        "4": "Các thuật ngữ được sử dụng trong Chính sách Bảo mật này có cùng ý nghĩa như trong Điều khoản và Điều kiện của chúng tôi, có thể truy cập tại codeplease.net, trừ khi được định nghĩa khác trong Chính sách Bảo mật này.",
+        "5": "Để có trải nghiệm tốt hơn khi sử dụng Dịch vụ của chúng tôi, chúng tôi có thể yêu cầu bạn cung cấp cho chúng tôi một số thông tin nhận dạng cá nhân, bao gồm nhưng không giới hạn ở tên, số điện thoại và địa chỉ bưu điện. Thông tin chúng tôi thu thập sẽ được sử dụng để liên hệ hoặc nhận dạng bạn.",
+        "6": "Chúng tôi muốn thông báo rằng bất cứ khi nào bạn truy cập Dịch vụ của chúng tôi, chúng tôi thu thập thông tin mà trình duyệt của bạn gửi cho chúng tôi, được gọi là Dữ liệu Nhật ký. Dữ liệu Nhật ký này có thể bao gồm thông tin như địa chỉ Giao thức Internet (`IP`) của máy tính của bạn, phiên bản trình duyệt, các trang của Dịch vụ chúng tôi mà bạn truy cập, thời gian và ngày bạn truy cập, thời gian dành cho các trang đó và các thống kê khác.",
+        "7": "Cookies là các tệp với một lượng nhỏ dữ liệu thường được sử dụng như một định danh duy nhất ẩn danh. Chúng được gửi đến trình duyệt của bạn từ trang web mà bạn truy cập và được lưu trữ trên ổ cứng máy tính của bạn.",
+        "8": "Trang web của chúng tôi sử dụng các `cookie` này để thu thập thông tin và cải thiện Dịch vụ của chúng tôi. Bạn có tùy chọn chấp nhận hoặc từ chối các cookie này và biết khi nào cookie được gửi đến máy tính của bạn. Nếu bạn chọn từ chối cookie của chúng tôi, bạn có thể không sử dụng được một số phần của Dịch vụ của chúng tôi.",
+        "9": "Chúng tôi có thể thuê các công ty và cá nhân bên thứ ba vì các lý do sau:",
+        "10": "Để tạo điều kiện cho Dịch vụ của chúng tôi;",
+        "11": "Để cung cấp Dịch vụ thay mặt chúng tôi;",
+        "12": "Để thực hiện các dịch vụ liên quan đến Dịch vụ; hoặc",
+        "13": "Để hỗ trợ chúng tôi trong việc phân tích cách Dịch vụ của chúng tôi được sử dụng.",
+        "14": "Chúng tôi muốn thông báo cho người dùng Dịch vụ của chúng tôi rằng các bên thứ ba này có quyền truy cập vào Thông tin Cá nhân của bạn. Lý do là để thực hiện các nhiệm vụ được giao cho họ thay mặt chúng tôi. Tuy nhiên, họ có nghĩa vụ không tiết lộ hoặc sử dụng thông tin cho bất kỳ mục đích nào khác.",
+        "15": "Chúng tôi coi trọng niềm tin của bạn khi cung cấp cho chúng tôi Thông tin Cá nhân của bạn, do đó chúng tôi đang cố gắng sử dụng các phương tiện bảo vệ được chấp nhận về mặt thương mại. Nhưng hãy nhớ rằng không có phương pháp truyền tải nào qua internet, hoặc phương pháp lưu trữ điện tử nào là an toàn và đáng tin cậy 100%, và chúng tôi không thể đảm bảo tính bảo mật tuyệt đối của nó.",
+        "16": "Dịch vụ của chúng tôi có thể chứa các liên kết đến các trang web khác. Nếu bạn nhấp vào liên kết của bên thứ ba, bạn sẽ được chuyển hướng đến trang đó. Lưu ý rằng các trang web bên ngoài này không do chúng tôi điều hành. Do đó, chúng tôi thực sự khuyên bạn nên xem xét Chính sách Bảo mật của các trang web này. Chúng tôi không kiểm soát và không chịu trách nhiệm về nội dung, chính sách bảo mật hoặc thực tiễn của bất kỳ trang web hoặc dịch vụ của bên thứ ba nào.",
+        "17": "Quyền riêng tư của Trẻ em",
+        "18": "Dịch vụ của chúng tôi không nhắm đến bất kỳ ai dưới 13 tuổi. Chúng tôi không cố ý thu thập thông tin nhận dạng cá nhân từ trẻ em dưới 13 tuổi. Trong trường hợp chúng tôi phát hiện ra rằng một đứa trẻ dưới 13 tuổi đã cung cấp cho chúng tôi thông tin cá nhân, chúng tôi sẽ ngay lập tức xóa thông tin này khỏi máy chủ của chúng tôi. Nếu bạn là phụ huynh hoặc người giám hộ và bạn biết rằng con bạn đã cung cấp cho chúng tôi thông tin cá nhân, vui lòng liên hệ với chúng tôi để chúng tôi có thể thực hiện các hành động cần thiết.",
+        "19": "Chúng tôi có thể cập nhật Chính sách Bảo mật của mình theo thời gian. Do đó, chúng tôi khuyên bạn nên xem lại trang này định kỳ để biết bất kỳ thay đổi nào. Chúng tôi sẽ thông báo cho bạn về bất kỳ thay đổi nào bằng cách đăng Chính sách Bảo mật mới trên trang này. Những thay đổi này có hiệu lực ngay lập tức, sau khi chúng được đăng trên trang này.",
+        "20": "Nếu bạn có bất kỳ câu hỏi hoặc đề xuất nào về Chính sách Bảo mật của chúng tôi, đừng ngần ngại liên hệ với chúng tôi."
+      }
+    },
+    "TermsAndConditions": {
+      "title": "Điều Khoản và Điều Kiện",
+      "Acceptance of Terms": "Chấp Nhận Điều Khoản",
+      "Description of Services": "Mô Tả Dịch Vụ",
+      "User Accounts": "Tài Khoản Người Dùng",
+      "User Conduct": "Hành Vi Người Dùng",
+      "Intellectual Property": "Sở Hữu Trí Tuệ",
+      "Limitation of Liability": "Giới Hạn Trách Nhiệm",
+      "Indemnification": "Bồi Thường",
+      "Governing Law": "Luật Điều Chỉnh",
+      "Changes to Terms and Conditions": "Thay Đổi Điều Khoản và Điều Kiện",
+      "StaticText": {
+        "1": "Bằng cách truy cập hoặc sử dụng dịch vụ của chúng tôi, bạn đồng ý bị ràng buộc bởi các Điều khoản và Điều kiện này. Nếu bạn không đồng ý với bất kỳ phần nào của các điều khoản này, bạn có thể không truy cập hoặc sử dụng dịch vụ của chúng tôi.",
+        "2": "Dịch vụ của chúng tôi bao gồm đánh giá trực tuyến và giảng dạy. Chúng tôi bảo lưu quyền sửa đổi, tạm ngừng hoặc ngừng bất kỳ khía cạnh nào của dịch vụ của chúng tôi bất cứ lúc nào, có hoặc không có thông báo.",
+        "3": "Bạn có thể được yêu cầu tạo một tài khoản để truy cập các tính năng nhất định của dịch vụ chúng tôi. Bạn có trách nhiệm duy trì tính bảo mật của tài khoản và mật khẩu của mình và hạn chế truy cập vào tài khoản của bạn. Bạn đồng ý chịu trách nhiệm cho tất cả các hoạt động xảy ra dưới tài khoản của bạn.",
+        "4": "Bạn đồng ý không sử dụng dịch vụ của chúng tôi cho bất kỳ mục đích bất hợp pháp nào hoặc theo bất kỳ cách nào vi phạm các Điều khoản và Điều kiện này. Bạn cũng đồng ý không:",
+        "5": "Quấy rối, lạm dụng hoặc gây hại cho người dùng khác",
+        "6": "Vi phạm quyền của bên thứ ba",
+        "7": "Can thiệp hoặc gây gián đoạn hoạt động của dịch vụ chúng tôi",
+        "8": "Sử dụng dịch vụ của chúng tôi để chào mời thương mại mà không có sự đồng ý trước bằng văn bản của chúng tôi",
+        "9": "Tất cả nội dung và tài liệu có sẵn trên dịch vụ của chúng tôi, bao gồm nhưng không giới hạn ở văn bản, đồ họa, biểu trưng, hình ảnh và phần mềm, đều là tài sản của CodePlease hoặc các bên cấp phép của nó và được bảo vệ bởi luật bản quyền, thương hiệu và các luật sở hữu trí tuệ khác.",
+        "10": "Trong phạm vi tối đa được pháp luật cho phép, CodePlease sẽ không chịu trách nhiệm cho bất kỳ thiệt hại trực tiếp, gián tiếp, ngẫu nhiên, đặc biệt hoặc hậu quả nào phát sinh từ hoặc theo bất kỳ cách nào liên quan đến việc sử dụng dịch vụ của chúng tôi.",
+        "11": "Bạn đồng ý bồi thường và giữ cho CodePlease, các chi nhánh, cán bộ, giám đốc, nhân viên và đại lý của nó khỏi bất kỳ và tất cả các yêu cầu, trách nhiệm pháp lý, thiệt hại, tổn thất hoặc chi phí phát sinh từ hoặc theo bất kỳ cách nào liên quan đến việc sử dụng dịch vụ của chúng tôi của bạn.",
+        "12": "Các Điều khoản và Điều kiện này sẽ được điều chỉnh và hiểu theo luật pháp của khu vực tài phán, không liên quan đến các quy định xung đột pháp luật của nó.",
+        "13": "Chúng tôi bảo lưu quyền cập nhật hoặc sửa đổi các Điều khoản và Điều kiện này bất cứ lúc nào mà không cần thông báo trước. Việc bạn tiếp tục sử dụng dịch vụ của chúng tôi sau bất kỳ thay đổi nào như vậy cấu thành sự chấp nhận của bạn đối với Điều khoản và Điều kiện mới."
+      }
+    }
+  },
+  "DeveloperTeam": {
+    "title": "Đội Ngũ Phát Triển của CodePlease",
+    "Role": "Vai Trò"
+  },
+  "Profile": {
+    "Rank": "Hạng {number}",
+    "Edit Profile": "Chỉnh Sửa Hồ Sơ",
+    "SubmissionsLastYear": "{number} bài nộp trong năm qua",
+    "futureDate": "Ngày được cung cấp là trong tương lai.",
+    "time": {
+      "seconds": "{count, plural, one {# giây trước} other {# giây trước}}",
+      "minutes": "{count, plural, one {# phút trước} other {# phút trước}}",
+      "hours": "{count, plural, one {# giờ trước} other {# giờ trước}}",
+      "days": "{count, plural, one {# ngày trước} other {# ngày trước}}",
+      "weeks": "{count, plural, one {# tuần trước} other {# tuần trước}}",
+      "months": "{count, plural, one {# tháng trước} other {# tháng trước}}",
+      "years": "{count, plural, one {# năm trước} other {# năm trước}}"
+    },
+    "Activity Calendar": "Lịch Hoạt Động {year}",
+    "Community Stats": "Thống Kê Cộng Đồng",
+    "Views": "Lượt Xem",
+    "Solutions": "Giải Pháp",
+    "Discuss": "Thảo Luận",
+    "Reputation": "Uy Tín",
+    "Languages": "Ngôn Ngữ",
+    "Skills": "Kỹ Năng",
+    "Intermediate": "Trung Cấp",
+    "Acceptance": "Tỷ Lệ Chấp Nhận",
+    "Easy": "Dễ",
+    "Medium": "Trung Bình",
+    "Hard": "Khó",
+    "Rating Progress": "Tiến Trình Xếp Hạng",
+    "Date": "Ngày",
+    "Rating": "Điểm Số",
+    "Recent Accepted Submissions": "Các Bài Nộp Đã Chấp Nhận Gần Đây",
+    "List": "Danh Sách",
+    "activites": "{number} hoạt động",
+    "Monday": "Thứ Hai",
+    "Tuesday": "Thứ Ba",
+    "Wednesday": "Thứ Tư",
+    "Thursday": "Thứ Năm",
+    "Friday": "Thứ Sáu",
+    "Saturday": "Thứ Bảy",
+    "Sunday": "Chủ Nhật",
+    "January": "Tháng Một",
+    "February": "Tháng Hai",
+    "March": "Tháng Ba",
+    "April": "Tháng Tư",
+    "May": "Tháng Năm",
+    "June": "Tháng Sáu",
+    "July": "Tháng Bảy",
+    "August": "Tháng Tám",
+    "September": "Tháng Chín",
+    "October": "Tháng Mười",
+    "November": "Tháng Mười Một",
+    "December": "Tháng Mười Hai",
+    "User Submissions": "Bài Nộp của Người Dùng",
+    "ID": "ID",
+    "Status": "Trạng Thái",
+    "Problem": "Bài Toán",
+    "Action": "Hành Động",
+    "Accepted": "Đã Chấp Nhận",
+    "Wrong Answer": "Sai Đáp Án",
+    "Compile Error": "Lỗi Biên Dịch",
+    "View Details": "Xem Chi Tiết"
+  },
+  "Difficulty": {
+    "Beginner": "Người Mới Bắt Đầu",
+    "Easy": "Dễ",
+    "Intermediate": "Trung Cấp",
+    "Challenging": "Thử Thách",
+    "Hard": "Khó",
+    "Very Hard": "Rất Khó",
+    "Expert": "Chuyên Gia"
+  },
+  "NewBox": {
+    "New": "Mới"
+  },
+  "UsersManagement": {
+    "editUser": {
+      "title": "Chỉnh Sửa Người Dùng",
+      "description": "Cập nhật thông tin người dùng. Nhấn lưu khi bạn hoàn tất."
+    },
+    "fields": {
+      "email": "Email",
+      "fullName": "Họ và Tên",
+      "handle": "Tên Hiển Thị",
+      "birthdate": "Ngày Sinh",
+      "country": "Quốc Gia",
+      "roles": "Vai Trò"
+    },
+    "roles": {
+      "problemSetter": "Người Tạo Bài",
+      "admin": "Quản Trị Viên",
+      "regular": "Người Dùng Thường"
+    },
+    "errors": {
+      "invalidEmail": "Vui lòng nhập địa chỉ email hợp lệ",
+      "handleTooShort": "Tên hiển thị phải có ít nhất 3 ký tự",
+      "fetchFailed": "Không thể tải danh sách người dùng. Vui lòng thử lại.",
+      "updateFailed": "Không thể cập nhật người dùng. Vui lòng thử lại.",
+      "deleteFailed": "Không thể xóa người dùng. Vui lòng thử lại.",
+      "bulkDeletePartial": "Không thể xóa {count} người dùng"
+    },
+    "buttons": {
+      "cancel": "Hủy",
+      "saveChanges": "Lưu Thay Đổi",
+      "saving": "Đang Lưu...",
+      "editUser": "Chỉnh Sửa Người Dùng",
+      "deleteUser": "Xóa Người Dùng",
+      "edit": "Chỉnh Sửa",
+      "delete": "Xóa",
+      "select": "Chọn",
+      "deselect": "Bỏ Chọn",
+      "selectAll": "Chọn Tất Cả",
+      "deselectAll": "Bỏ Chọn Tất Cả",
+      "exportAll": "Xuất Tất Cả",
+      "exportSelected": "Xuất {count} Đã Chọn",
+      "refresh": "Làm Mới",
+      "refreshing": "Đang Làm Mới...",
+      "tryAgain": "Thử Lại"
+    },
+    "placeholders": {
+      "selectCountry": "Chọn quốc gia",
+      "searchPlaceholder": "Tìm kiếm người dùng...",
+      "roleFilterPlaceholder": "Lọc theo vai trò",
+      "statusFilterPlaceholder": "Lọc theo trạng thái",
+      "sortByPlaceholder": "Sắp xếp theo"
+    },
+    "options": {
+      "noCountry": "Không có quốc gia"
+    },
+    "userCard": {
+      "unnamed": "Người Dùng Chưa Đặt Tên",
+      "noHandle": "chưa-có-tên-hiển-thị",
+      "noEmail": "Không có email",
+      "noCountry": "Không có quốc gia",
+      "noBirthdate": "Không có ngày sinh",
+      "joined": "Đã tham gia",
+      "unknown": "Không xác định"
+    },
+    "status": {
+      "verified": "Đã Xác Thực",
+      "unverified": "Chưa Xác Thực",
+      "complete": "Đã Hoàn Thành",
+      "incomplete": "Chưa Hoàn Thành"
+    },
+    "title": "Quản Lý Người Dùng",
+    "noUsersFound": "Không tìm thấy người dùng nào phù hợp với bộ lọc của bạn",
+    "filters": {
+      "allRoles": "Tất Cả Vai Trò",
+      "allStatuses": "Tất Cả Trạng Thái",
+      "sortByName": "Tên (A-Z)",
+      "sortByEmail": "Email (A-Z)",
+      "sortByNewest": "Mới Nhất Trước",
+      "sortByOldest": "Cũ Nhất Trước",
+      "roleFilterPlaceholder": "Lọc theo vai trò",
+      "statusFilterPlaceholder": "Lọc theo trạng thái",
+      "sortByPlaceholder": "Sắp xếp theo",
+      "searchPlaceholder": "Tìm kiếm theo tên, email, hoặc tên hiển thị",
+      "role": "Vai Trò",
+      "admins": "Quản Trị Viên",
+      "problemSetters": "Người Tạo Bài",
+      "regularUsers": "Người Dùng Thường",
+      "profileStatus": "Trạng Thái Hồ Sơ",
+      "allProfiles": "Tất Cả Hồ Sơ",
+      "completedProfiles": "Hồ Sơ Đã Hoàn Thành",
+      "incompleteProfiles": "Hồ Sơ Chưa Hoàn Thành",
+      "sortBy": "Sắp Xếp Theo",
+      "newestFirst": "Mới Nhất Trước",
+      "oldestFirst": "Cũ Nhất Trước",
+      "nameAZ": "Tên (A-Z)",
+      "nameZA": "Tên (Z-A)"
+    },
+    "bulkActions": {
+      "usersSelected": "{count} người dùng đã chọn",
+      "selectAll": "Chọn Tất Cả",
+      "deselectAll": "Bỏ Chọn Tất Cả",
+      "bulkActions": "Thao Tác Hàng Loạt",
+      "roleManagement": "Quản Lý Vai Trò",
+      "makeProblemSetters": "Đặt Làm Người Tạo Bài",
+      "removeProblemSetterRole": "Gỡ Vai Trò Người Tạo Bài",
+      "cancel": "Hủy Lựa Chọn"
+    },
+    "confirmations": {
+      "deleteTitle": "Xóa Người Dùng",
+      "deleteDescription": "Bạn có chắc chắn muốn xóa {user}? Hành động này không thể hoàn tác.",
+      "bulkDelete": "Bạn có chắc chắn muốn xóa {count} người dùng? Hành động này không thể hoàn tác."
+    },
+    "success": {
+      "userUpdated": "Cập nhật người dùng thành công",
+      "userDeleted": "Xóa người dùng thành công",
+      "bulkDeleteSuccess": "Đã xóa thành công {count} người dùng"
+    },
+    "pagination": {
+      "showing": "Hiển thị {start}-{end} trong tổng số {total} người dùng",
+      "page": "Trang",
+      "of": "trong",
+      "itemsPerPage": "Số mục mỗi trang",
+      "pageSize": "Kích thước trang",
+      "perPage": "{count} mỗi trang",
+      "next": "Tiếp",
+      "previous": "Trước",
+      "first": "Trang đầu",
+      "last": "Trang cuối"
+    }
+  },
+  "MathJax": {
+    "documentation": "Tài liệu",
+    "title": "Hướng dẫn định dạng MathJax & LaTeX",
+    "subtitle": "Tạo nội dung phong phú với biểu thức toán học, văn bản định dạng, bảng và nhiều hơn nữa bằng cú pháp LaTeX",
+    "navigation": {
+      "environments": "Môi trường",
+      "commands": "Lệnh",
+      "examples": "Ví dụ",
+      "bestPractices": "Phương pháp hay nhất"
+    },
+    "gettingStarted": "Bắt đầu",
+    "officialDocs": "Tài liệu chính thức MathJax",
+    "introduction": "MathJax cho phép bạn bao gồm các biểu thức toán học đẹp mắt, văn bản định dạng, danh sách, bảng và nội dung phong phú khác trực tiếp trong văn bản của bạn. Chỉ cần viết bằng các lệnh LaTeX và nền tảng của chúng tôi sẽ tự động hiển thị chúng.",
+    "sections": {
+      "basicInlineMath": "Toán học cơ bản trong dòng",
+      "basicDisplayMath": "Toán học cơ bản hiển thị",
+      "basicTextFormatting": "Định dạng văn bản cơ bản",
+      "basicList": "Danh sách cơ bản",
+      "writeThis": "Viết như sau:",
+      "getThis": "Nhận được:"
+    },
+    "examples": {
+      "categories": {
+        "math": {
+          "title": "Biểu thức toán học",
+          "description": "Học cách viết cả biểu thức toán học trong dòng và hiển thị với định dạng chính xác",
+          "code": "Đoạn văn này chứa một biểu thức toán học trong dòng: $E = mc^2$. Biểu thức trong dòng hòa quyện với văn bản.\n\nĐối với các phương trình phức tạp hơn, sử dụng toán học hiển thị:\n$$\\frac'{-b \\pm \\sqrt{b^2 - 4ac}'}'{2a'}$$ \n\n",
+          "annotations": {
+            "display": "Dấu đô la kép ($$...$$) tạo ra các phương trình độc lập, căn giữa",
+            "altInline": "\\(...\\) là cách thay thế để viết toán học trong dòng",
+            "altDisplay": "\\[...\\] là cách thay thế để viết toán học hiển thị"
+          },
+          "highlights": {
+            "inline": "Toán học trong dòng",
+            "display": "Toán học hiển thị",
+            "altSyntax": "Cú pháp thay thế"
+          },
+          "keyPoints": {
+            "inline": {
+              "title": "Toán học trong dòng",
+              "description": "Cho biểu thức toán học trong văn bản"
+            },
+            "display": {
+              "title": "Toán học hiển thị",
+              "description": "Cho phương trình độc lập, căn giữa"
+            },
+            "altInline": {
+              "title": "Thay thế trong dòng",
+              "description": "Cách khác để viết toán học trong dòng"
+            },
+            "altDisplay": {
+              "title": "Thay thế hiển thị",
+              "description": "Cách khác để viết toán học hiển thị"
+            }
+          },
+          "variations": {
+            "matrix": {
+              "name": "Ma trận",
+              "code": "Định thức của ma trận 2×2 được tính như sau:\n\n$$\\begin'{vmatrix'} \na & b \\\\\nc & d\n\\end'{vmatrix'} = ad - bc$$\n\nĐối với hệ phương trình tuyến tính:\n$$\\begin'{cases'}\n3x + 2y = 5 \\\\\nx - y = 1\n\\end'{cases'}$$",
+              "description": "Cách định dạng ma trận và hệ phương trình"
+            },
+            "advanced": {
+              "name": "Ký hiệu nâng cao",
+              "code": "Đối với tổng và tích phân:\n\n$$\\sum_'{i=1'}^'{n'} i^2 = \\frac'{n(n+1)(2n+1)'}'{6'}$$\n\n$$\\int_'{a'}^'{b'} f(x) \\, dx = F(b) - F(a)$$\n\nSử dụng giới hạn và phân số:\n$$\\lim_'{x \\to 0'} \\frac'{\\sin(x)'}'{x'} = 1$$",
+              "description": "Cách viết tổng, tích phân, giới hạn và phân số"
+            }
+          }
+        },
+        "text": {
+          "title": "Định dạng văn bản",
+          "description": "Định dạng văn bản của bạn với các kiểu, kích thước và màu sắc khác nhau bằng các lệnh LaTeX",
+          "code": "Văn bản thông thường có thể được tạo kiểu theo nhiều cách:\n\n\\textbf'{Văn bản đậm'} để nhấn mạnh\n\\textit'{Văn bản nghiêng'} để nhấn mạnh hoặc thuật ngữ\n\\underline'{Văn bản gạch chân'} để làm nổi bật\n\\texttt'{Văn bản monospace'} cho mã\n\n\\textcolor'{red'}'{Văn bản màu'} thêm sự thú vị trực quan\n\n\\large'{Văn bản lớn hơn'} thay đổi kích thước\n\n\\textbf'{\\textit{\\textcolor{blue}{Định dạng kết hợp}}'} cũng có thể",
+          "annotations": {
+            "bold": "\\textbf{...} làm văn bản đậm",
+            "italic": "\\textit{...} làm văn bản nghiêng",
+            "underline": "\\underline{...} thêm gạch chân",
+            "monospace": "\\texttt{...} hiển thị văn bản trong phông chữ cố định chiều rộng",
+            "color": "\\textcolor{color}{...} thay đổi màu văn bản (đỏ, xanh, xanh lá, v.v.)",
+            "size": "\\large{...} tăng kích thước văn bản (cũng có: \\small, \\tiny, \\huge)",
+            "combined": "Lệnh kiểu có thể được lồng nhau để tạo hiệu ứng kết hợp"
+          },
+          "highlights": {
+            "bold": "Văn bản đậm",
+            "italic": "Văn bản nghiêng",
+            "underline": "Văn bản gạch chân",
+            "monospace": "Văn bản Monospace",
+            "color": "Văn bản màu",
+            "size": "Kích thước văn bản",
+            "combined": "Kiểu kết hợp"
+          },
+          "keyPoints": {
+            "bold": {
+              "title": "Văn bản đậm",
+              "description": "Làm văn bản nổi bật để nhấn mạnh"
+            },
+            "italic": {
+              "title": "Văn bản nghiêng",
+              "description": "Thêm nhấn mạnh hoặc chỉ ra các thuật ngữ và cụm từ"
+            },
+            "color": {
+              "title": "Màu văn bản",
+              "description": "Thay đổi màu của văn bản để làm nổi bật trực quan"
+            },
+            "size": {
+              "title": "Kích thước văn bản",
+              "description": "Điều chỉnh kích thước của văn bản tương đối với nội dung xung quanh"
+            }
+          },
+          "variations": {
+            "sizes": {
+              "name": "Biến thể kích thước văn bản",
+              "code": "\\tiny'{Văn bản rất nhỏ'}\n\\small'{Văn bản nhỏ'}\n\\normalsize'{Văn bản bình thường (mặc định)'}\n\\large'{Văn bản lớn'}\n\\Large'{Văn bản lớn hơn'}\n\\LARGE'{Văn bản còn lớn hơn nữa'}\n\\huge'{Văn bản khổng lồ'}\n\\HUGE'{Văn bản cực kỳ khổng lồ'}",
+              "description": "Các lệnh kích thước khác nhau để định dạng văn bản"
+            }
+          }
+        }
+      },
+      "inlineMath": {
+        "code": "Diện tích của một hình tròn là $A = \\pi r^2$ trong đó $r$ là bán kính."
+      },
+      "displayMath": {
+        "code": "$$\\sum_'{i=1'}^'{n'} i = \\frac'{n(n+1)'}'{2'}$$"
+      },
+      "formatting": {
+        "code": "Đây là \\textbf'{đậm'}, \\textit'{nghiêng'}, và \\textcolor'{red'}'{có màu'} văn bản."
+      },
+      "list": {
+        "code": "\\begin'{itemize'}\n  \\item Mục đầu tiên\n  \\item Mục thứ hai\n\\end'{itemize'}"
+      },
+      "quickRef": {
+        "inlineMath": {
+          "syntax": "$x^2 + y^2$"
+        },
+        "displayMath": {
+          "syntax": "$$E = mc^2$$"
+        },
+        "boldText": {
+          "syntax": "\\textbf'{đậm'}"
+        },
+        "italicText": {
+          "syntax": "\\textit'{nghiêng'}"
+        },
+        "bulletList": {
+          "syntax": "\\begin'{itemize'}\n\\item Văn bản\n\\end'{itemize'}"
+        },
+        "numberedList": {
+          "syntax": "\\begin'{enumerate'}\n\\item Văn bản\n\\end'{enumerate'}"
+        },
+        "simpleTable": {
+          "syntax": "\\begin'{tabular'}'{|c|c|'}\n\\hline\nA & B \\\\\n\\hline\n\\end'{tabular'}"
+        },
+        "centerContent": {
+          "syntax": "\\begin'{center'}\nNội dung\n\\end'{center'}"
+        }
+      },
+      "titles": {
+        "math_expressions": "Biểu thức toán học",
+        "text_formatting": "Định dạng văn bản",
+        "lists_and_enumerations": "Danh sách và liệt kê",
+        "tables_and_arrays": "Bảng và mảng"
+      }
+    },
+    "quickReference": {
+      "title": "Tham khảo nhanh",
+      "types": {
+        "math": "Toán học",
+        "text": "Văn bản",
+        "list": "Danh sách",
+        "table": "Bảng",
+        "layout": "Bố cục"
+      },
+      "descriptions": {
+        "inlineMath": "Toán học trong dòng",
+        "displayMath": "Toán học hiển thị",
+        "boldText": "Văn bản đậm",
+        "italicText": "Văn bản nghiêng",
+        "bulletList": "Danh sách dấu đầu dòng",
+        "numberedList": "Danh sách đánh số",
+        "simpleTable": "Bảng đơn giản",
+        "centerContent": "Nội dung căn giữa"
+      }
+    },
+    "interactiveExamples": "Ví dụ tương tác",
+    "exploreExamples": "Khám phá các ví dụ tương tác này để xem cách LaTeX có thể được sử dụng trong nhiều ngữ cảnh khác nhau. Nhấp vào nút sao chép để sử dụng chúng trong các bài toán của riêng bạn.",
+    "viewBestPractices": "Xem phương pháp hay nhất",
+    "resources": {
+      "additionalResources": "Tài nguyên bổ sung",
+      "officialDocs": {
+        "title": "Tài liệu chính thức MathJax",
+        "description": "Hướng dẫn toàn diện về cú pháp và khả năng của MathJax."
+      },
+      "latexWikibooks": {
+        "title": "LaTeX Wikibooks",
+        "description": "Sách và hướng dẫn miễn phí về cú pháp LaTeX."
+      },
+      "detexify": {
+        "title": "Detexify",
+        "description": "Vẽ một ký hiệu để tìm lệnh LaTeX của nó."
+      },
+      "links": {
+        "mathjax": "https://www.mathjax.org/#docs",
+        "latex": "https://en.wikibooks.org/wiki/LaTeX/",
+        "detexify": "https://detexify.kirelabs.org/classify.html",
+        "officialDocs": "https://www.mathjax.org/"
+      }
+    },
+    "bestPractices": {
+      "title": "Phương pháp hay nhất & Ví dụ về MathJax",
+      "subtitle": "Tuân theo các hướng dẫn này để tạo nội dung có cấu trúc tốt, dễ đọc, hiển thị chính xác và hoạt động tối ưu.",
+      "tabs": {
+        "structure": "Cấu trúc tài liệu",
+        "tables": "Bảng",
+        "math": "Toán học",
+        "troubleshooting": "Xử lý sự cố",
+        "formatting": "Định dạng văn bản"
+      },
+      "commonUI": {
+        "recommended": "Khuyến nghị",
+        "avoid": "Tránh",
+        "code": "Mã:",
+        "renderedResult": "Kết quả hiển thị:",
+        "debuggingTip": "Mẹo gỡ lỗi",
+        "performanceTips": "Mẹo hiệu suất"
+      },
+      "structure": {
+        "title": "Phương pháp hay nhất cho cấu trúc tài liệu",
+        "example1": {
+          "title": "1. Sử dụng dòng trống giữa các đoạn văn",
+          "goodCode": "Đoạn văn đầu tiên với một số văn bản.\n\nĐoạn văn thứ hai với thêm thông tin.\n\nĐoạn văn thứ ba tiếp tục giải thích.",
+          "badCode": "Đoạn văn đầu tiên với một số văn bản.\nĐoạn văn thứ hai thêm thông tin.\nĐoạn văn thứ ba tiếp tục giải thích.",
+          "explanation": "Luôn tách các đoạn văn bằng dòng trống để có khoảng cách phù hợp. Điều này cải thiện khả năng đọc và đảm bảo hiển thị đoạn văn chính xác."
+        },
+        "example2": {
+          "title": "2. Lồng môi trường đúng cách",
+          "goodCode": "\\begin'{center'}\n  Nội dung căn giữa\n\n  \\begin'{itemize'}\n    \\item Mục căn giữa đầu tiên\n    \\item Mục căn giữa thứ hai\n  \\end'{itemize'}\n\\end'{center'}",
+          "badCode": "\\begin'{center'}\n  Nội dung căn giữa\n\n  \\begin'{itemize'}\n    \\item Mục căn giữa đầu tiên\n    \\item Mục căn giữa thứ hai\n\\end'{center'}\n\\end'{itemize'}",
+          "explanation": "Luôn đảm bảo các thẻ \\begin và \\end của bạn được lồng đúng cách. Lồng không chính xác sẽ gây ra lỗi hiển thị."
+        },
+        "example3": {
+          "title": "3. Tổ chức nội dung với tiêu đề",
+          "code": "\\huge'{Tiêu đề chính'}\n\n\\Large'{Phần 1: Giới thiệu'}\n\nVăn bản thông thường cho đoạn giới thiệu.\n\n\\Large'{Phần 2: Phương pháp'}\n\nMô tả các phương pháp được sử dụng.\n\n\\Large'{Phần 3: Kết quả'}\n\nTrình bày các phát hiện chính.",
+          "description": "Sử dụng kích thước tiêu đề nhất quán để tạo hệ thống phân cấp trực quan trong tài liệu của bạn."
+        },
+        "example4": {
+          "title": "4. Sử dụng khối môi trường cho nội dung có cấu trúc",
+          "code": "\\begin'{detail'}\n\\summary Phần thông tin quan trọng\n\nPhần này chứa thông tin quan trọng:\n\n\\begin'{itemize'}\n  \\item Điểm chính 1\n  \\item Điểm chính 2\n  \\item Điểm chính 3\n\\end'{itemize'}\n\\end'{detail'}",
+          "description": "Sử dụng các phần chi tiết có thể thu gọn để tổ chức thông tin phức tạp mà không gây quá tải cho người đọc."
+        },
+        "example5": {
+          "title": "5. Sử dụng phần Chi tiết đúng cách",
+          "code": "\\begin'{detail'}\n\\summary'{Tiêu đề phần có thể thu gọn'}\nNội dung này sẽ được ẩn cho đến khi mở rộng.\n\\end'{detail'}\n\nCú pháp thay thế:\n\\begin'{detail'}\n\\summary Tóm tắt văn bản thuần túy\nNội dung ở đây.\n\\end'{detail'}\n\nNếu không chỉ định tóm tắt, nó sẽ là Chi tiết:\n\\begin'{detail'}\nDòng tóm tắt mặc định\nPhần còn lại trở thành nội dung.\n\\end'{detail'}",
+          "description": "Ba cách để chỉ định tóm tắt trong môi trường chi tiết: với dấu ngoặc nhọn, không có dấu ngoặc nhọn, hoặc sử dụng dòng đầu tiên làm tóm tắt."
+        }
+      },
+      "tables": {
+        "title": "Phương pháp hay nhất cho định dạng bảng",
+        "example1": {
+          "title": "1. Cấu trúc bảng cơ bản",
+          "code": "\\begin'{tabular'}'{|c|c|c|'}\n\\hline\nCột 1 & Cột 2 & Cột 3 \\\\\n\\hline\nÔ 1 & Ô 2 & Ô 3 \\\\\nÔ 4 & Ô 5 & Ô 6 \\\\\n\\hline\n\\end'{tabular'}",
+          "description": "Sử dụng môi trường tabular với thông số cột: l (trái), c (giữa), r (phải)"
+        },
+        "example2": {
+          "title": "2. Căn chỉnh cột bảng phù hợp",
+          "code": "\\begin'{tabular'}'{|l|c|r|'}\n\\hline\nCăn trái & Căn giữa & Căn phải \\\\\n\\hline\nCột văn bản & Nội dung hỗn hợp & 123.45 \\\\\nVăn bản dài hơn & $x^2 + y^2$ & 67.8 \\\\\n\\hline\n\\end'{tabular'}",
+          "description": "Sử dụng căn lề trái cho văn bản, căn giữa cho nội dung hỗn hợp, và căn phải cho số."
+        },
+        "example3": {
+          "title": "3. Gộp hàng và cột",
+          "code": "\\begin'{tabular'}'{|c|c|c|'}\n\\hline\n\\multicolumn'{3'}'{|c|'}'{Tiêu đề bảng'} \\\\\n\\hline\nCột 1 & Cột 2 & Cột 3 \\\\\n\\hline\n\\multirow'{2'}'{*'}'{Gộp hàng'} & Ô 1 & Ô 2 \\\\\n& Ô 3 & Ô 4 \\\\\n\\hline\n\\end'{tabular'}",
+          "description": "Sử dụng \\multicolumn{cols}{align}{content} để gộp cột và \\multirow{rows}{*}{content} để gộp hàng."
+        },
+        "example4": {
+          "title": "4. Căn giữa bảng để trình bày tốt hơn",
+          "goodCode": "\\begin'{center'}\n\\begin'{tabular'}'{|c|c|'}\n\\hline\nMục & Giá trị \\\\\n\\hline\nA & 10 \\\\\nB & 20 \\\\\n\\hline\n\\end'{tabular'}\n\\end'{center'}",
+          "badCode": "\\begin'{tabular'}'{|c|c|'}\n\\hline\nMục & Giá trị \\\\\n\\hline\nA & 10 \\\\\nB & 20 \\\\\n\\hline\n\\end'{tabular'}",
+          "explanation": "Bọc bảng trong môi trường center để căn chỉnh tốt hơn trên trang."
+        },
+        "example5": {
+          "title": "5. Phương pháp hay nhất cho bảng",
+          "code": "\\begin'{center'}\n\\begin'{tabular'}'{|l|c|r|'}\n\\hline\n\\textbf'{Trái'} & \\textbf'{Giữa'} & \\textbf'{Phải'} \\\\\n\\hline\nVăn bản & $x^2$ & 123 \\\\\n\\hline\n\\multicolumn'{2'}'{|l|'}'{Gộp các cột'} & 456 \\\\\n\\hline\n\\multirow'{2'}'{*'}'{Hai hàng'} & A & 10 \\\\\n & B & 20 \\\\\n\\hline\n\\end'{tabular'}\n\\end'{center'}",
+          "description": "Kết hợp căn chỉnh cột (l/c/r), định dạng, multirow và multicolumn cho bảng chuyên nghiệp."
+        }
+      },
+      "math": {
+        "title": "Phương pháp hay nhất cho toán học",
+        "example1": {
+          "title": "1. Sử dụng toán học hiển thị cho phương trình phức tạp",
+          "goodCode": "Đối với phương trình phức tạp, sử dụng toán học hiển thị:\n\n$$\\int_'{0'}^'{\\infty'} e^'{-x^2'} dx = \\frac'{\\sqrt{\\pi}'}'{2'}$$\n\nĐiều này cải thiện khả năng đọc.",
+          "badCode": "Đối với phương trình phức tạp, sử dụng toán học trong dòng: $\\int_'{0'}^'{\\infty'} e^'{-x^2'} dx = \\frac'{\\sqrt{\\pi}'}'{2'}$ khó đọc hơn.",
+          "explanation": "Toán học hiển thị ($$...$$) cung cấp nhiều không gian hơn cho phương trình và căn giữa chúng, làm cho các biểu thức phức tạp dễ đọc hơn."
+        },
+        "example2": {
+          "title": "2. Sử dụng môi trường căn chỉnh cho hệ phương trình",
+          "code": "$$\\begin'{aligned'}\nx + y &= 10 \\\\\n2x - y &= 5\n\\end'{aligned'}$$\n\nNghiệm là $x = 5$ và $y = 5$.",
+          "description": "Sử dụng môi trường aligned để tạo hệ phương trình được định dạng đúng với các điểm căn chỉnh."
+        },
+        "example3": {
+          "title": "3. Định nghĩa và tái sử dụng biểu thức toán học",
+          "code": "Giả sử $\\mathcal'{R'}$ là vùng quan tâm của chúng ta.\n\nKhi tích phân trên $\\mathcal'{R'}$, chúng ta tính:\n\n$$\\iint_'{\\mathcal{R}'} f(x,y) \\, dx \\, dy$$",
+          "description": "Định nghĩa ký hiệu và ký hiệu trước khi sử dụng chúng trong các biểu thức phức tạp."
+        },
+        "example4": {
+          "title": "4. Môi trường toán học",
+          "code": "\\begin'{theorem'}\nĐối với bất kỳ tam giác nào có các cạnh $a$, $b$, và $c$:\n$$a^2 + b^2 > c^2$$\nkhi và chỉ khi góc giữa các cạnh $a$ và $b$ là góc nhọn.\n\\end'{theorem'}\n\n\\begin'{proof'}\nGọi $\\theta$ là góc giữa các cạnh $a$ và $b$.\nTheo định luật cosin:\n$$c^2 = a^2 + b^2 - 2ab\\cos\\theta$$\n\nVì vậy, $a^2 + b^2 > c^2$ khi và chỉ khi $2ab\\cos\\theta > 0$,\nđiều này đúng khi và chỉ khi $\\cos\\theta > 0$,\ncó nghĩa là $\\theta$ là góc nhọn.\n\\end'{proof'}",
+          "description": "Sử dụng môi trường theorem, lemma, definition, corollary và proof để định dạng nội dung toán học một cách phù hợp."
+        },
+        "performanceTips": {
+          "title": "Mẹo hiệu suất",
+          "description": "Các biểu thức toán học rất phức tạp có thể làm chậm quá trình hiển thị. Nếu bạn có nhiều phương trình, hãy xem xét chia nội dung thành các phần nhỏ hơn."
+        }
+      },
+      "troubleshooting": {
+        "title": "Các vấn đề thường gặp & Cách sửa",
+        "incorrect": "Không chính xác:",
+        "fix": "Sửa:",
+        "problem1": {
+          "title": "Vấn đề: Toán học không hiển thị đúng",
+          "incorrectCode": "Đây là công thức $E=mc^2$ sử dụng $ để giới hạn toán học.",
+          "fixCode": "Đây là công thức $E=mc^2$ sử dụng \\$ để giới hạn toán học.",
+          "explanation": "Đảm bảo các ký hiệu $ được ghép cặp đúng và thoát ký tự $ đơn thuần bằng \\$."
+        },
+        "problem2": {
+          "title": "Vấn đề: Thẻ môi trường không khớp",
+          "incorrectCode": "\\begin'{itemize'}\n  \\item Mục đầu tiên\n  \\item Mục thứ hai\n\\end'{enumerate'}",
+          "fixCode": "\\begin'{itemize'}\n  \\item Mục đầu tiên\n  \\item Mục thứ hai\n\\end'{itemize'}",
+          "explanation": "Luôn đảm bảo thẻ đóng môi trường khớp với thẻ mở."
+        },
+        "problem3": {
+          "title": "Vấn đề: Cột bảng không khớp",
+          "incorrectCode": "\\begin'{tabular'}'{|c|c|'}\n\\hline\nA & B & C \\\\\n\\hline\n1 & 2 & 3 \\\\\n\\hline\n\\end'{tabular'}",
+          "fixCode": "\\begin'{tabular'}'{|c|c|c|'}\n\\hline\nA & B & C \\\\\n\\hline\n1 & 2 & 3 \\\\\n\\hline\n\\end'{tabular'}",
+          "explanation": "Đảm bảo thông số cột của bạn {|c|c|c|} khớp với số lượng cột trong hàng của bạn."
+        },
+        "debuggingTip": "Nếu nội dung của bạn không hiển thị như mong đợi, hãy thử thêm từng phần một để xác định phần nào đang gây ra vấn đề.",
+        "performanceTipsIntro": "Nếu tài liệu của bạn hiển thị chậm, hãy thử các tối ưu hóa sau:",
+        "performanceTipsList": "Chia nội dung phức tạp thành nhiều phần chi tiết\nTránh lồng không cần thiết các lệnh định dạng\nSử dụng toán học hiển thị ($$...$$) cho các phương trình phức tạp thay vì toán học trong dòng\nĐối với tài liệu rất dài, hãy xem xét chia nội dung thành các phần riêng biệt",
+        "syntaxReminders": {
+          "title": "Nhắc nhở cú pháp thông thường",
+          "items": "<strong>Thoát ký tự đặc biệt:</strong> Sử dụng dấu gạch chéo để thoát ký tự đặc biệt: <code>\\$</code> cho dấu đô la đơn thuần, <code>\\\\</code> cho dấu gạch chéo đơn thuần\n<strong>Ngắt dòng trong bảng:</strong> Sử dụng <code>\\\\\\\\</code> để kết thúc hàng bảng (gạch chéo kép)\n<strong>Dấu & trong bảng:</strong> Sử dụng <code>\\&</code> để hiển thị dấu & đơn thuần, vì <code>&</code> được sử dụng làm dấu phân cách cột\n<strong>Dấu ngoặc trong chế độ toán học:</strong> Trong chế độ toán học, sử dụng <code>\\{</code> và <code>\\}</code> cho dấu ngoặc nhọn\n<strong>Dòng trống:</strong> Sử dụng dòng trống giữa các đoạn văn, nhưng không sử dụng trong môi trường như tabular"
+        }
+      },
+      "formatting": {
+        "title": "Phương pháp hay nhất cho định dạng văn bản",
+        "example1": {
+          "title": "1. Lồng các lệnh định dạng",
+          "code": "\\textbf'{Văn bản đậm với \\textit{văn bản nghiêng đậm} trong đó'}\n\n\\textcolor'{blue'}'{Văn bản màu xanh với \\textbf{văn bản đậm xanh} trong đó'}\n\n\\Large'{Văn bản lớn với \\texttt{văn bản monospace lớn} trong đó'}",
+          "description": "Các lệnh định dạng có thể được lồng vào nhau để kết hợp các kiểu khác nhau."
+        },
+        "example2": {
+          "title": "2. Tùy chọn văn bản trong hộp",
+          "code": "\\fbox'{Nội dung trong hộp có viền'}\n\n\\boxed'{Nội dung trong hộp thay thế'}\n\n\\fbox'{\\textbf{Nội dung đậm trong hộp}'}",
+          "description": "Sử dụng \\fbox hoặc \\boxed để thêm viền xung quanh văn bản hoặc nội dung định dạng khác."
+        },
+        "example3": {
+          "title": "3. Sử dụng màu sắc",
+          "goodCode": "\\textcolor'{#0070f3'}'{Thông tin quan trọng'}\n\n\\textcolor'{rgb(0,128,0)'}'{Thông báo thành công'}\n\n\\textcolor'{red'}'{Văn bản cảnh báo'}",
+          "badCode": "\\textcolor'{weird-color'}'{Điều này sẽ không hoạt động'}\n\nVăn bản với \\textcolor'{red'}'{thẻ không đóng}\n\nQuá '{\\textcolor{blue}{lồng ghép}'} nhau",
+          "explanation": "Sử dụng tên màu tiêu chuẩn, mã hex, hoặc giá trị RGB. Đảm bảo các thẻ màu được đóng đúng cách và không lồng quá mức."
+        }
+      },
+      "advancedTips": {
+        "title": "Mẹo nâng cao cho người dùng thành thạo",
+        "nesting": {
+          "title": "Lồng nhiều môi trường",
+          "code": "\\begin'{center'}\n  \\begin'{tabular'}'{|c|c|'}\n    \\hline\n    Mục & Mô tả \\\\\n    \\hline\n    1 & Mục đầu tiên \\\\\n    2 & Mục thứ hai \\\\\n    \\hline\n  \\end'{tabular'}\n\\end'{center'}",
+          "description": "Kết hợp các môi trường để tạo bố cục phức tạp. Chỉ cần đảm bảo các thẻ begin/end được lồng đúng cách."
+        },
+        "details": {
+          "title": "Sử dụng phần Chi tiết một cách hiệu quả",
+          "code": "\\begin'{detail'}\n\\summary Nhấp để xem cách tiếp cận giải pháp\n\n\\begin'{enumerate'}\n  \\item Khởi tạo biến\n  \\item Thiết lập đệ quy\n  \\item Giải quyết các trường hợp cơ sở\n  \\item Triển khai trường hợp tổng quát\n\\end'{enumerate'}\n\\end'{detail'}",
+          "description": "Sử dụng các phần chi tiết để ẩn nội dung phức tạp không cần thiết ngay lập tức cho tất cả người đọc."
+        },
+        "formatting": {
+          "title": "Kết hợp định dạng văn bản",
+          "code": "\\textbf'{\\textit'{Chữ đậm và nghiêng'}}\n\n\\textcolor'{red'}'{\\textbf'{Chữ đậm màu đỏ'}}\n\n\\large'{\\textbf'{Chữ đậm cỡ lớn'}}",
+          "description": "Kết hợp các lệnh định dạng bằng cách lồng chúng vào nhau để tạo kiểu văn bản phong phú."
+        },
+        "code": {
+          "title": "Ví dụ mã với Đầu vào/Đầu ra",
+          "code": "\\begin'{python'}\ndef calculate_factorial(n):\n    if n == 0:\n        return 1\n    return n * calculate_factorial(n-1)\n\\end'{python'}\n\nĐầu vào: calculate_factorial(5)\n\nĐầu ra: 120\n\nBước 1: 5 * factorial(4)\n\nBước 2: 5 * 4 * factorial(3)\n\nBước 3: 5 * 4 * 3 * factorial(2)\n\nBước 4: 5 * 4 * 3 * 2 * factorial(1)\n\nBước 5: 5 * 4 * 3 * 2 * 1 = 120",
+          "description": "Kết hợp các khối mã với ví dụ để hiển thị cả cách triển khai và thực thi."
+        }
+      }
+    },
+    "commands": {
+      "title": "Lệnh định dạng",
+      "description": "Sử dụng các lệnh LaTeX này để định dạng văn bản, thêm biểu thức toán học và nhiều nội dung khác. Mỗi lệnh được hiển thị với ví dụ về cách nó hiển thị.",
+      "jumpToCategory": "Chuyển đến danh mục:",
+      "exampleCode": "Mã ví dụ:",
+      "renderedResult": "Kết quả hiển thị:",
+      "copy": "Sao chép",
+      "copied": "Đã sao chép!",
+      "note": "Ghi chú:",
+      "categories": {
+        "layout": {
+          "name": "Bố cục & Cấu trúc",
+          "description": "Các lệnh để định dạng bố cục và phần tử cấu trúc tài liệu",
+          "commands": {
+            "epigraph": {
+              "description": "Tạo một trích dẫn có định dạng với tên tác giả, thường được sử dụng ở đầu chương",
+              "example": "\\epigraph'{Nghệ thuật lập trình là nghệ thuật tổ chức sự phức tạp.'}'{Edsger W. Dijkstra'}",
+              "notes": "Hiển thị trích dẫn bằng chữ nghiêng với tên tác giả nằm bên phải, hữu ích cho phần giới thiệu chương"
+            }
+          }
+        },
+        "textFormatting": {
+          "name": "Định dạng văn bản",
+          "description": "Các lệnh để tạo kiểu và định dạng văn bản",
+          "commands": {
+            "bold": {
+              "description": "Văn bản đậm",
+              "example": "Văn bản thường và \\textbf'{văn bản đậm'}",
+              "notes": "Dùng để nhấn mạnh các từ hoặc cụm từ quan trọng."
+            },
+            "boldAlt": {
+              "description": "Văn bản đậm (thay thế)",
+              "example": "Văn bản thường và \\bf'{văn bản đậm'}",
+              "notes": "Cú pháp thay thế cho văn bản đậm."
+            },
+            "italic": {
+              "description": "Văn bản nghiêng",
+              "example": "Văn bản thường và \\textit'{văn bản nghiêng'}",
+              "notes": "Dùng cho tiêu đề sách, cụm từ nước ngoài hoặc nhấn mạnh nhẹ."
+            },
+            "italicAlt": {
+              "description": "Văn bản nghiêng (thay thế)",
+              "example": "Văn bản thường và \\it'{văn bản nghiêng'}",
+              "notes": "Cú pháp thay thế cho văn bản nghiêng."
+            },
+            "underline": {
+              "description": "Văn bản gạch chân",
+              "example": "Văn bản thường và \\underline'{văn bản gạch chân'}",
+              "notes": "Vẽ một đường dưới văn bản."
+            },
+            "emph": {
+              "description": "Văn bản nhấn mạnh",
+              "example": "Văn bản thường và \\emph'{văn bản nhấn mạnh'}",
+              "notes": "Hiển thị dưới dạng văn bản gạch chân."
+            },
+            "strikethrough": {
+              "description": "Văn bản gạch ngang",
+              "example": "Văn bản thường và \\sout'{văn bản bị gạch ngang'}",
+              "notes": "Hiển thị nội dung đã xóa hoặc đã loại bỏ."
+            },
+            "monospace": {
+              "description": "Phông chữ đơn cách/mã",
+              "example": "Văn bản thường và \\texttt'{văn bản kiểu mã'}",
+              "notes": "Dùng cho ví dụ mã, đường dẫn tệp hoặc lệnh."
+            },
+            "monospaceAlt": {
+              "description": "Phông chữ đơn cách/mã (thay thế)",
+              "example": "Văn bản thường và \\tt'{văn bản kiểu mã'}",
+              "notes": "Cú pháp thay thế cho văn bản đơn cách."
+            },
+            "monospaceShort": {
+              "description": "Phông chữ đơn cách/mã (ngắn)",
+              "example": "Văn bản thường và \\t'{văn bản kiểu mã'}",
+              "notes": "Phiên bản ngắn cho văn bản đơn cách."
+            },
+            "smallcaps": {
+              "description": "Văn bản chữ hoa nhỏ",
+              "example": "Văn bản thường và \\textsc'{Văn Bản Chữ Hoa Nhỏ'}",
+              "notes": "Chuyển văn bản thành chữ cái hoa nhỏ."
+            },
+            "boxed": {
+              "description": "Văn bản trong hộp",
+              "example": "Văn bản thường và \\fbox'{văn bản trong hộp'}",
+              "notes": "Đặt đường viền xung quanh văn bản."
+            },
+            "boxedAlt": {
+              "description": "Văn bản trong hộp (thay thế)",
+              "example": "Văn bản thường và \\boxed'{văn bản trong hộp'}",
+              "notes": "Cú pháp thay thế cho văn bản trong hộp."
+            }
+          }
+        },
+        "textSize": {
+          "name": "Kích thước văn bản",
+          "description": "Các lệnh để thay đổi kích thước văn bản",
+          "commands": {
+            "tiny": {
+              "description": "Văn bản rất nhỏ (0.7em)",
+              "example": "Văn bản thường và \\tiny'{văn bản rất nhỏ'}",
+              "notes": "Kích thước văn bản nhỏ nhất có sẵn."
+            },
+            "scriptsize": {
+              "description": "Văn bản nhỏ hơn (0.75em)",
+              "example": "Văn bản thường và \\scriptsize'{văn bản nhỏ hơn'}",
+              "notes": "Hơi lớn hơn văn bản rất nhỏ."
+            },
+            "small": {
+              "description": "Văn bản nhỏ (0.85em)",
+              "example": "Văn bản thường và \\small'{văn bản nhỏ'}",
+              "notes": "Tốt cho phụ đề hoặc chú thích cuối trang."
+            },
+            "normalsize": {
+              "description": "Kích thước văn bản bình thường (1em)",
+              "example": "\\large'{Văn bản lớn hơn'} và \\normalsize'{trở lại bình thường'}",
+              "notes": "Kích thước văn bản mặc định, hữu ích để đặt lại thay đổi kích thước."
+            },
+            "large": {
+              "description": "Văn bản lớn (1.15em)",
+              "example": "Văn bản thường và \\large'{văn bản lớn hơn'}",
+              "notes": "Hơi lớn hơn văn bản bình thường."
+            },
+            "Large": {
+              "description": "Văn bản lớn hơn (1.3em)",
+              "example": "Văn bản thường và \\Large'{văn bản còn lớn hơn'}",
+              "notes": "Tốt cho tiêu đề phụ."
+            },
+            "LARGE": {
+              "description": "Văn bản còn lớn hơn nữa (1.45em)",
+              "example": "Văn bản thường và \\LARGE'{văn bản lớn hơn nhiều'}",
+              "notes": "Cho tiêu đề phần chính."
+            },
+            "huge": {
+              "description": "Văn bản rất lớn (1.75em)",
+              "example": "Văn bản thường và \\huge'{văn bản rất lớn'}",
+              "notes": "Cho tiêu đề và đề mục chính."
+            },
+            "HUGE": {
+              "description": "Văn bản lớn nhất (2em)",
+              "example": "Văn bản thường và \\HUGE'{VĂN BẢN KÍCH THƯỚC TỐI ĐA'}",
+              "notes": "Kích thước văn bản lớn nhất có sẵn."
+            }
+          }
+        }
+      }
+    },
+    "environments": {
+      "title": "Môi trường LaTeX",
+      "description": "Môi trường cung cấp cấu trúc cho các loại nội dung khác nhau. Chúng bắt đầu với {beginCode} và kết thúc với {endCode}. Nhấp vào bất kỳ thẻ môi trường nào bên dưới để xem mã ví dụ và cách hiển thị.",
+      "jumpToCategory": "Chuyển đến danh mục",
+      "environmentsLabel": "Môi trường",
+      "basicSyntax": "Cú pháp cơ bản",
+      "exampleCode": "Mã ví dụ",
+      "renderedResult": "Kết quả hiển thị",
+      "copyExample": "Sao chép ví dụ",
+      "copied": "Đã sao chép!",
+      "example": "Ví dụ",
+      "important": "Quan trọng",
+      "categories": [
+        {
+          "name": "Danh sách",
+          "description": "Danh sách có thứ tự và không thứ tự",
+          "environments": [
+            {
+              "name": "itemize",
+              "description": "Danh sách có dấu đầu dòng với các phần tử \\item",
+              "syntax": "\\begin{itemize}\n  \\item Mục đầu tiên\n  \\item Mục thứ hai\n\\end{itemize}",
+              "example": "\\begin{itemize}\n  \\item Táo\n  \\item Cam\n  \\item Chuối\n\\end{itemize}",
+              "notes": "Sử dụng \\item cho mỗi dấu đầu dòng. Đối với danh sách lồng nhau, tạo một môi trường itemize mới bên trong một mục (nhưng điều này có thể có giới hạn khi hiển thị)."
+            },
+            {
+              "name": "enumerate",
+              "description": "Danh sách đánh số với các phần tử \\item",
+              "syntax": "\\begin{enumerate}\n  \\item Mục đầu tiên\n  \\item Mục thứ hai\n\\end{enumerate}",
+              "example": "\\begin{enumerate}\n  \\item Bước một\n  \\item Bước hai\n  \\item Bước ba\n\\end{enumerate}",
+              "notes": "Tạo danh sách đánh số. Đối với danh sách lồng nhau, tạo một enumerate mới bên trong một mục (mặc dù việc hiển thị danh sách lồng nhau có thể có giới hạn)."
+            }
+          ]
+        },
+        {
+          "name": "Bố cục",
+          "description": "Căn chỉnh và tổ chức nội dung",
+          "environments": [
+            {
+              "name": "center",
+              "description": "Căn giữa nội dung theo chiều ngang",
+              "syntax": "\\begin{center}\n  Nội dung cần căn giữa\n\\end{center}",
+              "example": "\\begin{center}\n  Văn bản này sẽ được căn giữa trên trang.\n  \n  $$E = mc^2$$\n  \n  Nhiều đoạn văn đều sẽ được căn giữa.\n\\end{center}",
+              "notes": "Căn giữa tất cả nội dung giữa các thẻ begin và end. Hoạt động với văn bản, toán học, bảng và nhiều hơn nữa."
+            },
+            {
+              "name": "detail",
+              "description": "Nội dung có thể thu gọn với \\summary",
+              "syntax": "\\begin{detail}\n\\summary Tiêu đề hiển thị khi thu gọn\n  Nội dung ẩn\n\\end{detail}",
+              "example": "\\begin{detail}\n\\summary Nhấp để xem giải pháp\n  Đáp án là $x = 42$\n  \n  \\begin{itemize}\n    \\item Bước 1: Thiết lập phương trình\n    \\item Bước 2: Giải x\n  \\end{itemize}\n\\end{detail}",
+              "notes": "Tạo một phần có thể mở rộng. Thẻ \\summary xác định nội dung hiển thị khi thu gọn. Tất cả nội dung sau \\summary sẽ bị ẩn cho đến khi mở rộng."
+            }
+          ]
+        },
+        {
+          "name": "Bảng",
+          "description": "Sắp xếp dữ liệu dạng bảng",
+          "environments": [
+            {
+              "name": "tabular",
+              "description": "Tạo bảng với các cột tùy chỉnh",
+              "syntax": "\\begin{tabular}{column-spec}\n  cell1 & cell2 \\\\\n  cell3 & cell4 \\\\\n\\end{tabular}",
+              "example": "\\begin{tabular}{|c|c|}\n  \\hline\n  Tiêu đề 1 & Tiêu đề 2 \\\\\n  \\hline\n  Giá trị 1 & Giá trị 2 \\\\\n \\hline \n  Giá trị 3 & Giá trị 4 \\\\\n  \\hline\n\\end{tabular}",
+              "notes": "Thông số cột (column-spec) xác định căn chỉnh (l=trái, c=giữa, r=phải) và đường viền (|) cho mỗi cột. Sử dụng & để phân cách các ô và \\\\ để kết thúc hàng."
+            }
+          ]
+        },
+        {
+          "name": "Mã",
+          "description": "Ví dụ về mã lập trình",
+          "environments": [
+            {
+              "name": "cpp",
+              "description": "Khối mã C++ với tô sáng cú pháp",
+              "syntax": "\\begin{cpp}\n  // Mã C++ ở đây\n\\end{cpp}",
+              "example": "\\begin{cpp}\n#include <iostream>\n\nint main() {\n  std::cout << \"Hello, world!\" << std::endl;\n  return 0;\n}\n\\end{cpp}",
+              "notes": "Cung cấp tô sáng cú pháp cho mã C++. Sử dụng thụt đầu dòng phù hợp để tăng khả năng đọc."
+            },
+            {
+              "name": "java",
+              "description": "Khối mã Java với tô sáng cú pháp",
+              "syntax": "\\begin{java}\n  // Mã Java ở đây\n\\end{java}",
+              "example": "\\begin{java}\npublic class HelloWorld {\n  public static void main(String[] args) {\n    System.out.println(\"Hello, world!\");\n  }\n}\n\\end{java}",
+              "notes": "Cung cấp tô sáng cú pháp cho mã Java. Giữ nguyên thụt đầu dòng trong mã của bạn."
+            },
+            {
+              "name": "python",
+              "description": "Khối mã Python với tô sáng cú pháp",
+              "syntax": "\\begin{python}\n  # Mã Python ở đây\n\\end{python}",
+              "example": "\\begin{python}\ndef factorial(n):\n  if n == 0:\n    return 1\n  return n * factorial(n-1)\n\nprint(factorial(5))  # Kết quả: 120\n\\end{python}",
+              "notes": "Cung cấp tô sáng cú pháp cho mã Python. Thụt đầu dòng đặc biệt quan trọng đối với Python."
+            }
+          ]
+        },
+        {
+          "name": "Ví dụ",
+          "description": "Ví dụ về bài toán",
+          "environments": [
+            {
+              "name": "example",
+              "description": "Khối ví dụ",
+              "syntax": "\\begin{example}\nInput\n```\nOutput\n\\end{example}",
+              "example": "\\begin{example}\n5 10\n-5 -5 2 5 -5\n3 3\n1 3\n1 5\n1 3\n3 5\n3 4\n1 3\n2 4\n1 1\n1 4\n```\n2-8\n-8\n-8\n2\n7\n-8\n2\n-5\n-3\n\\end{example}",
+              "notes": "Được sử dụng để làm nổi bật các ví dụ quan trọng trong nội dung của bạn. Thường được định dạng khác với văn bản thông thường."
+            }
+          ]
+        },
+        {
+          "name": "Định lý",
+          "description": "Định lý và chứng minh toán học",
+          "environments": [
+            {
+              "name": "theorem",
+              "description": "Định lý toán học chính thức",
+              "syntax": "\\begin{theorem}\n  Phát biểu định lý\n\\end{theorem}",
+              "example": "\\begin{theorem}\nĐối với bất kỳ tam giác vuông nào với các cạnh $a$, $b$ và cạnh huyền $c$, định lý Pythagoras phát biểu rằng:\n$a^2 + b^2 = c^2$\n\\end{theorem}",
+              "notes": "Được sử dụng để phát biểu các định lý toán học quan trọng. Thường được hiển thị với kiểu dáng riêng biệt."
+            },
+            {
+              "name": "proof",
+              "description": "Chứng minh toán học",
+              "syntax": "\\begin{proof}\n  Các bước chứng minh\n\\end{proof}",
+              "example": "\\begin{proof}\nHãy chứng minh rằng tổng của hai số chẵn là một số chẵn.\n\nNếu $a$ và $b$ là số chẵn, thì $a = 2m$ và $b = 2n$ với $m$ và $n$ là các số nguyên.\n\nKhi đó $a + b = 2m + 2n = 2(m + n)$, đây là một số chẵn.\n\\end{proof}",
+              "notes": "Được sử dụng để trình bày các chứng minh chính thức cho các định lý hoặc phát biểu. Thường đi kèm với môi trường định lý."
+            },
+            {
+              "name": "lemma",
+              "description": "Phát biểu toán học hỗ trợ",
+              "syntax": "\\begin{lemma}\n  Phát biểu bổ đề\n\\end{lemma}",
+              "example": "\\begin{lemma}\nNếu $n$ là số nguyên và $n^2$ là số chẵn, thì $n$ là số chẵn.\n\\end{lemma}",
+              "notes": "Bổ đề là một phát biểu đã được chứng minh và được sử dụng như một bước đệm để chứng minh một định lý lớn hơn."
+            },
+            {
+              "name": "corollary",
+              "description": "Kết quả được suy ra từ một định lý",
+              "syntax": "\\begin{corollary}\n  Phát biểu hệ quả\n\\end{corollary}",
+              "example": "\\begin{corollary}\nDựa trên định lý Pythagoras, trong một tam giác vuông mà cả hai cạnh góc vuông đều có độ dài 1, cạnh huyền có độ dài $\\sqrt{2}$.\n\\end{corollary}",
+              "notes": "Hệ quả là một kết quả trực tiếp hoặc đơn giản từ một định lý."
+            }
+          ]
+        }
+      ],
+      "tables": {
+        "formatTipsTitle": "Mẹo định dạng bảng",
+        "formatTips": "{columnFormat}{rowEndings}{cellSeparator}{horizontalLines}{multiColumn}{alignDecimal}",
+        "columnFormatting": "Định dạng cột",
+        "columnFormatDesc": "Sử dụng {code1:'{|l|c|r|}'} trong đó {code2:l}=trái, {code3:c}=giữa, {code4:r}=phải, {code5:|}=đường dọc",
+        "rowEndings": "Kết thúc hàng",
+        "rowEndingsDesc": "Kết thúc mỗi hàng bằng {code:\\\\} (dấu gạch chéo kép)",
+        "cellSeparator": "Phân cách ô",
+        "cellSeparatorDesc": "Sử dụng {code:&} giữa các ô",
+        "horizontalLines": "Đường ngang",
+        "horizontalLinesDesc": "Thêm {code:\\hline} giữa các hàng để tạo đường ngang",
+        "multiColumn": "Ô gộp nhiều cột",
+        "multiColumnDesc": "Sử dụng {code:\\multicolumn'{2'}'{c'}'{Văn bản gộp'}} trong đó 2 là số cột cần gộp",
+        "alignDecimal": "Căn chỉnh dấu thập phân",
+        "alignDecimalDesc": "Đối với dữ liệu số, sử dụng căn phải ({code:r})"
+      },
+      "code": {
+        "bestPracticesTitle": "Phương pháp hay nhất cho khối mã",
+        "bestPractices": "{chooseLanguage}{preserveIndentation}{avoidBackslash}{combineCodeBlocks}",
+        "chooseLanguage": "Chọn môi trường ngôn ngữ chính xác ({cpp}, {java}, hoặc {python}) để tô sáng cú pháp thích hợp",
+        "preserveIndentation": "Thụt lề sẽ được giữ nguyên chính xác như được viết",
+        "avoidBackslash": "Tránh sử dụng dấu gạch chéo ({code:\\}) làm ký tự cuối cùng trên một dòng",
+        "combineCodeBlocks": "Kết hợp các khối mã với môi trường {code:example} để hiển thị cả cách triển khai và thực thi"
+      },
+      "nesting": {
+        "title": "Lồng các môi trường",
+        "description": "Bạn có thể lồng các môi trường để tạo bố cục phức tạp. Ví dụ, đặt một bảng bên trong môi trường center:",
+        "exampleCode": "\\begin{center}\n  \\begin{tabular}{|c|c|}\n    \\hline\n    Mục & Giá trị \\\\\n    \\hline\n    A & 10 \\\\\n    B & 20 \\\\\n    \\hline\n  \\end{tabular}\n\\end{center}",
+        "warning": "Khi lồng các môi trường, luôn đảm bảo đóng chúng theo thứ tự ngược lại. Môi trường được mở sau cùng nên được đóng đầu tiên."
+      }
+    },
+    "details": {
+      "defaultSummary": "Chi tiết"
+    },
+    "table": {
+      "empty": "[Bảng trống]",
+      "renderError": "Lỗi khi hiển thị bảng"
+    },
+    "theorems": {
+      "theorem": "Định lý",
+      "lemma": "Bổ đề",
+      "definition": "Định nghĩa",
+      "corollary": "Hệ quả",
+      "proof": "Chứng minh"
+    },
+    "epigraph": {
+      "attribution": "— %s"
+    }
+  },
+  "ProblemBank": {
+    "title": "Ngân Hàng Đề Bài",
+    "description": "Thiết kế, quản lý và tổ chức các bài toán lập trình thi đấu của bạn",
+    "loading": {
+      "title": "Đang tải...",
+      "description": "Đang thiết lập ngân hàng đề bài của bạn"
+    },
+    "roles": {
+      "admin": "Quản trị viên",
+      "problemSetter": "Người ra đề"
+    },
+    "problemsSection": {
+      "title": "Đề bài",
+      "showing": "Hiển thị {start}-{end} trong tổng số {total} đề bài",
+      "loadingProblems": "Đang tải đề bài...",
+      "noProblems": {
+        "title": "Không tìm thấy đề bài nào",
+        "withFilters": "Hãy thử điều chỉnh tiêu chí tìm kiếm hoặc bộ lọc",
+        "noFilters": "Bắt đầu bằng cách thêm đề bài đầu tiên vào ngân hàng"
+      }
+    },
+    "pagination": {
+      "page": "Trang {page}",
+      "previous": "Trước",
+      "next": "Tiếp"
+    },
+    "overview": {
+      "title": "Tổng quan",
+      "totalProblems": "Tổng số đề bài",
+      "myProblems": "Đề bài của tôi",
+      "contributors": "Người đóng góp"
+    },
+    "filters": {
+      "title": "Bộ lọc",
+      "searchPlaceholder": "Tìm kiếm đề bài...",
+      "searchAriaLabel": "Tìm kiếm đề bài",
+      "clearSearch": "Xóa tìm kiếm",
+      "activeFilters": "Bộ lọc đang áp dụng",
+      "searchLabel": "Tìm kiếm",
+      "clearFilters": "Xóa bộ lọc",
+      "clearAll": "Xóa tất cả"
+    },
+    "actions": {
+      "addProblem": "Thêm đề bài",
+      "viewProblems": "Xem đề bài"
+    },
+    "problemTable": {
+      "tableHeaders": {
+        "problem": "Đề bài",
+        "owner": "Người tạo",
+        "detail": "Chi tiết"
+      },
+      "noProblemsFound": "Không tìm thấy đề bài nào",
+      "loadingConfiguration": "Đang tải cấu hình...",
+      "noConfigurationAvailable": "Không có thông tin cấu hình",
+      "judgeTypes": {
+        "scoring": "Tính điểm",
+        "standard": "Chuẩn",
+        "unknown": "Không xác định"
+      },
+      "specs": {
+        "tests": "test",
+        "ms": "ms",
+        "mb": "MB"
+      },
+      "created": "Tạo",
+      "justNow": "vừa xong",
+      "deleteDialog": {
+        "title": "Xóa đề bài",
+        "warning": "Hành động này không thể hoàn tác. Điều này sẽ xóa vĩnh viễn đề bài và tất cả các test case liên quan khỏi máy chủ của chúng tôi.",
+        "confirmPrompt": "Vui lòng nhập",
+        "toConfirm": "để xác nhận",
+        "confirmPlaceholder": "Nhập ID đề bài để xác nhận",
+        "cancel": "Hủy",
+        "confirmButton": "Xóa đề bài",
+        "deletingStatus": "Đang xóa..."
+      },
+      "deleteSuccess": {
+        "title": "Đã xóa đề bài",
+        "description": "Đề bài đã được xóa thành công."
+      },
+      "deleteError": {
+        "title": "Lỗi",
+        "description": "Không thể xóa đề bài. Vui lòng thử lại."
+      }
+    },
+    "newProblemForm": {
+      "buttonText": "Tạo đề bài mới",
+      "dialogTitle": "Tạo đề bài mới",
+      "dialogDescription": "Thêm một đề bài mới vào ngân hàng đề bài.",
+      "fields": {
+        "id": {
+          "label": "ID đề bài",
+          "placeholder": "breed-counting",
+          "hint": "Sử dụng kebab-case với chữ thường và dấu gạch ngang (ví dụ: breed-counting)",
+          "tooltip": {
+            "example": "Ví dụ định dạng: breed-counting, two-sum",
+            "format": "Chỉ sử dụng chữ cái thường và dấu gạch ngang."
+          }
+        },
+        "title": {
+          "label": "Tiêu đề đề bài",
+          "placeholder": "Two Sum",
+          "hint": "Đây sẽ là tên hiển thị cho đề bài của bạn"
+        },
+        "timeLimit": {
+          "label": "Giới hạn thời gian (ms)",
+          "tooltip": {
+            "description": "Thời gian tối đa cho phép thực thi giải pháp tính bằng mili giây",
+            "recommendation": "Khuyến nghị: 1000-5000 ms"
+          }
+        },
+        "memoryLimit": {
+          "label": "Giới hạn bộ nhớ (MB)",
+          "tooltip": {
+            "description": "Bộ nhớ tối đa cho phép thực thi giải pháp tính bằng megabyte",
+            "recommendation": "Khuyến nghị: 256-1024 MB"
+          }
+        },
+        "judgingType": {
+          "label": "Loại chấm bài",
+          "options": {
+            "ac": "Toàn bộ đúng (AC)",
+            "sc": "Tính điểm (SC)"
+          },
+          "hints": {
+            "ac": "AC xác minh rằng đầu ra khớp chính xác từng ký tự.",
+            "sc": "SC sử dụng bộ kiểm tra tùy chỉnh để đánh giá tính hợp lệ của giải pháp."
+          },
+          "tooltip": {
+            "acTitle": "AC (Toàn bộ đúng)",
+            "acDescription": "Giải pháp phải khớp chính xác với đầu ra mong đợi",
+            "acUseCase": "Sử dụng cho các bài toán mà khoảng trắng và định dạng rất quan trọng",
+            "scTitle": "SC (Tính điểm)",
+            "scDescription": "Bộ kiểm tra tùy chỉnh đánh giá giải pháp",
+            "scUseCase": "Sử dụng cho các bài toán có nhiều đầu ra hợp lệ hoặc tính điểm từng phần"
+          }
+        }
+      },
+      "validation": {
+        "idEmpty": "ID đề bài không được để trống",
+        "idInvalidChars": "Chỉ cho phép chữ cái thường và dấu gạch ngang",
+        "idConsecutiveHyphens": "Không cho phép dấu gạch ngang liên tiếp (--)",
+        "idStartsEndsHyphen": "ID không thể bắt đầu hoặc kết thúc bằng dấu gạch ngang",
+        "idExists": "ID này đã được sử dụng",
+        "idExistsChooseAnother": "ID này đã được sử dụng. Vui lòng chọn ID khác."
+      },
+      "notifications": {
+        "successTitle": "Thành công",
+        "successMessage": "Đề bài đã được tạo thành công",
+        "errorTitle": "Lỗi",
+        "idExistsError": "Đề bài với ID này đã tồn tại",
+        "createError": "Không thể tạo đề bài"
+      },
+      "buttons": {
+        "create": "Tạo đề bài",
+        "creatingStatus": "Đang tạo..."
+      }
+    },
+    "ownerFilter": {
+      "clearAll": "Xóa tất cả",
+      "searchPlaceholder": "Tìm kiếm người tạo...",
+      "searchAriaLabel": "Tìm kiếm người tạo",
+      "clearSearchAriaLabel": "Xóa tìm kiếm",
+      "resultsAriaLabel": "Kết quả tìm kiếm người tạo",
+      "noResultsFound": "Không tìm thấy người tạo phù hợp"
+    },
+    "problem": {
+      "inputSection": {
+        "tabs": {
+          "general": "Tổng quan",
+          "description": "Mô tả",
+          "testcases": "Bộ kiểm thử"
+        }
+      },
+      "outputSection": {
+        "tabs": {
+          "description": "Mô tả",
+          "solution": "Lời giải"
+        },
+        "solutionFor": "Lời giải cho"
+      },
+      "loading": "Đang tải bài tập...",
+      "general": {
+        "problemId": "ID Bài toán",
+        "difficulty": "Độ khó",
+        "displayTitle": "Tiêu đề hiển thị",
+        "enterDisplayTitle": "Nhập tiêu đề hiển thị...",
+        "categories": "Danh mục",
+        "selectCategories": "Chọn danh mục",
+        "selectProblemCategories": "Chọn danh mục bài toán",
+        "searchCategories": "Tìm kiếm danh mục...",
+        "noCategories": "Chưa chọn danh mục nào",
+        "done": "Hoàn tất",
+        "loading": "Đang tải...",
+        "updating": "Đang cập nhật...",
+        "saveChanges": "Lưu thay đổi",
+        "noChanges": "Không có thay đổi",
+        "confirmAction": "Xác nhận hành động",
+        "confirmUpdateProblem": "Bạn có chắc chắn muốn cập nhật bài toán này?",
+        "cancel": "Hủy",
+        "update": "Cập nhật",
+        "updateSuccess": "Bài toán đã được cập nhật thành công",
+        "updateSuccessMessage": "Thay đổi của bạn đã được lưu.",
+        "updateError": "Không thể cập nhật bài toán",
+        "updateErrorMessage": "Đã xảy ra lỗi khi lưu thay đổi của bạn. Vui lòng thử lại."
+      },
+      "descriptionTab": {
+        "language": {
+          "English": "Tiếng Anh",
+          "Vietnamese": "Tiếng Việt",
+          "Chinese": "Tiếng Trung"
+        },
+        "header": {
+          "title": "Trình soạn thảo nội dung",
+          "subtitle": "Chỉnh sửa nội dung bài toán bằng nhiều ngôn ngữ"
+        },
+        "titleCard": {
+          "title": "Tiêu đề bài toán",
+          "description": "Tiêu đề chính hiển thị cho người dùng bằng {language}",
+          "placeholder": "Nhập tiêu đề bài toán bằng {language}..."
+        },
+        "tabs": {
+          "description": "Mô tả",
+          "solution": "Lời giải"
+        },
+        "description": {
+          "label": "Mô tả bài toán",
+          "editHeader": "Sửa mô tả",
+          "hint": "Sử dụng Markdown và LaTeX để định dạng. Bao gồm các ràng buộc và ví dụ."
+        },
+        "solution": {
+          "label": "Lời giải bài toán",
+          "editHeader": "Sửa lời giải",
+          "hint": "Giải thích phương pháp giải quyết, thuật toán và phân tích độ phức tạp."
+        },
+        "common": {
+          "mathjaxGuide": "Hướng dẫn MathJax",
+          "forSuggestions": "để gợi ý",
+          "characters": "ký tự"
+        },
+        "footer": {
+          "noteLabel": "Lưu ý:",
+          "noteText": "Các thay đổi chỉ ảnh hưởng đến nội dung bằng {language}.",
+          "switchHint": "Bạn có thể chuyển đổi ngôn ngữ bằng menu thả xuống."
+        },
+        "buttons": {
+          "save": "Lưu thay đổi",
+          "saving": "Đang lưu...",
+          "saveSuccess": "Đã lưu thành công",
+          "saveError": "Lưu thất bại - Thử lại"
+        },
+        "saveDialog": {
+          "title": "Lưu thay đổi?",
+          "description": "Điều này sẽ cập nhật nội dung bài toán bằng ngôn ngữ {language}. Các phiên bản ngôn ngữ khác sẽ không thay đổi.",
+          "cancel": "Hủy"
+        },
+        "notifications": {
+          "successTitle": "Thành công",
+          "successMessage": "Nội dung bằng {language} đã được cập nhật thành công",
+          "errorTitle": "Lỗi",
+          "errorMessage": "Không thể cập nhật nội dung"
+        }
+      },
+      "testcases": {
+        "loading": {
+          "title": "Đang tải bộ kiểm thử...",
+          "description": "Quá trình này có thể mất một lúc vì chúng tôi đang tải dữ liệu của tất cả bộ kiểm thử. Bộ kiểm thử lớn có thể mất nhiều thời gian hơn."
+        },
+        "errors": {
+          "loadingTitle": "Lỗi Khi Tải Bộ Kiểm Thử",
+          "loadingFailed": "Không thể tải bộ kiểm thử. Vui lòng thử lại sau.",
+          "errorTitle": "Lỗi",
+          "deleteFailed": "Không thể xóa bộ kiểm thử.",
+          "addFailed": "Không thể thêm bộ kiểm thử",
+          "addMultipleFailed": "Không thể thêm nhiều bộ kiểm thử"
+        },
+        "actions": {
+          "tryAgain": "Thử Lại",
+          "addTestCase": "Thêm Bộ Kiểm Thử",
+          "addToBatch": "Thêm Vào Loạt",
+          "clearAll": "Xóa Tất Cả",
+          "uploadingMultiple": "Đang tải lên {count} bộ kiểm thử...",
+          "uploadMultiple": "Tải Lên {count} Bộ Kiểm Thử",
+          "creating": "Đang tạo...",
+          "createTestCase": "Tạo Bộ Kiểm Thử",
+          "download": "Tải Xuống",
+          "deleting": "Đang xóa...",
+          "delete": "Xóa",
+          "cancel": "Hủy"
+        },
+        "header": {
+          "title": "Bộ Kiểm Thử",
+          "subtitle": "Cấu hình bộ kiểm thử và tham số đánh giá cho bài toán này."
+        },
+        "config": {
+          "title": "Cấu Hình Bài Toán",
+          "timeLimit": "Giới Hạn Thời Gian",
+          "memoryLimit": "Giới Hạn Bộ Nhớ",
+          "judgingType": "Kiểu Đánh Giá",
+          "ms": "mili giây",
+          "mb": "MB"
+        },
+        "testCases": {
+          "title": "Bộ Kiểm Thử ({count})"
+        },
+        "dialog": {
+          "addTestCases": "Thêm Bộ Kiểm Thử",
+          "createDescription": "Tạo một hoặc nhiều bộ kiểm thử với đầu vào, đầu ra dự kiến và điểm số.",
+          "addAnother": "Thêm Bộ Kiểm Thử Khác",
+          "newTestCase": "Bộ Kiểm Thử Mới",
+          "inBatch": "{count} trong loạt"
+        },
+        "fields": {
+          "input": "Đầu Vào",
+          "required": "Bắt buộc",
+          "expectedOutput": "Đầu Ra Dự Kiến",
+          "score": "Điểm",
+          "defaultScore": "Mặc định: 0",
+          "points": "điểm"
+        },
+        "placeholders": {
+          "inputText": "Nhập đầu vào bộ kiểm thử...",
+          "outputText": "Nhập đầu ra dự kiến...",
+          "customScore": "Điểm tùy chỉnh..."
+        },
+        "common": {
+          "or": "HOẶC",
+          "testCase": "bộ kiểm thử",
+          "testCases": "bộ kiểm thử"
+        },
+        "batch": {
+          "title": "Loạt Bộ Kiểm Thử ({count})",
+          "scrollHint": "Cuộn để xem tất cả {count} bộ kiểm thử",
+          "inputPreview": "Xem Trước Đầu Vào",
+          "outputPreview": "Xem Trước Đầu Ra",
+          "score": "Điểm",
+          "action": "Hành Động",
+          "fileLabel": "[Tệp] {name}",
+          "empty": "(trống)",
+          "total": "Tổng cộng: {count} {testCase}"
+        },
+        "toasts": {
+          "deleteSuccess": "Đã xóa bộ kiểm thử",
+          "deleteSuccessDetail": "Bộ kiểm thử đã được xóa thành công.",
+          "incompleteTestCase": "Bộ kiểm thử không đầy đủ",
+          "inputOutputRequired": "Cả đầu vào và đầu ra đều được yêu cầu cho bộ kiểm thử",
+          "addedToBatch": "Đã thêm vào loạt",
+          "testCaseAddedToBatch": "Đã thêm bộ kiểm thử vào loạt (tổng cộng {count})",
+          "success": "Thành công",
+          "testCaseAddedSuccess": "Đã thêm bộ kiểm thử thành công",
+          "progress": "Tiến Độ",
+          "uploadedTestCaseCount": "Đã tải lên bộ kiểm thử {current} / {total}",
+          "successfullyUploadedTestCases": "Đã tải lên thành công {count} bộ kiểm thử"
+        },
+        "confirm": {
+          "addToBatchBeforeUpload": "Bạn có muốn thêm bộ kiểm thử hiện tại vào loạt trước khi tải lên không?"
+        },
+        "empty": {
+          "title": "Chưa có bộ kiểm thử nào",
+          "description": "Bộ kiểm thử giúp xác thực các giải pháp. Mỗi bộ kiểm thử bao gồm đầu vào, đầu ra dự kiến và điểm số.",
+          "addFirst": "Thêm Bộ Kiểm Thử Đầu Tiên Của Bạn"
+        },
+        "testCase": {
+          "title": "Bộ Kiểm Thử #{number}",
+          "score": "Điểm: {score}",
+          "emptyInput": "Đầu vào trống",
+          "emptyOutput": "Đầu ra trống"
+        },
+        "delete": {
+          "title": "Xóa Bộ Kiểm Thử #{number}",
+          "description": "Bạn có chắc chắn muốn xóa bộ kiểm thử này không? Hành động này không thể hoàn tác."
+        }
+      }
+    }
+  },
+  "Common": {
+"locale": "vi-VN",
+  "maintenance": {
+    "title": "Bảo Trì Hệ Thống",
+    "message": "Chúng tôi đang thực hiện bảo trì hệ thống. Vui lòng quay lại sau.",
+    "estimatedTime": "Thời gian hoàn thành dự kiến:"
+  },
+  "redirecting": "Đang chuyển hướng..."  }
+}

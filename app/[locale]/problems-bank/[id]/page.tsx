@@ -1,22 +1,14 @@
-import ProblemDetail from "@/components/ProblemsBank/Problem";
+import { redirect } from 'next/navigation';
+import { Metadata } from 'next';
 
-interface PageProps {
-    params: { id: string };
-    searchParams: { lang?: string };
-}  
+export const metadata: Metadata = {
+    title: 'Problem',
+};
 
-export default async function PolygonPage({
-  params,
-  searchParams
-}: PageProps){
-    const lang = (searchParams.lang || 'en');
-
-  return (
-    <>
-      <head>
-        <title>{`${params.id}`}</title>
-      </head>
-      <ProblemDetail id={params.id} lang={lang}/>
-    </>
-  )
+export default function ProblemPage({
+    params,
+}: {
+    params: { id: string; locale: string };
+}) {
+    redirect(`/${params.locale}/problems-bank/${params.id}/general`);
 }

@@ -14,7 +14,7 @@ import {
   AlertDialogHeader,
   AlertDialogFooter,
 } from "@/components/ui/alert-dialog";
-import { Search, Plus, X } from "lucide-react";
+import { Search, Plus, X, Eye, Lock } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Slider } from "@/components/ui/slider";
 import { toast } from "@/components/ui/use-toast";
@@ -30,14 +30,16 @@ import { Badge } from "@/components/ui/badge";
 import { Checkbox } from "@/components/ui/checkbox";
 import categories from "@/utils/categories";
 import { useTranslations } from "next-intl";
+import { Alert, AlertDescription } from "@/components/ui/alert";
 
 interface GeneralTabProps {
   problem: Problem;
   isLoading: boolean;
   onUpdate: (updates: Partial<Problem>) => Promise<void>;
+  readOnly: boolean;
 }
 
-export function GeneralTab({ problem, isLoading, onUpdate }: GeneralTabProps) {
+export function GeneralTab({ problem, isLoading, onUpdate, readOnly }: GeneralTabProps) {
   const t = useTranslations("ProblemBank.problem");
   const [localProblem, setLocalProblem] = useState<Problem>(problem);
   const [isUpdating, setIsUpdating] = useState<boolean>(false);
@@ -56,6 +58,8 @@ export function GeneralTab({ problem, isLoading, onUpdate }: GeneralTabProps) {
   }, [problem]);
 
   const handleInputChange = (field: keyof Problem, value: any) => {
+    if (readOnly) return; // Prevent changes in read-only mode
+    
     if (updateSuccess !== null) {
       setUpdateSuccess(null);
     }
@@ -67,6 +71,8 @@ export function GeneralTab({ problem, isLoading, onUpdate }: GeneralTabProps) {
   };
 
   const handleSubmit = async () => {
+    if (readOnly) return; // Prevent submission in read-only mode
+    
     try {
       setIsUpdating(true);
       setUpdateSuccess(null);
@@ -103,6 +109,8 @@ export function GeneralTab({ problem, isLoading, onUpdate }: GeneralTabProps) {
   };
   
   const toggleCategory = (categoryCode: string) => {
+    if (readOnly) return; // Prevent category toggle in read-only mode
+    
     const isSelected = localProblem.categories?.includes(categoryCode);
     const updatedCategories = isSelected
       ? localProblem.categories.filter(c => c !== categoryCode)
@@ -112,7 +120,7 @@ export function GeneralTab({ problem, isLoading, onUpdate }: GeneralTabProps) {
   
   const filteredCategories = searchQuery.trim()
     ? allCategories.filter(cat => 
-        cat.name.toLowerCase().includes(searchQuery.toLowerCase()))
+        cat.name.toLowerCase().includes(searchQuery.toLowerCase()) || cat.code.toLowerCase().includes(searchQuery.toLowerCase()))
     : allCategories;
 
   const hasChanges = JSON.stringify(problem) !== JSON.stringify(localProblem);
@@ -120,6 +128,18 @@ export function GeneralTab({ problem, isLoading, onUpdate }: GeneralTabProps) {
   return (
     <div className="flex flex-col h-[calc(100vh-4rem)] overflow-auto bg-dot-pattern">
       <div className="mx-auto w-full max-w-3xl px-6 py-8">
+        {/* Read-Only Banner/Alert */}
+        {readOnly && (
+          <Alert className="mb-6 bg-blue-50 border-blue-200 dark:bg-blue-950/20 dark:border-blue-900">
+            <div className="flex items-center gap-2">
+              <Lock className="h-4 w-4 text-blue-500" />
+              <AlertDescription className="text-blue-700 dark:text-blue-400">
+                {t("general.readOnlyNotice")}
+              </AlertDescription>
+            </div>
+          </Alert>
+        )}
+        
         <div className="space-y-8">
           {/* Problem Info Section */}
           <div className="grid grid-cols-3 gap-6">
@@ -157,8 +177,10 @@ export function GeneralTab({ problem, isLoading, onUpdate }: GeneralTabProps) {
                       "bg-background border border-input",
                       "[appearance:textfield]",
                       "[&::-webkit-outer-spin-button]:appearance-none",
-                      "[&::-webkit-inner-spin-button]:appearance-none"
+                      "[&::-webkit-inner-spin-button]:appearance-none",
+                      readOnly && "opacity-70 cursor-not-allowed"
                     )}
+                    disabled={isLoading || isUpdating || readOnly}
                   />
                   <div className="absolute right-3 top-1/2 -translate-y-1/2 text-sm text-muted-foreground font-mono">
                     / 3500
@@ -170,10 +192,11 @@ export function GeneralTab({ problem, isLoading, onUpdate }: GeneralTabProps) {
                   min={500}
                   max={3500}
                   step={100}
-                  disabled={isLoading || isUpdating}
+                  disabled={isLoading || isUpdating || readOnly}
                   onValueChange={([value]) => {
                     handleInputChange("difficulty", value);
                   }}
+                  className={readOnly ? "opacity-70" : ""}
                 />
               </div>
             </div>
@@ -194,8 +217,11 @@ export function GeneralTab({ problem, isLoading, onUpdate }: GeneralTabProps) {
               onChange={(e) =>
                 handleInputChange("displayTitle", e.target.value)
               }
-              disabled={isLoading || isUpdating}
-              className="bg-card/50 border-input/50 h-10"
+              disabled={isLoading || isUpdating || readOnly}
+              className={cn(
+                "bg-card/50 border-input/50 h-10",
+                readOnly && "opacity-70 cursor-not-allowed"
+              )}
             />
           </div>
 
@@ -205,69 +231,78 @@ export function GeneralTab({ problem, isLoading, onUpdate }: GeneralTabProps) {
               <Label className="text-sm font-medium text-muted-foreground block">
                 {t("general.categories")}
               </Label>
-              <Dialog open={categoryDialog} onOpenChange={setCategoryDialog}>
-                <DialogTrigger asChild>
-                  <Button 
-                    variant="outline" 
-                    size="sm"
-                    className="gap-1"
-                    disabled={isLoading || isUpdating}
-                  >
-                    <Plus className="h-3.5 w-3.5" />
-                    {t("general.selectCategories")}
-                  </Button>
-                </DialogTrigger>
-                <DialogContent className="sm:max-w-[500px]">
-                  <DialogHeader>
-                    <DialogTitle>{t("general.selectProblemCategories")}</DialogTitle>
-                  </DialogHeader>
-                  
-                  {/* Search Categories */}
-                  <div className="relative my-4">
-                    <Search className="absolute left-2.5 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground/70" />
-                    <Input
-                      placeholder={t("general.searchCategories")}
-                      className="pl-9"
-                      value={searchQuery}
-                      onChange={(e) => setSearchQuery(e.target.value)}
-                    />
-                  </div>
-                  
-                  {/* Simple Categories List */}
-                  <ScrollArea className="h-[300px] pr-4 -mr-4">
-                    <div className="space-y-1">
-                      {filteredCategories.map(category => (
-                        <div 
-                          key={category.code}
-                          className="flex items-center space-x-2 py-1"
-                        >
-                          <Checkbox 
-                            id={`category-${category.code}`}
-                            checked={localProblem.categories?.includes(category.code)}
-                            onCheckedChange={() => toggleCategory(category.code)}
-                          />
-                          <label 
-                            htmlFor={`category-${category.code}`}
-                            className="text-sm cursor-pointer flex-grow"
-                          >
-                            {category.name}
-                          </label>
-                        </div>
-                      ))}
-                    </div>
-                  </ScrollArea>
-                  
-                  <div className="flex justify-end mt-4 pt-2 border-t">
-                    <Button onClick={() => setCategoryDialog(false)}>
-                      {t("general.done")}
+              {!readOnly && (
+                <Dialog open={categoryDialog} onOpenChange={setCategoryDialog}>
+                  <DialogTrigger asChild>
+                    <Button 
+                      variant="outline" 
+                      size="sm"
+                      className="gap-1"
+                      disabled={isLoading || isUpdating || readOnly}
+                    >
+                      <Plus className="h-3.5 w-3.5" />
+                      {t("general.selectCategories")}
                     </Button>
-                  </div>
-                </DialogContent>
-              </Dialog>
+                  </DialogTrigger>
+                  <DialogContent className="sm:max-w-[500px]">
+                    <DialogHeader>
+                      <DialogTitle>{t("general.selectProblemCategories")}</DialogTitle>
+                    </DialogHeader>
+                    
+                    {/* Search Categories */}
+                    <div className="relative my-4">
+                      <Search className="absolute left-2.5 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground/70" />
+                      <Input
+                        placeholder={t("general.searchCategories")}
+                        className="pl-9"
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                      />
+                    </div>
+                    
+                    {/* Simple Categories List */}
+                    <ScrollArea className="h-[300px] pr-4 -mr-4">
+                      <div className="space-y-1">
+                        {filteredCategories.map(category => (
+                          <div 
+                            key={category.code}
+                            className="flex items-center space-x-2 py-1"
+                          >
+                            <Checkbox 
+                              id={`category-${category.code}`}
+                              checked={localProblem.categories?.includes(category.code)}
+                              onCheckedChange={() => toggleCategory(category.code)}
+                              disabled={readOnly}
+                            />
+                            <label 
+                              htmlFor={`category-${category.code}`}
+                              className={cn(
+                                "text-sm cursor-pointer flex-grow",
+                                readOnly && "cursor-not-allowed opacity-70"
+                              )}
+                            >
+                              {category.name}
+                            </label>
+                          </div>
+                        ))}
+                      </div>
+                    </ScrollArea>
+                    
+                    <div className="flex justify-end mt-4 pt-2 border-t">
+                      <Button onClick={() => setCategoryDialog(false)}>
+                        {t("general.done")}
+                      </Button>
+                    </div>
+                  </DialogContent>
+                </Dialog>
+              )}
             </div>
             
             {/* Selected Categories Display */}
-            <div className="flex flex-wrap gap-2 bg-card/50 p-4 rounded-lg border min-h-[80px]">
+            <div className={cn(
+              "flex flex-wrap gap-2 bg-card/50 p-4 rounded-lg border min-h-[80px]",
+              readOnly && "opacity-90"
+            )}>
               {localProblem.categories?.length ? (
                 localProblem.categories.map(code => {
                   const categoryName = categoryMap[code] || code;
@@ -275,11 +310,15 @@ export function GeneralTab({ problem, isLoading, onUpdate }: GeneralTabProps) {
                     <Badge 
                       key={code} 
                       variant="secondary"
-                      className="px-2 py-1 gap-1 cursor-pointer"
-                      onClick={() => toggleCategory(code)}
+                      className={cn(
+                        "px-2 py-1 gap-1",
+                        !readOnly && "cursor-pointer",
+                        readOnly && "cursor-default"
+                      )}
+                      onClick={readOnly ? undefined : () => toggleCategory(code)}
                     >
                       {categoryName}
-                      <X className="h-3 w-3" />
+                      {!readOnly && <X className="h-3 w-3" />}
                     </Badge>
                   );
                 })
@@ -291,40 +330,52 @@ export function GeneralTab({ problem, isLoading, onUpdate }: GeneralTabProps) {
             </div>
           </div>
 
-          {/* Action Button */}
-          <div className="flex justify-end pt-4">
-            <AlertDialog open={alertOpen} onOpenChange={setAlertOpen}>
-              <AlertDialogTrigger asChild>
-                <Button
-                  variant="default"
-                  disabled={isLoading || isUpdating || !hasChanges}
-                >
-                  {isLoading ? t("general.loading") : 
-                   isUpdating ? t("general.updating") : 
-                   hasChanges ? t("general.saveChanges") : t("general.noChanges")}
-                </Button>
-              </AlertDialogTrigger>
-              <AlertDialogContent>
-                <AlertDialogHeader>
-                  <AlertDialogTitle>{t("general.confirmAction")}</AlertDialogTitle>
-                  <AlertDialogDescription>
-                    {t("general.confirmUpdateProblem")}
-                  </AlertDialogDescription>
-                </AlertDialogHeader>
-                <AlertDialogFooter>
-                  <AlertDialogCancel disabled={isUpdating}>
-                    {t("general.cancel")}
-                  </AlertDialogCancel>
-                  <AlertDialogAction
-                    onClick={handleSubmit}
-                    disabled={isUpdating}
+          {/* Action Button - Only display in non-read-only mode */}
+          {!readOnly && (
+            <div className="flex justify-end pt-4">
+              <AlertDialog open={alertOpen} onOpenChange={setAlertOpen}>
+                <AlertDialogTrigger asChild>
+                  <Button
+                    variant="default"
+                    disabled={isLoading || isUpdating || !hasChanges || readOnly}
                   >
-                    {isUpdating ? t("general.updating") : t("general.update")}
-                  </AlertDialogAction>
-                </AlertDialogFooter>
-              </AlertDialogContent>
-            </AlertDialog>
-          </div>
+                    {isLoading ? t("general.loading") : 
+                     isUpdating ? t("general.updating") : 
+                     hasChanges ? t("general.saveChanges") : t("general.noChanges")}
+                  </Button>
+                </AlertDialogTrigger>
+                <AlertDialogContent>
+                  <AlertDialogHeader>
+                    <AlertDialogTitle>{t("general.confirmAction")}</AlertDialogTitle>
+                    <AlertDialogDescription>
+                      {t("general.confirmUpdateProblem")}
+                    </AlertDialogDescription>
+                  </AlertDialogHeader>
+                  <AlertDialogFooter>
+                    <AlertDialogCancel disabled={isUpdating}>
+                      {t("general.cancel")}
+                    </AlertDialogCancel>
+                    <AlertDialogAction
+                      onClick={handleSubmit}
+                      disabled={isUpdating}
+                    >
+                      {isUpdating ? t("general.updating") : t("general.update")}
+                    </AlertDialogAction>
+                  </AlertDialogFooter>
+                </AlertDialogContent>
+              </AlertDialog>
+            </div>
+          )}
+          
+          {/* Read-only indicator instead of action button */}
+          {readOnly && (
+            <div className="flex justify-end pt-4">
+              <div className="px-3 py-2 bg-blue-50 border border-blue-200 rounded-md flex items-center gap-2 text-sm text-blue-700 dark:bg-blue-950/20 dark:border-blue-800 dark:text-blue-400">
+                <Eye className="h-4 w-4" />
+                {t("general.readOnlyMode")}
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>

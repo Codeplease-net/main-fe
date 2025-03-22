@@ -6,10 +6,10 @@ import { LanguageCode } from "../types/language";
 import { GeneralTab } from "./GeneralTab";
 import { DescriptionTab } from "./DescriptionTab";
 import { TestcasesTab } from "./TestcasesTab";
-import { useState } from "react";
 import { useTranslations } from "next-intl"; // Import useTranslations
 
 interface InputSectionProps {
+  selectedTab: string;
   problem: Problem;
   isLoading: boolean;
   onUpdateProblem: (updates: Partial<Problem>) => Promise<void>;
@@ -18,28 +18,29 @@ interface InputSectionProps {
     content: { title: string; description: string; solution: string },
     lang: LanguageCode
   ) => void;
+  setSelectedTab: (newTab: string) => void;
+  readOnly: boolean;
 }
 
 export function InputSection({
+  selectedTab,
   problem,
   isLoading,
   language,
   onUpdateProblem,
   onPreviewChange,
+  setSelectedTab,
+  readOnly
 }: InputSectionProps) {
   // Get translations
   const t = useTranslations("ProblemBank.problem.inputSection");
   
-  const [activeTab, setActiveTab] = useState<
-    "general" | "description" | "testcases"
-  >("general");
-
   return (
     <Card className="h-full border-none rounded-none shadow-none">
       <CardContent className="p-0">
         <Tabs
-          value={activeTab}
-          onValueChange={(value) => setActiveTab(value as typeof activeTab)}
+          value={selectedTab}
+          onValueChange={setSelectedTab}
           className="h-full flex flex-col"
         >
           <TabsList className="h-16 px-4 bg-background border-b flex items-center gap-4 rounded-none">
@@ -87,6 +88,7 @@ export function InputSection({
               problem={problem}
               isLoading={isLoading}
               onUpdate={onUpdateProblem}
+              readOnly={readOnly}
             />
           </TabsContent>
 
@@ -100,13 +102,14 @@ export function InputSection({
               language={language}
               isLoading={isLoading}
               onUpdate={onUpdateProblem}
+              readOnly={readOnly}
             />
           </TabsContent>
           <TabsContent
             value="testcases"
             className="overflow-auto bg-background"
           >
-            <TestcasesTab problemId={problem?.id ? problem.id : "breed-counting"}/>
+            <TestcasesTab problemId={problem?.id ? problem.id : ""} readOnly={readOnly}/>
           </TabsContent>
         </Tabs>
       </CardContent>

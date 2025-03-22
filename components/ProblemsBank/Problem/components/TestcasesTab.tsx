@@ -10,7 +10,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Textarea } from "@/components/ui/textarea";
-import { Clock, Database, FileText, Plus } from "lucide-react";
+import { Clock, Database, FileText, Plus, Eye, Lock } from "lucide-react";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Download, Loader2, Scale, Trash2 } from "lucide-react";
@@ -32,9 +32,12 @@ import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { useTranslations } from "next-intl"; // Import useTranslations
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { cn } from "@/lib/utils";
 
 interface TestcasesTabProps {
   problemId: string;
+  readOnly: boolean;
 }
 
 interface TestCasesProps {
@@ -52,7 +55,7 @@ interface ConfigProps {
   test_cases: TestCasesProps[];
 }
 
-export function TestcasesTab({ problemId }: TestcasesTabProps) {
+export function TestcasesTab({ problemId, readOnly }: TestcasesTabProps) {
   // Get translations
   const t = useTranslations("ProblemBank.problem.testcases");
   
@@ -131,6 +134,8 @@ export function TestcasesTab({ problemId }: TestcasesTabProps) {
   };
 
   const handleDelete = async (index: number) => {
+    if (readOnly) return; // Prevent deletion in read-only mode
+    
     setIsDeleting(index);
     try {
       const form = new FormData();
@@ -161,6 +166,8 @@ export function TestcasesTab({ problemId }: TestcasesTabProps) {
   };
 
   const addToBatch = () => {
+    if (readOnly) return; // Prevent adding to batch in read-only mode
+    
     // Validate current test case
     if ((!newTestCase.input && !newTestCase.inputFile) || 
         (!newTestCase.output && !newTestCase.outputFile)) {
@@ -191,6 +198,8 @@ export function TestcasesTab({ problemId }: TestcasesTabProps) {
   };
 
   const handleAddTest = async (e: React.FormEvent) => {
+    if (readOnly) return; // Prevent adding test cases in read-only mode
+    
     e.preventDefault();
     
     // Check if we have a batch or single test case
@@ -379,6 +388,8 @@ export function TestcasesTab({ problemId }: TestcasesTabProps) {
   };
 
   const removeBatchTestCase = (index: number) => {
+    if (readOnly) return; // Prevent removing batch test cases in read-only mode
+    
     const updated = [...batchTestCases];
     updated.splice(index, 1);
     setBatchTestCases(updated);
@@ -421,6 +432,18 @@ export function TestcasesTab({ problemId }: TestcasesTabProps) {
 
   return (
     <div className="flex flex-col h-[calc(100vh-4rem)] overflow-auto bg-muted/5 p-6 md:p-8 space-y-6">
+      {/* Read-Only Banner */}
+      {readOnly && (
+        <Alert className="bg-blue-50 border-blue-200 dark:bg-blue-950/20 dark:border-blue-900">
+          <div className="flex items-center gap-2">
+            <Lock className="h-4 w-4 text-blue-500" />
+            <AlertDescription className="text-blue-700 dark:text-blue-400">
+              {t("readOnlyNotice")}
+            </AlertDescription>
+          </div>
+        </Alert>
+      )}
+      
       {/* Header */}
       <div className="flex flex-col gap-2">
         <h1 className="text-2xl font-semibold tracking-tight">{t("header.title")}</h1>
@@ -481,290 +504,300 @@ export function TestcasesTab({ problemId }: TestcasesTabProps) {
       {/* Test Cases Section */}
       <div className="flex justify-between items-center mt-2">
         <h2 className="text-lg font-medium">{t("testCases.title", { count: config.test_cases.length })}</h2>
-        <div className="flex items-center">
-          <Dialog open={open} onOpenChange={(isOpen) => {
-            if (!isOpen) {
-              // When closing dialog, clear the batch
-              setBatchTestCases([]);
-            }
-            setOpen(isOpen);
-          }}>
-            <DialogTrigger asChild>
-              <Button className="flex items-center gap-2">
-                <Plus className="h-4 w-4" />
-                {t("actions.addTestCase")}
-              </Button>
-            </DialogTrigger>
-            <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
-              <DialogHeader>
-                <DialogTitle>{t("dialog.addTestCases")}</DialogTitle>
-                <DialogDescription>
-                  {t("dialog.createDescription")}
-                </DialogDescription>
-              </DialogHeader>
-              
-              <form className="space-y-6" onSubmit={handleAddTest}>
-                {/* Current Test Case Form */}
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between">
-                    <h3 className="text-base font-medium">
-                      {batchTestCases.length > 0 ? t("dialog.addAnother") : t("dialog.newTestCase")}
-                    </h3>
-                    {batchTestCases.length > 0 && (
-                      <Badge variant="secondary" className="font-mono">
-                        {t("dialog.inBatch", { count: batchTestCases.length })}
-                      </Badge>
-                    )}
-                  </div>
-                  
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {/* Left Column - Input */}
-                    <div className="space-y-3">
-                      <div className="flex items-center justify-between">
-                        <Label htmlFor="input" className="text-sm font-medium">{t("fields.input")}</Label>
-                        <Badge variant="outline" className="font-normal">{t("fields.required")}</Badge>
-                      </div>
-                      
-                      <div className="relative">
-                        <Input
-                          type="file"
-                          onChange={(e) => setNewTestCase({...newTestCase, inputFile: e.target.files?.[0] || null})}
-                          className="w-full"
-                          accept=".txt,.in,.inp"
-                          disabled={isAddingTestCase || isUploadingBulk}
-                        />
-                        <div className="my-2 text-center text-xs text-muted-foreground">— {t("common.or")} —</div>
-                      </div>
-                      
-                      <Textarea
-                        id="input"
-                        placeholder={t("placeholders.inputText")}
-                        value={newTestCase.input}
-                        onChange={(e) => setNewTestCase({ ...newTestCase, input: e.target.value })}
-                        className="font-mono min-h-[140px]"
-                        disabled={isAddingTestCase || isUploadingBulk}
-                      />
-                    </div>
-
-                    {/* Right Column - Output */}
-                    <div className="space-y-3">
-                      <div className="flex items-center justify-between">
-                        <Label htmlFor="output" className="text-sm font-medium">{t("fields.expectedOutput")}</Label>
-                        <Badge variant="outline" className="font-normal">{t("fields.required")}</Badge>
-                      </div>
-                      
-                      <div className="relative">
-                        <Input
-                          type="file"
-                          onChange={(e) => setNewTestCase({...newTestCase, outputFile: e.target.files?.[0] || null})}
-                          className="w-full"
-                          accept=".txt,.out"
-                          disabled={isAddingTestCase || isUploadingBulk}
-                        />
-                        <div className="my-2 text-center text-xs text-muted-foreground">— {t("common.or")} —</div>
-                      </div>
-                      
-                      <Textarea
-                        id="output"
-                        placeholder={t("placeholders.outputText")}
-                        value={newTestCase.output}
-                        onChange={(e) => setNewTestCase({ ...newTestCase, output: e.target.value })}
-                        className="font-mono min-h-[140px]"
-                        disabled={isAddingTestCase || isUploadingBulk}
-                      />
-                    </div>
-                  </div>
-
-                  {/* Score Input */}
-                  <div className="flex items-center gap-4 pt-4 border-t">
-                    <div className="w-full">
-                      <div className="flex items-center justify-between mb-2">
-                        <Label htmlFor="score" className="text-sm">{t("fields.score")}</Label>
-                        <span className="text-xs text-muted-foreground">{t("fields.defaultScore")}</span>
-                      </div>
-                      
-                      <div className="flex flex-wrap gap-2 mb-2">
-                        {scorePresets.map((preset) => (
-                          <Button
-                            key={preset}
-                            type="button"
-                            size="sm"
-                            variant={newTestCase.score === preset ? "default" : "outline"}
-                            className="h-8 px-3"
-                            onClick={() => setNewTestCase({...newTestCase, score: preset})}
-                            disabled={isAddingTestCase || isUploadingBulk}
-                          >
-                            {preset}
-                          </Button>
-                        ))}
-                        <div className="relative flex items-center">
-                          <Input
-                            id="score"
-                            type="number"
-                            min="0"
-                            placeholder={t("placeholders.customScore")}
-                            value={!scorePresets.includes(newTestCase.score) && newTestCase.score !== 0 ? newTestCase.score : ""}
-                            onChange={(e) => {
-                              const value = e.target.value.trim() === "" ? 0 : parseInt(e.target.value);
-                              setNewTestCase({...newTestCase, score: isNaN(value) ? 0 : value})
-                            }}
-                            className="h-8 pr-16"
-                            disabled={isAddingTestCase || isUploadingBulk}
-                          />
-                          <span className="absolute right-3 text-xs text-muted-foreground">{t("fields.points")}</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Add to Batch Button */}
-                  <div className="flex justify-end">
-                    <Button 
-                      type="button" 
-                      variant="outline"
-                      onClick={addToBatch}
-                      disabled={isAddingTestCase || isUploadingBulk || 
-                        (!newTestCase.input && !newTestCase.inputFile) || 
-                        (!newTestCase.output && !newTestCase.outputFile)}
-                    >
-                      <Plus className="mr-2 h-4 w-4" />
-                      {t("actions.addToBatch")}
-                    </Button>
-                  </div>
-                </div>
+        {/* Only show Add Test Case button when not in read-only mode */}
+        {!readOnly && (
+          <div className="flex items-center">
+            <Dialog open={open} onOpenChange={(isOpen) => {
+              if (!isOpen) {
+                // When closing dialog, clear the batch
+                setBatchTestCases([]);
+              }
+              setOpen(isOpen);
+            }}>
+              <DialogTrigger asChild>
+                <Button className="flex items-center gap-2">
+                  <Plus className="h-4 w-4" />
+                  {t("actions.addTestCase")}
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+                <DialogHeader>
+                  <DialogTitle>{t("dialog.addTestCases")}</DialogTitle>
+                  <DialogDescription>
+                    {t("dialog.createDescription")}
+                  </DialogDescription>
+                </DialogHeader>
                 
-                {/* Batch Preview Section */}
-                {batchTestCases.length > 0 && (
-                  <div className="space-y-4 border-t pt-4">
+                <form className="space-y-6" onSubmit={handleAddTest}>
+                  {/* Current Test Case Form */}
+                  <div className="space-y-4">
                     <div className="flex items-center justify-between">
-                      <h3 className="text-base font-medium">{t("batch.title", { count: batchTestCases.length })}</h3>
-                      {batchTestCases.length > 3 && (
-                        <span className="text-xs text-muted-foreground bg-muted/50 px-2 py-1 rounded-md">
-                          {t("batch.scrollHint", { count: batchTestCases.length })}
-                        </span>
+                      <h3 className="text-base font-medium">
+                        {batchTestCases.length > 0 ? t("dialog.addAnother") : t("dialog.newTestCase")}
+                      </h3>
+                      {batchTestCases.length > 0 && (
+                        <Badge variant="secondary" className="font-mono">
+                          {t("dialog.inBatch", { count: batchTestCases.length })}
+                        </Badge>
                       )}
                     </div>
                     
-                    <div className="border rounded-md">
-                      <div className="max-h-[300px] overflow-auto">
-                        <table className="w-full text-sm">
-                          <thead className="sticky top-0 bg-card shadow-sm z-10">
-                            <tr className="border-b">
-                              <th className="text-left py-2 px-3 font-medium">#</th>
-                              <th className="text-left py-2 px-3 font-medium">{t("batch.inputPreview")}</th>
-                              <th className="text-left py-2 px-3 font-medium">{t("batch.outputPreview")}</th>
-                              <th className="text-left py-2 px-3 font-medium">{t("batch.score")}</th>
-                              <th className="text-right py-2 px-3 font-medium">{t("batch.action")}</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            {batchTestCases.map((testCase, index) => (
-                              <tr key={index} className="border-b last:border-b-0 hover:bg-muted/20 transition-colors">
-                                <td className="py-2 px-3">
-                                  <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center text-primary text-xs">
-                                    {index + 1}
-                                  </div>
-                                </td>
-                                <td className="py-2 px-3">
-                                  <div className="max-w-[150px] truncate font-mono text-xs">
-                                    {testCase.inputFile ? 
-                                      t("batch.fileLabel", { name: testCase.inputFile.name }) : 
-                                      (testCase.input || t("batch.empty"))}
-                                  </div>
-                                </td>
-                                <td className="py-2 px-3">
-                                  <div className="max-w-[150px] truncate font-mono text-xs">
-                                    {testCase.outputFile ? 
-                                      t("batch.fileLabel", { name: testCase.outputFile.name }) : 
-                                      (testCase.output || t("batch.empty"))}
-                                  </div>
-                                </td>
-                                <td className="py-2 px-3">
-                                  <Badge variant="outline" className="font-mono">
-                                    {testCase.score}
-                                  </Badge>
-                                </td>
-                                <td className="py-2 px-3 text-right">
-                                  <Button
-                                    variant="ghost"
-                                    size="sm"
-                                    className="h-8 text-destructive hover:text-destructive hover:bg-destructive/10"
-                                    onClick={() => removeBatchTestCase(index)}
-                                    disabled={isUploadingBulk}
-                                  >
-                                    <Trash2 className="h-4 w-4" />
-                                  </Button>
-                                </td>
-                              </tr>
-                            ))}
-                          </tbody>
-                        </table>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      {/* Left Column - Input */}
+                      <div className="space-y-3">
+                        <div className="flex items-center justify-between">
+                          <Label htmlFor="input" className="text-sm font-medium">{t("fields.input")}</Label>
+                          <Badge variant="outline" className="font-normal">{t("fields.required")}</Badge>
+                        </div>
+                        
+                        <div className="relative">
+                          <Input
+                            type="file"
+                            onChange={(e) => setNewTestCase({...newTestCase, inputFile: e.target.files?.[0] || null})}
+                            className="w-full"
+                            accept=".txt,.in,.inp"
+                            disabled={isAddingTestCase || isUploadingBulk}
+                          />
+                          <div className="my-2 text-center text-xs text-muted-foreground">— {t("common.or")} —</div>
+                        </div>
+                        
+                        <Textarea
+                          id="input"
+                          placeholder={t("placeholders.inputText")}
+                          value={newTestCase.input}
+                          onChange={(e) => setNewTestCase({ ...newTestCase, input: e.target.value })}
+                          className="font-mono min-h-[140px]"
+                          disabled={isAddingTestCase || isUploadingBulk}
+                        />
                       </div>
-                      
-                      {/* Batch summary footer */}
-                      <div className="bg-muted/20 p-3 border-t flex items-center justify-between">
-                        <span className="text-sm font-medium">
-                          {t("batch.total", {
-                            count: batchTestCases.length,
-                            testCase: batchTestCases.length === 1 
-                              ? t("common.testCase") 
-                              : t("common.testCases")
-                          })}
-                        </span>
-                        <Button
-                          variant="ghost"
-                          size="sm"
-                          className="h-8 text-destructive hover:bg-destructive/10"
-                          onClick={() => setBatchTestCases([])}
-                          disabled={isUploadingBulk}
-                        >
-                          {t("actions.clearAll")}
-                        </Button>
+
+                      {/* Right Column - Output */}
+                      <div className="space-y-3">
+                        <div className="flex items-center justify-between">
+                          <Label htmlFor="output" className="text-sm font-medium">{t("fields.expectedOutput")}</Label>
+                          <Badge variant="outline" className="font-normal">{t("fields.required")}</Badge>
+                        </div>
+                        
+                        <div className="relative">
+                          <Input
+                            type="file"
+                            onChange={(e) => setNewTestCase({...newTestCase, outputFile: e.target.files?.[0] || null})}
+                            className="w-full"
+                            accept=".txt,.out"
+                            disabled={isAddingTestCase || isUploadingBulk}
+                          />
+                          <div className="my-2 text-center text-xs text-muted-foreground">— {t("common.or")} —</div>
+                        </div>
+                        
+                        <Textarea
+                          id="output"
+                          placeholder={t("placeholders.outputText")}
+                          value={newTestCase.output}
+                          onChange={(e) => setNewTestCase({ ...newTestCase, output: e.target.value })}
+                          className="font-mono min-h-[140px]"
+                          disabled={isAddingTestCase || isUploadingBulk}
+                        />
                       </div>
                     </div>
+
+                    {/* Score Input */}
+                    <div className="flex items-center gap-4 pt-4 border-t">
+                      <div className="w-full">
+                        <div className="flex items-center justify-between mb-2">
+                          <Label htmlFor="score" className="text-sm">{t("fields.score")}</Label>
+                          <span className="text-xs text-muted-foreground">{t("fields.defaultScore")}</span>
+                        </div>
+                        
+                        <div className="flex flex-wrap gap-2 mb-2">
+                          {scorePresets.map((preset) => (
+                            <Button
+                              key={preset}
+                              type="button"
+                              size="sm"
+                              variant={newTestCase.score === preset ? "default" : "outline"}
+                              className="h-8 px-3"
+                              onClick={() => setNewTestCase({...newTestCase, score: preset})}
+                              disabled={isAddingTestCase || isUploadingBulk}
+                            >
+                              {preset}
+                            </Button>
+                          ))}
+                          <div className="relative flex items-center">
+                            <Input
+                              id="score"
+                              type="number"
+                              min="0"
+                              placeholder={t("placeholders.customScore")}
+                              value={!scorePresets.includes(newTestCase.score) && newTestCase.score !== 0 ? newTestCase.score : ""}
+                              onChange={(e) => {
+                                const value = e.target.value.trim() === "" ? 0 : parseInt(e.target.value);
+                                setNewTestCase({...newTestCase, score: isNaN(value) ? 0 : value})
+                              }}
+                              className="h-8 pr-16"
+                              disabled={isAddingTestCase || isUploadingBulk}
+                            />
+                            <span className="absolute right-3 text-xs text-muted-foreground">{t("fields.points")}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Add to Batch Button */}
+                    <div className="flex justify-end">
+                      <Button 
+                        type="button" 
+                        variant="outline"
+                        onClick={addToBatch}
+                        disabled={isAddingTestCase || isUploadingBulk || 
+                          (!newTestCase.input && !newTestCase.inputFile) || 
+                          (!newTestCase.output && !newTestCase.outputFile)}
+                      >
+                        <Plus className="mr-2 h-4 w-4" />
+                        {t("actions.addToBatch")}
+                      </Button>
+                    </div>
                   </div>
-                )}
-                
-                <DialogFooter className="pt-2">
-                  {batchTestCases.length > 0 ? (
-                    <Button 
-                      type="submit" 
-                      disabled={isAddingTestCase || isUploadingBulk}
-                    >
-                      {isUploadingBulk ? (
-                        <span className="flex items-center gap-2">
-                          <Loader2 className="h-4 w-4 animate-spin" />
-                          {t("actions.uploadingMultiple", { count: batchTestCases.length })}
-                        </span>
-                      ) : (
-                        <span className="flex items-center gap-2">
-                          <FileText className="h-4 w-4" />
-                          {t("actions.uploadMultiple", { count: batchTestCases.length })}
-                        </span>
-                      )}
-                    </Button>
-                  ) : (
-                    <Button 
-                      type="submit" 
-                      disabled={isAddingTestCase || 
-                        (!newTestCase.input && !newTestCase.inputFile) || 
-                        (!newTestCase.output && !newTestCase.outputFile)}
-                    >
-                      {isAddingTestCase ? (
-                        <span className="flex items-center gap-2">
-                          <Loader2 className="h-4 w-4 animate-spin" />
-                          {t("actions.creating")}
-                        </span>
-                      ) : (
-                        t("actions.createTestCase")
-                      )}
-                    </Button>
+                  
+                  {/* Batch Preview Section */}
+                  {batchTestCases.length > 0 && (
+                    <div className="space-y-4 border-t pt-4">
+                      <div className="flex items-center justify-between">
+                        <h3 className="text-base font-medium">{t("batch.title", { count: batchTestCases.length })}</h3>
+                        {batchTestCases.length > 3 && (
+                          <span className="text-xs text-muted-foreground bg-muted/50 px-2 py-1 rounded-md">
+                            {t("batch.scrollHint", { count: batchTestCases.length })}
+                          </span>
+                        )}
+                      </div>
+                      
+                      <div className="border rounded-md">
+                        <div className="max-h-[300px] overflow-auto">
+                          <table className="w-full text-sm">
+                            <thead className="sticky top-0 bg-card shadow-sm z-10">
+                              <tr className="border-b">
+                                <th className="text-left py-2 px-3 font-medium">#</th>
+                                <th className="text-left py-2 px-3 font-medium">{t("batch.inputPreview")}</th>
+                                <th className="text-left py-2 px-3 font-medium">{t("batch.outputPreview")}</th>
+                                <th className="text-left py-2 px-3 font-medium">{t("batch.score")}</th>
+                                <th className="text-right py-2 px-3 font-medium">{t("batch.action")}</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {batchTestCases.map((testCase, index) => (
+                                <tr key={index} className="border-b last:border-b-0 hover:bg-muted/20 transition-colors">
+                                  <td className="py-2 px-3">
+                                    <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center text-primary text-xs">
+                                      {index + 1}
+                                    </div>
+                                  </td>
+                                  <td className="py-2 px-3">
+                                    <div className="max-w-[150px] truncate font-mono text-xs">
+                                      {testCase.inputFile ? 
+                                        t("batch.fileLabel", { name: testCase.inputFile.name }) : 
+                                        (testCase.input || t("batch.empty"))}
+                                    </div>
+                                  </td>
+                                  <td className="py-2 px-3">
+                                    <div className="max-w-[150px] truncate font-mono text-xs">
+                                      {testCase.outputFile ? 
+                                        t("batch.fileLabel", { name: testCase.outputFile.name }) : 
+                                        (testCase.output || t("batch.empty"))}
+                                    </div>
+                                  </td>
+                                  <td className="py-2 px-3">
+                                    <Badge variant="outline" className="font-mono">
+                                      {testCase.score}
+                                    </Badge>
+                                  </td>
+                                  <td className="py-2 px-3 text-right">
+                                    <Button
+                                      variant="ghost"
+                                      size="sm"
+                                      className="h-8 text-destructive hover:text-destructive hover:bg-destructive/10"
+                                      onClick={() => removeBatchTestCase(index)}
+                                      disabled={isUploadingBulk}
+                                    >
+                                      <Trash2 className="h-4 w-4" />
+                                    </Button>
+                                  </td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
+                        
+                        {/* Batch summary footer */}
+                        <div className="bg-muted/20 p-3 border-t flex items-center justify-between">
+                          <span className="text-sm font-medium">
+                            {t("batch.total", {
+                              count: batchTestCases.length,
+                              testCase: batchTestCases.length === 1 
+                                ? t("common.testCase") 
+                                : t("common.testCases")
+                            })}
+                          </span>
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            className="h-8 text-destructive hover:bg-destructive/10"
+                            onClick={() => setBatchTestCases([])}
+                            disabled={isUploadingBulk}
+                          >
+                            {t("actions.clearAll")}
+                          </Button>
+                        </div>
+                      </div>
+                    </div>
                   )}
-                </DialogFooter>
-              </form>
-            </DialogContent>
-          </Dialog>
-        </div>
+                  
+                  <DialogFooter className="pt-2">
+                    {batchTestCases.length > 0 ? (
+                      <Button 
+                        type="submit" 
+                        disabled={isAddingTestCase || isUploadingBulk}
+                      >
+                        {isUploadingBulk ? (
+                          <span className="flex items-center gap-2">
+                            <Loader2 className="h-4 w-4 animate-spin" />
+                            {t("actions.uploadingMultiple", { count: batchTestCases.length })}
+                          </span>
+                        ) : (
+                          <span className="flex items-center gap-2">
+                            <FileText className="h-4 w-4" />
+                            {t("actions.uploadMultiple", { count: batchTestCases.length })}
+                          </span>
+                        )}
+                      </Button>
+                    ) : (
+                      <Button 
+                        type="submit" 
+                        disabled={isAddingTestCase || 
+                          (!newTestCase.input && !newTestCase.inputFile) || 
+                          (!newTestCase.output && !newTestCase.outputFile)}
+                      >
+                        {isAddingTestCase ? (
+                          <span className="flex items-center gap-2">
+                            <Loader2 className="h-4 w-4 animate-spin" />
+                            {t("actions.creating")}
+                          </span>
+                        ) : (
+                          t("actions.createTestCase")
+                        )}
+                      </Button>
+                    )}
+                  </DialogFooter>
+                </form>
+              </DialogContent>
+            </Dialog>
+          </div>
+        )}
+        {/* Show read-only indicator when in read-only mode */}
+        {readOnly && (
+          <div className="px-3 py-2 bg-blue-50 border border-blue-200 rounded-md flex items-center gap-2 text-sm text-blue-700 dark:bg-blue-950/20 dark:border-blue-800 dark:text-blue-400">
+            <Eye className="h-4 w-4" />
+            {t("readOnlyMode")}
+          </div>
+        )}
       </div>
 
       {/* Test Cases Card */}
@@ -779,14 +812,21 @@ export function TestcasesTab({ problemId }: TestcasesTabProps) {
               <p className="text-muted-foreground max-w-md mb-4">
                 {t("empty.description")}
               </p>
-              <Button
-                onClick={() => setOpen(true)}
-                className="flex items-center gap-2"
-                size="sm"
-              >
-                <Plus className="h-4 w-4" />
-                {t("empty.addFirst")}
-              </Button>
+              {!readOnly && (
+                <Button
+                  onClick={() => setOpen(true)}
+                  className="flex items-center gap-2"
+                  size="sm"
+                >
+                  <Plus className="h-4 w-4" />
+                  {t("empty.addFirst")}
+                </Button>
+              )}
+              {readOnly && (
+                <div className="text-muted-foreground">
+                  {t("empty.noTestCasesReadOnly")}
+                </div>
+              )}
             </div>
           ) : (
             <div>
@@ -861,48 +901,50 @@ export function TestcasesTab({ problemId }: TestcasesTabProps) {
                       </div>
                     </div>
                     
-                    {/* Actions */}
-                    <div className="flex justify-end mt-3">
-                      <AlertDialog>
-                        <AlertDialogTrigger asChild>
-                          <Button
-                            variant="outline"
-                            size="sm"
-                            className="text-destructive hover:bg-destructive/10 border-destructive/30"
-                            disabled={isDeleting === index}
-                          >
-                            {isDeleting === index ? (
-                              <span className="flex items-center gap-2">
-                                <Loader2 className="h-3.5 w-3.5 animate-spin" />
-                                {t("actions.deleting")}
-                              </span>
-                            ) : (
-                              <span className="flex items-center gap-2">
-                                <Trash2 className="h-3.5 w-3.5" />
-                                {t("actions.delete")}
-                              </span>
-                            )}
-                          </Button>
-                        </AlertDialogTrigger>
-                        <AlertDialogContent>
-                          <AlertDialogHeader>
-                            <AlertDialogTitle>{t("delete.title", { number: index + 1 })}</AlertDialogTitle>
-                            <AlertDialogDescription>
-                              {t("delete.description")}
-                            </AlertDialogDescription>
-                          </AlertDialogHeader>
-                          <AlertDialogFooter>
-                            <AlertDialogCancel>{t("actions.cancel")}</AlertDialogCancel>
-                            <AlertDialogAction
-                              className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
-                              onClick={() => handleDelete(testCase.index)}
+                    {/* Actions - Only show in non-read-only mode */}
+                    {!readOnly && (
+                      <div className="flex justify-end mt-3">
+                        <AlertDialog>
+                          <AlertDialogTrigger asChild>
+                            <Button
+                              variant="outline"
+                              size="sm"
+                              className="text-destructive hover:bg-destructive/10 border-destructive/30"
+                              disabled={isDeleting === index}
                             >
-                              {t("actions.delete")}
-                            </AlertDialogAction>
-                          </AlertDialogFooter>
-                        </AlertDialogContent>
-                      </AlertDialog>
-                    </div>
+                              {isDeleting === index ? (
+                                <span className="flex items-center gap-2">
+                                  <Loader2 className="h-3.5 w-3.5 animate-spin" />
+                                  {t("actions.deleting")}
+                                </span>
+                              ) : (
+                                <span className="flex items-center gap-2">
+                                  <Trash2 className="h-3.5 w-3.5" />
+                                  {t("actions.delete")}
+                                </span>
+                              )}
+                            </Button>
+                          </AlertDialogTrigger>
+                          <AlertDialogContent>
+                            <AlertDialogHeader>
+                              <AlertDialogTitle>{t("delete.title", { number: index + 1 })}</AlertDialogTitle>
+                              <AlertDialogDescription>
+                                {t("delete.description")}
+                              </AlertDialogDescription>
+                            </AlertDialogHeader>
+                            <AlertDialogFooter>
+                              <AlertDialogCancel>{t("actions.cancel")}</AlertDialogCancel>
+                              <AlertDialogAction
+                                className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
+                                onClick={() => handleDelete(testCase.index)}
+                              >
+                                {t("actions.delete")}
+                              </AlertDialogAction>
+                            </AlertDialogFooter>
+                          </AlertDialogContent>
+                        </AlertDialog>
+                      </div>
+                    )}
                   </div>
                 </div>
               ))}

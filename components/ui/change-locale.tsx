@@ -5,9 +5,9 @@ import { routing } from "@/i18n/routing";
 import listCountry from '../../messages/listlang.json'
 import clsx from 'clsx';
 import { useParams } from 'next/navigation';
-import { ChangeEvent, ReactNode, useTransition, useState } from 'react';
+import { useTransition } from 'react';
 import { usePathname, useRouter } from '@/i18n/routing';
-import { Check, ChevronDown, Globe } from "lucide-react";
+import { Check, Globe } from "lucide-react";
 import { Button } from "./button";
 import {
   DropdownMenu,
@@ -16,11 +16,6 @@ import {
   DropdownMenuTrigger,
 } from "./dropdown-menu";
 
-type Props = {
-  children: ReactNode;
-  defaultValue: string;
-  label: string;
-};
 
 export default function LocaleSwitcher() {
   const locale = useLocale();
@@ -28,7 +23,6 @@ export default function LocaleSwitcher() {
   const [isPending, startTransition] = useTransition();
   const pathname = usePathname();
   const params = useParams();
-  const [isOpen, setIsOpen] = useState(false);
 
   function changeLocale(nextLocale: string) {
     startTransition(() => {
@@ -50,7 +44,7 @@ export default function LocaleSwitcher() {
         <Button
           variant="ghost"
           size="sm"
-          className="h-8 w-8 px-0 data-[state=open]:bg-muted"
+          className="h-8 w-8 px-0 data-[state=open]:bg-muted border"
           disabled={isPending}
         >
           <Globe className="h-4 w-4" />

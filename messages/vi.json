@@ -551,6 +551,13 @@
     "TernarySearchDesc": "Kỹ thuật tối ưu hóa chia không gian tìm kiếm thành ba phần"
   },
   "Playground": {
+    "score": "Điểm số",
+    "points": "điểm",
+    "pointsColumn": "Điểm",
+    "perfect": "Tuyệt vời!",
+    "scorePerfect": "Điểm tuyệt đối! Bạn đã đạt được tất cả điểm khả dụng.",
+    "scoreZero": "Không đạt được điểm nào. Hãy thử lại để cải thiện điểm số của bạn.",
+    "scorePartial": "Bạn đã đạt được {percentage}% tổng số điểm khả dụng.",
     "backToProblems": "Quay lại Bài tập",
     "tryAgain": "Thử lại",
     "loginToAccess": "Đăng nhập để truy cập nhiều bài tập hơn và theo dõi tiến độ của bạn.",
@@ -611,6 +618,10 @@
     "codeLabel": "Mã nguồn",
     "noSubmissionFound": "Không tìm thấy bài nộp",
     "status": {
+      "fullScore": "Điểm tuyệt đối",
+      "partialScore": "Điểm một phần", 
+      "noScore": "Không có điểm",
+      "perfectScore": "Điểm tuyệt đối",
       "testing": "Đang kiểm tra",
       "passed": "Đạt",
       "failed": "Không đạt",
@@ -1911,6 +1922,8 @@
       },
       "loading": "Đang tải bài tập...",
       "general": {
+        "readOnlyNotice": "Bài toán này đang ở chế độ chỉ đọc. Bạn có thể xem chi tiết nhưng không thể thay đổi.",
+        "readOnlyMode": "Chế độ chỉ xem",        
         "problemId": "ID Bài toán",
         "difficulty": "Độ khó",
         "displayTitle": "Tiêu đề hiển thị",
@@ -1935,6 +1948,8 @@
         "updateErrorMessage": "Đã xảy ra lỗi khi lưu thay đổi của bạn. Vui lòng thử lại."
       },
       "descriptionTab": {
+        "readOnlyNotice": "Bài toán này đang ở chế độ chỉ đọc. Bạn có thể xem chi tiết nhưng không thể thay đổi.",
+        "readOnlyMode": "Chế độ chỉ xem",
         "language": {
           "English": "Tiếng Anh",
           "Vietnamese": "Tiếng Việt",
@@ -1956,12 +1971,16 @@
         "description": {
           "label": "Mô tả bài toán",
           "editHeader": "Sửa mô tả",
-          "hint": "Sử dụng Markdown và LaTeX để định dạng. Bao gồm các ràng buộc và ví dụ."
+          "hint": "Sử dụng Markdown và LaTeX để định dạng. Bao gồm các ràng buộc và ví dụ.",
+          "viewHeader": "Chế độ xem mô tả",
+          "viewHint": "Bạn đang xem mô tả bài toán ở chế độ chỉ đọc."
         },
         "solution": {
           "label": "Lời giải bài toán",
           "editHeader": "Sửa lời giải",
-          "hint": "Giải thích phương pháp giải quyết, thuật toán và phân tích độ phức tạp."
+          "hint": "Giải thích phương pháp giải quyết, thuật toán và phân tích độ phức tạp.",
+          "viewHeader": "Chế độ xem lời giải",
+          "viewHint": "Bạn đang xem lời giải bài toán ở chế độ chỉ đọc."
         },
         "common": {
           "mathjaxGuide": "Hướng dẫn MathJax",
@@ -1992,6 +2011,8 @@
         }
       },
       "testcases": {
+        "readOnlyNotice": "Bài toán này đang ở chế độ chỉ đọc. Bạn có thể xem các bộ test nhưng không thể thay đổi.",
+        "readOnlyMode": "Chế độ chỉ xem",
         "progress": {
           "uploading": "Đang tải lên bộ kiểm thử",
           "uploadComplete": "Tải lên hoàn tất",
@@ -2098,6 +2119,7 @@
           "addToBatchBeforeUpload": "Bạn có muốn thêm bộ kiểm thử hiện tại vào loạt trước khi tải lên không?"
         },
         "empty": {
+          "noTestCasesReadOnly": "Không có bộ test nào cho bài toán này.",
           "title": "Chưa có bộ kiểm thử nào",
           "description": "Bộ kiểm thử giúp xác thực các giải pháp. Mỗi bộ kiểm thử bao gồm đầu vào, đầu ra dự kiến và điểm số.",
           "addFirst": "Thêm Bộ Kiểm Thử Đầu Tiên Của Bạn"

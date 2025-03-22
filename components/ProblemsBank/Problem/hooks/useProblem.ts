@@ -5,6 +5,8 @@ import { Problem, ProblemState, defaultProblem } from "../types/problem";
 import { LanguageCode } from "../types/language";
 import { fetchProblemById, updateProblem } from "../api/problemApi";
 import { useAuth } from "@/components/auth/hooks/useAuth"; // Import useAuth hook
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "@/api/Readfirebase";
 
 interface PreviewContent {
   title: string;
@@ -19,6 +21,7 @@ interface UseProblemReturn {
     hasAccess: boolean;
     isOwner: boolean;
     loadingAcceess: boolean;
+    readOnly: boolean;
   };
   actions: {
     searchProblem: (id: string) => Promise<void>;
@@ -53,25 +56,23 @@ export function useProblem(): UseProblemReturn {
     hasAccess: boolean;
     isOwner: boolean;
     loadingAcceess: boolean;
+    readOnly: boolean;
   }>({
     loadingAcceess: true,
     isLoading: false,
     isDone: false,
     hasAccess: false,
     isOwner: false,
+    readOnly: false,
   });
   
   // Get user auth information
   const { user, userRole } = useAuth(); // Assuming roles is an object with role names as keys
 
   // Check user permissions when problem or user changes
-  useEffect(() => {
-    console.log("Auth data:", { 
-      user: user?.uid, 
-      problemOwner: problem.owner,
-      userRole, 
-      problemId: problem.id 
-    });
+  useEffect(()=>{
+    
+    const checkStatus = async() => {
     
     if (!user || !problem.id) {
       console.log("Missing user or problem ID - denying access");
@@ -91,10 +92,23 @@ export function useProblem(): UseProblemReturn {
     // Determine access based on roles and ownership
     const hasAccess = isAdmin || (isProblemSetter && isOwner);
     
-    console.log("Access determination:", { isAdmin, isProblemSetter, isOwner, hasAccess });
+      // Fetch problem permissions from Firebase
+      const permissionsRef = doc(db, 'problem-permissions', problem.id);
+      const permissionsDoc = await getDoc(permissionsRef);
+      
+      // Check if public-preview is enabled
+      const isPublicPreview = permissionsDoc.exists() && 
+        permissionsDoc.data()?.['public-preview'] === true;
+
+      const readOnly = !hasAccess && isPublicPreview;
+
+    // console.log("Access determination:", { isAdmin, isProblemSetter, isOwner, hasAccess });
     
-    setState(prev => ({ ...prev, hasAccess, isOwner, loadingAcceess: false }));
-  }, [user, problem, userRole]);
+    setState(prev => ({ ...prev, hasAccess, isOwner, readOnly, loadingAcceess: false }));
+    }
+
+    checkStatus();
+  }, [user, userRole]);
 
   const onPreviewChange = (content: PreviewContent, lang: LanguageCode) => {
     setPreview((prev) => ({

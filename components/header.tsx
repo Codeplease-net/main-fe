@@ -132,14 +132,14 @@ export default function Header() {
         <div className="flex items-center gap-3">
           <div className="hidden md:flex items-center gap-3">
             <LocaleSwitcher />
-            <Button
+            {/* <Button
               variant="outline"
               size="icon"
               onClick={() => setLightmode(!Lightmode)}
               className="hover:bg-secondary/80"
             >
               {Lightmode ? <Sun className="h-[1.2rem] w-[1.2rem]" /> : <Moon className="h-[1.2rem] w-[1.2rem]" />}
-            </Button>
+            </Button> */}
             {user ? (
               <DropdownMenu>
                 <DropdownMenuTrigger className="hover:opacity-80 transition-opacity">
@@ -249,9 +249,9 @@ export default function Header() {
             
             <div className="flex items-center justify-between gap-3 px-4 pt-3 border-t">
               <LocaleSwitcher />
-              <Button variant="outline" size="icon" onClick={() => setLightmode(!Lightmode)}>
+              {/* <Button variant="outline" size="icon" onClick={() => setLightmode(!Lightmode)}>
                 {Lightmode ? <Sun className="h-[1.2rem] w-[1.2rem]" /> : <Moon className="h-[1.2rem] w-[1.2rem]" />}
-              </Button>
+              </Button> */}
             </div>
             {user ? (
               <DropdownMenu>

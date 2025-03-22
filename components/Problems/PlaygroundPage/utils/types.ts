@@ -3,7 +3,9 @@ export interface TestCase {
     time_used: number;
     memory_used: number;
     status?: string;
-    categories: string[]
+    categories: string[],
+    score: number,
+    score_config: number
   }
   
   export interface SubmissionDetailProps {
@@ -18,6 +20,9 @@ export interface TestCase {
     error_output?: string;
     id?: string;
     problem: string;
+    score_config: number;
+    score: number;
+    type: "AC" | "SC";
   }
   
   export interface Problem {

@@ -23,9 +23,18 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { Badge } from "@/components/ui/badge";
 
 // Icons
-import { Filter, CheckCircle, Clock, Database, User, Eye } from "lucide-react";
+import { 
+  Filter, 
+  CheckCircle, 
+  Clock, 
+  Database, 
+  User, 
+  Eye, 
+  Trophy 
+} from "lucide-react";
 
 // Utils
 import { SubmissionDetailProps } from "@/components/Problems/PlaygroundPage/utils/types";
@@ -169,6 +178,73 @@ export default function SubmissionsTab({
     window.scrollTo(0, 0);
   };
 
+  // Helper function to get status display based on submission type and result
+  const getStatusDisplay = (submission: SubmissionDetailProps) => {
+    // For Compile Error, just show CE
+    if (submission.result === "CE") {
+      return "CE";
+    }
+    
+    // For Scoring mode (SC), show score/total format
+    if (submission.type === "SC") {
+      return (
+        <div className="flex items-center gap-1.5">
+          <span>{submission.score}/{submission.score_config}</span>
+          {submission.score === submission.score_config && (
+            <Trophy className="h-3 w-3 text-amber-400" />
+          )}
+        </div>
+      );
+    }
+    
+    // For standard AC mode, show passed/total test cases
+    return `${countAccepted(submission.test_cases)} / ${submission.test_count}`;
+  };
+
+  // Helper to get score percentage for coloring
+  const getScorePercentage = (submission: SubmissionDetailProps) => {
+    if (!submission.score_config) return 0;
+    return (submission.score / submission.score_config) * 100;
+  };
+
+  // Get color class for scoring mode
+  const getScoringStatusColor = (submission: SubmissionDetailProps) => {
+    const percentage = getScorePercentage(submission);
+    
+    if (percentage === 100) return "bg-emerald-500";
+    if (percentage === 0) return "bg-rose-500";
+    if (percentage >= 80) return "bg-green-500";
+    if (percentage >= 50) return "bg-amber-500";
+    return "bg-orange-500";
+  };
+
+  // Get status color class
+  const getStatusColor = (submission: SubmissionDetailProps) => {
+    if (submission.type === "SC") {
+      return getScoringStatusColor(submission);
+    }
+    
+    return statusColors[submission.result as keyof typeof statusColors] || "bg-gray-500";
+  };
+
+  // Get result text for display in performance column
+  const getResultText = (submission: SubmissionDetailProps) => {
+    if (submission.type === "SC") {
+      const percentage = getScorePercentage(submission);
+      if (percentage === 100) return t("status.fullScore");
+      if (percentage === 0) return t("status.noScore");
+      return t("status.partialScore");
+    }
+    
+    return t(
+      `status.${
+        abbreviationToFull[
+          submission.result as keyof typeof abbreviationToFull
+        ]
+      }`
+    );
+  };
+
   return (
     <div className="bg-background rounded-lg w-full">
       {/* Filters */}
@@ -272,19 +348,18 @@ export default function SubmissionsTab({
                   <TableCell>
                     <div className="flex items-center gap-2">
                       <span
-                        className={`w-3 h-3 rounded-full ${
-                          statusColors[
-                            submission.result as keyof typeof statusColors
-                          ]
-                        }`}
+                        className={`w-3 h-3 rounded-full ${getStatusColor(submission)}`}
                       ></span>
                       <span className="font-medium">
-                        {submission.result === "CE"
-                          ? "CE"
-                          : `${countAccepted(submission.test_cases)} / ${
-                              submission.test_count
-                            }`}
+                        {getStatusDisplay(submission)}
                       </span>
+                      {submission.type === "SC" && submission.score === submission.score_config && (
+                        <Badge 
+                          className="text-[10px] py-0 px-1.5 bg-amber-500/10 text-amber-500 border border-amber-500/20"
+                        >
+                          {t("perfect")}
+                        </Badge>
+                      )}
                     </div>
                   </TableCell>
                   <TableCell>
@@ -304,10 +379,16 @@ export default function SubmissionsTab({
                     >
                       {FormalLang[submission.language]}
                     </span>
-                  </TableCell>{" "}
+                  </TableCell>
                   <TableCell className="hidden lg:table-cell">
-                    {submission.result === "AC" ? (
+                    {submission.result === "AC" || (submission.type === "SC" && submission.score > 0) ? (
                       <div className="flex items-center gap-3 text-xs">
+                        {submission.type === "SC" && (
+                          <span className="flex items-center gap-1">
+                            <Trophy className="w-3 h-3 text-amber-400" />
+                            <span className="text-amber-500">{submission.score}/{submission.score_config}</span>
+                          </span>
+                        )}
                         <span className="flex items-center gap-1">
                           <Clock className="w-3 h-3 text-muted-foreground" />
                           {calculateTime(submission.test_cases)}
@@ -319,13 +400,7 @@ export default function SubmissionsTab({
                       </div>
                     ) : (
                       <span className="text-xs text-muted-foreground">
-                        {t(
-                          `status.${
-                            abbreviationToFull[
-                              submission.result as keyof typeof abbreviationToFull
-                            ]
-                          }`
-                        )}
+                        {getResultText(submission)}
                       </span>
                     )}
                   </TableCell>

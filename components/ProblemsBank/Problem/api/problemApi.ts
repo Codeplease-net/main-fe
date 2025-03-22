@@ -54,7 +54,7 @@ export async function updateProblem(
         }), {})
       : undefined;
 
-    console.log(updates)
+    // console.log(updates)
 
     // Build update data object - key/value pairs to update in Firestore
     const updateData = {
@@ -64,12 +64,7 @@ export async function updateProblem(
       ...(updates.content?.title && { title: updates.content.title }),
       ...(updates.content?.description && { description: updates.content.description }),
       ...(updates.content?.solution && { solution: updates.content.solution }),
-      
-      // Replace the entire searchableTitle array with the new one
-      // This ensures we're not appending to the existing array
-      ...(updates.searchableTitle !== undefined && { 
-        searchableTitle: updates.searchableTitle 
-      }),
+      ...(updates.searchableTitle !== undefined && { searchableTitle: updates.searchableTitle }),
     };
 
     await updateDoc(docRef, updateData);

@@ -52,8 +52,7 @@ export default function PlaygroundComponent({ id, tab, searchParams }: { tab: st
     // Extract the base part before the tab (e.g., /problems/123)
     const basePath = `/problems/${id}`;
     
-    // Add the tab to the path, or use default path if it's "description"
-    let newPath = newTab === "description" ? basePath : `${basePath}/${newTab}`;
+    let newPath = `${basePath}/${newTab}`;
     
     // Add back any query parameters
     newPath += queryParams;

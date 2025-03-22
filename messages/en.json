@@ -543,6 +543,13 @@
     "TernarySearchDesc": "Optimization technique that reduces search space into three parts"
   },
   "Playground": {
+    "score": "Score",
+    "points": "points",
+    "pointsColumn": "Points",
+    "perfect": "Perfect",
+    "scorePerfect": "Perfect score! You've earned all available points.",
+    "scoreZero": "No points earned. Try again to improve your score.",
+    "scorePartial": "You've earned {percentage}% of the available points.",
     "backToProblems": "Back to Problems",
     "tryAgain": "Try Again",
     "loginToAccess": "Sign in to access more problems and track your progress.",
@@ -603,6 +610,10 @@
     "codeLabel": "Code",
     "noSubmissionFound": "No submission found",
     "status": {
+      "fullScore": "Full Score",
+      "partialScore": "Partial Score",
+      "noScore": "No Score",
+      "perfectScore": "Perfect Score",
       "testing": "Testing",
       "passed": "Passed",
       "failed": "Failed",
@@ -1903,6 +1914,8 @@
       },
       "loading": "Loading...",
       "general": {
+        "readOnlyNotice": "This problem is in read-only mode. You can view details but cannot make changes.",
+        "readOnlyMode": "View Only Mode",
         "problemId": "Problem ID",
         "difficulty": "Difficulty",
         "displayTitle": "Display Title",
@@ -1927,6 +1940,8 @@
         "updateErrorMessage": "An error occurred while saving your changes. Please try again."
       },
       "descriptionTab": {
+        "readOnlyNotice": "This problem is in read-only mode. You can view details but cannot make changes.",
+        "readOnlyMode": "View Only Mode",        
         "language": {
           "English": "English",
           "Vietnamese": "Vietnamese",
@@ -1948,12 +1963,16 @@
         "description": {
           "label": "Problem Description",
           "editHeader": "Edit Description",
-          "hint": "Use Markdown and LaTeX for formatting. Include problem constraints and examples."
+          "hint": "Use Markdown and LaTeX for formatting. Include problem constraints and examples.",
+          "viewHeader": "View Description Mode",
+          "viewHint": "You are viewing the problem description in read-only mode."
         },
         "solution": {
           "label": "Problem Solution",
           "editHeader": "Edit Solution",
-          "hint": "Explain the solution approach, algorithm, and complexity analysis."
+          "hint": "Explain the solution approach, algorithm, and complexity analysis.",
+          "viewHeader": "View Solution Mode",
+          "viewHint": "You are viewing the problem solution in read-only mode."        
         },
         "common": {
           "mathjaxGuide": "MathJax Guide",
@@ -1984,6 +2003,8 @@
         }
       },
       "testcases": {
+        "readOnlyNotice": "This problem is in read-only mode. You can view test cases but cannot make changes.",
+        "readOnlyMode": "View Only Mode",
         "progress": {
           "uploading": "Uploading Test Cases",
           "uploadComplete": "Upload Complete",
@@ -2090,6 +2111,7 @@
           "addToBatchBeforeUpload": "Would you like to add the current test case to the batch before uploading?"
         },
         "empty": {
+          "noTestCasesReadOnly": "No test cases are available for this problem.",
           "title": "No test cases yet",
           "description": "Test cases help validate solutions. Each test case consists of an input, expected output, and score.",
           "addFirst": "Add Your First Test Case"

@@ -34,15 +34,18 @@ import {
   ListFilter,
   Ban,
   SkipForward,
+  Award,
+  Trophy
 } from "lucide-react";
 import { abbreviationToFull } from "@/components/Problems/PlaygroundPage/utils/constants";
 
 interface TestResultsProps {
   testCases: TestCase[];
   testCasesCount?: number; // Total test cases count (all tests that would run if none failed)
+  scoringMode: boolean; // True if using scoring mode (SC) instead of standard AC mode
 }
 
-export default function TestcaseDetail({ testCases, testCasesCount }: TestResultsProps) {
+export default function TestcaseDetail({ testCases, testCasesCount, scoringMode }: TestResultsProps) {
   const t = useTranslations("Playground");
   const t2 = useTranslations("Playground.status");
   
@@ -58,6 +61,16 @@ export default function TestcaseDetail({ testCases, testCasesCount }: TestResult
   
   // 2. Tests that were executed but not shown (e.g., hidden by the problem setter)
   const hasHiddenTests = testCasesCount && testCasesCount > displayedTests && !wasAborted;
+
+  // Calculate total score if in scoring mode - using direct score properties
+  const totalScore = scoringMode ? testCases.reduce((sum, test) => {
+    return sum + (test.result === "AC" ? (test.score || 0) : 0);
+  }, 0) : 0;
+
+  // Calculate total possible score - using direct score_config property
+  const totalPossibleScore = scoringMode ? testCases.reduce((sum, test) => {
+    return sum + (test.score_config || 0);
+  }, 0) : 0;
 
   // Using theme-aligned colors
   const getStatusColor = (status: string) => {
@@ -127,6 +140,18 @@ export default function TestcaseDetail({ testCases, testCasesCount }: TestResult
               {passedTests}/{totalTests} {t("passed")}
             </Badge>
             
+            {/* Scoring badge for scoring mode */}
+            {scoringMode && (
+              <Badge
+                variant="outline"
+                className="px-2 py-0.5 text-xs font-medium bg-amber-500/10 text-amber-500 dark:bg-amber-400/10 dark:text-amber-400 border-amber-500/20 dark:border-amber-400/20"
+              >
+                <span className="flex items-center gap-1.5">
+                  <Trophy className="h-3 w-3" /> {totalScore}/{totalPossibleScore} {t("points")}
+                </span>
+              </Badge>
+            )}
+            
             {/* Overall status badge */}
             <Badge
               variant={allPassed ? "default" : "outline"}
@@ -173,6 +198,11 @@ export default function TestcaseDetail({ testCases, testCasesCount }: TestResult
                 <TableHead className="text-xs font-medium text-muted-foreground sticky top-0 bg-card z-10">
                   {t("statusText")}
                 </TableHead>
+                {scoringMode && (
+                  <TableHead className="text-xs font-medium text-muted-foreground sticky top-0 bg-card z-10">
+                    {t("pointsColumn")}
+                  </TableHead>
+                )}
                 <TableHead className="text-xs font-medium text-muted-foreground text-right sticky top-0 bg-card z-10">
                   {t("time")}
                 </TableHead>
@@ -207,6 +237,25 @@ export default function TestcaseDetail({ testCases, testCasesCount }: TestResult
                       </span>
                     </div>
                   </TableCell>
+                  {scoringMode && (
+                    <TableCell className="py-2.5">
+                      {testCase.score_config > 0 && (
+                        <div className="flex items-center gap-1">
+                          <Badge 
+                            variant={testCase.result === "AC" ? "default" : "outline"}
+                            className={cn(
+                              "text-xs py-0.5 px-1.5",
+                              testCase.result === "AC" 
+                                ? "bg-amber-500 text-amber-50"
+                                : "border-amber-200/50 text-amber-400/70 dark:border-amber-700/50 dark:text-amber-400/70 bg-transparent"
+                            )}
+                          >
+                            {testCase.result === "AC" ? testCase.score : 0}/{testCase.score_config}
+                          </Badge>
+                        </div>
+                      )}
+                    </TableCell>
+                  )}
                   <TableCell className="py-2.5 text-right font-mono text-xs text-muted-foreground">
                     {testCase.time_used !== undefined
                       ? `${testCase.time_used} ms`
@@ -223,7 +272,7 @@ export default function TestcaseDetail({ testCases, testCasesCount }: TestResult
               {/* Render placeholder row for skipped tests if judging was aborted */}
               {wasAborted && (
                 <TableRow className="border-b border-border/50 bg-amber-50/5 dark:bg-amber-950/5">
-                  <TableCell colSpan={4} className="py-3 text-center">
+                  <TableCell colSpan={scoringMode ? 5 : 4} className="py-3 text-center">
                     <div className="flex items-center justify-center gap-2 text-xs text-amber-600 dark:text-amber-400">
                       <SkipForward className="h-3.5 w-3.5" />
                       <span>
@@ -236,7 +285,7 @@ export default function TestcaseDetail({ testCases, testCasesCount }: TestResult
               
               {!testCases?.length && (
                 <TableRow>
-                  <TableCell colSpan={4} className="text-center py-6 text-muted-foreground">
+                  <TableCell colSpan={scoringMode ? 5 : 4} className="text-center py-6 text-muted-foreground">
                     {t("noTestCasesAvailable")}
                   </TableCell>
                 </TableRow>

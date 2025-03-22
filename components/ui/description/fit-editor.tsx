@@ -19,9 +19,11 @@ interface fitEdtiorLatexProps {
   className?: string;
   onChange: (value: string) => void;
   minLine: number;
+  readOnly?: boolean;
 }
 
 export function FitEditorLatex({
+  readOnly = false,
   content,
   className,
   minLine,
@@ -88,9 +90,9 @@ export function FitEditorLatex({
         theme={theme}
         value={content}
         options={{
+          readOnly,
           wordWrap: "on",
           fontSize: 14,
-          readOnly: false,
           scrollBeyondLastLine: false,
           automaticLayout: true,
           minimap: {

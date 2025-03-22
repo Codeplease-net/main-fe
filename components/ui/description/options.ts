@@ -101,12 +101,6 @@ export const languageConfigurationMathJaxLatex: import('monaco-editor').language
     ['[', ']'] as [string, string],
     ['(', ')'] as [string, string]
   ],
-  autoClosingPairs: [
-    { open: '{', close: '}' },
-    { open: '[', close: ']' },
-    { open: '(', close: ')' },
-    { open: '$', close: '$' }
-  ],
   surroundingPairs: [
     { open: '{', close: '}' },
     { open: '[', close: ']' },

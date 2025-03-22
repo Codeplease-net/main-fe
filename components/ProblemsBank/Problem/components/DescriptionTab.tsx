@@ -8,8 +8,9 @@ import { Label } from "@/components/ui/label";
 import { useToast } from "@/components/ui/use-toast";
 import { SUPPORTED_LANGUAGES, LanguageCode } from "../types/language";
 import { useRouter, useSearchParams } from "next/navigation";
-import { CheckCircle, Loader2, Save, X } from "lucide-react";
+import { CheckCircle, Loader2, Save, X, Eye, Lock } from "lucide-react";
 import { useTranslations } from "next-intl"; // Import useTranslations
+import { Alert, AlertDescription } from "@/components/ui/alert";
 
 import {
   AlertDialog,
@@ -46,6 +47,7 @@ interface DescriptionTabProps {
   isLoading: boolean;
   onUpdate: (updates: Partial<Problem>) => Promise<void>;
   onPreviewChange: (content: contentProps, lang: LanguageCode) => void;
+  readOnly: boolean;
 }
 
 export function DescriptionTab({
@@ -54,6 +56,7 @@ export function DescriptionTab({
   isLoading,
   onUpdate,
   onPreviewChange,
+  readOnly
 }: DescriptionTabProps) {
   // Get translations
   const t = useTranslations("ProblemBank.problem.descriptionTab");
@@ -90,6 +93,8 @@ export function DescriptionTab({
     field: keyof typeof localContent,
     value: string
   ) => {
+    if (readOnly) return; // Prevent changes in read-only mode
+    
     const newContent = {
       ...localContent,
       [field]: value,
@@ -99,6 +104,8 @@ export function DescriptionTab({
   };
 
   const handleUpdate = async () => {
+    if (readOnly) return; // Prevent updates in read-only mode
+    
     try {
       setIsSaving(true);
       setSaveSuccess(null);
@@ -148,6 +155,18 @@ export function DescriptionTab({
   return (
     <div className="flex flex-col h-[calc(100vh-4rem)] overflow-auto bg-gradient-to-b from-background to-muted/20">
       <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 md:px-8 py-6 space-y-6">
+        {/* Read-Only Banner/Alert */}
+        {readOnly && (
+          <Alert className="bg-blue-50 border-blue-200 dark:bg-blue-950/20 dark:border-blue-900">
+            <div className="flex items-center gap-2">
+              <Lock className="h-4 w-4 text-blue-500" />
+              <AlertDescription className="text-blue-700 dark:text-blue-400">
+                {t("readOnlyNotice")}
+              </AlertDescription>
+            </div>
+          </Alert>
+        )}
+        
         {/* Header with Breadcrumbs */}
         <div className="flex flex-col sm:flex-row gap-4 justify-between items-start sm:items-center mb-2">
           <div>
@@ -203,11 +222,14 @@ export function DescriptionTab({
           <CardContent>
             <div className="space-y-2">
               <Input
-                className="px-4 py-2.5 font-medium text-base focus-visible:ring-primary/30 h-11 transition-all border-border/60"
+                className={cn(
+                  "px-4 py-2.5 font-medium text-base focus-visible:ring-primary/30 h-11 transition-all border-border/60",
+                  readOnly && "opacity-70 cursor-not-allowed"
+                )}
                 value={localContent.title}
                 onChange={(e) => handleContentChange("title", e.target.value)}
                 placeholder={t("titleCard.placeholder", { language: currentLanguageName })}
-                disabled={isLoading}
+                disabled={isLoading || readOnly}
               />
             </div>
           </CardContent>
@@ -267,24 +289,32 @@ export function DescriptionTab({
                     </Button>
                   </div>
                   
-                  <div className="group border rounded-md border-border/60 overflow-hidden transition-all focus-within:ring-1 focus-within:ring-primary/30 focus-within:border-primary/50 hover:border-muted-foreground/30 bg-background">
+                  <div className={cn(
+                    "group border rounded-md border-border/60 overflow-hidden transition-all focus-within:ring-1 focus-within:ring-primary/30 focus-within:border-primary/50 hover:border-muted-foreground/30 bg-background",
+                    readOnly && "focus-within:ring-0 focus-within:border-border/60 hover:border-border/60"
+                  )}>
                     <div className="border-b border-border/40 px-3 py-1.5 bg-muted/30 flex items-center justify-between">
-                      <div className="text-xs text-muted-foreground">{t("description.editHeader")}</div>
                       <div className="text-xs text-muted-foreground">
-                        <kbd className="px-1.5 py-0.5 bg-muted-foreground/10 rounded border border-muted-foreground/20 text-[10px] font-mono">Ctrl+Space</kbd>
-                        <span className="mx-1 text-[10px]">{t("common.forSuggestions")}</span>
+                        {readOnly ? t("description.viewHeader") : t("description.editHeader")}
                       </div>
+                      {!readOnly && (
+                        <div className="text-xs text-muted-foreground">
+                          <kbd className="px-1.5 py-0.5 bg-muted-foreground/10 rounded border border-muted-foreground/20 text-[10px] font-mono">Ctrl+Space</kbd>
+                          <span className="mx-1 text-[10px]">{t("common.forSuggestions")}</span>
+                        </div>
+                      )}
                     </div>
                     <FitEditorLatex
                       minLine={15}
                       content={localContent.description}
                       onChange={(value) => handleContentChange("description", value)}
+                      readOnly={readOnly}
                     />
                   </div>
                   
                   <div className="flex items-center justify-between mt-3">
                     <p className="text-xs text-muted-foreground ml-1">
-                      {t("description.hint")}
+                      {readOnly ? t("description.viewHint") : t("description.hint")}
                     </p>
                     
                     <span className="text-xs text-muted-foreground px-2 py-0.5 bg-muted/50 rounded-md">
@@ -319,24 +349,32 @@ export function DescriptionTab({
                     </Button>
                   </div>
                   
-                  <div className="group border rounded-md border-border/60 overflow-hidden transition-all focus-within:ring-1 focus-within:ring-primary/30 focus-within:border-primary/50 hover:border-muted-foreground/30 bg-background">
+                  <div className={cn(
+                    "group border rounded-md border-border/60 overflow-hidden transition-all focus-within:ring-1 focus-within:ring-primary/30 focus-within:border-primary/50 hover:border-muted-foreground/30 bg-background",
+                    readOnly && "focus-within:ring-0 focus-within:border-border/60 hover:border-border/60"  
+                  )}>
                     <div className="border-b border-border/40 px-3 py-1.5 bg-muted/30 flex items-center justify-between">
-                      <div className="text-xs text-muted-foreground">{t("solution.editHeader")}</div>
                       <div className="text-xs text-muted-foreground">
-                        <kbd className="px-1.5 py-0.5 bg-muted-foreground/10 rounded border border-muted-foreground/20 text-[10px] font-mono">Ctrl+Space</kbd>
-                        <span className="mx-1 text-[10px]">{t("common.forSuggestions")}</span>
+                        {readOnly ? t("solution.viewHeader") : t("solution.editHeader")}
                       </div>
+                      {!readOnly && (
+                        <div className="text-xs text-muted-foreground">
+                          <kbd className="px-1.5 py-0.5 bg-muted-foreground/10 rounded border border-muted-foreground/20 text-[10px] font-mono">Ctrl+Space</kbd>
+                          <span className="mx-1 text-[10px]">{t("common.forSuggestions")}</span>
+                        </div>
+                      )}
                     </div>
                     <FitEditorLatex
                       minLine={15}
                       content={localContent.solution}
                       onChange={(value) => handleContentChange("solution", value)}
+                      readOnly={readOnly}
                     />
                   </div>
                   
                   <div className="flex items-center justify-between mt-3">
                     <p className="text-xs text-muted-foreground ml-1">
-                      {t("solution.hint")}
+                      {readOnly ? t("solution.viewHint") : t("solution.hint")}
                     </p>
                     
                     <span className="text-xs text-muted-foreground px-2 py-0.5 bg-muted/50 rounded-md">
@@ -349,86 +387,95 @@ export function DescriptionTab({
           </Tabs>
         </Card>
 
-        {/* Action Footer */}
+        {/* Action Footer - Hide save button in read-only mode */}
         <div className="flex flex-col sm:flex-row justify-between items-center gap-4 w-full bg-card border border-border/60 rounded-lg px-4 py-3 shadow-md">
           <div className="text-sm text-muted-foreground order-2 sm:order-1 text-center sm:text-left">
             <p><span className="font-medium text-foreground">{t("footer.noteLabel")}</span> {t("footer.noteText", { language: t(`language.${currentLanguageName}`) })}</p>
             <p className="text-xs mt-1">{t("footer.switchHint")}</p>
           </div>
           
-          <div className="order-1 sm:order-2 w-full sm:w-auto">
-            <AlertDialog>
-              <AlertDialogTrigger asChild>
-                <Button 
-                  disabled={isLoading || isSaving}
-                  className={cn(
-                    "flex items-center gap-2 w-full sm:w-auto h-10 px-6",
-                    "transition-all duration-200 relative overflow-hidden",
-                    saveSuccess === true && "bg-emerald-600 hover:bg-emerald-700",
-                    saveSuccess === false && "bg-destructive hover:bg-destructive/90",
-                    isSaving && "opacity-80",
-                    "shadow hover:shadow-md hover:scale-[1.01] active:scale-[0.98]"
-                  )}
-                >
-                  {isSaving ? (
-                    <>
-                      <Loader2 className="h-4 w-4 animate-spin" />
-                      <span>{t("buttons.saving")}</span>
-                    </>
-                  ) : saveSuccess === true ? (
-                    <>
-                      <CheckCircle className="h-4 w-4" />
-                      <span>{t("buttons.saveSuccess")}</span>
-                      {/* Success animation overlay */}
-                      <span className="absolute inset-0 bg-emerald-500/20 animate-pulse-once" />
-                    </>
-                  ) : saveSuccess === false ? (
-                    <>
-                      <X className="h-4 w-4" />
-                      <span>{t("buttons.saveError")}</span>
-                    </>
-                  ) : (
-                    <>
-                      <Save className="h-4 w-4" />
-                      <span>{t("buttons.save")}</span>
-                    </>
-                  )}
-                </Button>
-              </AlertDialogTrigger>
-              <AlertDialogContent>
-                <AlertDialogHeader>
-                  <AlertDialogTitle>{t("saveDialog.title")}</AlertDialogTitle>
-                  <AlertDialogDescription>
-                    {t("saveDialog.description", { language: t(`language.${currentLanguageName}`) })}
-                  </AlertDialogDescription>
-                </AlertDialogHeader>
-                <AlertDialogFooter className="mt-4">
-                  <AlertDialogCancel 
-                    disabled={isSaving}
-                  >
-                    {t("saveDialog.cancel")}
-                  </AlertDialogCancel>
-                  <AlertDialogAction 
-                    onClick={handleUpdate}
-                    disabled={isSaving}
+          {!readOnly ? (
+            <div className="order-1 sm:order-2 w-full sm:w-auto">
+              <AlertDialog>
+                <AlertDialogTrigger asChild>
+                  <Button 
+                    disabled={isLoading || isSaving}
                     className={cn(
-                      "bg-primary text-primary-foreground hover:bg-primary/90",
-                      isSaving && "opacity-80 cursor-not-allowed"
+                      "flex items-center gap-2 w-full sm:w-auto h-10 px-6",
+                      "transition-all duration-200 relative overflow-hidden",
+                      saveSuccess === true && "bg-emerald-600 hover:bg-emerald-700",
+                      saveSuccess === false && "bg-destructive hover:bg-destructive/90",
+                      isSaving && "opacity-80",
+                      "shadow hover:shadow-md hover:scale-[1.01] active:scale-[0.98]"
                     )}
                   >
                     {isSaving ? (
-                      <div className="flex items-center gap-2">
+                      <>
                         <Loader2 className="h-4 w-4 animate-spin" />
                         <span>{t("buttons.saving")}</span>
-                      </div>
+                      </>
+                    ) : saveSuccess === true ? (
+                      <>
+                        <CheckCircle className="h-4 w-4" />
+                        <span>{t("buttons.saveSuccess")}</span>
+                        {/* Success animation overlay */}
+                        <span className="absolute inset-0 bg-emerald-500/20 animate-pulse-once" />
+                      </>
+                    ) : saveSuccess === false ? (
+                      <>
+                        <X className="h-4 w-4" />
+                        <span>{t("buttons.saveError")}</span>
+                      </>
                     ) : (
-                      t("buttons.save")
+                      <>
+                        <Save className="h-4 w-4" />
+                        <span>{t("buttons.save")}</span>
+                      </>
                     )}
-                  </AlertDialogAction>
-                </AlertDialogFooter>
-              </AlertDialogContent>
-            </AlertDialog>
-          </div>
+                  </Button>
+                </AlertDialogTrigger>
+                <AlertDialogContent>
+                  <AlertDialogHeader>
+                    <AlertDialogTitle>{t("saveDialog.title")}</AlertDialogTitle>
+                    <AlertDialogDescription>
+                      {t("saveDialog.description", { language: t(`language.${currentLanguageName}`) })}
+                    </AlertDialogDescription>
+                  </AlertDialogHeader>
+                  <AlertDialogFooter className="mt-4">
+                    <AlertDialogCancel 
+                      disabled={isSaving}
+                    >
+                      {t("saveDialog.cancel")}
+                    </AlertDialogCancel>
+                    <AlertDialogAction 
+                      onClick={handleUpdate}
+                      disabled={isSaving}
+                      className={cn(
+                        "bg-primary text-primary-foreground hover:bg-primary/90",
+                        isSaving && "opacity-80 cursor-not-allowed"
+                      )}
+                    >
+                      {isSaving ? (
+                        <div className="flex items-center gap-2">
+                          <Loader2 className="h-4 w-4 animate-spin" />
+                          <span>{t("buttons.saving")}</span>
+                        </div>
+                      ) : (
+                        t("buttons.save")
+                      )}
+                    </AlertDialogAction>
+                  </AlertDialogFooter>
+                </AlertDialogContent>
+              </AlertDialog>
+            </div>
+          ) : (
+            <div className="order-1 sm:order-2">
+              <div className="px-3 py-2 bg-blue-50 border border-blue-200 rounded-md flex items-center gap-2 text-sm text-blue-700 dark:bg-blue-950/20 dark:border-blue-800 dark:text-blue-400">
+                <Eye className="h-4 w-4" />
+                {t("readOnlyMode")}
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>

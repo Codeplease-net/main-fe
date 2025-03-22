@@ -10,6 +10,7 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import FitEditor from "@/components/ui/description/fit-editor";
 import { Button } from "@/components/ui/button";
+import { Progress } from "@/components/ui/progress";
 
 // Icons
 import { 
@@ -21,7 +22,8 @@ import {
   XCircle,
   AlertTriangle,
   ChevronRight,
-  Check
+  Check,
+  Trophy
 } from "lucide-react";
 
 // Utilities
@@ -53,7 +55,7 @@ export default function Submission({
   const pollingTimerRef = useRef<NodeJS.Timeout | null>(null);
   const pollingCountRef = useRef(0);
   const t = useTranslations("Playground");
-  const MAX_POLLING_ATTEMPTS = 20; // Maximum number of polling attempts (20 * 2 seconds = 40 seconds max wait)
+  const MAX_POLLING_ATTEMPTS = 50; // Maximum number of polling attempts (50 * 1.5 seconds = 75 seconds max wait)
 
   const fetchSubmission = async () => {
     try {
@@ -83,9 +85,9 @@ export default function Submission({
           return;
         }
         
-        // Poll again in 2 seconds
+        // Poll again in 1.5 seconds
         pollingCountRef.current += 1;
-        pollingTimerRef.current = setTimeout(fetchSubmission, 2000);
+        pollingTimerRef.current = setTimeout(fetchSubmission, 1500);
         
         // Set partial submission data to show "Processing" state
         setSubmission({
@@ -134,7 +136,19 @@ export default function Submission({
   }, [submissionId]);
 
   // Status information helpers
-  const getStatusLabel = (result: string) => {
+  const getStatusLabel = (result: string, type: string) => {
+    // For scoring (SC) problems, show score-based status
+    if (type === "SC") {
+      if (submission?.score === submission?.score_config) {
+        return t("status.fullScore");
+      } else if (submission?.score === 0) {
+        return t("status.noScore");
+      } else {
+        return t("status.partialScore");
+      }
+    }
+    
+    // For regular problems, use standard status labels
     switch(result) {
       case "AC": return t("status.accepted");
       case "WA": return t("status.wrongAnswer");
@@ -147,7 +161,26 @@ export default function Submission({
     }
   };
 
-  const getStatusColor = (result: string) => {
+  const getStatusColor = (result: string, type: string) => {
+    // For scoring type problems
+    if (type === "SC") {
+      const scorePercentage = submission?.score_config ? 
+        (submission.score / submission.score_config) * 100 : 0;
+        
+      if (scorePercentage === 100) {
+        return "bg-emerald-500 hover:bg-emerald-600";
+      } else if (scorePercentage === 0) {
+        return "bg-red-500 hover:bg-red-600";
+      } else if (scorePercentage >= 80) {
+        return "bg-green-500 hover:bg-green-600";
+      } else if (scorePercentage >= 50) {
+        return "bg-amber-500 hover:bg-amber-600";
+      } else {
+        return "bg-orange-500 hover:bg-orange-600";
+      }
+    }
+    
+    // For regular problems
     const colorMap: Record<string, string> = {
       AC: "bg-emerald-500 hover:bg-emerald-600",
       WA: "bg-red-500 hover:bg-red-600",
@@ -168,7 +201,7 @@ export default function Submission({
       transition={{ duration: 0.2 }}
       className="h-screen bg-gradient-to-b from-background to-muted/30 overflow-y-auto"
     >
-      {/* Header section remains unchanged */}
+      {/* Header section */}
       <div className="sticky top-0 z-30 backdrop-blur-md bg-background/80">
         <div className="max-w-5xl mx-auto px-4 h-16 border-b flex items-center justify-between">
           <div className="flex items-center">
@@ -186,6 +219,15 @@ export default function Submission({
             </div>
           </div>
           
+          <Button 
+            variant="ghost"
+            size="sm"
+            onClick={() => setDisplaySubmission(undefined)}
+            className="text-muted-foreground hover:text-foreground"
+          >
+            <ArrowLeft className="h-3.5 w-3.5 mr-2" />
+            {t("backToEditor")}
+          </Button>
         </div>
       </div>
 
@@ -413,10 +455,10 @@ export default function Submission({
                 </div>
                 <Badge
                   className={`text-sm px-3 py-1 rounded-md ${
-                    getStatusColor(submission.result)
+                    getStatusColor(submission.result, submission.type)
                   } text-white`}
                 >
-                  {getStatusLabel(submission.result)}
+                  {getStatusLabel(submission.result, submission.type)}
                 </Badge>
               </CardHeader>
               
@@ -456,6 +498,36 @@ export default function Submission({
                   )}
                 </div>
 
+                {/* Score section for Scoring (SC) type submissions */}
+                {submission.type === "SC" && (
+                  <div className="mb-6 bg-muted/30 rounded-lg p-4 border border-border/50">
+                    <div className="flex items-center justify-between mb-2">
+                      <div className="flex items-center gap-2">
+                        <Trophy className="h-4 w-4 text-amber-400" />
+                        <h3 className="text-base font-medium">{t("score")}</h3>
+                      </div>
+                      <div className="text-base font-semibold">
+                        {submission.score}/{submission.score_config} {t("points")}
+                      </div>
+                    </div>
+                    
+                    <Progress 
+                      value={(submission.score / submission.score_config) * 100} 
+                      className="h-2 mb-1"
+                    />
+                    
+                    <p className="text-xs text-muted-foreground mt-2">
+                      {submission.score === submission.score_config 
+                        ? t("scorePerfect") 
+                        : submission.score === 0 
+                          ? t("scoreZero")
+                          : t("scorePartial", { 
+                              percentage: Math.round((submission.score / submission.score_config) * 100) 
+                            })}
+                    </p>
+                  </div>
+                )}
+
                 <div className="space-y-6">
                   {/* Conditionally render test cases or compile error message */}
                   {submission.result === "CE" ? (
@@ -473,7 +545,11 @@ export default function Submission({
                       </div>
                     </div>
                   ) : (
-                    <TestcaseDetail testCasesCount={submission.test_count} testCases={submission.test_cases} />
+                    <TestcaseDetail 
+                      testCasesCount={submission.test_count} 
+                      testCases={submission.test_cases} 
+                      scoringMode={submission.type == "SC"}
+                    />
                   )}
 
                   {/* Source Code section */}
@@ -494,7 +570,7 @@ export default function Submission({
               </CardContent>
             </Card>
             
-            {/* Floating back button remains unchanged */}
+            {/* Floating back button for mobile */}
             <div className="fixed bottom-6 right-6 md:hidden z-50">
               <Button
                 variant="secondary"
@@ -525,7 +601,7 @@ export default function Submission({
   );
 }
 
-// SubmissionMetadataItem remains unchanged
+// SubmissionMetadataItem component
 function SubmissionMetadataItem({ 
   icon, 
   value, 

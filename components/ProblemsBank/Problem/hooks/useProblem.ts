@@ -1,9 +1,10 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { Problem, ProblemState, defaultProblem } from "../types/problem";
 import { LanguageCode } from "../types/language";
 import { fetchProblemById, updateProblem } from "../api/problemApi";
+import { useAuth } from "@/components/auth/hooks/useAuth"; // Import useAuth hook
 
 interface PreviewContent {
   title: string;
@@ -14,7 +15,11 @@ interface PreviewContent {
 interface UseProblemReturn {
   problem: Problem;
   preview: Problem;
-  state: ProblemState;
+  state: ProblemState & {
+    hasAccess: boolean;
+    isOwner: boolean;
+    loadingAcceess: boolean;
+  };
   actions: {
     searchProblem: (id: string) => Promise<void>;
     updateProblem: (updates: Partial<Problem>) => Promise<void>;
@@ -44,10 +49,52 @@ function generateSearchableTerms(title: string): string[] {
 export function useProblem(): UseProblemReturn {
   const [problem, setProblem] = useState<Problem>(defaultProblem);
   const [preview, setPreview] = useState<Problem>(defaultProblem);
-  const [state, setState] = useState<ProblemState>({
+  const [state, setState] = useState<ProblemState & {
+    hasAccess: boolean;
+    isOwner: boolean;
+    loadingAcceess: boolean;
+  }>({
+    loadingAcceess: true,
     isLoading: false,
     isDone: false,
+    hasAccess: false,
+    isOwner: false,
   });
+  
+  // Get user auth information
+  const { user, userRole } = useAuth(); // Assuming roles is an object with role names as keys
+
+  // Check user permissions when problem or user changes
+  useEffect(() => {
+    console.log("Auth data:", { 
+      user: user?.uid, 
+      problemOwner: problem.owner,
+      userRole, 
+      problemId: problem.id 
+    });
+    
+    if (!user || !problem.id) {
+      console.log("Missing user or problem ID - denying access");
+      setState(prev => ({ ...prev, hasAccess: false, isOwner: false }));
+      return;
+    }
+
+    // Check if user is admin (adjust based on your actual roles structure)
+    const isAdmin = userRole == 'admin';
+    
+    // Check if user is problem setter
+    const isProblemSetter = userRole == 'problem-setter';
+    
+    // Check if user owns this problem
+    const isOwner = problem.owner === user.uid;
+    
+    // Determine access based on roles and ownership
+    const hasAccess = isAdmin || (isProblemSetter && isOwner);
+    
+    console.log("Access determination:", { isAdmin, isProblemSetter, isOwner, hasAccess });
+    
+    setState(prev => ({ ...prev, hasAccess, isOwner, loadingAcceess: false }));
+  }, [user, problem, userRole]);
 
   const onPreviewChange = (content: PreviewContent, lang: LanguageCode) => {
     setPreview((prev) => ({
@@ -89,6 +136,12 @@ export function useProblem(): UseProblemReturn {
 
   const updateProblemData = useCallback(
     async (updates: Partial<Problem>) => {
+      // Check if user has permission to update
+      if (!state.hasAccess) {
+        console.error("Permission denied: You don't have access to update this problem");
+        return;
+      }
+
       try {
         setLoading(true);
         let updatesWithSearchTerms = { ...updates };
@@ -143,12 +196,12 @@ export function useProblem(): UseProblemReturn {
         setLoading(false);
       }
     },
-    [problem?.id]
+    [problem?.id, state.hasAccess]
   );
 
   const updateContent = useCallback(
     async (lang: LanguageCode, content: Partial<Problem["content"]>) => {
-      if (!problem.id) return;
+      if (!problem.id || !state.hasAccess) return;
 
       const newContent = {
         ...problem.content,
@@ -166,7 +219,7 @@ export function useProblem(): UseProblemReturn {
 
       await updateProblemData({ content: newContent });
     },
-    [problem, updateProblemData]
+    [problem, updateProblemData, state.hasAccess]
   );
 
   const actions = {

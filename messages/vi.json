@@ -11,7 +11,106 @@
     "Sign Out": "Đăng xuất",
     "Problems Bank": "Ngân hàng bài tập",
     "Users Management": "Quản lý người dùng",
-    "My Problems": "Bài tập của tôi"
+    "My Problems": "Bài tập của tôi",
+    "Admin": "Quản trị viên",
+    "ProblemSetter": "Người đặt bài",
+    "Logs": "Nhật ký"
+  },
+  "logs": {
+  "title": "Nhật Ký Hệ Thống",
+  "description": "Xem tất cả hoạt động hệ thống và hành động được thực hiện bởi người dùng",
+  "activityLogs": "Nhật Ký Hoạt Động",
+  "search": "Tìm kiếm nhật ký...",
+  "filters": {
+    "title": "Lọc nhật ký",
+    "all": "Tất cả nhật ký",
+    "problems": "Nhật ký bài tập",
+    "users": "Nhật ký người dùng",
+    "contests": "Nhật ký cuộc thi"
+  },
+  "tabs": {
+    "all": "Tất cả",
+    "created": "Đã tạo",
+    "deleted": "Đã xóa",
+    "updated": "Đã cập nhật",
+    "tested": "Đã kiểm tra"
+  },
+  "actions": {
+    "problem_created": "Đã tạo",
+    "problem_deleted": "Đã xóa",
+    "problem_updated": "Đã cập nhật",
+    "problem_tested": "Đã kiểm tra"
+  },
+  "logMessages": {
+    "problemCreated": "Bài tập \"{title}\" đã được tạo",
+    "problemDeleted": "Bài tập \"{title}\" đã bị xóa",
+    "problemAction": "Bài tập \"{title}\" đã được {action}"
+  },
+  "problemId": "Mã bài tập",
+  "judgeType": "Loại đánh giá",
+  "timeLimit": "Giới hạn thời gian",
+  "memoryLimit": "Giới hạn bộ nhớ",
+  "testCases": "Số test case",
+  "owner": "Chủ sở hữu",
+  "noLogs": "Không tìm thấy nhật ký",
+  "noLogsFilterMessage": "Không tìm thấy nhật ký khớp với bộ lọc \"{action}\"",
+  "noLogsMessage": "Không có nhật ký nào để hiển thị. Các hoạt động sẽ xuất hiện ở đây khi chúng xảy ra.",
+  "loadMore": "Tải thêm",
+  "loadingMore": "Đang tải...",
+  "fetchError": "Không thể tải nhật ký. Vui lòng thử lại.",
+  "unknownUser": "Người dùng không xác định"
+},
+  "updateProfile": {
+    "meta": {
+      "title": "Hoàn thành hồ sơ của bạn",
+      "description": "Vui lòng cung cấp thông tin sau để tiếp tục đến tài khoản của bạn",
+      "securityNote": "Thông tin của bạn được lưu trữ an toàn và giúp chúng tôi cung cấp cho bạn trải nghiệm cá nhân hóa.",
+      "progress": "Tiến độ hoàn thành hồ sơ",
+      "step": "Bước 2/2"
+    },
+    "header": {
+      "title": "Hoàn thành hồ sơ của bạn",
+      "subtitle": "Vui lòng cung cấp thông tin sau để tiếp tục đến tài khoản của bạn",
+      "almostThere": "Sắp hoàn tất!",
+      "oneMoreStep": "Chỉ còn một bước nữa để hoàn tất thiết lập tài khoản và truy cập tất cả tính năng của nền tảng.",
+      "securityTitle": "Thông tin hồ sơ bảo mật"
+    },
+    "form": {
+      "title": "Thông tin hồ sơ",
+      "description": "Thông tin này là bắt buộc để kích hoạt tài khoản của bạn.",
+      "username": {
+        "label": "Tên người dùng",
+        "placeholder": "Chọn tên người dùng độc đáo",
+        "description": "Tên người dùng độc đáo của bạn để nhận diện trên nền tảng",
+        "checking": "Đang kiểm tra khả năng sử dụng...",
+        "taken": "Tên người dùng này đã được sử dụng"
+      },
+      "fullName": {
+        "label": "Họ và tên",
+        "placeholder": "Họ và tên của bạn",
+        "description": "Tên thật của bạn, như bạn muốn hiển thị trên hồ sơ"
+      },
+      "country": {
+        "label": "Quốc gia",
+        "placeholder": "Chọn quốc gia",
+        "description": "Chọn quốc gia cư trú của bạn"
+      },
+      "birthdate": {
+        "label": "Ngày sinh",
+        "description": "Ngày sinh của bạn",
+        "age": "Tuổi: {age}"
+      },
+      "submit": "Tiếp tục đến Bảng điều khiển",
+      "saving": "Đang lưu thông tin..."
+    },
+    "loading": "Đang tải hồ sơ của bạn..."
+  },
+  "errors": {
+    "loading": "Không thể tải dữ liệu hồ sơ của bạn.",
+    "update": "Không thể cập nhật hồ sơ của bạn. Vui lòng thử lại."
+  },
+  "success": {
+    "update": "Thông tin hồ sơ của bạn đã được cập nhật thành công."
   },
   "Auth": {
     "fullName": "Họ và tên",
@@ -452,6 +551,15 @@
     "TernarySearchDesc": "Kỹ thuật tối ưu hóa chia không gian tìm kiếm thành ba phần"
   },
   "Playground": {
+    "backToProblems": "Quay lại Bài tập",
+    "tryAgain": "Thử lại",
+    "loginToAccess": "Đăng nhập để truy cập nhiều bài tập hơn và theo dõi tiến độ của bạn.",
+    "accessDenied": "Từ chối truy cập",
+    "noPermission": "Bạn không có quyền xem bài toán này.",
+    "logIn": "Đăng nhập",
+    "loading": "Đang tải...",
+    "untitled": "Bài toán chưa đặt tên",
+    "problemTitle": "Bài toán",
     "signInToSubmit": "Đăng nhập để nộp bài",
     "submissionId": "Bài nộp #{id}",
     "judgeStatus": "Trạng thái đánh giá",
@@ -1759,6 +1867,34 @@
       "noResultsFound": "Không tìm thấy người tạo phù hợp"
     },
     "problem": {
+      "accessDenied": "Từ chối truy cập",
+      "noPermissionProblemBank": "Bạn không có quyền truy cập bài toán này. Điều này có thể do bài toán là riêng tư hoặc bạn không có vai trò cần thiết để xem nó.",
+      "backToProblemBank": "Quay lại Ngân hàng Bài toán",
+      "tryAgain": "Thử lại",
+      "edit": "Chỉnh sửa Bài toán",
+      "save": "Lưu thay đổi",
+      "cancel": "Hủy bỏ",
+      "delete": "Xóa Bài toán",
+      "preview": "Xem trước",
+      "title": "Tiêu đề Bài toán",
+      "description": "Mô tả",
+      "difficulty": "Độ khó",
+      "categories": "Danh mục",
+      "testCases": "Bộ kiểm thử",
+      "solution": "Giải pháp",
+      "saveSuccess": "Đã lưu bài toán thành công",
+      "deleteSuccess": "Đã xóa bài toán thành công",
+      "deleteConfirm": "Bạn có chắc chắn muốn xóa bài toán này không?",
+      "difficulties": {
+        "easy": "Dễ",
+        "medium": "Trung bình",
+        "hard": "Khó"
+      },
+      "errors": {
+        "loadFailed": "Không thể tải bài toán",
+        "saveFailed": "Không thể lưu bài toán",
+        "deleteFailed": "Không thể xóa bài toán"
+      },
       "inputSection": {
         "tabs": {
           "general": "Tổng quan",
@@ -1856,6 +1992,18 @@
         }
       },
       "testcases": {
+        "progress": {
+          "uploading": "Đang tải lên bộ kiểm thử",
+          "uploadComplete": "Tải lên hoàn tất",
+          "uploadWithErrors": "Tải lên hoàn tất với lỗi",
+          "uploadingTestCase": "Đang tải lên bộ kiểm thử {current} trong số {total}",
+          "overall": "Tiến độ tổng thể",
+          "currentFile": "Tệp hiện tại",
+          "failedUploads": "{count} lần tải lên thất bại",
+          "failedTestCase": "Bộ kiểm thử #{index}",
+          "continue": "Tiếp tục",
+          "close": "Đóng"
+        },
         "loading": {
           "title": "Đang tải bộ kiểm thử...",
           "description": "Quá trình này có thể mất một lúc vì chúng tôi đang tải dữ liệu của tất cả bộ kiểm thử. Bộ kiểm thử lớn có thể mất nhiều thời gian hơn."
@@ -1968,11 +2116,13 @@
     }
   },
   "Common": {
-"locale": "vi-VN",
-  "maintenance": {
-    "title": "Bảo Trì Hệ Thống",
-    "message": "Chúng tôi đang thực hiện bảo trì hệ thống. Vui lòng quay lại sau.",
-    "estimatedTime": "Thời gian hoàn thành dự kiến:"
-  },
-  "redirecting": "Đang chuyển hướng..."  }
+    "error": "Đã xảy ra lỗi",
+    "locale": "vi-VN",
+    "maintenance": {
+      "title": "Bảo Trì Hệ Thống",
+      "message": "Chúng tôi đang thực hiện bảo trì hệ thống. Vui lòng quay lại sau.",
+      "estimatedTime": "Thời gian hoàn thành dự kiến:"
+    },
+    "redirecting": "Đang chuyển hướng..."
+  }
 }

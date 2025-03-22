@@ -51,7 +51,6 @@ export default function AuthClientWrapper({
   };
 
   useEffect(() => {
-    
     // Safety timeout
     const safetyTimer = setTimeout(() => {
       setIsLoading(false);
@@ -66,44 +65,72 @@ export default function AuthClientWrapper({
     // Check path types
     const isProblemsBankPath = currentPath.includes("/problems-bank");
     const isUsersManagementPath = currentPath.includes("/users-management");
+    const isLogsPath = currentPath.includes("/logs"); // Add logs path check
     const isUpdateProfilePath = currentPath === "/update-profile";
     const isAuthPath = currentPath.includes("/login");
 
-    // 1. First check maintenance status
-    const checkMaintenance = async () => {
+    // Initialize listeners and state
+    let maintenanceUnsubscribe: (() => void) | null = null;
+    let authUnsubscribe: (() => void) | null = null;
+
+    // Set up maintenance listener
+    const setupMaintenanceListener = async () => {
       try {
         const db = firebaseModule.db;
-        const { doc, getDoc } = firestoreModule;
+        const { doc, onSnapshot } = firestoreModule;
 
         if (!db) {
           console.error("Firebase DB not initialized properly");
           throw new Error("Firebase DB not available");
         }
 
-        // Check maintenance status from config/server document
+        // Set up real-time listener for maintenance status
         const serverConfigRef = doc(db, "config", "server");
-        const serverConfigSnap = await getDoc(serverConfigRef);
-        
-        // Return maintenance status
-        if (serverConfigSnap.exists()) {
-          const config = serverConfigSnap.data();
-          if (config.maintenance === true) {
-            return {
-              active: true,
-              message: config.maintenanceMessage || ""
-            };
+        maintenanceUnsubscribe = onSnapshot(serverConfigRef, (docSnapshot) => {
+          if (docSnapshot.exists()) {
+            const config = docSnapshot.data();
+            
+            // Update maintenance state when data changes
+            if (config.maintenance === true) {
+              setIsInMaintenance(true);
+              setMaintenanceMessage(config.maintenanceMessage || "");
+            } else {
+              setIsInMaintenance(false);
+              setMaintenanceMessage("");
+            }
+          } else {
+            // No maintenance config found
+            setIsInMaintenance(false);
+            setMaintenanceMessage("");
           }
-        }
-        
-        return { active: false, message: "" };
+          
+          // Now that we have maintenance status, check authentication
+          // Only start auth check if it hasn't been set up yet
+          if (!authUnsubscribe) {
+            checkAuth();
+          }
+        }, (error) => {
+          console.error("Maintenance listener error:", error);
+          setIsInMaintenance(false);
+          
+          // Still proceed with auth check on error
+          if (!authUnsubscribe) {
+            checkAuth();
+          }
+        });
       } catch (error) {
-        console.error("Maintenance check error:", error);
-        return { active: false, message: "" };
+        console.error("Setup maintenance listener error:", error);
+        setIsInMaintenance(false);
+        
+        // Proceed with auth check on error
+        if (!authUnsubscribe) {
+          checkAuth();
+        }
       }
     };
 
-    // 2. Then handle authentication
-    const checkAuth = async (maintenanceStatus: { active: boolean, message: string }) => {
+    // Handle authentication
+    const checkAuth = async () => {
       try {
         const auth = firebaseModule.auth;
         const db = firebaseModule.db;
@@ -115,10 +142,33 @@ export default function AuthClientWrapper({
         }
 
         // Set up auth state listener
-        const unsubscribe = auth.onAuthStateChanged(async (currentUser) => {
+        authUnsubscribe = auth.onAuthStateChanged(async (currentUser) => {
           try {
             if (currentUser) {
               // User is logged in
+              
+              // CHECK EMAIL VERIFICATION - Add this section
+              if (!currentUser.emailVerified) {
+                console.log("Email not verified, signing out user:", currentUser.email);
+                // Sign out the user
+                await auth.signOut();
+                
+                // Show a toast notification explaining the reason
+                toast.error(t("auth.emailVerificationRequired"));
+                
+                // Redirect to login page if not already there
+                if (!isAuthPath) {
+                  smoothRedirect("/login", t("auth.pleaseVerifyEmail"));
+                }
+                
+                // Set loading states and return early
+                setIsLoading(false);
+                setIsAuthChecked(true);
+                setIsRedirecting(false);
+                return;
+              }
+              // END EMAIL VERIFICATION CHECK
+              
               sessionStorage.setItem("authChecked", "true");
               const userDoc = await getDoc(doc(db, "users", currentUser.uid));
               
@@ -126,15 +176,14 @@ export default function AuthClientWrapper({
                 const userData = userDoc.data();
                 const userIsAdmin = userData.admin === true;
                 
-                // Apply maintenance mode unless user is admin
-                if (maintenanceStatus.active && !userIsAdmin) {
-                  setIsInMaintenance(true);
-                  setMaintenanceMessage(maintenanceStatus.message);
+                // If in maintenance mode and user is not admin, show maintenance screen
+                // This is now controlled by the maintenance listener
+                if (isInMaintenance && !userIsAdmin) {
                   setIsLoading(false);
                   return;
                 }
                 
-                // Continue with auth logic for logged-in users...
+                // Rest of the existing logged-in user logic...
                 // Handle auth pages for logged-in users
                 if (isAuthPath) {
                   if (redirectParam) {
@@ -168,8 +217,9 @@ export default function AuthClientWrapper({
                   return;
                 }
                 
-                if (isUsersManagementPath && !userIsAdmin) {
-                  smoothRedirect("/", "Only administrators can access user management");
+                // Protect admin-only routes: users management and logs
+                if ((isUsersManagementPath || isLogsPath) && !userIsAdmin) {
+                  smoothRedirect("/", "Only administrators can access this area");
                   return;
                 }
                 
@@ -184,7 +234,7 @@ export default function AuthClientWrapper({
                   return;
                 }
                 
-                if (isProblemsBankPath) {
+                if (isProblemsBankPath || isUsersManagementPath || isLogsPath) {
                   smoothRedirect("/", "You don't have access to this area");
                   return;
                 }
@@ -194,20 +244,20 @@ export default function AuthClientWrapper({
               sessionStorage.setItem("authChecked", "true");
               
               // Show maintenance for non-logged in users
-              if (maintenanceStatus.active) {
-                setIsInMaintenance(true);
-                setMaintenanceMessage(maintenanceStatus.message);
+              // Now controlled by the maintenance listener
+              if (isInMaintenance) {
                 setIsLoading(false);
                 return;
               }
               
-              // Rest of non-logged in user logic...
+              // Rest of the existing non-logged in user logic...
               if (isUpdateProfilePath) {
                 smoothRedirect("/login", "Please login");
                 return;
               }
               
-              if (isProblemsBankPath || isUsersManagementPath) {
+              // Require authentication for protected routes
+              if (isProblemsBankPath || isUsersManagementPath || isLogsPath) {
                 const encodedPath = encodeURIComponent(currentPath);
                 smoothRedirect(
                   `/login?redirect=${encodedPath}`,
@@ -228,57 +278,32 @@ export default function AuthClientWrapper({
             setIsRedirecting(false);
           }
         });
-        
-        return unsubscribe;
       } catch (error) {
         console.error("Auth check error:", error);
         setIsLoading(false);
         setIsAuthChecked(true);
         setIsRedirecting(false);
-        return () => {};
       }
     };
 
-    // Execute the functions in sequence
-    const initializeApp = async () => {
-      try {
-        // First check maintenance
-        const maintenanceStatus = await checkMaintenance();
-        
-        // Then check auth with maintenance status
-        const unsubscribe = await checkAuth(maintenanceStatus);
-        
-        return () => {
-          if (typeof unsubscribe === "function") {
-            unsubscribe();
-          }
-          clearTimeout(safetyTimer);
-        };
-      } catch (error) {
-        console.error("Initialization error:", error);
-        setIsLoading(false);
-        setIsAuthChecked(true);
-        setIsRedirecting(false);
-        return () => clearTimeout(safetyTimer);
-      }
-    };
+    // Start listeners
+    setupMaintenanceListener();
 
-    // Start the initialization process
-    const cleanup = initializeApp();
-    
-
-    // Return cleanup function
+    // Clean up listeners on unmount
     return () => {
-      if (cleanup && typeof cleanup.then === 'function') {
-        cleanup.then(cleanupFn => {
-          if (typeof cleanupFn === 'function') {
-            cleanupFn();
-          }
-        });
-      }
       clearTimeout(safetyTimer);
+      
+      // Clean up the maintenance listener if it exists
+      if (maintenanceUnsubscribe) {
+        maintenanceUnsubscribe();
+      }
+      
+      // Clean up the auth listener if it exists
+      if (authUnsubscribe) {
+        authUnsubscribe();
+      }
     };
-  }, [router]); // Removed searchParams dependency
+  }, [router]);
 
   // Maintenance screen
   if (isInMaintenance) {

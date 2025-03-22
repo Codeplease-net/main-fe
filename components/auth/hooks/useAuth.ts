@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useRouter, useParams, useSearchParams } from "next/navigation";
+import { useParams } from "next/navigation";
 import { useTranslations } from "next-intl";
 import {
   signInWithEmailAndPassword,
@@ -30,10 +30,6 @@ type UserRole = "user" | "admin" | "problem-setter" | null;
 
 export function useAuth() {
   const t = useTranslations("Auth");
-  const router = useRouter();
-  const searchParams = useSearchParams();
-  const params = useParams();
-  const locale = params.locale || "en";
 
   // UI state
   const [isLoading, setIsLoading] = useState(false);

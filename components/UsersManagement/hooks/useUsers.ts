@@ -1,19 +1,19 @@
-import { useState, useEffect } from 'react';
-import { 
-  collection, 
-  getDocs, 
-  getFirestore, 
-  query, 
-  orderBy, 
-  doc, 
-  updateDoc, 
-  deleteDoc, 
-  DocumentData 
-} from 'firebase/firestore';
-import { getApp } from 'firebase/app';
-import { toast } from 'sonner';
-import { User, UserFilters, PaginationSettings } from '../types';
-import * as XLSX from 'xlsx';
+import { useState, useEffect } from "react";
+import {
+  collection,
+  getDocs,
+  getFirestore,
+  query,
+  orderBy,
+  doc,
+  updateDoc,
+  deleteDoc,
+  DocumentData,
+} from "firebase/firestore";
+import { getApp } from "firebase/app";
+import { toast } from "sonner";
+import { User, UserFilters, PaginationSettings } from "../types";
+import * as XLSX from "xlsx";
 
 export default function useUsers() {
   // User data state
@@ -27,7 +27,7 @@ export default function useUsers() {
   // Add this state to store all users
   const [allUsers, setAllUsers] = useState<User[]>([]);
   const [filteredUsers, setFilteredUsers] = useState<User[]>([]);
-  
+
   // Selected users
   const [selectedUsers, setSelectedUsers] = useState<string[]>([]);
 
@@ -55,59 +55,76 @@ export default function useUsers() {
   // Add a function to apply client-side filtering and pagination
   const applyFilters = (users: User[]) => {
     let filtered = [...users]; // Create a copy to work with
-    
+
     // Apply role filter
-    if (filters.role !== 'all') {
-      if (filters.role === 'admin') {
-        filtered = filtered.filter(user => user.admin === true);
-      } else if (filters.role === 'problem-setter') {
-        filtered = filtered.filter(user => user['problem-setter'] === true);
-      } else if (filters.role === 'user') {
-        filtered = filtered.filter(user => 
-          !user.admin && !user['problem-setter']
+    if (filters.role !== "all") {
+      if (filters.role === "admin") {
+        filtered = filtered.filter((user) => user.admin === true);
+      } else if (filters.role === "problem-setter") {
+        filtered = filtered.filter((user) => user["problem-setter"] === true);
+      } else if (filters.role === "user") {
+        filtered = filtered.filter(
+          (user) => !user.admin && !user["problem-setter"]
         );
       }
     }
-    
+
     // Apply profile status filter
-    if (filters.profileStatus !== 'all') {
-      if (filters.profileStatus === 'complete') {
-        filtered = filtered.filter(user => user.profileCompleted === true);
+    if (filters.profileStatus !== "all") {
+      if (filters.profileStatus === "complete") {
+        filtered = filtered.filter((user) => user.profileCompleted === true);
       } else {
-        filtered = filtered.filter(user => user.profileCompleted === false);
+        filtered = filtered.filter((user) => user.profileCompleted === false);
       }
     }
-    
+
     // Apply search filter
     if (filters.search) {
       filtered = filtered.filter(
         (user) =>
-          (user.fullName?.toLowerCase() || '').includes(filters.search.toLowerCase()) ||
-          (user.email?.toLowerCase() || '').includes(filters.search.toLowerCase()) ||
-          (user.handle?.toLowerCase() || '').includes(filters.search.toLowerCase())
+          (user.fullName?.toLowerCase() || "").includes(
+            filters.search.toLowerCase()
+          ) ||
+          (user.email?.toLowerCase() || "").includes(
+            filters.search.toLowerCase()
+          ) ||
+          (user.handle?.toLowerCase() || "").includes(
+            filters.search.toLowerCase()
+          )
       );
     }
-    
+
     // Apply sorting
     if (filters.sort === "newest") {
-      filtered.sort((a, b) => b.createdAt?.toMillis?.() - a.createdAt?.toMillis?.() || 0);
+      filtered.sort(
+        (a, b) => b.createdAt?.toMillis?.() - a.createdAt?.toMillis?.() || 0
+      );
     } else if (filters.sort === "oldest") {
-      filtered.sort((a, b) => a.createdAt?.toMillis?.() - b.createdAt?.toMillis?.() || 0);
+      filtered.sort(
+        (a, b) => a.createdAt?.toMillis?.() - b.createdAt?.toMillis?.() || 0
+      );
     } else if (filters.sort === "name-asc") {
-      filtered.sort((a, b) => (a.fullName || '').localeCompare(b.fullName || ''));
+      filtered.sort((a, b) =>
+        (a.fullName || "").localeCompare(b.fullName || "")
+      );
     } else if (filters.sort === "name-desc") {
-      filtered.sort((a, b) => (b.fullName || '').localeCompare(a.fullName || ''));
+      filtered.sort((a, b) =>
+        (b.fullName || "").localeCompare(a.fullName || "")
+      );
     }
-    
+
     // Update filtered users and pagination info
     setFilteredUsers(filtered);
-    
+
     // Update pagination
     setPagination((prev) => ({
       ...prev,
       totalUsers: filtered.length,
       totalPages: Math.ceil(filtered.length / prev.pageSize) || 1,
-      currentPage: Math.min(prev.currentPage, Math.ceil(filtered.length / prev.pageSize) || 1),
+      currentPage: Math.min(
+        prev.currentPage,
+        Math.ceil(filtered.length / prev.pageSize) || 1
+      ),
     }));
   };
 
@@ -128,15 +145,20 @@ export default function useUsers() {
       const userList: User[] = userSnapshot.docs.map((doc) => ({
         id: doc.id,
         ...(doc.data() as Omit<User, "id">),
+        profileCompleted:
+          doc.data().handle &&
+          doc.data().fullName &&
+          doc.data().country &&
+          doc.data().birthdate,
       }));
 
       // Store all users
       setAllUsers(userList);
       setUsers(userList); // Set this for backwards compatibility
-      
+
       // Apply all filters client-side
       applyFilters(userList);
-      
+
       setLoading(false);
     } catch (err) {
       console.error("Error fetching users:", err);
@@ -313,7 +335,10 @@ export default function useUsers() {
   // Compute the current page of users to display
   const getCurrentPageUsers = () => {
     const startIndex = (pagination.currentPage - 1) * pagination.pageSize;
-    const endIndex = Math.min(startIndex + pagination.pageSize, filteredUsers.length);
+    const endIndex = Math.min(
+      startIndex + pagination.pageSize,
+      filteredUsers.length
+    );
     return filteredUsers.slice(startIndex, endIndex);
   };
 
@@ -372,6 +397,6 @@ export default function useUsers() {
     handleDeleteUser,
     handleBulkRoleUpdate,
     exportUsersAsExcel,
-    clearSelectedUsers: () => setSelectedUsers([])
+    clearSelectedUsers: () => setSelectedUsers([]),
   };
 }

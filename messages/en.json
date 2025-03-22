@@ -11,7 +11,106 @@
     "Sign Out": "Sign Out",
     "Problems Bank": "Problems Bank",
     "Users Management": "Users Management",
-    "My Problems": "My Problems"
+    "My Problems": "My Problems",
+    "Admin": "Admin",
+    "ProblemSetter": "Problem Setter",
+    "Logs": "System Logs"
+  },
+  "logs": {
+  "title": "System Logs",
+  "description": "View all system activities and actions performed by users",
+  "activityLogs": "Activity Logs",
+  "search": "Search logs...",
+  "filters": {
+    "title": "Filter logs",
+    "all": "All logs",
+    "problems": "Problem logs",
+    "users": "User logs",
+    "contests": "Contest logs"
+  },
+  "tabs": {
+    "all": "All",
+    "created": "Created",
+    "deleted": "Deleted",
+    "updated": "Updated",
+    "tested": "Tested"
+  },
+  "actions": {
+    "problem_created": "Created",
+    "problem_deleted": "Deleted",
+    "problem_updated": "Updated",
+    "problem_tested": "Tested"
+  },
+  "logMessages": {
+    "problemCreated": "Problem \"{title}\" was created",
+    "problemDeleted": "Problem \"{title}\" was deleted",
+    "problemAction": "Problem \"{title}\" was {action}"
+  },
+  "problemId": "Problem ID",
+  "judgeType": "Judge Type",
+  "timeLimit": "Time Limit",
+  "memoryLimit": "Memory Limit",
+  "testCases": "Test Cases",
+  "owner": "Owner",
+  "noLogs": "No logs found",
+  "noLogsFilterMessage": "No logs matching the \"{action}\" filter were found",
+  "noLogsMessage": "There are no logs to display. Activities will appear here as they occur.",
+  "loadMore": "Load More",
+  "loadingMore": "Loading...",
+  "fetchError": "Failed to fetch logs. Please try again.",
+  "unknownUser": "Unknown user"
+},
+  "updateProfile": {
+    "meta": {
+      "title": "Complete Your Profile",
+      "description": "Please provide the following information to continue to your account",
+      "securityNote": "Your information is securely stored and helps us provide you with a personalized experience.",
+      "progress": "Profile completion",
+      "step": "Step 2 of 2"
+    },
+    "header": {
+      "title": "Complete Your Profile",
+      "subtitle": "Please provide the following information to continue to your account",
+      "almostThere": "Almost there!",
+      "oneMoreStep": "Just one more step to complete your account setup and access all platform features.",
+      "securityTitle": "Secure Profile Information"
+    },
+    "form": {
+      "title": "Profile Information",
+      "description": "This information is required to activate your account.",
+      "username": {
+        "label": "Username",
+        "placeholder": "Choose a unique username",
+        "description": "Your unique username for identification on the platform",
+        "checking": "Checking availability...",
+        "taken": "This username is already taken"
+      },
+      "fullName": {
+        "label": "Full Name",
+        "placeholder": "Your full name",
+        "description": "Your real name, as you'd like it to appear on your profile"
+      },
+      "country": {
+        "label": "Country",
+        "placeholder": "Select country",
+        "description": "Select your country of residence"
+      },
+      "birthdate": {
+        "label": "Date of Birth",
+        "description": "Your date of birth",
+        "age": "Age: {age}"
+      },
+      "submit": "Continue to Dashboard",
+      "saving": "Saving Information..."
+    },
+    "loading": "Loading your profile..."
+  },
+  "errors": {
+    "loading": "Failed to load your profile data.",
+    "update": "Failed to update your profile. Please try again."
+  },
+  "success": {
+    "update": "Your profile information has been successfully updated."
   },
   "Auth": {
     "fullName": "Full Name",
@@ -444,6 +543,15 @@
     "TernarySearchDesc": "Optimization technique that reduces search space into three parts"
   },
   "Playground": {
+    "backToProblems": "Back to Problems",
+    "tryAgain": "Try Again",
+    "loginToAccess": "Sign in to access more problems and track your progress.",
+    "accessDenied": "Access Denied",
+    "noPermission": "You don't have permission to view this problem.",
+    "logIn": "Log In",
+    "loading": "Loading...",
+    "untitled": "Untitled Problem",
+    "problemTitle": "Problem",
     "signInToSubmit": "Sign in to submit your code",
     "submissionId": "Submission #{id}",
     "judgeStatus": "Judge Status",
@@ -1751,6 +1859,34 @@
       "noResultsFound": "No matching owners found"
     },
     "problem": {
+      "accessDenied": "Access Denied",
+      "noPermissionProblemBank": "You don't have permission to access this problem. This may be because the problem is private or you don't have the necessary role to view it.",
+      "backToProblemBank": "Back to Problem Bank",
+      "tryAgain": "Try Again",
+      "edit": "Edit Problem",
+      "save": "Save Changes",
+      "cancel": "Cancel",
+      "delete": "Delete Problem",
+      "preview": "Preview",
+      "title": "Problem Title",
+      "description": "Description",
+      "difficulty": "Difficulty",
+      "categories": "Categories",
+      "testCases": "Test Cases",
+      "solution": "Solution",
+      "saveSuccess": "Problem saved successfully",
+      "deleteSuccess": "Problem deleted successfully",
+      "deleteConfirm": "Are you sure you want to delete this problem?",
+      "difficulties": {
+        "easy": "Easy",
+        "medium": "Medium",
+        "hard": "Hard"
+      },
+      "errors": {
+        "loadFailed": "Failed to load problem",
+        "saveFailed": "Failed to save problem",
+        "deleteFailed": "Failed to delete problem"
+      },
       "inputSection": {
         "tabs": {
           "general": "General",
@@ -1848,6 +1984,18 @@
         }
       },
       "testcases": {
+        "progress": {
+          "uploading": "Uploading Test Cases",
+          "uploadComplete": "Upload Complete",
+          "uploadWithErrors": "Upload Completed With Errors",
+          "uploadingTestCase": "Uploading test case {current} of {total}",
+          "overall": "Overall Progress",
+          "currentFile": "Current File",
+          "failedUploads": "{count} uploads failed",
+          "failedTestCase": "Test Case #{index}",
+          "continue": "Continue",
+          "close": "Close"
+        },
         "loading": {
           "title": "Loading test cases...",
           "description": "This may take a moment as we're fetching all test case data. Large test cases may take longer to load."
@@ -1960,6 +2108,7 @@
     }
   },
   "Common": {
+    "error": "An error occurred",
     "locale": "en-US",
     "maintenance": {
       "title": "System Maintenance",

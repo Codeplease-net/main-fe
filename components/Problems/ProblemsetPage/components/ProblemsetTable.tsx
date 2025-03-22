@@ -336,21 +336,21 @@ export function ProblemsetTable({
                               "hover:text-primary/90 hover:underline hover:underline-offset-2"
                             )}
                           >
-                            {problem.title[
+                            {(problem.title && problem.title[
                               locale as keyof typeof problem.title
-                            ] || problem.displayTitle}
+                            ]) || problem.displayTitle}
                           </span>
                         </Link>
                       </div>
 
                       {/* Only show displayTitle if it's different from the localized title */}
-                      {problem.title[locale as keyof typeof problem.title] &&
+                      {problem.title && (problem.title[locale as keyof typeof problem.title] &&
                         problem.title[locale as keyof typeof problem.title] !==
                           problem.displayTitle && (
                           <span className="text-xs text-muted-foreground font-normal truncate">
                             {problem.displayTitle}
                           </span>
-                        )}
+                        ))}
                     </div>
                   </TableCell>
                   <TableCell className="hidden sm:table-cell py-3.5">

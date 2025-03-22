@@ -94,7 +94,7 @@ const Timeline = ({ data }: { data: TimelineEntry[] }) => {
               height: heightTransform,
               opacity: opacityTransform,
             }}
-            className="absolute inset-x-0 top-0 w-[2px] bg-gradient-to-t from-purple-500 via-blue-500 to-transparent from-[0%] via-[10%] rounded-full"
+            className="absolute inset-x-0 top-0 w-[2px] bg-gradient-to-t via-blue-500 to-transparent from-[0%] via-[10%] rounded-full"
           />
         </div>
       </div>
@@ -115,7 +115,7 @@ function timelineData(t: any): TimelineEntry[] {
           className="py-20"
         >
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-500">
+            <h2 className="text-3xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r from-primary">
               {t('Object1.FeatureText')}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -167,7 +167,7 @@ function timelineData(t: any): TimelineEntry[] {
           viewport={{ once: true }}
         >
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-500">
+            <h2 className="text-3xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r from-primary">
               {t('Object2.FeatureText')}
             </h2>
             {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -204,7 +204,7 @@ function timelineData(t: any): TimelineEntry[] {
           viewport={{ once: true }}
         >
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-500">
+            <h2 className="text-3xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r from-primary">
               {t('Object3.FeatureText')}
             </h2>
             {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -244,7 +244,7 @@ function timelineData(t: any): TimelineEntry[] {
         >
           <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
             <div className="md:w-1/2 mb-8 md:mb-0">
-              <h1 className="text-4xl md:text-6xl font-bold mb-4 leading-tight bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-500">
+              <h1 className="text-4xl md:text-6xl font-bold mb-4 leading-tight bg-clip-text text-transparent bg-gradient-to-r from-primary">
                 {t('Object4.FeatureText')}
               </h1>
               <p className="text-xl mb-6 text-muted-foreground">{t('Object4.DescriptionText')}</p>

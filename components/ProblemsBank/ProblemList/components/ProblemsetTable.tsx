@@ -3,10 +3,8 @@ import Link from "next/link";
 import {
   Loader2,
   Trash2,
-  ExternalLink,
   FileText,
   CalendarIcon,
-  Info,
   AlertCircle,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -15,7 +13,6 @@ import { auth, db } from "@/api/Readfirebase";
 import { useToast } from "@/components/ui/use-toast";
 import { Input } from "@/components/ui/input";
 import { useTranslations } from "next-intl"; // Import useTranslations
-
 import {
   Table,
   TableBody,
@@ -320,6 +317,7 @@ export default function ProblemSetTable({
                     <div>
                       <Link
                         href={`/problems-bank/${problem.id}`}
+                        target="_blank"
                       >
                         <span
                           className={cn(

@@ -17,6 +17,7 @@ export interface Problem {
     description: MultiLangText;
     solution: MultiLangText;
   };
+  owner: string;
 }
 
 export interface ProblemState {
@@ -191,6 +192,7 @@ export const defaultProblem: Problem = {
     description: defaultDescriptionText,
     solution: defaultSolutionText,
   },
+  owner: "",
 };
 
 export type ProblemUpdate = Partial<Problem>;

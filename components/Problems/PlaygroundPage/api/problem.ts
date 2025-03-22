@@ -10,6 +10,7 @@ interface ProblemData {
   acceptance: number;
   status?: string;
   categories: string[];  // Changed from object to string array
+  owner: string;
 }
 
 export async function fetchProblemById(id: string): Promise<ProblemData | null> {

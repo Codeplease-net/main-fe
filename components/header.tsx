@@ -148,13 +148,13 @@ export default function Header() {
                     {isAdmin && (
                       <Badge variant="outline" className="bg-primary/10 gap-1">
                         <Shield className="h-3 w-3" />
-                        Admin
+                        {t('Admin')}
                       </Badge>
                     )}
                     {isProblemSetter && (
                       <Badge variant="outline" className="bg-primary/10 gap-1">
                         <LockKeyhole className="h-3 w-3" />
-                        PS
+                        {t('ProblemSetter')}
                       </Badge>
                     )}
                     <Avatar>
@@ -182,11 +182,19 @@ export default function Header() {
                   
                   {/* Admin-only menu items */}
                   {isAdmin && (
+                    <>
+                    <DropdownMenuItem>
+                      <Link href="/logs" className="w-full">
+                        {t("Logs")}
+                      </Link>
+                    </DropdownMenuItem>
                     <DropdownMenuItem>
                       <Link href="/users-management" className="w-full">
                         {t("Users Management")}
                       </Link>
                     </DropdownMenuItem>
+                    </>
+                    
                   )}
                   
                   <DropdownMenuSeparator />
@@ -253,13 +261,13 @@ export default function Header() {
                     {isAdmin && (
                       <Badge variant="outline" className="bg-primary/10 gap-1">
                         <Shield className="h-3 w-3" />
-                        Admin
+                        {t('Admin')}
                       </Badge>
                     )}
                     {isProblemSetter && (
                       <Badge variant="outline" className="bg-primary/10 gap-1">
                         <LockKeyhole className="h-3 w-3" />
-                        PS
+                        {t('ProblemSetter')}
                       </Badge>
                     )}
                     <Avatar>
@@ -274,11 +282,18 @@ export default function Header() {
                   </DropdownMenuLabel>
                   
                   {isAdmin && (
+                    <>
                     <DropdownMenuItem>
-                      <Link href="/admin" className="w-full">
+                      <Link href="/logs" className="w-full">
+                        {t("Logs")}
+                      </Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem>
+                      <Link href="/users-management" className="w-full">
                         {t("Users Management")}
                       </Link>
                     </DropdownMenuItem>
+                    </>
                   )}
                   
                   <DropdownMenuItem onClick={handleLogout}>{t("Sign Out")}</DropdownMenuItem>

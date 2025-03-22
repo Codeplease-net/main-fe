@@ -28,6 +28,7 @@ export interface TestCase {
     acceptance: number;
     description: string;
     solution: string;
+    owner: string;
   }
   
   export interface SubmissionsTabProps {

@@ -28,10 +28,17 @@ import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
 import { KYCData } from "../types";
 import { countries } from "countries-list";
+import { useTranslations, useLocale } from 'next-intl';
+import LocaleSwitcher from '@/components/ui/change-locale';
 
 import logo from "@/public/logoheadblack.png"
 
 export default function UpdateProfilePage() {
+  const t = useTranslations('updateProfile');
+  const errorsT = useTranslations('errors');
+  const successT = useTranslations('success');
+  const locale = useLocale();
+  
   const { updateUserProfile, isLoading: authLoading, error: authError, successMessage } = useAuth();
   const router = useRouter();
   const { toast } = useToast();
@@ -122,7 +129,7 @@ export default function UpdateProfilePage() {
         console.error("Error fetching user data:", err);
         toast({
           title: "Error",
-          description: "Failed to load your profile data.",
+          description: errorsT('loading'),
           variant: "destructive"
         });
       } finally {
@@ -131,7 +138,7 @@ export default function UpdateProfilePage() {
     };
 
     fetchUserData();
-  }, [router, toast]);
+  }, [router, toast, errorsT]);
 
   const handleChange = (field: keyof KYCData) => (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormTouched(true);
@@ -176,13 +183,13 @@ export default function UpdateProfilePage() {
       if (success) {
         toast({
           title: "Profile Updated",
-          description: "Your profile information has been successfully updated.",
+          description: successT('update'),
         });
         router.push("/");
       }
     } catch (err) {
       console.error("Error updating profile:", err);
-      setError("Failed to update your profile. Please try again.");
+      setError(errorsT('update'));
     } finally {
       setIsSaving(false);
     }
@@ -208,7 +215,7 @@ export default function UpdateProfilePage() {
       <div className="flex justify-center items-center min-h-screen bg-gradient-to-b from-background to-muted/20">
         <div className="flex flex-col items-center gap-3 p-6 rounded-xl backdrop-blur-sm bg-background/50 border shadow-md">
           <Loader2 className="h-10 w-10 animate-spin text-primary" />
-          <p className="text-muted-foreground font-medium">Loading your profile...</p>
+          <p className="text-muted-foreground font-medium">{t('loading')}</p>
         </div>
       </div>
     );
@@ -231,9 +238,9 @@ export default function UpdateProfilePage() {
           </div>
           
           <div className="text-center space-y-3">
-            <h2 className="text-xl xl:text-2xl font-bold text-primary">Almost there!</h2>
+            <h2 className="text-xl xl:text-2xl font-bold text-primary">{t('header.almostThere')}</h2>
             <p className="text-sm xl:text-base text-muted-foreground max-w-sm leading-relaxed">
-              Just one more step to complete your account setup and access all platform features.
+              {t('header.oneMoreStep')}
             </p>
           </div>
           
@@ -242,9 +249,9 @@ export default function UpdateProfilePage() {
             <div className="flex items-start gap-4">
               <ShieldCheck className="h-6 w-6 text-primary mt-0.5 flex-shrink-0" />
               <div className="space-y-1.5">
-                <h3 className="font-medium text-sm text-foreground">Secure Profile Information</h3>
+                <h3 className="font-medium text-sm text-foreground">{t('header.securityTitle')}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  Your information is securely stored and helps us provide you with a personalized experience.
+                  {t('meta.securityNote')}
                 </p>
               </div>
             </div>
@@ -253,7 +260,7 @@ export default function UpdateProfilePage() {
           {/* Progress indicator for desktop */}
           <div className="w-full max-w-xs mt-4">
             <div className="flex justify-between items-center mb-2">
-              <span className="text-xs font-medium text-muted-foreground">Profile completion</span>
+              <span className="text-xs font-medium text-muted-foreground">{t('meta.progress')}</span>
               <Badge variant="outline" className="bg-primary/10 text-primary border-primary/30">
                 {completionPercentage}%
               </Badge>
@@ -265,6 +272,9 @@ export default function UpdateProfilePage() {
               ></div>
             </div>
           </div>
+          
+          {/* Language switcher */}
+          <LocaleSwitcher />
         </div>
       </div>
       
@@ -285,7 +295,7 @@ export default function UpdateProfilePage() {
             {/* Mobile progress badge */}
             <Badge variant="outline" className="bg-primary/10 text-primary border-primary/30 px-3 py-1">
               <CheckCircle2 className="h-4 w-4 mr-1.5" />
-              Step 2 of 2
+              {t('meta.step')}
             </Badge>
           </div>
         </div>
@@ -294,15 +304,15 @@ export default function UpdateProfilePage() {
         <div className="flex-1 flex items-center justify-center p-4 md:p-6 lg:p-8 overflow-y-auto">
           <div className="w-full max-w-md lg:max-w-lg">
             <div className="mb-6 md:mb-8 text-center">
-              <h1 className="font-heading text-2xl md:text-3xl font-bold tracking-tight mb-2">Complete Your Profile</h1>
+              <h1 className="font-heading text-2xl md:text-3xl font-bold tracking-tight mb-2">{t('header.title')}</h1>
               <p className="text-muted-foreground text-sm md:text-base">
-                Please provide the following information to continue to your account
+                {t('header.subtitle')}
               </p>
               
               {/* Mobile progress indicator */}
               <div className="mt-4 lg:hidden">
                 <div className="flex justify-between items-center mb-1.5">
-                  <span className="text-xs font-medium text-muted-foreground">Profile completion</span>
+                  <span className="text-xs font-medium text-muted-foreground">{t('meta.progress')}</span>
                   <span className="text-xs font-medium text-primary">{completionPercentage}%</span>
                 </div>
                 <div className="w-full h-1.5 bg-muted rounded-full overflow-hidden">
@@ -312,16 +322,21 @@ export default function UpdateProfilePage() {
                   ></div>
                 </div>
               </div>
+              
+              {/* Mobile language switcher */}
+              <div className="mt-4 lg:hidden">
+                <LocaleSwitcher />
+              </div>
             </div>
             
             <Card className="border-border/50 shadow-lg overflow-hidden transition-all duration-300 hover:shadow-md">
               <CardHeader className="pb-4 md:pb-6 bg-muted/30">
                 <CardTitle className="flex items-center text-lg md:text-xl">
                   <Lock className="h-5 w-5 mr-2 text-primary" />
-                  Profile Information
+                  {t('form.title')}
                 </CardTitle>
                 <CardDescription className="text-sm md:text-base">
-                  This information is required to activate your account.
+                  {t('form.description')}
                 </CardDescription>
               </CardHeader>
               
@@ -339,12 +354,12 @@ export default function UpdateProfilePage() {
                     <div className="space-y-2">
                       <Label htmlFor="handle" className="flex items-center text-sm md:text-base font-medium">
                         <User className="h-4 w-4 mr-2 text-primary" />
-                        Username <span className="text-red-500 ml-1">*</span>
+                        {t('form.username.label')} <span className="text-red-500 ml-1">*</span>
                       </Label>
                       <div className="relative group">
                         <Input
                           id="handle"
-                          placeholder="Choose a unique username"
+                          placeholder={t('form.username.placeholder')}
                           value={profileData.handle}
                           onChange={handleChange("handle")}
                           className={`pr-10 h-10 md:h-11 text-sm md:text-base transition-all duration-200 border-border/60 
@@ -374,9 +389,9 @@ export default function UpdateProfilePage() {
                       </div>
                       
                       <p className="text-xs md:text-sm text-muted-foreground">
-                        {isHandleChecking ? "Checking availability..." : 
-                         isHandleAvailable === false ? "This username is already taken" : 
-                         "Your unique username for identification on the platform"}
+                        {isHandleChecking ? t('form.username.checking') : 
+                         isHandleAvailable === false ? t('form.username.taken') : 
+                         t('form.username.description')}
                       </p>
                     </div>
                     
@@ -384,18 +399,18 @@ export default function UpdateProfilePage() {
                     <div className="space-y-2">
                       <Label htmlFor="fullName" className="flex items-center text-sm md:text-base font-medium">
                         <User className="h-4 w-4 mr-2 text-primary" />
-                        Full Name <span className="text-red-500 ml-1">*</span>
+                        {t('form.fullName.label')} <span className="text-red-500 ml-1">*</span>
                       </Label>
                       <Input
                         id="fullName"
-                        placeholder="Your full name"
+                        placeholder={t('form.fullName.placeholder')}
                         value={profileData.fullName}
                         onChange={handleChange("fullName")}
                         className="h-10 md:h-11 text-sm md:text-base border-border/60 transition-colors hover:border-primary/50"
                         required
                       />
                       <p className="text-xs md:text-sm text-muted-foreground">
-                        Your real name, as you'd like it to appear on your profile
+                        {t('form.fullName.description')}
                       </p>
                     </div>
                                   
@@ -404,7 +419,7 @@ export default function UpdateProfilePage() {
                       <div className="space-y-2">
                         <Label htmlFor="country" className="flex items-center text-sm md:text-base font-medium">
                           <Flag className="h-4 w-4 mr-2 text-primary" />
-                          Country <span className="text-red-500 ml-1">*</span>
+                          {t('form.country.label')} <span className="text-red-500 ml-1">*</span>
                         </Label>
                         <Select 
                           value={profileData.country} 
@@ -412,7 +427,7 @@ export default function UpdateProfilePage() {
                           required
                         >
                           <SelectTrigger className="h-10 md:h-11 text-sm md:text-base border-border/60 transition-colors hover:border-primary/50">
-                            <SelectValue placeholder="Select country" />
+                            <SelectValue placeholder={t('form.country.placeholder')} />
                           </SelectTrigger>
                           <SelectContent className="max-h-[300px]">
                             <div className="max-h-[250px] overflow-y-auto">
@@ -425,7 +440,7 @@ export default function UpdateProfilePage() {
                           </SelectContent>
                         </Select>
                         <p className="text-xs md:text-sm text-muted-foreground">
-                          Select your country of residence
+                          {t('form.country.description')}
                         </p>
                       </div>
                       
@@ -433,7 +448,7 @@ export default function UpdateProfilePage() {
                       <div className="space-y-2">
                         <Label htmlFor="birthdate" className="flex items-center text-sm md:text-base font-medium">
                           <Calendar className="h-4 w-4 mr-2 text-primary" />
-                          Date of Birth <span className="text-red-500 ml-1">*</span>
+                          {t('form.birthdate.label')} <span className="text-red-500 ml-1">*</span>
                         </Label>
                         <div className="relative">
                           <Input
@@ -450,14 +465,14 @@ export default function UpdateProfilePage() {
                           {age !== null && (
                             <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
                               <Badge variant="outline" className="text-xs">
-                                {`Age: ${age}`}
+                                {t('form.birthdate.age', { age })}
                               </Badge>
                             </div>
                           )}
                         </div>
                         
                         <p className="text-xs md:text-sm text-muted-foreground">
-                          Your date of birth
+                          {t('form.birthdate.description')}
                         </p>
                       </div>
                     </div>
@@ -483,11 +498,11 @@ export default function UpdateProfilePage() {
                   {(isSaving || authLoading) ? (
                     <>
                       <Loader2 className="h-5 w-5 animate-spin" />
-                      Saving Information...
+                      {t('form.saving')}
                     </>
                   ) : (
                     <>
-                      Continue to Dashboard
+                      {t('form.submit')}
                       <ArrowRight className="h-4 w-4 ml-1" />
                     </>
                   )}

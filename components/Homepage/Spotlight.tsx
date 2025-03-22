@@ -20,7 +20,7 @@ export default function SpotlightPreview() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="text-5xl md:text-8xl font-extrabold text-center bg-clip-text text-transparent bg-gradient-to-r from-primary via-purple-500 to-secondary animate-gradient">
+          <h1 className="text-5xl md:text-8xl font-extrabold text-center bg-clip-text text-transparent bg-gradient-to-r from-primary">
             CodePlease
             {/* <span className="block mt-2 text-4xl md:text-6xl">{t('Slogan')}</span> */}
           </h1>

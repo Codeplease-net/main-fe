@@ -255,7 +255,7 @@ export function DescriptionTab({
                     <Button
                       variant="outline"
                       size="sm"
-                      onClick={() => window.open("/polygon/docs/mathjax", "_blank")}
+                      onClick={() => window.open("/problems-bank/docs/mathjax", "_blank")}
                       className="text-xs flex items-center gap-1.5 h-8 text-primary hover:text-primary hover:bg-primary/5 hover:border-primary/30 transition-all"
                     >
                       <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-function-square">
@@ -307,7 +307,7 @@ export function DescriptionTab({
                     <Button
                       variant="outline"
                       size="sm"
-                      onClick={() => window.open("/polygon/docs/mathjax", "_blank")}
+                      onClick={() => window.open("/problems-bank/docs/mathjax", "_blank")}
                       className="text-xs flex items-center gap-1.5 h-8 text-primary hover:text-primary hover:bg-primary/5 hover:border-primary/30 transition-all"
                     >
                       <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-function-square">
@@ -352,7 +352,7 @@ export function DescriptionTab({
         {/* Action Footer */}
         <div className="flex flex-col sm:flex-row justify-between items-center gap-4 w-full bg-card border border-border/60 rounded-lg px-4 py-3 shadow-md">
           <div className="text-sm text-muted-foreground order-2 sm:order-1 text-center sm:text-left">
-            <p><span className="font-medium text-foreground">{t("footer.noteLabel")}</span> {t("footer.noteText", { language: currentLanguageName })}</p>
+            <p><span className="font-medium text-foreground">{t("footer.noteLabel")}</span> {t("footer.noteText", { language: t(`language.${currentLanguageName}`) })}</p>
             <p className="text-xs mt-1">{t("footer.switchHint")}</p>
           </div>
           
@@ -399,7 +399,7 @@ export function DescriptionTab({
                 <AlertDialogHeader>
                   <AlertDialogTitle>{t("saveDialog.title")}</AlertDialogTitle>
                   <AlertDialogDescription>
-                    {t("saveDialog.description", { language: currentLanguageName })}
+                    {t("saveDialog.description", { language: t(`language.${currentLanguageName}`) })}
                   </AlertDialogDescription>
                 </AlertDialogHeader>
                 <AlertDialogFooter className="mt-4">

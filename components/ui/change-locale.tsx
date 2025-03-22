@@ -4,9 +4,17 @@ import { useLocale } from "next-intl";
 import { routing } from "@/i18n/routing";
 import listCountry from '../../messages/listlang.json'
 import clsx from 'clsx';
-import {useParams} from 'next/navigation';
-import {ChangeEvent, ReactNode, useTransition} from 'react';
-import {usePathname, useRouter} from '@/i18n/routing';
+import { useParams } from 'next/navigation';
+import { ChangeEvent, ReactNode, useTransition, useState } from 'react';
+import { usePathname, useRouter } from '@/i18n/routing';
+import { Check, ChevronDown, Globe } from "lucide-react";
+import { Button } from "./button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "./dropdown-menu";
 
 type Props = {
   children: ReactNode;
@@ -14,60 +22,60 @@ type Props = {
   label: string;
 };
 
-function LocaleSwitcherSelect({
-  children,
-  defaultValue,
-  label
-}: Props) {
+export default function LocaleSwitcher() {
+  const locale = useLocale();
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
   const pathname = usePathname();
   const params = useParams();
+  const [isOpen, setIsOpen] = useState(false);
 
-  function onSelectChange(event: ChangeEvent<HTMLSelectElement>) {
-    const nextLocale = event.target.value;
+  function changeLocale(nextLocale: string) {
     startTransition(() => {
       router.replace(
         // @ts-expect-error -- TypeScript will validate that only known `params`
         // are used in combination with a given `pathname`. Since the two will
         // always match for the current route, we can skip runtime checks.
-        {pathname, params},
-        {locale: nextLocale}
+        { pathname, params },
+        { locale: nextLocale }
       );
+      // Reload to apply changes
       window.location.reload();
     });
   }
 
   return (
-    <label
-      className={clsx(
-        'relative',
-        isPending && 'transition-opacity [&:disabled]:opacity-30'
-      )}
-    >
-      <p className="sr-only">{label}</p>
-      <select
-        className="inline-flex appearance-none bg-transparent py-3 pl-2 pr-6"
-        defaultValue={defaultValue}
-        disabled={isPending}
-        onChange={onSelectChange}
-      >
-        {children}
-      </select>
-      <span className="pointer-events-none absolute right-2 top-[8px]">⌄</span>
-    </label>
-  );
-}
-
-export default function LocaleSwitcher() {
-  const locale = useLocale();
-  return (
-    <LocaleSwitcherSelect defaultValue={locale} label={"label"}>
-      {routing.locales.map((cur) => (
-        <option key={cur} value={cur}>
-          {listCountry[cur]}
-        </option>
-      ))}
-    </LocaleSwitcherSelect>
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button
+          variant="ghost"
+          size="sm"
+          className="h-8 w-8 px-0 data-[state=open]:bg-muted"
+          disabled={isPending}
+        >
+          <Globe className="h-4 w-4" />
+          <span className="sr-only">Toggle language</span>
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align="end">
+        {routing.locales.map((localeOption) => (
+          <DropdownMenuItem
+            key={localeOption}
+            onClick={() => changeLocale(localeOption)}
+            className={clsx(
+              "flex cursor-pointer items-center gap-2 px-3 py-2 text-sm",
+              locale === localeOption && "bg-primary/10 font-medium text-primary"
+            )}
+          >
+            {locale === localeOption && (
+              <Check className="h-4 w-4 text-primary" />
+            )}
+            <span className={locale !== localeOption ? "pl-6" : ""}>
+              {listCountry[localeOption]}
+            </span>
+          </DropdownMenuItem>
+        ))}
+      </DropdownMenuContent>
+    </DropdownMenu>
   );
 }

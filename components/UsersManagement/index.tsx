@@ -23,7 +23,7 @@ import BulkActions from "./components/BulkActions";
 export default function UsersManagement() {
   // Translations
   const t = useTranslations("UsersManagement");
-  
+
   // Get user data and functions from custom hook
   const {
     users,
@@ -44,7 +44,7 @@ export default function UsersManagement() {
     handleDeleteUser,
     handleBulkRoleUpdate,
     exportUsersAsExcel,
-    clearSelectedUsers
+    clearSelectedUsers,
   } = useUsers();
 
   // Local state for edit/delete dialogs
@@ -60,11 +60,11 @@ export default function UsersManagement() {
 
   const onSaveUser = async (userData: Partial<User>) => {
     if (!userToEdit) return;
-    
+
     setIsSaving(true);
     const success = await handleEditUser(userToEdit.id, userData);
     setIsSaving(false);
-    
+
     if (success) {
       setUserToEdit(null);
     }
@@ -76,11 +76,11 @@ export default function UsersManagement() {
 
   const onConfirmDelete = async () => {
     if (!userToDelete) return;
-    
+
     setIsDeleting(true);
     const success = await handleDeleteUser(userToDelete.id);
     setIsDeleting(false);
-    
+
     if (success) {
       setUserToDelete(null);
     }
@@ -90,7 +90,7 @@ export default function UsersManagement() {
   const handlePageChange = (page: number) => {
     setPagination({
       ...pagination,
-      currentPage: page
+      currentPage: page,
     });
   };
 
@@ -98,32 +98,27 @@ export default function UsersManagement() {
     setPagination({
       ...pagination,
       pageSize: size,
-      currentPage: 1
+      currentPage: 1,
     });
   };
 
   return (
     <div className="container mx-auto py-6 space-y-6">
-      <h1 className="text-3xl font-bold">{t("title")}</h1>
-      
-      {/* Filters */}
-      <UserFilters 
-        filters={filters} 
-        onFiltersChange={setFilters} 
-      />
-      
-      {/* Action buttons */}
-      <div className="flex flex-wrap gap-2">
+      <div className="flex justify-between items-center">
+        <h1 className="text-3xl font-bold">{t("title")}</h1>
+        <div className="flex items-center gap-2">
         <Button
           variant="outline"
           size="sm"
           onClick={handleRefresh}
           disabled={loading || isRefreshing}
         >
-          <RefreshCw className={`mr-2 h-4 w-4 ${isRefreshing ? 'animate-spin' : ''}`} />
+          <RefreshCw
+            className={`mr-2 h-4 w-4 ${isRefreshing ? "animate-spin" : ""}`}
+          />
           {isRefreshing ? t("buttons.refreshing") : t("buttons.refresh")}
         </Button>
-        
+
         <Button
           variant="outline"
           size="sm"
@@ -135,20 +130,28 @@ export default function UsersManagement() {
             ? t("buttons.exportSelected", { count: selectedUsers.length })
             : t("buttons.exportAll")}
         </Button>
+        </div>
       </div>
-      
+
+      {/* Filters */}
+      <UserFilters filters={filters} onFiltersChange={setFilters} />
+
       {/* Bulk actions bar (shown when users are selected) */}
       {selectedUsers.length > 0 && (
         <BulkActions
           selectedCount={selectedUsers.length}
           totalCount={filteredUsers.length}
           onToggleSelectAll={toggleSelectAll}
-          onMakeProblemSetters={() => handleBulkRoleUpdate('problem-setter', true)}
-          onRemoveProblemSetterRole={() => handleBulkRoleUpdate('problem-setter', false)}
+          onMakeProblemSetters={() =>
+            handleBulkRoleUpdate("problem-setter", true)
+          }
+          onRemoveProblemSetterRole={() =>
+            handleBulkRoleUpdate("problem-setter", false)
+          }
           onCancel={clearSelectedUsers}
         />
       )}
-      
+
       {/* User list */}
       {loading && !isRefreshing ? (
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -174,11 +177,7 @@ export default function UsersManagement() {
       ) : error ? (
         <div className="p-6 text-center">
           <p className="text-red-500">{error}</p>
-          <Button
-            variant="outline"
-            className="mt-4"
-            onClick={handleRefresh}
-          >
+          <Button variant="outline" className="mt-4" onClick={handleRefresh}>
             {t("buttons.tryAgain")}
           </Button>
         </div>
@@ -200,7 +199,7 @@ export default function UsersManagement() {
           ))}
         </div>
       )}
-      
+
       {/* Pagination */}
       {filteredUsers.length > 0 && (
         <UserPagination
@@ -210,7 +209,7 @@ export default function UsersManagement() {
           onPageSizeChange={handlePageSizeChange}
         />
       )}
-      
+
       {/* Edit User Dialog */}
       {userToEdit && (
         <EditUserDialog
@@ -221,7 +220,7 @@ export default function UsersManagement() {
           loading={isSaving}
         />
       )}
-      
+
       {/* Delete User Dialog */}
       {userToDelete && (
         <DeleteUserDialog

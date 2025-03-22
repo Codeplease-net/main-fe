@@ -88,8 +88,23 @@ export function TestcasesTab({ problemId }: TestcasesTabProps) {
     score: number
   }>>([]);
 
+  const [batchUploadProgress, setBatchUploadProgress] = useState<{
+    currentIndex: number;
+    totalCount: number;
+    currentProgress: number;
+    currentFileName: string;
+    failedUploads: { index: number; error: string }[];
+  }>({
+    currentIndex: 0,
+    totalCount: 0,
+    currentProgress: 0,
+    currentFileName: "",
+    failedUploads: []
+  });
+  const [showUploadProgress, setShowUploadProgress] = useState(false);
+
   // Common score presets for quick selection
-  const scorePresets = [0, 5, 10, 20, 25, 33, 50, 100];
+  const scorePresets = [0, 5, 10, 50, 100];
 
   const fetchConfig = () => {
     setIsLoading(true);
@@ -248,6 +263,14 @@ export function TestcasesTab({ problemId }: TestcasesTabProps) {
     // If we have a batch to upload
     else {
       setIsUploadingBulk(true);
+      setShowUploadProgress(true);
+      setBatchUploadProgress({
+        currentIndex: 0,
+        totalCount: batchTestCases.length,
+        currentProgress: 0,
+        currentFileName: "",
+        failedUploads: []
+      });
       
       try {
         // Upload each test case in sequence
@@ -257,56 +280,87 @@ export function TestcasesTab({ problemId }: TestcasesTabProps) {
           const form = new FormData();
           form.append("name", problemId);
           
+          let currentFileName = "";
+          
           // Input file handling
           if (testCase.inputFile) {
             form.append("input_file", testCase.inputFile);
+            currentFileName = testCase.inputFile.name;
           } else if (testCase.input) {
             const inputBlob = new Blob([testCase.input], { type: 'text/plain' });
             const inputFile = new File([inputBlob], 'input.txt', { type: 'text/plain' });
             form.append("input_file", inputFile);
+            currentFileName = "input.txt";
           }
           
           // Output file handling
           if (testCase.outputFile) {
             form.append("output_file", testCase.outputFile);
+            if (!currentFileName) currentFileName = testCase.outputFile.name;
           } else if (testCase.output) {
             const outputBlob = new Blob([testCase.output], { type: 'text/plain' });
             const outputFile = new File([outputBlob], 'output.txt', { type: 'text/plain' });
             form.append("output_file", outputFile);
+            if (!currentFileName) currentFileName = "output.txt";
           }
           
           form.append("score", testCase.score.toString());
           
-          await axios.post(
-            `${process.env.NEXT_PUBLIC_JUDGE0_API_KEY}/testcases/add`,
-            form
-          );
+          setBatchUploadProgress(prev => ({
+            ...prev,
+            currentIndex: i,
+            currentProgress: 0,
+            currentFileName
+          }));
           
-          // Update progress toast
-          toast({
-            title: t("toasts.progress"),
-            description: t("toasts.uploadedTestCaseCount", { current: i + 1, total: batchTestCases.length }),
-          });
+          try {
+            await axios.post(
+              `${process.env.NEXT_PUBLIC_JUDGE0_API_KEY}/testcases/add`,
+              form,
+              {
+                onUploadProgress: (progressEvent) => {
+                  const percentCompleted = Math.round(
+                    (progressEvent.loaded * 100) / (progressEvent.total || 100)
+                  );
+                  setBatchUploadProgress(prev => ({
+                    ...prev,
+                    currentProgress: percentCompleted
+                  }));
+                }
+              }
+            );
+          } catch (error) {
+            console.error(`Error uploading test case ${i+1}:`, error);
+            setBatchUploadProgress(prev => ({
+              ...prev,
+              failedUploads: [...prev.failedUploads, { 
+                index: i, 
+                error: error instanceof Error ? error.message : t("errors.uploadFailed") 
+              }]
+            }));
+          }
         }
         
         toast({
           title: t("toasts.success"),
-          description: t("toasts.successfullyUploadedTestCases", { count: batchTestCases.length }),
+          description: t("toasts.successfullyUploadedTestCases", { count: batchTestCases.length - batchUploadProgress.failedUploads.length }),
         });
         
-        // Reset form and close dialog
-        setBatchTestCases([]);
-        setNewTestCase({
-          input: "",
-          output: "",
-          inputFile: null,
-          outputFile: null,
-          score: 0,
-        });
-        setOpen(false);
+        // Reset form and close dialog only if all uploads were successful
+        if (batchUploadProgress.failedUploads.length === 0) {
+          setBatchTestCases([]);
+          setNewTestCase({
+            input: "",
+            output: "",
+            inputFile: null,
+            outputFile: null,
+            score: 0,
+          });
+          setOpen(false);
+        }
         fetchConfig(); // Refresh the test cases list
       } catch (error) {
-        console.error("Error adding test cases:", error);
+        console.error("Error in batch upload process:", error);
         toast({
           title: t("errors.errorTitle"),
           description: t("errors.addMultipleFailed"),
@@ -314,6 +368,12 @@ export function TestcasesTab({ problemId }: TestcasesTabProps) {
         });
       } finally {
         setIsUploadingBulk(false);
+        // Keep the progress dialog open if there were failures
+        if (batchUploadProgress.failedUploads.length === 0) {
+          setTimeout(() => {
+            setShowUploadProgress(false);
+          }, 1500); // Show complete status briefly before hiding
+        }
       }
     }
   };
@@ -537,7 +597,7 @@ export function TestcasesTab({ problemId }: TestcasesTabProps) {
                             {preset}
                           </Button>
                         ))}
-                        <div className="relative flex items-center max-w-[160px]">
+                        <div className="relative flex items-center">
                           <Input
                             id="score"
                             type="number"
@@ -850,6 +910,98 @@ export function TestcasesTab({ problemId }: TestcasesTabProps) {
           )}
         </CardContent>
       </Card>
+
+      {/* Upload Progress Dialog */}
+      <Dialog open={showUploadProgress} onOpenChange={setShowUploadProgress}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle>
+              {batchUploadProgress.failedUploads.length > 0
+                ? t("progress.uploadWithErrors")
+                : isUploadingBulk
+                ? t("progress.uploading")
+                : t("progress.uploadComplete")}
+            </DialogTitle>
+            <DialogDescription>
+              {t("progress.uploadingTestCase", {
+                current: batchUploadProgress.currentIndex + 1,
+                total: batchUploadProgress.totalCount
+              })}
+            </DialogDescription>
+          </DialogHeader>
+          
+          <div className="space-y-4 py-4">
+            {/* Overall progress */}
+            <div className="space-y-2">
+              <div className="flex justify-between text-sm">
+                <span>
+                  {t("progress.overall")} ({batchUploadProgress.currentIndex + 1}/{batchUploadProgress.totalCount})
+                </span>
+                <span>{Math.round((batchUploadProgress.currentIndex + 1) * 100 / batchUploadProgress.totalCount)}%</span>
+              </div>
+              <div className="h-2 bg-muted rounded-full overflow-hidden">
+                <div 
+                  className="h-full bg-primary transition-all" 
+                  style={{ width: `${((batchUploadProgress.currentIndex + 1) * 100) / batchUploadProgress.totalCount}%` }}
+                />
+              </div>
+            </div>
+
+            {/* Current file progress */}
+            {isUploadingBulk && (
+              <div className="space-y-2">
+                <div className="flex justify-between text-sm">
+                  <span className="truncate max-w-[200px]">
+                    {batchUploadProgress.currentFileName || t("progress.currentFile")}
+                  </span>
+                  <span>{batchUploadProgress.currentProgress}%</span>
+                </div>
+                <div className="h-2 bg-muted rounded-full overflow-hidden">
+                  <div 
+                    className="h-full bg-primary transition-all" 
+                    style={{ width: `${batchUploadProgress.currentProgress}%` }}
+                  />
+                </div>
+              </div>
+            )}
+
+            {/* Failed uploads */}
+            {batchUploadProgress.failedUploads.length > 0 && (
+              <div className="mt-4 pt-4 border-t">
+                <h4 className="font-medium text-destructive mb-2">
+                  {t("progress.failedUploads", { count: batchUploadProgress.failedUploads.length })}
+                </h4>
+                <ScrollArea className="h-[100px] border rounded">
+                  <div className="p-3">
+                    {batchUploadProgress.failedUploads.map((failure) => (
+                      <div key={failure.index} className="text-sm text-destructive mb-1">
+                        {t("progress.failedTestCase", { index: failure.index + 1 })}: {failure.error}
+                      </div>
+                    ))}
+                  </div>
+                </ScrollArea>
+              </div>
+            )}
+          </div>
+
+          <DialogFooter>
+            {!isUploadingBulk && (
+              <Button onClick={() => setShowUploadProgress(false)}>
+                {batchUploadProgress.failedUploads.length > 0 
+                  ? t("progress.continue") 
+                  : t("progress.close")}
+              </Button>
+            )}
+            
+            {isUploadingBulk && (
+              <Button variant="outline" disabled>
+                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                {t("progress.uploading")}
+              </Button>
+            )}
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }

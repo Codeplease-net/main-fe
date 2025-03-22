@@ -29,7 +29,8 @@ export async function fetchProblemById(id: string): Promise<any> {
           title: (data.title == null || data.title === "") ? defaultProblem.content.title : data.title,
           description: (data.description == null || data.description === "") ? defaultProblem.content.description : data.description,
           solution: (data.solution == null || data.solution === "") ? defaultProblem.content.solution : data.solution,        
-        }
+        },
+        owner: data.owner || "",
       }
     };
   } catch (error) {

@@ -58,8 +58,10 @@ export function NewProblemForm({ onSuccess, children }: NewProblemFormProps) {
   
   // New form fields
   const [judgingType, setJudgingType] = useState<"AC" | "SC">("AC");
-  const [timeLimit, setTimeLimit] = useState<number>(1000);
+  const [timeLimit, setTimeLimit] = useState<number>(3000);
+  const [timeLimitInput, setTimeLimitInput] = useState<string>("3000");
   const [memoryLimit, setMemoryLimit] = useState<number>(256);
+  const [memoryLimitInput, setMemoryLimitInput] = useState<string>("256");
   
   // Validate problem ID format: lowercase letters and single hyphens only
   const validateProblemId = (id: string): boolean => {
@@ -101,14 +103,24 @@ export function NewProblemForm({ onSuccess, children }: NewProblemFormProps) {
   // Debounced function to check if problem ID already exists
   const checkIdExists = useCallback(
     debounce(async (id: string) => {
-      if (id && id.trim().length > 2 && !/^[a-z-]+$/.test(id) === false) {
+      if (id && id.trim().length > 2 && /^[a-z-]+$/.test(id)) {
         setIsCheckingId(true);
+        setIdExists(false); // Reset existence state before checking
+        
         try {
           const problemRef = doc(db, "problems", id);
           const problemDoc = await getDoc(problemRef);
-          setIdExists(problemDoc.exists());
-          if (problemDoc.exists()) {
+          
+          const exists = problemDoc.exists();
+          setIdExists(exists);
+          
+          if (exists) {
             setIdError(t("validation.idExists"));
+          } else {
+            // Only clear the error if it was previously set to "exists" error
+            if (idError === t("validation.idExists")) {
+              setIdError(null);
+            }
           }
         } catch (error) {
           console.error("Error checking ID:", error);
@@ -117,7 +129,7 @@ export function NewProblemForm({ onSuccess, children }: NewProblemFormProps) {
         }
       }
     }, 500),
-    [t]
+    [t, idError]
   );
 
   const addProblemOnServer = async (problemId: string) => {
@@ -125,7 +137,7 @@ export function NewProblemForm({ onSuccess, children }: NewProblemFormProps) {
     form.append("name", problemId);
     form.append("time_limit", timeLimit.toString());
     form.append("memory_limit", memoryLimit.toString());
-    form.append("short_name", problemId);
+    form.append("short_name", problemId.length >= 3 ? problemId.slice(0, 3) : problemId);
     form.append("type_of_judging", judgingType);
     
     return axios.post(
@@ -205,8 +217,10 @@ export function NewProblemForm({ onSuccess, children }: NewProblemFormProps) {
       // Reset form
       setProblemId("");
       setDisplayTitle("");
-      setTimeLimit(1000);
+      setTimeLimit(3000);
+      setTimeLimitInput("3000");
       setMemoryLimit(256);
+      setMemoryLimitInput("256");
       setJudgingType("AC");
       setIdExists(false);
       
@@ -295,6 +309,14 @@ export function NewProblemForm({ onSuccess, children }: NewProblemFormProps) {
                 onChange={(e) => {
                   const value = e.target.value;
                   setProblemId(value);
+                  // Reset existence flags immediately when input changes
+                  if (idExists) {
+                    setIdExists(false);
+                    // Only clear error if it was specifically an "exists" error
+                    if (idError === t("validation.idExists")) {
+                      setIdError(null);
+                    }
+                  }
                 }}
                 placeholder={t("fields.id.placeholder")}
                 className={idError ? "border-destructive pr-10" : ""}
@@ -366,8 +388,21 @@ export function NewProblemForm({ onSuccess, children }: NewProblemFormProps) {
                 type="number"
                 min="100"
                 max="60000"
-                value={timeLimit}
-                onChange={(e) => setTimeLimit(parseInt(e.target.value) || 1000)}
+                value={timeLimitInput}
+                onChange={(e) => {
+                  const value = e.target.value;
+                  setTimeLimitInput(value);
+                  if (value.trim() !== "") {
+                    setTimeLimit(parseInt(value) || 3000);
+                  }
+                }}
+                onBlur={() => {
+                  if (timeLimitInput.trim() === "") {
+                    setTimeLimitInput("3000");
+                    setTimeLimit(3000);
+                  }
+                }}
+                placeholder="3000"
                 required 
               />
             </div>
@@ -394,8 +429,21 @@ export function NewProblemForm({ onSuccess, children }: NewProblemFormProps) {
                 type="number"
                 min="16"
                 max="2048"
-                value={memoryLimit}
-                onChange={(e) => setMemoryLimit(parseInt(e.target.value) || 256)}
+                value={memoryLimitInput}
+                onChange={(e) => {
+                  const value = e.target.value;
+                  setMemoryLimitInput(value);
+                  if (value.trim() !== "") {
+                    setMemoryLimit(parseInt(value) || 256);
+                  }
+                }}
+                onBlur={() => {
+                  if (memoryLimitInput.trim() === "") {
+                    setMemoryLimitInput("256");
+                    setMemoryLimit(256);
+                  }
+                }}
+                placeholder="256"
                 required 
               />
             </div>

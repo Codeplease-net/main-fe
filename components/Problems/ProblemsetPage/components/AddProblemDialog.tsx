@@ -162,25 +162,6 @@ export function AddProblemDialog({ open, onOpenChange }: AddProblemDialogProps) 
     return validationResults.filter(result => result.exists && !result.alreadyAdded).length;
   };
 
-  // Function to render difficulty badge
-  const renderDifficulty = (difficulty?: string) => {
-    if (!difficulty) return null;
-    
-    const difficultyColors = {
-      easy: "bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400",
-      medium: "bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-400",
-      hard: "bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400"
-    };
-    
-    const color = difficultyColors[difficulty as keyof typeof difficultyColors] || "bg-gray-100 text-gray-800";
-    
-    return (
-      <span className={`text-xs px-1.5 py-0.5 rounded-sm ${color}`}>
-        {t(`difficulty.${difficulty.toLowerCase()}`, { defaultValue: difficulty })}
-      </span>
-    );
-  };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
@@ -364,9 +345,6 @@ export function AddProblemDialog({ open, onOpenChange }: AddProblemDialogProps) 
                         <div className="flex flex-col gap-1 min-w-0">
                           <div className="flex flex-wrap items-center gap-2">
                             <span className={`font-mono font-medium text-sm ${textColor}`}>{result.id}</span>
-                            {result.exists && result.problemDetails?.difficulty && (
-                              renderDifficulty(result.problemDetails.difficulty)
-                            )}
                           </div>
                           
                           {result.exists && result.problemDetails?.title && (

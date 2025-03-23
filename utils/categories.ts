@@ -74,7 +74,7 @@ export default function categories(): Category[] {
     
     // Mathematics
     { code: "number-theory", name: t("Number theory"), description: t("NumberTheoryDesc"), difficulty: 'Advanced' },
-    { code: "math", name: t("Mathematics - Ad hoc"), description: t("MathDesc"), difficulty: 'Intermediate' },
+    { code: "math", name: t("Mathematics"), description: t("MathDesc"), difficulty: 'Intermediate' },
     { code: "combinatorics", name: t("Combinatorics"), description: t("CombinatoricsDesc"), difficulty: 'Advanced' },
     { code: "generating-functions", name: t("Generating functions"), description: t("GeneratingFunctionsDesc"), difficulty: 'Advanced' },
     { code: "gaussian-elim", name: t("Gaussian elimination"), description: t("GaussianEliminDesc"), difficulty: 'Advanced' },

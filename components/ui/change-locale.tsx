@@ -49,7 +49,7 @@ export default function LocaleSwitcher() {
         >
           <Globe className="h-4 w-4" />
           <span className="text-xs font-medium hidden sm:inline-block">
-            {listCountry[locale]}
+            {listCountry[locale as keyof typeof listCountry]}
           </span>
           <span className="sr-only">Toggle language</span>
         </Button>
@@ -68,7 +68,7 @@ export default function LocaleSwitcher() {
               <Check className="h-4 w-4 text-primary" />
             )}
             <span className={locale !== localeOption ? "pl-6" : ""}>
-              {listCountry[localeOption]}
+              {listCountry[localeOption as keyof typeof listCountry]}
             </span>
           </DropdownMenuItem>
         ))}

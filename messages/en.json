@@ -16,6 +16,10 @@
     "ProblemSetter": "Problem Setter",
     "Logs": "System Logs"
   },
+  "Example": {
+    "Input": "Input",
+    "Output": "Output"
+  },
   "logs": {
   "title": "System Logs",
   "description": "View all system activities and actions performed by users",
@@ -984,6 +988,9 @@
     }
   },
   "MathJax": {
+    "optional": {
+      "title": "Optional"
+    },
     "documentation": "Documentation",
     "title": "MathJax & LaTeX Formatting Guide",
     "subtitle": "Create rich content with mathematical expressions, styled text, tables, and more using LaTeX syntax",
@@ -2056,7 +2063,11 @@
           "mb": "MB"
         },
         "testCases": {
-          "title": "Test Cases ({count})"
+          "title": "Test Cases ({count})",
+          "totalScore": "Total Score",
+          "points": "points",
+          "distributedAcross": "Distributed across {count} test cases",
+          "noTestCases": "No test cases available"
         },
         "dialog": {
           "addTestCases": "Add Test Cases",

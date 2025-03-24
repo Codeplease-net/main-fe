@@ -16,6 +16,10 @@
     "ProblemSetter": "Người đặt bài",
     "Logs": "Nhật ký"
   },
+  "Example": {
+    "Input": "Đầu vào",
+    "Output": "Đầu ra"
+  },
   "logs": {
   "title": "Nhật Ký Hệ Thống",
   "description": "Xem tất cả hoạt động hệ thống và hành động được thực hiện bởi người dùng",
@@ -992,6 +996,9 @@
     }
   },
   "MathJax": {
+    "optional": {
+      "title": "Tùy chọn"
+    },
     "documentation": "Tài liệu",
     "title": "Hướng dẫn định dạng MathJax & LaTeX",
     "subtitle": "Tạo nội dung phong phú với biểu thức toán học, văn bản định dạng, bảng và nhiều hơn nữa bằng cú pháp LaTeX",
@@ -2010,7 +2017,7 @@
           "errorMessage": "Không thể cập nhật nội dung"
         }
       },
-      "testcases": {
+      "testcases": {      
         "readOnlyNotice": "Bài toán này đang ở chế độ chỉ đọc. Bạn có thể xem các bộ test nhưng không thể thay đổi.",
         "readOnlyMode": "Chế độ chỉ xem",
         "progress": {
@@ -2064,7 +2071,11 @@
           "mb": "MB"
         },
         "testCases": {
-          "title": "Bộ Kiểm Thử ({count})"
+          "title": "Bộ Kiểm Thử ({count})",
+          "totalScore": "Tổng điểm",
+          "points": "điểm",
+          "distributedAcross": "Phân bổ trên {count} bài kiểm tra",
+          "noTestCases": "Không có bài kiểm tra nào"
         },
         "dialog": {
           "addTestCases": "Thêm Bộ Kiểm Thử",

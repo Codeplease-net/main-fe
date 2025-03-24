@@ -6,13 +6,14 @@ import { MathJax } from "better-react-mathjax";
 import React, { useState, useEffect, useMemo } from "react";
 import AutoFitEditor from "./fit-editor";
 import { Skeleton } from "../skeleton";
-import { useTranslations } from "next-intl"; // Import the translations hook
+import { useTranslations } from "next-intl";
+import { LightbulbIcon } from "lucide-react";
 
 const config = {
   loader: { 
     load: ["[tex]/html", "[tex]/colorv2", "input/asciimath", "[tex]/ams", "[tex]/mhchem", "[tex]/noerrors", "[tex]/noundefined"],
     paths: {
-      mathjax: "https://cdn.jsdelivr.net/npm/mathjax@3/es5"  // Use CDN for faster loading (or remove to use default)
+      mathjax: "https://cdn.jsdelivr.net/npm/mathjax@3/es5" 
     },
   },
   tex: {
@@ -27,25 +28,21 @@ const config = {
       ["$$", "$$"],
       ["\\[", "\\]"],
     ],
-    macros: {
-      // Add custom macros here for frequently used expressions
-      // Example: "R": "\\mathbb{R}"
-    },
-    processEscapes: true,     // Allows using \$ to represent $ in text
-    processEnvironments: true, // Process \begin{} \end{} environments
+    processEscapes: true, 
+    processEnvironments: true,
   },
   svg: {
     fontCache: "global",
-    scale: 1,               // Adjust scale if needed
-    matchFontHeight: true,  // Match surrounding font height
+    scale: 1,           
+    matchFontHeight: true, 
   },
   options: {
-    enableMenu: false,       // Disable context menu for cleaner UI
+    enableMenu: false,      
     typesetting: { 
-      concurrentTypesetting: true  // Enable parallel typesetting for better performance
+      concurrentTypesetting: true 
     },
     renderActions: {
-      addMenu: [],          // Remove menu for cleaner UI
+      addMenu: [], 
     },
   },
   startup: {
@@ -120,22 +117,11 @@ const styleMap: { [key: string]: React.CSSProperties | string } = {
     borderTop: "1px solid currentColor",
     borderBottom: "1px solid currentColor",
   },
-  textcolor: { color: "inherit" }, // Base definition, actual color set dynamically
+  textcolor: { color: "inherit" },
 };
 
-interface TableCellProps {
-  content: React.ReactNode;
-  rowSpan?: number;
-  colSpan?: number;
-  align?: "left" | "center" | "right";
-  hasBorder?: boolean;
-  style?: React.CSSProperties;
-}
-
 export const formatDashes = (text: string): string => {
-  // Replace '---' with a very long dash (em dash)
   text = text.replace(/---/g, "—");
-  // Replace '--' with a long dash (en dash)
   text = text.replace(/--/g, "–");
   return text;
 };
@@ -145,16 +131,12 @@ export const parseInlineCommands = (
   sub: boolean = false
 ): React.ReactNode => {
   let formattedText = formatDashes(text);
-  // Handle common LaTeX shortcuts
   formattedText = formattedText.replace(/\\bullet\s*/g, "• ");
   formattedText = formattedText.replace(/\\ldots/g, "...");
   formattedText = formattedText.replace(/\\textregistered/g, "®");
   formattedText = formattedText.replace(/\\copyright/g, "©");
-  
   const parts: React.ReactNode[] = [];
   let lastIndex = 0;
-
-  // Process the text one character at a time to handle nested braces properly
   let i = 0;
   while (i < formattedText.length) {
     // Check for escaped special characters
@@ -286,7 +268,7 @@ export const parseInlineCommands = (
             <a
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:underline"
+              className="underline"
               key={`${lastIndex}-href`}
               href={args[0]}
             >
@@ -311,7 +293,7 @@ export const parseInlineCommands = (
               href={args[0]}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:underline"
+              className="underline"
             >
               {args[0]}
             </a>
@@ -439,7 +421,7 @@ const Detail: React.FC<DetailProps> = ({ summary, children, className, t }) => {
           select-none
         "
       >
-        {summary || t('details.defaultSummary')}
+        {parseLaTeXToReact(summary, t) || t('details.defaultSummary')}
         <svg
           className="w-4 h-4 transform transition-transform group-open:rotate-180"
           fill="none"
@@ -458,6 +440,48 @@ const Detail: React.FC<DetailProps> = ({ summary, children, className, t }) => {
     </details>
   );
 };
+
+// First, add the Optional component after the Detail component:
+interface OptionalProps {
+  children: React.ReactNode;
+  className?: string;
+  t: (key: string) => string;
+}
+
+const Optional: React.FC<OptionalProps> = ({ children, className, t }) => {
+  return (
+    <div
+      className={`
+        group
+        border-amber-400 dark:border-amber-600
+        border-t border-r border-b border-amber-200 dark:border-amber-800
+        rounded-sm 
+        p-4 my-4
+        bg-gradient-to-r from-amber-50/80 to-amber-50/40 dark:from-amber-950/40 dark:to-amber-950/10
+        shadow-sm hover:shadow transition-all duration-200
+        print:shadow-none print:border-amber-300
+        ${className || ""}
+      `}
+    >
+      <div className="flex items-center gap-3 mb-3.5 text-amber-700 dark:text-amber-300">
+        <LightbulbIcon/>
+        <span className="font-medium text-lg tracking-wide text-amber-800 dark:text-amber-200">
+          {t('optional.title')}
+        </span>
+      </div>
+      <div className="pl-8 pr-2 text-amber-950 dark:text-amber-50">{children}</div>
+    </div>
+  );
+};
+
+interface TableCellProps {
+  content: React.ReactNode;
+  rowSpan?: number;
+  colSpan?: number;
+  align?: "left" | "center" | "right";
+  hasBorder?: boolean;
+  style?: React.CSSProperties;
+}
 
 const TableCell: React.FC<TableCellProps> = ({
   content,
@@ -486,7 +510,7 @@ export const parseLaTeXToReact = (text: string, t: (key: string) => string): Rea
   const parseNestedContent = (content: string): React.ReactNode[] => {
     // Update the blockRegex to include epigraph
     const blockRegex =
-      /\\begin{(itemize|enumerate|center|detail|example|cpp|java|python|tabular|theorem|lemma|definition|corollary|proof)}([\s\S]*?)\\end{\1}|\\epigraph\{([\s\S]*?)\}\{([\s\S]*?)\}/g;
+      /\\begin{(itemize|enumerate|center|detail|example|cpp|java|python|tabular|theorem|lemma|definition|corollary|proof|optional)}([\s\S]*?)\\end{\1}|\\epigraph\{([\s\S]*?)\}\{([\s\S]*?)\}/g;
     const results: React.ReactNode[] = [];
     let lastIndex = 0;
     let match;
@@ -528,6 +552,27 @@ export const parseLaTeXToReact = (text: string, t: (key: string) => string): Rea
         const [fullMatch, tag, innerContent] = match;
 
         switch (tag) {
+          case "optional":
+            // Process optional content to preserve paragraphs by splitting it first
+            const optionalParagraphs = splitAndPreserve(innerContent);
+
+            const formattedOptionalContent = optionalParagraphs.length > 0 
+              ? optionalParagraphs.map((paragraph, i) => (
+                  <div key={`optional-para-${i}`} className={i > 0 ? "mt-4" : ""}>
+                    {parseNestedContent(paragraph)}
+                  </div>
+                ))
+              : parseNestedContent(innerContent);
+
+            results.push(
+              <Optional 
+                key={`optional-${lastIndex}`} 
+                t={t}
+              >
+                {formattedOptionalContent}
+              </Optional>
+            );
+            break;
           case "tabular":
             try {
               // Extract the column specification
@@ -1090,42 +1135,52 @@ export const parseLaTeXToReact = (text: string, t: (key: string) => string): Rea
             );
             break;
 
-          case "detail":
-            // Try to find an explicit \summary command - either \summary Text or \summary{Text}
-            const summaryBraceMatch = innerContent.match(/\\summary\{([^}]*)\}/);
-            const summaryPlainMatch = innerContent.match(/\\summary\s+([^\n\\]*)/);
-            
-            let summaryText = t('details.defaultSummary');
-            let detailContent = innerContent;
-            
-            if (summaryBraceMatch) {
-              // Handle \summary{Text} format
-              summaryText = summaryBraceMatch[1].trim();
-              detailContent = innerContent.replace(summaryBraceMatch[0], "").trim();
-            } else if (summaryPlainMatch) {
-              // Handle \summary Text format
-              summaryText = summaryPlainMatch[1].trim();
-              detailContent = innerContent.replace(summaryPlainMatch[0], "").trim();
-            } else {
-              // If no \summary command found, use the first line as summary
-              const firstLineBreak = innerContent.indexOf('\n');
-              if (firstLineBreak > 0) {
-                summaryText = innerContent.substring(0, firstLineBreak).trim();
-                detailContent = innerContent.substring(firstLineBreak).trim();
+            case "detail":
+              // Try to find an explicit \summary command - either \summary Text or \summary{Text}
+              const summaryBraceMatch = innerContent.match(/\\summary\{([^}]*)\}/);
+              const summaryPlainMatch = innerContent.match(/\\summary\s+([^\n\\]*)/);
+              
+              let summaryText = t('details.defaultSummary');
+              let detailContent = innerContent;
+              
+              if (summaryBraceMatch) {
+                // Handle \summary{Text} format
+                summaryText = summaryBraceMatch[1].trim();
+                detailContent = innerContent.replace(summaryBraceMatch[0], "").trim();
+              } else if (summaryPlainMatch) {
+                // Handle \summary Text format
+                summaryText = summaryPlainMatch[1].trim();
+                detailContent = innerContent.replace(summaryPlainMatch[0], "").trim();
+              } else {
+                // If no \summary command found, use the first line as summary
+                const firstLineBreak = innerContent.indexOf('\n');
+                if (firstLineBreak > 0) {
+                  summaryText = innerContent.substring(0, firstLineBreak).trim();
+                  detailContent = innerContent.substring(firstLineBreak).trim();
+                }
               }
-            }
-
-            results.push(
-              <Detail 
-                key={`detail-${lastIndex}`} 
-                summary={summaryText}
-                t={t}  // Pass translation function
-              >
-                {parseNestedContent(detailContent)}
-              </Detail>
-            );
-            break;
-
+            
+              // Process detail content to preserve paragraphs by splitting it first
+              const detailParagraphs = splitAndPreserve(detailContent);
+            
+              const formattedDetailContent = detailParagraphs.length > 0 
+                ? detailParagraphs.map((paragraph, i) => (
+                    <div key={`detail-para-${i}`} className={i > 0 ? "mt-4" : ""}>
+                      {parseNestedContent(paragraph)}
+                    </div>
+                  ))
+                : parseNestedContent(detailContent);
+            
+              results.push(
+                <Detail 
+                  key={`detail-${lastIndex}`} 
+                  summary={summaryText}
+                  t={t}  // Pass translation function
+                >
+                  {formattedDetailContent}
+                </Detail>
+              );
+              break;
           case "itemize":
           case "enumerate":
             // Fix: Improved handling of nested lists

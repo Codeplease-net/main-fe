@@ -72,7 +72,7 @@ export function NewProblemForm({ onSuccess, children }: NewProblemFormProps) {
     }
     
     // Check for invalid characters
-    if (!/^[a-z-]+$/.test(id)) {
+    if (!/^[a-z0-9-]+$/.test(id)) {
       setIdError(t("validation.idInvalidChars"));
       return false;
     }

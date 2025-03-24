@@ -44,10 +44,13 @@ export default function LocaleSwitcher() {
         <Button
           variant="ghost"
           size="sm"
-          className="h-8 w-8 px-0 data-[state=open]:bg-muted border"
+          className="h-8 gap-2 border"
           disabled={isPending}
         >
           <Globe className="h-4 w-4" />
+          <span className="text-xs font-medium hidden sm:inline-block">
+            {listCountry[locale]}
+          </span>
           <span className="sr-only">Toggle language</span>
         </Button>
       </DropdownMenuTrigger>

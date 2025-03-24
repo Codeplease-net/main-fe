@@ -124,13 +124,10 @@ int main(){
 \\end{cpp}
 \\end{detail}
 
-##### Time Complexity
+##### Note
 
-- [e.g., O(n log n) where n is the input size]
-
-##### Space Complexity
-
-- [e.g., O(n) for storing the input array]`,
+Source: \\href{Link}{Solution of [Name] by [Source]}`,
+  
   vi: `[Giải thích phương pháp giải quyết của bạn ở đây]
 
 \\begin{detail}
@@ -148,14 +145,11 @@ int main(){
 \\end{cpp}
 \\end{detail}
 
-##### Độ Phức Tạp Thời Gian
+##### Ghi chú
 
-- [ví dụ: O(n log n) với n là kích thước đầu vào]
-
-##### Độ Phức Tạp Không Gian
-
-- [ví dụ: O(n) để lưu trữ mảng đầu vào]`,
-"zh-CN": `[在此处解释您的解决方案]
+Nguồn: \\href{Link}{Lời giải của [Tên] bởi [Nguồn]}`,
+  
+  "zh-CN": `[在此处解释您的解决方案方法]
 
 \\begin{detail}
   \\summary 示例代码 (C++)
@@ -172,13 +166,9 @@ int main(){
 \\end{cpp}
 \\end{detail}
 
-##### 时间复杂度
+##### 备注
 
-- [例如：O(n log n)，其中 n 是输入大小]
-
-##### 空间复杂度
-
-- [例如：O(n) 用于存储输入数组]`
+来源: \\href{Link}{[姓名]的解答 作者：[来源]}`,
 };
 
 // Update the defaultProblem to use these specialized templates

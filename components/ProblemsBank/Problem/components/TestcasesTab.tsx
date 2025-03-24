@@ -33,7 +33,6 @@ import { Badge } from "@/components/ui/badge";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { useTranslations } from "next-intl"; // Import useTranslations
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import { cn } from "@/lib/utils";
 
 interface TestcasesTabProps {
   problemId: string;
@@ -58,7 +57,7 @@ interface ConfigProps {
 export function TestcasesTab({ problemId, readOnly }: TestcasesTabProps) {
   // Get translations
   const t = useTranslations("ProblemBank.problem.testcases");
-  
+
   const [isDeleting, setIsDeleting] = useState<number | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [loadingError, setLoadingError] = useState<string | null>(null);
@@ -83,13 +82,15 @@ export function TestcasesTab({ problemId, readOnly }: TestcasesTabProps) {
   });
 
   const [isUploadingBulk, setIsUploadingBulk] = useState(false);
-  const [batchTestCases, setBatchTestCases] = useState<Array<{
-    input: string, 
-    output: string, 
-    inputFile: File | null,
-    outputFile: File | null,
-    score: number
-  }>>([]);
+  const [batchTestCases, setBatchTestCases] = useState<
+    Array<{
+      input: string;
+      output: string;
+      inputFile: File | null;
+      outputFile: File | null;
+      score: number;
+    }>
+  >([]);
 
   const [batchUploadProgress, setBatchUploadProgress] = useState<{
     currentIndex: number;
@@ -102,7 +103,7 @@ export function TestcasesTab({ problemId, readOnly }: TestcasesTabProps) {
     totalCount: 0,
     currentProgress: 0,
     currentFileName: "",
-    failedUploads: []
+    failedUploads: [],
   });
   const [showUploadProgress, setShowUploadProgress] = useState(false);
 
@@ -112,7 +113,7 @@ export function TestcasesTab({ problemId, readOnly }: TestcasesTabProps) {
   const fetchConfig = () => {
     setIsLoading(true);
     setLoadingError(null);
-    
+
     const form = new FormData();
     form.append("name", problemId);
     axios
@@ -135,7 +136,7 @@ export function TestcasesTab({ problemId, readOnly }: TestcasesTabProps) {
 
   const handleDelete = async (index: number) => {
     if (readOnly) return; // Prevent deletion in read-only mode
-    
+
     setIsDeleting(index);
     try {
       const form = new FormData();
@@ -167,10 +168,12 @@ export function TestcasesTab({ problemId, readOnly }: TestcasesTabProps) {
 
   const addToBatch = () => {
     if (readOnly) return; // Prevent adding to batch in read-only mode
-    
+
     // Validate current test case
-    if ((!newTestCase.input && !newTestCase.inputFile) || 
-        (!newTestCase.output && !newTestCase.outputFile)) {
+    if (
+      (!newTestCase.input && !newTestCase.inputFile) ||
+      (!newTestCase.output && !newTestCase.outputFile)
+    ) {
       toast({
         title: t("toasts.incompleteTestCase"),
         description: t("toasts.inputOutputRequired"),
@@ -178,10 +181,10 @@ export function TestcasesTab({ problemId, readOnly }: TestcasesTabProps) {
       });
       return;
     }
-    
+
     // Add to batch
     setBatchTestCases([...batchTestCases, { ...newTestCase }]);
-    
+
     // Reset form for next test case
     setNewTestCase({
       input: "",
@@ -190,30 +193,37 @@ export function TestcasesTab({ problemId, readOnly }: TestcasesTabProps) {
       outputFile: null,
       score: newTestCase.score, // Keep the same score for convenience
     });
-    
+
     toast({
       title: t("toasts.addedToBatch"),
-      description: t("toasts.testCaseAddedToBatch", { count: batchTestCases.length + 1 }),
+      description: t("toasts.testCaseAddedToBatch", {
+        count: batchTestCases.length + 1,
+      }),
     });
   };
 
   const handleAddTest = async (e: React.FormEvent) => {
     if (readOnly) return; // Prevent adding test cases in read-only mode
-    
+
     e.preventDefault();
-    
+
     // Check if we have a batch or single test case
     const hasBatch = batchTestCases.length > 0;
-    
+
     // If we have a batch but the current form also has data, ask to add it
-    if (hasBatch && (newTestCase.input || newTestCase.output || 
-        newTestCase.inputFile || newTestCase.outputFile)) {
+    if (
+      hasBatch &&
+      (newTestCase.input ||
+        newTestCase.output ||
+        newTestCase.inputFile ||
+        newTestCase.outputFile)
+    ) {
       // Ask if user wants to include the current form in the batch
       if (confirm(t("confirm.addToBatchBeforeUpload"))) {
         addToBatch();
       }
     }
-    
+
     // If we're uploading a single test case with no batch
     if (!hasBatch) {
       setIsAddingTestCase(true);
@@ -223,19 +233,27 @@ export function TestcasesTab({ problemId, readOnly }: TestcasesTabProps) {
         if (newTestCase.inputFile) {
           form.append("input_file", newTestCase.inputFile);
         } else if (newTestCase.input) {
-          const inputBlob = new Blob([newTestCase.input], { type: 'text/plain' });
-          const inputFile = new File([inputBlob], 'input.txt', { type: 'text/plain' });
+          const inputBlob = new Blob([newTestCase.input], {
+            type: "text/plain",
+          });
+          const inputFile = new File([inputBlob], "input.txt", {
+            type: "text/plain",
+          });
           form.append("input_file", inputFile);
         }
-    
+
         if (newTestCase.outputFile) {
           form.append("output_file", newTestCase.outputFile);
         } else if (newTestCase.output) {
-          const outputBlob = new Blob([newTestCase.output], { type: 'text/plain' });
-          const outputFile = new File([outputBlob], 'output.txt', { type: 'text/plain' });
+          const outputBlob = new Blob([newTestCase.output], {
+            type: "text/plain",
+          });
+          const outputFile = new File([outputBlob], "output.txt", {
+            type: "text/plain",
+          });
           form.append("output_file", outputFile);
         }
-    
+
         form.append("score", newTestCase.score.toString());
 
         await axios.post(
@@ -268,7 +286,7 @@ export function TestcasesTab({ problemId, readOnly }: TestcasesTabProps) {
       } finally {
         setIsAddingTestCase(false);
       }
-    } 
+    }
     // If we have a batch to upload
     else {
       setIsUploadingBulk(true);
@@ -278,50 +296,58 @@ export function TestcasesTab({ problemId, readOnly }: TestcasesTabProps) {
         totalCount: batchTestCases.length,
         currentProgress: 0,
         currentFileName: "",
-        failedUploads: []
+        failedUploads: [],
       });
-      
+
       try {
         // Upload each test case in sequence
         for (let i = 0; i < batchTestCases.length; i++) {
           const testCase = batchTestCases[i];
-          
+
           const form = new FormData();
           form.append("name", problemId);
-          
+
           let currentFileName = "";
-          
+
           // Input file handling
           if (testCase.inputFile) {
             form.append("input_file", testCase.inputFile);
             currentFileName = testCase.inputFile.name;
           } else if (testCase.input) {
-            const inputBlob = new Blob([testCase.input], { type: 'text/plain' });
-            const inputFile = new File([inputBlob], 'input.txt', { type: 'text/plain' });
+            const inputBlob = new Blob([testCase.input], {
+              type: "text/plain",
+            });
+            const inputFile = new File([inputBlob], "input.txt", {
+              type: "text/plain",
+            });
             form.append("input_file", inputFile);
             currentFileName = "input.txt";
           }
-          
+
           // Output file handling
           if (testCase.outputFile) {
             form.append("output_file", testCase.outputFile);
             if (!currentFileName) currentFileName = testCase.outputFile.name;
           } else if (testCase.output) {
-            const outputBlob = new Blob([testCase.output], { type: 'text/plain' });
-            const outputFile = new File([outputBlob], 'output.txt', { type: 'text/plain' });
+            const outputBlob = new Blob([testCase.output], {
+              type: "text/plain",
+            });
+            const outputFile = new File([outputBlob], "output.txt", {
+              type: "text/plain",
+            });
             form.append("output_file", outputFile);
             if (!currentFileName) currentFileName = "output.txt";
           }
-          
+
           form.append("score", testCase.score.toString());
-          
-          setBatchUploadProgress(prev => ({
+
+          setBatchUploadProgress((prev) => ({
             ...prev,
             currentIndex: i,
             currentProgress: 0,
-            currentFileName
+            currentFileName,
           }));
-          
+
           try {
             await axios.post(
               `${process.env.NEXT_PUBLIC_JUDGE0_API_KEY}/testcases/add`,
@@ -331,30 +357,39 @@ export function TestcasesTab({ problemId, readOnly }: TestcasesTabProps) {
                   const percentCompleted = Math.round(
                     (progressEvent.loaded * 100) / (progressEvent.total || 100)
                   );
-                  setBatchUploadProgress(prev => ({
+                  setBatchUploadProgress((prev) => ({
                     ...prev,
-                    currentProgress: percentCompleted
+                    currentProgress: percentCompleted,
                   }));
-                }
+                },
               }
             );
           } catch (error) {
-            console.error(`Error uploading test case ${i+1}:`, error);
-            setBatchUploadProgress(prev => ({
+            console.error(`Error uploading test case ${i + 1}:`, error);
+            setBatchUploadProgress((prev) => ({
               ...prev,
-              failedUploads: [...prev.failedUploads, { 
-                index: i, 
-                error: error instanceof Error ? error.message : t("errors.uploadFailed") 
-              }]
+              failedUploads: [
+                ...prev.failedUploads,
+                {
+                  index: i,
+                  error:
+                    error instanceof Error
+                      ? error.message
+                      : t("errors.uploadFailed"),
+                },
+              ],
             }));
           }
         }
-        
+
         toast({
           title: t("toasts.success"),
-          description: t("toasts.successfullyUploadedTestCases", { count: batchTestCases.length - batchUploadProgress.failedUploads.length }),
+          description: t("toasts.successfullyUploadedTestCases", {
+            count:
+              batchTestCases.length - batchUploadProgress.failedUploads.length,
+          }),
         });
-        
+
         // Reset form and close dialog only if all uploads were successful
         if (batchUploadProgress.failedUploads.length === 0) {
           setBatchTestCases([]);
@@ -389,7 +424,7 @@ export function TestcasesTab({ problemId, readOnly }: TestcasesTabProps) {
 
   const removeBatchTestCase = (index: number) => {
     if (readOnly) return; // Prevent removing batch test cases in read-only mode
-    
+
     const updated = [...batchTestCases];
     updated.splice(index, 1);
     setBatchTestCases(updated);
@@ -443,13 +478,46 @@ export function TestcasesTab({ problemId, readOnly }: TestcasesTabProps) {
           </div>
         </Alert>
       )}
-      
+
       {/* Header */}
       <div className="flex flex-col gap-2">
-        <h1 className="text-2xl font-semibold tracking-tight">{t("header.title")}</h1>
+        <h1 className="text-2xl font-semibold tracking-tight">
+          {t("header.title")}
+        </h1>
         <p className="text-muted-foreground">{t("header.subtitle")}</p>
       </div>
-      
+
+      <Card className="shadow-sm border-border/60 bg-gradient-to-r from-primary/5 to-transparent">
+        <CardContent className="flex items-center p-4 gap-4">
+          <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+            <Scale className="h-6 w-6" />
+          </div>
+          <div>
+            <p className="text-sm font-medium text-muted-foreground">
+              {t("testCases.totalScore")}
+            </p>
+            <div className="flex items-baseline gap-1.5">
+              <span className="text-2xl font-bold">
+                {config.test_cases.reduce(
+                  (sum, testCase) => sum + testCase.score,
+                  0
+                )}
+              </span>
+              <span className="text-sm text-muted-foreground">
+                {t("testCases.points")}
+              </span>
+            </div>
+          </div>
+          <div className="ml-auto text-sm text-muted-foreground">
+            {config.test_cases.length > 0
+              ? t("testCases.distributedAcross", {
+                  count: config.test_cases.length,
+                })
+              : t("testCases.noTestCases")}
+          </div>
+        </CardContent>
+      </Card>
+
       {/* Problem Configuration Card */}
       <Card className="shadow-sm border-border/60">
         <CardHeader className="pb-3">
@@ -466,11 +534,13 @@ export function TestcasesTab({ problemId, readOnly }: TestcasesTabProps) {
                 <p className="text-sm font-medium">{t("config.timeLimit")}</p>
                 <div className="flex items-baseline space-x-1">
                   <span className="text-xl font-bold">{config.time_limit}</span>
-                  <span className="text-sm text-muted-foreground">{t("config.ms")}</span>
+                  <span className="text-sm text-muted-foreground">
+                    {t("config.ms")}
+                  </span>
                 </div>
               </div>
             </div>
-            
+
             {/* Memory Limit */}
             <div className="flex items-center space-x-4 p-3 rounded-md bg-muted/40">
               <div className="h-10 w-10 rounded-md bg-primary/10 flex items-center justify-center text-primary">
@@ -479,12 +549,16 @@ export function TestcasesTab({ problemId, readOnly }: TestcasesTabProps) {
               <div>
                 <p className="text-sm font-medium">{t("config.memoryLimit")}</p>
                 <div className="flex items-baseline space-x-1">
-                  <span className="text-xl font-bold">{config.memory_limit}</span>
-                  <span className="text-sm text-muted-foreground">{t("config.mb")}</span>
+                  <span className="text-xl font-bold">
+                    {config.memory_limit}
+                  </span>
+                  <span className="text-sm text-muted-foreground">
+                    {t("config.mb")}
+                  </span>
                 </div>
               </div>
             </div>
-            
+
             {/* Judging Type */}
             <div className="flex items-center space-x-4 p-3 rounded-md bg-muted/40">
               <div className="h-10 w-10 rounded-md bg-primary/10 flex items-center justify-center text-primary">
@@ -493,7 +567,9 @@ export function TestcasesTab({ problemId, readOnly }: TestcasesTabProps) {
               <div>
                 <p className="text-sm font-medium">{t("config.judgingType")}</p>
                 <div className="flex items-baseline space-x-1">
-                  <span className="text-xl font-bold">{config.type_of_judging}</span>
+                  <span className="text-xl font-bold">
+                    {config.type_of_judging}
+                  </span>
                 </div>
               </div>
             </div>
@@ -503,17 +579,22 @@ export function TestcasesTab({ problemId, readOnly }: TestcasesTabProps) {
 
       {/* Test Cases Section */}
       <div className="flex justify-between items-center mt-2">
-        <h2 className="text-lg font-medium">{t("testCases.title", { count: config.test_cases.length })}</h2>
+        <h2 className="text-lg font-medium">
+          {t("testCases.title", { count: config.test_cases.length })}
+        </h2>
         {/* Only show Add Test Case button when not in read-only mode */}
         {!readOnly && (
           <div className="flex items-center">
-            <Dialog open={open} onOpenChange={(isOpen) => {
-              if (!isOpen) {
-                // When closing dialog, clear the batch
-                setBatchTestCases([]);
-              }
-              setOpen(isOpen);
-            }}>
+            <Dialog
+              open={open}
+              onOpenChange={(isOpen) => {
+                if (!isOpen) {
+                  // When closing dialog, clear the batch
+                  setBatchTestCases([]);
+                }
+                setOpen(isOpen);
+              }}
+            >
               <DialogTrigger asChild>
                 <Button className="flex items-center gap-2">
                   <Plus className="h-4 w-4" />
@@ -527,45 +608,68 @@ export function TestcasesTab({ problemId, readOnly }: TestcasesTabProps) {
                     {t("dialog.createDescription")}
                   </DialogDescription>
                 </DialogHeader>
-                
+
                 <form className="space-y-6" onSubmit={handleAddTest}>
                   {/* Current Test Case Form */}
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
                       <h3 className="text-base font-medium">
-                        {batchTestCases.length > 0 ? t("dialog.addAnother") : t("dialog.newTestCase")}
+                        {batchTestCases.length > 0
+                          ? t("dialog.addAnother")
+                          : t("dialog.newTestCase")}
                       </h3>
                       {batchTestCases.length > 0 && (
                         <Badge variant="secondary" className="font-mono">
-                          {t("dialog.inBatch", { count: batchTestCases.length })}
+                          {t("dialog.inBatch", {
+                            count: batchTestCases.length,
+                          })}
                         </Badge>
                       )}
                     </div>
-                    
+
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       {/* Left Column - Input */}
                       <div className="space-y-3">
                         <div className="flex items-center justify-between">
-                          <Label htmlFor="input" className="text-sm font-medium">{t("fields.input")}</Label>
-                          <Badge variant="outline" className="font-normal">{t("fields.required")}</Badge>
+                          <Label
+                            htmlFor="input"
+                            className="text-sm font-medium"
+                          >
+                            {t("fields.input")}
+                          </Label>
+                          <Badge variant="outline" className="font-normal">
+                            {t("fields.required")}
+                          </Badge>
                         </div>
-                        
+
                         <div className="relative">
                           <Input
                             type="file"
-                            onChange={(e) => setNewTestCase({...newTestCase, inputFile: e.target.files?.[0] || null})}
+                            onChange={(e) =>
+                              setNewTestCase({
+                                ...newTestCase,
+                                inputFile: e.target.files?.[0] || null,
+                              })
+                            }
                             className="w-full"
                             accept=".txt,.in,.inp"
                             disabled={isAddingTestCase || isUploadingBulk}
                           />
-                          <div className="my-2 text-center text-xs text-muted-foreground">— {t("common.or")} —</div>
+                          <div className="my-2 text-center text-xs text-muted-foreground">
+                            — {t("common.or")} —
+                          </div>
                         </div>
-                        
+
                         <Textarea
                           id="input"
                           placeholder={t("placeholders.inputText")}
                           value={newTestCase.input}
-                          onChange={(e) => setNewTestCase({ ...newTestCase, input: e.target.value })}
+                          onChange={(e) =>
+                            setNewTestCase({
+                              ...newTestCase,
+                              input: e.target.value,
+                            })
+                          }
                           className="font-mono min-h-[140px]"
                           disabled={isAddingTestCase || isUploadingBulk}
                         />
@@ -574,26 +678,45 @@ export function TestcasesTab({ problemId, readOnly }: TestcasesTabProps) {
                       {/* Right Column - Output */}
                       <div className="space-y-3">
                         <div className="flex items-center justify-between">
-                          <Label htmlFor="output" className="text-sm font-medium">{t("fields.expectedOutput")}</Label>
-                          <Badge variant="outline" className="font-normal">{t("fields.required")}</Badge>
+                          <Label
+                            htmlFor="output"
+                            className="text-sm font-medium"
+                          >
+                            {t("fields.expectedOutput")}
+                          </Label>
+                          <Badge variant="outline" className="font-normal">
+                            {t("fields.required")}
+                          </Badge>
                         </div>
-                        
+
                         <div className="relative">
                           <Input
                             type="file"
-                            onChange={(e) => setNewTestCase({...newTestCase, outputFile: e.target.files?.[0] || null})}
+                            onChange={(e) =>
+                              setNewTestCase({
+                                ...newTestCase,
+                                outputFile: e.target.files?.[0] || null,
+                              })
+                            }
                             className="w-full"
                             accept=".txt,.out"
                             disabled={isAddingTestCase || isUploadingBulk}
                           />
-                          <div className="my-2 text-center text-xs text-muted-foreground">— {t("common.or")} —</div>
+                          <div className="my-2 text-center text-xs text-muted-foreground">
+                            — {t("common.or")} —
+                          </div>
                         </div>
-                        
+
                         <Textarea
                           id="output"
                           placeholder={t("placeholders.outputText")}
                           value={newTestCase.output}
-                          onChange={(e) => setNewTestCase({ ...newTestCase, output: e.target.value })}
+                          onChange={(e) =>
+                            setNewTestCase({
+                              ...newTestCase,
+                              output: e.target.value,
+                            })
+                          }
                           className="font-mono min-h-[140px]"
                           disabled={isAddingTestCase || isUploadingBulk}
                         />
@@ -604,19 +727,32 @@ export function TestcasesTab({ problemId, readOnly }: TestcasesTabProps) {
                     <div className="flex items-center gap-4 pt-4 border-t">
                       <div className="w-full">
                         <div className="flex items-center justify-between mb-2">
-                          <Label htmlFor="score" className="text-sm">{t("fields.score")}</Label>
-                          <span className="text-xs text-muted-foreground">{t("fields.defaultScore")}</span>
+                          <Label htmlFor="score" className="text-sm">
+                            {t("fields.score")}
+                          </Label>
+                          <span className="text-xs text-muted-foreground">
+                            {t("fields.defaultScore")}
+                          </span>
                         </div>
-                        
+
                         <div className="flex flex-wrap gap-2 mb-2">
                           {scorePresets.map((preset) => (
                             <Button
                               key={preset}
                               type="button"
                               size="sm"
-                              variant={newTestCase.score === preset ? "default" : "outline"}
+                              variant={
+                                newTestCase.score === preset
+                                  ? "default"
+                                  : "outline"
+                              }
                               className="h-8 px-3"
-                              onClick={() => setNewTestCase({...newTestCase, score: preset})}
+                              onClick={() =>
+                                setNewTestCase({
+                                  ...newTestCase,
+                                  score: preset,
+                                })
+                              }
                               disabled={isAddingTestCase || isUploadingBulk}
                             >
                               {preset}
@@ -628,15 +764,28 @@ export function TestcasesTab({ problemId, readOnly }: TestcasesTabProps) {
                               type="number"
                               min="0"
                               placeholder={t("placeholders.customScore")}
-                              value={!scorePresets.includes(newTestCase.score) && newTestCase.score !== 0 ? newTestCase.score : ""}
+                              value={
+                                !scorePresets.includes(newTestCase.score) &&
+                                newTestCase.score !== 0
+                                  ? newTestCase.score
+                                  : ""
+                              }
                               onChange={(e) => {
-                                const value = e.target.value.trim() === "" ? 0 : parseInt(e.target.value);
-                                setNewTestCase({...newTestCase, score: isNaN(value) ? 0 : value})
+                                const value =
+                                  e.target.value.trim() === ""
+                                    ? 0
+                                    : parseInt(e.target.value);
+                                setNewTestCase({
+                                  ...newTestCase,
+                                  score: isNaN(value) ? 0 : value,
+                                });
                               }}
                               className="h-8 pr-16"
                               disabled={isAddingTestCase || isUploadingBulk}
                             />
-                            <span className="absolute right-3 text-xs text-muted-foreground">{t("fields.points")}</span>
+                            <span className="absolute right-3 text-xs text-muted-foreground">
+                              {t("fields.points")}
+                            </span>
                           </div>
                         </div>
                       </div>
@@ -644,47 +793,67 @@ export function TestcasesTab({ problemId, readOnly }: TestcasesTabProps) {
 
                     {/* Add to Batch Button */}
                     <div className="flex justify-end">
-                      <Button 
-                        type="button" 
+                      <Button
+                        type="button"
                         variant="outline"
                         onClick={addToBatch}
-                        disabled={isAddingTestCase || isUploadingBulk || 
-                          (!newTestCase.input && !newTestCase.inputFile) || 
-                          (!newTestCase.output && !newTestCase.outputFile)}
+                        disabled={
+                          isAddingTestCase ||
+                          isUploadingBulk ||
+                          (!newTestCase.input && !newTestCase.inputFile) ||
+                          (!newTestCase.output && !newTestCase.outputFile)
+                        }
                       >
                         <Plus className="mr-2 h-4 w-4" />
                         {t("actions.addToBatch")}
                       </Button>
                     </div>
                   </div>
-                  
+
                   {/* Batch Preview Section */}
                   {batchTestCases.length > 0 && (
                     <div className="space-y-4 border-t pt-4">
                       <div className="flex items-center justify-between">
-                        <h3 className="text-base font-medium">{t("batch.title", { count: batchTestCases.length })}</h3>
+                        <h3 className="text-base font-medium">
+                          {t("batch.title", { count: batchTestCases.length })}
+                        </h3>
                         {batchTestCases.length > 3 && (
                           <span className="text-xs text-muted-foreground bg-muted/50 px-2 py-1 rounded-md">
-                            {t("batch.scrollHint", { count: batchTestCases.length })}
+                            {t("batch.scrollHint", {
+                              count: batchTestCases.length,
+                            })}
                           </span>
                         )}
                       </div>
-                      
+
                       <div className="border rounded-md">
-                        <div className="max-h-[300px] overflow-auto">
+                        <div className="overflow-auto">
                           <table className="w-full text-sm">
                             <thead className="sticky top-0 bg-card shadow-sm z-10">
                               <tr className="border-b">
-                                <th className="text-left py-2 px-3 font-medium">#</th>
-                                <th className="text-left py-2 px-3 font-medium">{t("batch.inputPreview")}</th>
-                                <th className="text-left py-2 px-3 font-medium">{t("batch.outputPreview")}</th>
-                                <th className="text-left py-2 px-3 font-medium">{t("batch.score")}</th>
-                                <th className="text-right py-2 px-3 font-medium">{t("batch.action")}</th>
+                                <th className="text-left py-2 px-3 font-medium">
+                                  #
+                                </th>
+                                <th className="text-left py-2 px-3 font-medium">
+                                  {t("batch.inputPreview")}
+                                </th>
+                                <th className="text-left py-2 px-3 font-medium">
+                                  {t("batch.outputPreview")}
+                                </th>
+                                <th className="text-left py-2 px-3 font-medium">
+                                  {t("batch.score")}
+                                </th>
+                                <th className="text-right py-2 px-3 font-medium">
+                                  {t("batch.action")}
+                                </th>
                               </tr>
                             </thead>
                             <tbody>
                               {batchTestCases.map((testCase, index) => (
-                                <tr key={index} className="border-b last:border-b-0 hover:bg-muted/20 transition-colors">
+                                <tr
+                                  key={index}
+                                  className="border-b last:border-b-0 hover:bg-muted/20 transition-colors"
+                                >
                                   <td className="py-2 px-3">
                                     <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center text-primary text-xs">
                                       {index + 1}
@@ -692,20 +861,27 @@ export function TestcasesTab({ problemId, readOnly }: TestcasesTabProps) {
                                   </td>
                                   <td className="py-2 px-3">
                                     <div className="max-w-[150px] truncate font-mono text-xs">
-                                      {testCase.inputFile ? 
-                                        t("batch.fileLabel", { name: testCase.inputFile.name }) : 
-                                        (testCase.input || t("batch.empty"))}
+                                      {testCase.inputFile
+                                        ? t("batch.fileLabel", {
+                                            name: testCase.inputFile.name,
+                                          })
+                                        : testCase.input || t("batch.empty")}
                                     </div>
                                   </td>
                                   <td className="py-2 px-3">
                                     <div className="max-w-[150px] truncate font-mono text-xs">
-                                      {testCase.outputFile ? 
-                                        t("batch.fileLabel", { name: testCase.outputFile.name }) : 
-                                        (testCase.output || t("batch.empty"))}
+                                      {testCase.outputFile
+                                        ? t("batch.fileLabel", {
+                                            name: testCase.outputFile.name,
+                                          })
+                                        : testCase.output || t("batch.empty")}
                                     </div>
                                   </td>
                                   <td className="py-2 px-3">
-                                    <Badge variant="outline" className="font-mono">
+                                    <Badge
+                                      variant="outline"
+                                      className="font-mono"
+                                    >
                                       {testCase.score}
                                     </Badge>
                                   </td>
@@ -725,15 +901,16 @@ export function TestcasesTab({ problemId, readOnly }: TestcasesTabProps) {
                             </tbody>
                           </table>
                         </div>
-                        
+
                         {/* Batch summary footer */}
                         <div className="bg-muted/20 p-3 border-t flex items-center justify-between">
                           <span className="text-sm font-medium">
                             {t("batch.total", {
                               count: batchTestCases.length,
-                              testCase: batchTestCases.length === 1 
-                                ? t("common.testCase") 
-                                : t("common.testCases")
+                              testCase:
+                                batchTestCases.length === 1
+                                  ? t("common.testCase")
+                                  : t("common.testCases"),
                             })}
                           </span>
                           <Button
@@ -749,31 +926,37 @@ export function TestcasesTab({ problemId, readOnly }: TestcasesTabProps) {
                       </div>
                     </div>
                   )}
-                  
+
                   <DialogFooter className="pt-2">
                     {batchTestCases.length > 0 ? (
-                      <Button 
-                        type="submit" 
+                      <Button
+                        type="submit"
                         disabled={isAddingTestCase || isUploadingBulk}
                       >
                         {isUploadingBulk ? (
                           <span className="flex items-center gap-2">
                             <Loader2 className="h-4 w-4 animate-spin" />
-                            {t("actions.uploadingMultiple", { count: batchTestCases.length })}
+                            {t("actions.uploadingMultiple", {
+                              count: batchTestCases.length,
+                            })}
                           </span>
                         ) : (
                           <span className="flex items-center gap-2">
                             <FileText className="h-4 w-4" />
-                            {t("actions.uploadMultiple", { count: batchTestCases.length })}
+                            {t("actions.uploadMultiple", {
+                              count: batchTestCases.length,
+                            })}
                           </span>
                         )}
                       </Button>
                     ) : (
-                      <Button 
-                        type="submit" 
-                        disabled={isAddingTestCase || 
-                          (!newTestCase.input && !newTestCase.inputFile) || 
-                          (!newTestCase.output && !newTestCase.outputFile)}
+                      <Button
+                        type="submit"
+                        disabled={
+                          isAddingTestCase ||
+                          (!newTestCase.input && !newTestCase.inputFile) ||
+                          (!newTestCase.output && !newTestCase.outputFile)
+                        }
                       >
                         {isAddingTestCase ? (
                           <span className="flex items-center gap-2">
@@ -831,14 +1014,19 @@ export function TestcasesTab({ problemId, readOnly }: TestcasesTabProps) {
           ) : (
             <div>
               {config.test_cases.map((testCase, index) => (
-                <div key={index} className="border-b border-border/60 last:border-b-0">
+                <div
+                  key={index}
+                  className="border-b border-border/60 last:border-b-0"
+                >
                   <div className="p-4">
                     <div className="flex items-center justify-between mb-4">
                       <div className="flex items-center gap-3">
                         <div className="flex items-center justify-center h-7 w-7 rounded-full bg-primary/10 text-primary text-sm font-medium">
                           {index + 1}
                         </div>
-                        <div className="font-medium">{t("testCase.title", { number: index + 1 })}</div>
+                        <div className="font-medium">
+                          {t("testCase.title", { number: index + 1 })}
+                        </div>
                       </div>
                       <Badge variant="secondary" className="font-mono">
                         {t("testCase.score", { score: testCase.score })}
@@ -849,7 +1037,9 @@ export function TestcasesTab({ problemId, readOnly }: TestcasesTabProps) {
                       {/* Input Section */}
                       <div className="space-y-2">
                         <div className="flex items-center justify-between">
-                          <Label className="text-sm font-medium">{t("fields.input")}</Label>
+                          <Label className="text-sm font-medium">
+                            {t("fields.input")}
+                          </Label>
                           <Button
                             variant="ghost"
                             size="sm"
@@ -865,18 +1055,24 @@ export function TestcasesTab({ problemId, readOnly }: TestcasesTabProps) {
                             </a>
                           </Button>
                         </div>
-                        
+
                         <ScrollArea className="border rounded-md bg-background h-[100px]">
                           <pre className="p-3 text-xs font-mono whitespace-pre-wrap">
-                            {testCase.input || <span className="text-muted-foreground italic">{t("testCase.emptyInput")}</span>}
+                            {testCase.input || (
+                              <span className="text-muted-foreground italic">
+                                {t("testCase.emptyInput")}
+                              </span>
+                            )}
                           </pre>
                         </ScrollArea>
                       </div>
-                      
+
                       {/* Output Section */}
                       <div className="space-y-2">
                         <div className="flex items-center justify-between">
-                          <Label className="text-sm font-medium">{t("fields.expectedOutput")}</Label>
+                          <Label className="text-sm font-medium">
+                            {t("fields.expectedOutput")}
+                          </Label>
                           <Button
                             variant="ghost"
                             size="sm"
@@ -892,15 +1088,19 @@ export function TestcasesTab({ problemId, readOnly }: TestcasesTabProps) {
                             </a>
                           </Button>
                         </div>
-                        
+
                         <ScrollArea className="border rounded-md bg-background h-[100px]">
                           <pre className="p-3 text-xs font-mono whitespace-pre-wrap">
-                            {testCase.output || <span className="text-muted-foreground italic">{t("testCase.emptyOutput")}</span>}
+                            {testCase.output || (
+                              <span className="text-muted-foreground italic">
+                                {t("testCase.emptyOutput")}
+                              </span>
+                            )}
                           </pre>
                         </ScrollArea>
                       </div>
                     </div>
-                    
+
                     {/* Actions - Only show in non-read-only mode */}
                     {!readOnly && (
                       <div className="flex justify-end mt-3">
@@ -927,13 +1127,17 @@ export function TestcasesTab({ problemId, readOnly }: TestcasesTabProps) {
                           </AlertDialogTrigger>
                           <AlertDialogContent>
                             <AlertDialogHeader>
-                              <AlertDialogTitle>{t("delete.title", { number: index + 1 })}</AlertDialogTitle>
+                              <AlertDialogTitle>
+                                {t("delete.title", { number: index + 1 })}
+                              </AlertDialogTitle>
                               <AlertDialogDescription>
                                 {t("delete.description")}
                               </AlertDialogDescription>
                             </AlertDialogHeader>
                             <AlertDialogFooter>
-                              <AlertDialogCancel>{t("actions.cancel")}</AlertDialogCancel>
+                              <AlertDialogCancel>
+                                {t("actions.cancel")}
+                              </AlertDialogCancel>
                               <AlertDialogAction
                                 className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
                                 onClick={() => handleDelete(testCase.index)}
@@ -967,24 +1171,37 @@ export function TestcasesTab({ problemId, readOnly }: TestcasesTabProps) {
             <DialogDescription>
               {t("progress.uploadingTestCase", {
                 current: batchUploadProgress.currentIndex + 1,
-                total: batchUploadProgress.totalCount
+                total: batchUploadProgress.totalCount,
               })}
             </DialogDescription>
           </DialogHeader>
-          
+
           <div className="space-y-4 py-4">
             {/* Overall progress */}
             <div className="space-y-2">
               <div className="flex justify-between text-sm">
                 <span>
-                  {t("progress.overall")} ({batchUploadProgress.currentIndex + 1}/{batchUploadProgress.totalCount})
+                  {t("progress.overall")} (
+                  {batchUploadProgress.currentIndex + 1}/
+                  {batchUploadProgress.totalCount})
                 </span>
-                <span>{Math.round((batchUploadProgress.currentIndex + 1) * 100 / batchUploadProgress.totalCount)}%</span>
+                <span>
+                  {Math.round(
+                    ((batchUploadProgress.currentIndex + 1) * 100) /
+                      batchUploadProgress.totalCount
+                  )}
+                  %
+                </span>
               </div>
               <div className="h-2 bg-muted rounded-full overflow-hidden">
-                <div 
-                  className="h-full bg-primary transition-all" 
-                  style={{ width: `${((batchUploadProgress.currentIndex + 1) * 100) / batchUploadProgress.totalCount}%` }}
+                <div
+                  className="h-full bg-primary transition-all"
+                  style={{
+                    width: `${
+                      ((batchUploadProgress.currentIndex + 1) * 100) /
+                      batchUploadProgress.totalCount
+                    }%`,
+                  }}
                 />
               </div>
             </div>
@@ -994,13 +1211,14 @@ export function TestcasesTab({ problemId, readOnly }: TestcasesTabProps) {
               <div className="space-y-2">
                 <div className="flex justify-between text-sm">
                   <span className="truncate max-w-[200px]">
-                    {batchUploadProgress.currentFileName || t("progress.currentFile")}
+                    {batchUploadProgress.currentFileName ||
+                      t("progress.currentFile")}
                   </span>
                   <span>{batchUploadProgress.currentProgress}%</span>
                 </div>
                 <div className="h-2 bg-muted rounded-full overflow-hidden">
-                  <div 
-                    className="h-full bg-primary transition-all" 
+                  <div
+                    className="h-full bg-primary transition-all"
                     style={{ width: `${batchUploadProgress.currentProgress}%` }}
                   />
                 </div>
@@ -1011,13 +1229,21 @@ export function TestcasesTab({ problemId, readOnly }: TestcasesTabProps) {
             {batchUploadProgress.failedUploads.length > 0 && (
               <div className="mt-4 pt-4 border-t">
                 <h4 className="font-medium text-destructive mb-2">
-                  {t("progress.failedUploads", { count: batchUploadProgress.failedUploads.length })}
+                  {t("progress.failedUploads", {
+                    count: batchUploadProgress.failedUploads.length,
+                  })}
                 </h4>
-                <ScrollArea className="h-[100px] border rounded">
+                <ScrollArea className="border rounded">
                   <div className="p-3">
                     {batchUploadProgress.failedUploads.map((failure) => (
-                      <div key={failure.index} className="text-sm text-destructive mb-1">
-                        {t("progress.failedTestCase", { index: failure.index + 1 })}: {failure.error}
+                      <div
+                        key={failure.index}
+                        className="text-sm text-destructive mb-1"
+                      >
+                        {t("progress.failedTestCase", {
+                          index: failure.index + 1,
+                        })}
+                        : {failure.error}
                       </div>
                     ))}
                   </div>
@@ -1029,12 +1255,12 @@ export function TestcasesTab({ problemId, readOnly }: TestcasesTabProps) {
           <DialogFooter>
             {!isUploadingBulk && (
               <Button onClick={() => setShowUploadProgress(false)}>
-                {batchUploadProgress.failedUploads.length > 0 
-                  ? t("progress.continue") 
+                {batchUploadProgress.failedUploads.length > 0
+                  ? t("progress.continue")
                   : t("progress.close")}
               </Button>
             )}
-            
+
             {isUploadingBulk && (
               <Button variant="outline" disabled>
                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />

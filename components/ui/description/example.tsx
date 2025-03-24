@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 import { Card, CardContent, CardHeader, CardTitle } from "../card";
 import CopyButton from "../copy-button";
 
@@ -18,6 +19,8 @@ export function Example({
       .join("\n");
   };
 
+  const t = useTranslations("Example")
+
   const trimmedInput = removeLeadingSpaces(input);
   const trimmedOutput = removeLeadingSpaces(output);
 
@@ -27,7 +30,7 @@ export function Example({
         <Card className="bg-secondary/50 rounded-none border">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 py-5 px-6">
             <CardTitle className="text-base font-bold font-mono">
-              Input
+              {t('Input')}
             </CardTitle>
             <CopyButton content={trimmedInput} />
           </CardHeader>
@@ -41,7 +44,7 @@ export function Example({
         <Card className="bg-secondary/50  border-l-none border-t border-b border-r rounded-none">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 py-5 px-6">
             <CardTitle className="text-base font-bold font-mono">
-              Output
+              {t('Output')}
             </CardTitle>
             <CopyButton content={trimmedOutput} />
           </CardHeader>
